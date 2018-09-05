@@ -1,0 +1,25 @@
+# Meeting Agenda
+Group: OhiMarc
+Date: 2018-09-04
+Chair: Gustav Albertsson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Victor Johansson, Mathias Forsman
+
+## Objectives (5 min)
+Komma överens om ett projekt.
+
+## Reports (15 min) from previous meeting
+Detta är det första mötet, denna punkt är därför tom.
+
+## Discussion items (35 min)
+Att diskutera: Vad för projekt ska vi köra under kursen? Vill vi göra en mobilapp eller någonting för desktop? Vilka sorters projekt kan passa för kursens syfte (inte för svåra, lämpar sig för en objektorienterad design etc.)?
+
+## Outcomes and assignments (5 min)
+Vi har bestämt en preliminär idé för vad vi vill ha för projekt. Vi vill skapa en mobilapp för att hjälpa till med inlärning genom att använda sig utav “flashcards”, likt appen “Cram”. Tanken är att appen kan expanderas med fler och fler funktioner, för att ge variation. T.ex. skulle appen förutom “flashcards” kunna använda sig utav flervalsfrågor, eller inkludera spelliknande element för mer variation. Den skulle också kunna ha någon sorts belöningssystem i appen för att göra det lättare för användaren att komma in i någon sorts rutinanvändning av appen (bra för inlärning!).
+
+Vi har satt upp ett repo på GitHub och gett alla medlemmar tillgång till repot.
+
+## Wrap up
+Vi har fortfarande inte fått handledarens godkännande av projektidén, då vi ej har träffat handledare än.
+Nästa möte vill vi få en bättre idé av vad det är vi ska göra, börja designa GUI och göra user stories. 
+
+Det nästa planerade mötet är efter mötet med handledaren, alltså Torsdag eller Fredag.
