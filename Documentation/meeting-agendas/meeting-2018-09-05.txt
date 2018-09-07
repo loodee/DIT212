@@ -5,21 +5,23 @@ Chair: Gustav Albertsson
 Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Victor Johansson, Mathias Forsman
 
 ## Objectives (5 min)
-Komma överens om ett projekt.
+Agree on what to do for our project.
+Come up with ideas for a project and decide one.
 
 ## Reports (15 min) from previous meeting
-Detta är det första mötet, denna punkt är därför tom.
+This is the first meeting, therefore this section is empty.
 
 ## Discussion items (35 min)
-Att diskutera: Vad för projekt ska vi köra under kursen? Vill vi göra en mobilapp eller någonting för desktop? Vilka sorters projekt kan passa för kursens syfte (inte för svåra, lämpar sig för en objektorienterad design etc.)?
+To discuss: What kind of project are we going to do during this course? Would we like to create a mobile application or an application for a desktop? What different sorts of projects would be best fitted for the purposes of this course?
 
 ## Outcomes and assignments (5 min)
-Vi har bestämt en preliminär idé för vad vi vill ha för projekt. Vi vill skapa en mobilapp för att hjälpa till med inlärning genom att använda sig utav “flashcards”, likt appen “Cram”. Tanken är att appen kan expanderas med fler och fler funktioner, för att ge variation. T.ex. skulle appen förutom “flashcards” kunna använda sig utav flervalsfrågor, eller inkludera spelliknande element för mer variation. Den skulle också kunna ha någon sorts belöningssystem i appen för att göra det lättare för användaren att komma in i någon sorts rutinanvändning av appen (bra för inlärning!).
+We have decided on a preliminary idea for what kind of project we want to do. We want to create an smartphone app that would help people study with the help of flashcards, similar to the app “Cram”. The idea is that this app could later be expanded with more features to get variation in the learning methods. For example, the user could also make and use quizzes with generate answer alternatives or include game-like elements for more variation. The app could also have some in-app rewards when the user finish exercises to get the user more interested and help create routine use of the app for the users.
 
-Vi har satt upp ett repo på GitHub och gett alla medlemmar tillgång till repot.
+We have set up a repository on GitHub and have given all group members access.
 
 ## Wrap up
-Vi har fortfarande inte fått handledarens godkännande av projektidén, då vi ej har träffat handledare än.
-Nästa möte vill vi få en bättre idé av vad det är vi ska göra, börja designa GUI och göra user stories. 
+We haven't gotten the teaching assistant's approval of the project, since we haven't met him yet.
 
-Det nästa planerade mötet är efter mötet med handledaren, alltså Torsdag eller Fredag.
+During the next meeting we want to get a better idea of what we want to do, begin designing the GUI and make user stories.   
+
+The next planned meeting will be some time after we have had a meeting with the teaching assistant (Thursday or Friday this week).
