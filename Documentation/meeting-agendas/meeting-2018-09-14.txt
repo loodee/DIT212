@@ -1,0 +1,45 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-09-14
+Chair: Alexander Sandberg
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Victor Johansson, Mathias Forsman
+
+## Objectives (5 min)
+* We want to discuss whether there is a need for more user stories or not.
+* We want to discuss the priority of our current user stories.
+* We want to discuss our current domain description.
+
+
+## Reports (15 min) from previous meeting
+All group members have been gathered during this week to write user stories. Some of us believe that our work is done, while others believe that more user stories would be necessary. 
+
+
+All group members have successfully cloned and built the Android Studio project on their respective computers. 
+
+
+The group has made progress on the RAD, filling in most of the required user stories. Some still remain to be added in order for the epic to be able to be completed. The diagram of the user interface, with navigation and sketches was also completed and added to the RAD. 
+
+
+The group has also made a draft of a UML diagram of the domain description, though not finalized and requires further discussion.
+
+
+## Discussion items (35 min)
+1. Discuss whether or not more user stories are necessary for our project, at this time.
+2. Decide upon the priority of our user stories.
+3. Decide upon which software to use for creating the domain description.
+4. Decide upon if we need to modify our domain description, or if we are satisfied with the current description. 
+## Outcomes and assignments (5 min)
+Outcomes:
+1. We discussed whether to use several, smaller epics for app features, in order to more easily organize user stories. For example, adding a game mode to the app would be too big for one user story, and thus could be defined as an epic with several accompanying user stories. We also decided on adding a couple more user stories which were needed for fulfilling our “main” epic (basic satisfactory app functionality).
+2. The priority will be the current listing of our user stories. After these, we intend to first develop quizzes, followed by achievements, if there is time.
+3. We decided that we will be using the program Lucidchart for creating a presentable domain description. 
+4. We decided that we are satisfied with the current description. Though, we will try to get a second opinion for our description from our TA Ayberk. 
+Assignments: 
+* We will ask Ayberk some questions brought up earlier regarding user story structure and to get confirmation how we’ve created our domain description.
+* Finish the RAD until the next meeting with our TA, Ayberk. 
+* We will get a second opinion on our work with the domain description from Ayberk. 
+
+
+## Wrap up
+Next meeting with the TA will be at 16:00 this afternoon (2018-09-14).
+The next meeting we will have as a group without the TA will be on Monday afternoon(2018-09-17).
