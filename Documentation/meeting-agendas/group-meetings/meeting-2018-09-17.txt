@@ -1,0 +1,53 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-09-17
+Chair: Gustav Albertsson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Victor Johansson
+
+## Objectives (5 min)
+We want to discuss how we will get something runnable till Friday.
+We want to discuss the rewriting of the user stories using the template.
+
+
+## Reports (15 min) 
+Since the last meeting:
+* A user story (user story #3) has been revised. It no longer has “5 cards” as a requirement, and instead has “a number of cards”, to better fit a reasonable user perspective. (Thomas, Alexander)
+* The domain model has had the main class name changed from “FlashcardTrainingTool” to “MemorizationTrainingTool”. (Gustav)
+* A diagram of the domain model with adjusted class names for the 2018-09-18 seminar has been created. (Gustav, Thomas)
+* A presentation has been created for the 2018-09-18 seminar. (Victor)
+* A user story (user story #2) has been revised with a new motivation for the user story.
+
+
+## Discussion items (35 min)
+1. Discuss how we are going to get something runnable until Friday and who will do what. Decide what steps need to be taken, and assign tasks to group members.
+2. Discuss how we are going to rewrite the user stories according to the template.
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+* Regarding getting the application up and running, the group decided on setting tasks to accomplish (given in “Assignments”). The normal procedure should be followed when accomplishing these steps (testing etc.).
+* “Getting the application up and running” in our case sets the initial goal to fulfill user story #1 in the RAD, as well as code the entire domain model (barebones, getting all the classes up).
+   * TravisCI needs to be set up on our project repository.
+   * The main view the user sees and interacts with should be finished.
+      * “Game” logic should exist for toggling text on the one hardcoded card.
+      * The proper model for storing and handling the card should be implemented (one card in one deck)
+      * The view should properly show information from the card and react to user interaction (tapping the card)
+   * Minimum classes from the domain model should be created, to sufficiently represent the domain model.
+
+
+Assignments: 
+1. Set up Travis for our Git repository. (Alexander)
+2. Create a view for our first user story. (Alexander)
+3. Create a model for our first user story. (Thomas, Mathias, Gustav)
+   1. Create a Card class.
+   2. Create a Deck class.
+   3. Create a FlashcardGame class.
+   4. Create a Game class.
+1. Create a controller for our first user story. (Victor)
+2. Create skeleton classes for our project. (Gustav)
+
+
+
+
+## Wrap up
+The next group meeting will be held on Friday (2018-09-21) at 13:00.
