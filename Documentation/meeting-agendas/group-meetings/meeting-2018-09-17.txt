@@ -43,8 +43,9 @@ Assignments:
    2. Create a Deck class.
    3. Create a FlashcardGame class.
    4. Create a Game class.
-1. Create a controller for our first user story. (Victor)
-2. Create skeleton classes for our project. (Gustav)
+4. Create a controller for our first user story. (Victor)
+5. Create skeleton classes for our project. (Gustav)
+6. Convert the user stories to proper format (according to the template). (Everyone)
 
 
 
