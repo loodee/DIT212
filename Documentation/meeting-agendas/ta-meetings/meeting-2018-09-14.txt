@@ -1,0 +1,53 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-09-14
+Chair: Ayberk Tosun
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Victor Johansson, Mathias Forsman, Ayberk Tosun
+
+## Objectives (5 min)
+* Discuss user stories
+   * Are we able to write epics for quizzes and achievements.
+   * Are we forced to write user stories for said epics.
+   * Or, are we supposed to remove any mentioning of quizzes and achievements in our current epic.
+* Discuss our current domain model in order to get a second opinion on our work.
+
+
+## Reports (15 min) 
+The group has created a user interface for our application.
+The group has created user stories to an extent where the group feels satisfied with the amount of user stories. Some questions regarding these user stories has to be asked before we can consider ourselves done with this task.
+The group has created a domain description for our application. Questions regarding the domain descriptions are also to be asked before we can consider ourselves done with this task.
+
+
+## Discussion items (35 min)
+1. At the moment we’ve got items in our epic that mention our intended work with quizzes and achievements. This will however be worked upon if we get enough time to do so. Therefore, we need to discuss whether we need to:
+   1. Write epics for our intended work on quizzes and achievements.
+   2. Write user stories for our intended work on quizzes and achievements.
+   3. Exclude the mentioning of quizzes and achievements from our epic until we are sure that we are able to commence our work on these epics.
+1. We think that our domain model seems to be finished. Though, we need to discuss if there is something missing, or if it is presentable as it is. 
+   1. Are the arrows between, FlashcardTrainingTool and GameMode correct
+   2. What should we censor when we present it to the class during the seminar?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+1.    1. We should only have one epic which is our entire application which includes quizzes and achievements.
+   2. No need to until we know that we have time to work on them
+   3. Yes we should exclude it and include it if we find that we have the time for it.
+1.    1. The arrows seem fine, and may keep their current appearance. 
+   2. We should censor the main class in the domain model.
+
+
+Assignments: 
+1. Fix the user story with 5 predefined cards in a deck, a user wouldn’t ask that. (Thomas, Alexander)
+2. Have some presentable code to show by friday the latest. (Everybody)
+3. Fix name on “FlashcardTrainingTool” to something to not contain Flashcard. (Gustav)
+4. Fix the domain model for the seminar on tuesday morning (2018-09-18). (Gustav)
+5. Create a powerpoint presentation for the seminar for tuesday morning. (Victor)
+6. Fix the user story with the animation, the motivation for the story has to be reworked. (Victor, Gustav)
+
+
+
+
+## Wrap up
+The next group meeting will be held on monday (2018-09-17). The time for this is still undecided.
+The next meeting with our TA will be held on the next friday (2018-09-21) at 16:00.
