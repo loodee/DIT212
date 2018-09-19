@@ -7,7 +7,7 @@ import java.util.List;
  * Class containing groups of Card objects and functions for retrieving information from the cards.
  */
 public class Deck {
-    private List<Card> cards = new ArrayList<>();
+    private List<Card> cards;
     private String title;
 
     /**
@@ -15,8 +15,12 @@ public class Deck {
      * @param title Defaults to a preset default if null is provided as a title.
      */
     public Deck(String title) {
-        cards.add(new Card("placeholder front", "placeholder back"));
+        this.cards = new ArrayList<>();
         this.title = title != null ? title : "Default title";
+    }
+
+    public void addCard(String front, String back) {
+        cards.add(new Card(front, back));
     }
 
     /**
