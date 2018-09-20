@@ -19,9 +19,8 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="100dp"
             android:layout_marginBottom="180dp"
-            android:background="@android:color/holo_orange_light"
+            android:background="@android:color/background_light"
             android:onClick="flashCardClicked"
-            android:text="WHO IS OBAMA?"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -37,7 +36,6 @@
             android:layout_marginTop="100dp"
             android:layout_marginBottom="0dp"
             android:elevation="100dp"
-            android:text="Q:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.955"
@@ -54,7 +52,7 @@
             android:layout_marginRight="220dp"
             android:layout_marginTop="500dp"
             android:layout_marginBottom="30dp"
-            android:background="@android:drawable/checkbox_on_background"
+            android:background="@drawable/sharp_done_black_18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.3"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -71,7 +69,7 @@
             android:layout_marginRight="80dp"
             android:layout_marginTop="500dp"
             android:layout_marginBottom="30dp"
-            android:background="@android:drawable/btn_dialog"
+            android:background="@drawable/sharp_close_black_18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.7"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -86,9 +84,9 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="130dp"
             android:layout_marginRight="130dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="500dp"
+            android:layout_marginTop="10dp"
             android:text="DECK TITLE"
+            android:layout_marginBottom="500dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:elevation="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -101,19 +99,20 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="550dp"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="0dp"
-            android:layout_marginBottom="500dp"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
+            android:elevation="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="?attr/actionModeSplitBackground" />
+            app:srcCompat="@color/colorPrimary" />
 
         <Button
             android:id="@+id/menu"
@@ -125,7 +124,7 @@
             android:layout_marginBottom="0dp"
             android:background="@android:drawable/ic_menu_sort_by_size"
             android:minWidth="50dp"
-            android:elevation="100dp"
+            android:elevation="200dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -152,6 +151,22 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
             <!--android:onClick="FUNCTION_NAME"/>-->
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="0dp"
+            app:srcCompat="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"/>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
