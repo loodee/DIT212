@@ -1,2 +1,2 @@
 language: android
-
+before_install: cd Marc
