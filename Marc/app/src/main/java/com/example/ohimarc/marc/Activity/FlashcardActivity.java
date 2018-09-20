@@ -2,17 +2,23 @@ package com.example.ohimarc.marc.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.example.ohimarc.marc.Model.Card;
+import com.example.ohimarc.marc.Model.*;
 import com.example.ohimarc.marc.R;
+
+import org.w3c.dom.Text;
 
 public class FlashcardActivity extends AppCompatActivity {
 
-    Card test = new Card("Test","Test2");
+    private Card test = new Card("Test","Test2");
     private Button cardButton;
+    private TextView cardTitle;
+    private TextView deckTitle;
+    private Deck testDeck = new Deck("testDeck");
+    private FlashCardGame testGame = new FlashCardGame(testDeck);
 
 
     @Override
@@ -21,13 +27,23 @@ public class FlashcardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_flashcard);
         cardButton = (Button)findViewById(R.id.cardButton);
         cardTitle = (TextView)findViewById(R.id.cardTitle);
-        cardButton.setText(test.getFront());
+        deckTitle = (TextView)findViewById(R.id.deckTitle);
+        cardTitle.setText("Q");
+        testDeck.addCard(test.getFront(),test.getBack());
+        cardButton.setText(testDeck.getCardInfo(0)[0]);
+        deckTitle.setText(testDeck.getTitle());
     }
 
     public void flashCardClicked(View view){
         //Log.d("test","FLASHCARD CLICKED");
-        button.setText(test.getBack());
-            cardButton.setText(test.getBack());
+        if(cardButton.getText().equals(testDeck.getCardInfo(0)[0])) {
+            cardButton.setText(testDeck.getCardInfo(0)[1]);
+            cardTitle.setText("A");
+        }
+        else{
+            cardButton.setText(testDeck.getCardInfo(0)[0]);
+            cardTitle.setText("Q");
+        }
     }
 
 
