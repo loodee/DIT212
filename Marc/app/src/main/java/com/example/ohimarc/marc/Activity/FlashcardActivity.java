@@ -12,21 +12,22 @@ import com.example.ohimarc.marc.R;
 public class FlashcardActivity extends AppCompatActivity {
 
     Card test = new Card("Test","Test2");
-    Button button;
+    private Button cardButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
-        button = (Button)findViewById(R.id.button2);
-        button.setText(test.getFront());
+        cardButton = (Button)findViewById(R.id.cardButton);
+        cardTitle = (TextView)findViewById(R.id.cardTitle);
+        cardButton.setText(test.getFront());
     }
 
     public void flashCardClicked(View view){
         //Log.d("test","FLASHCARD CLICKED");
         button.setText(test.getBack());
-
+            cardButton.setText(test.getBack());
     }
 
 
