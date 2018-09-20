@@ -10,4 +10,8 @@ public abstract class Game {
     public abstract String[] peekNextCard();
 
     public abstract void goToNextCard();
+
+    public String getDeckTitle(){
+        return deck.getTitle();
+    }
 }
