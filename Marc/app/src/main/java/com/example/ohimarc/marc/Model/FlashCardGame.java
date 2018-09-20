@@ -6,16 +6,12 @@ public class FlashCardGame extends Game {
 
     public FlashCardGame(Deck deck){
         super(deck);
-
-        //Only here for testing for first user story
-        deck.addCard("Placeholder front side", "Placeholder back side");
     }
 
     @Override
     public String[] peekNextCard() {
         return deck.getCardInfo(nextCard);
     }
-
     @Override
     public void goToNextCard() {
         nextCard++;
