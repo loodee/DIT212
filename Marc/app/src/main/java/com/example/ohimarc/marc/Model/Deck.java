@@ -26,12 +26,16 @@ public class Deck {
     /**
      * Given an index of an existing card in the deck, returns
      * an array containing the string values of the front and back
-     * of the card.
+     * of the card. If given an invalid index the method will return null
      * @param index Index of the desired card from the deck.
-     * @return A String array of size 2, where index 0 corresponds to the front of the card,
-     * and index 1 corresponds to the back.
+     * @return If the index is valid A String array of size 2, where index 0 corresponds to the front of the card,
+     * and index 1 corresponds to the back. If the index is invalid null will be returned.
      */
     public String[] getCardInfo(int index) {
+        if(cards.size() <= index){
+            return null;
+        }
+
         Card c = cards.get(index);
         return new String[] {c.getFront(), c.getBack()};
     }
