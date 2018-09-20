@@ -1,2 +1,5 @@
 language: android
-before_install: cd Marc
+before_install: 
+    - cd Marc
+    - yes | sdkmanager "platforms;android-27"
+
