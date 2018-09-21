@@ -1,0 +1,59 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-09-21
+Chair: Victor Johansson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Victor Johansson, Mathias Forsman
+
+## Objectives (5 min)
+We want to discuss how we could add more stuff to the domain model.
+We want to discuss what we want to next week
+We want to discuss what we want to ask Ayberk
+
+## Reports (15 min) 
+* We have finished implementing the first user story. There now exists a (in the working environment) runnable prototype. (Everyone)
+   * We have created a view for the user story (Alexander)
+   * We have created a model with the required classes and methods for the first user story (Gustav, Thomas)
+   * We have created a controller (Android activity) for our project (Victor)
+   * We have created skeleton classes for our project (Gustav)
+   * We have converted the user stories to their proper format (although there were some questions regarding some parts of the template (functional/non-functional)) (Gustav, Thomas)
+
+
+## Discussion items (35 min)
+1. Discuss our domain model. How should we expand it?
+2. Discuss our plan of action for next week, what work to assign to the group.
+3. Discuss what questions to ask Ayberk about. Are we getting stuck anywhere? Any unclear objectives? 
+4. Run through misc. tasks that needs to be done before the next TA meeting (Trello permissions, making sure that the repository is up to date with documents and the new RAD etc.)
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+* Regarding the domain model:
+   * We should introduce the concept of “Users”. Having different users in the application will allow for better expandability regarding things like personal stats, performance, “owned” decks of cards etc.
+      * The user’s stats should be saved in a Stats object which contains the player’s personal best, for each game mode, for each deck. Each User object should contain one Stats object.
+   * Decks could be allowed to be exported and imported, for example through formatted text files. This would add another layer of functionality for the application, and could possibly expanded upon in the future (through some more streamlined exports, or by saving decks in the cloud, or similar).
+      * We should create two classes for this purpose, one for exporting decks, and one for importing decks.
+* This next week we will
+   * We will read up on the architecture(MVP) that is used by Android Applications.
+   * We will continue to expand our domain model. 
+   * We will implement user story 4, 5, 7.
+* Question for Ayberk:
+   * Present our new suggestion for a domain model. What does Ayberk think of it? What does he think of the feedback we got from the seminar? Do we need more functionality? If so, how much functionality, and what features?
+   * Travis -- how do we get it to run our tests? Ask him to check on our .travis.yml.
+   * Ask Ayberk about the proper Android app architecture.
+   * User story template -- what does “functional” and “non-functional” include?
+* What stuff do we need to fix before the next TA meeting?
+   * Give Ayberk access to our Trello board
+   * Upload all meeting agendas to the repository
+   * Upload the updated RAD to the repository
+
+
+Assignments: 
+* All group members should read up on the Android app architecture (MVP)
+* Work on user story 4 (Alexander and Victor)
+* Work on user story 5 (Gustav)
+* Work on user story 7 (Thomas and Mathias)
+* Continue work on the domain model, based on feedback from Ayberk on the next TA meeting.
+
+
+## Wrap up
+The next group meeting will be held on Monday (2018-09-24) at 13:00.
