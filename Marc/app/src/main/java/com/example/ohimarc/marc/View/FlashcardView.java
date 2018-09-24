@@ -1,7 +1,7 @@
 package com.example.ohimarc.marc.View;
 
 public interface FlashcardView {
-    void flipCardButton();
+    void flipCardButton(String qora, String text);
     void correctButton();
     void incorrectButton();
 }
