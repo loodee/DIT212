@@ -54,9 +54,10 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
         presenter.onDestroy();
     }
 
-    public void setTitle(String deckTitleText) {
+    public void initTexts(String deckTitleText, String cardText) {
         ActionBar ab = getSupportActionBar();
         ab.setTitle(deckTitleText);
+        cardButton.setText(cardText);
     }
 
     public void flipCardButton(String qora, String text) {
