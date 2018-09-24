@@ -11,9 +11,6 @@ before_script:
 
 android:
   components:
-    - tools
-    - platform-tools
-    - tools
     - build-tools-27.0.3
     - android-27
     - android-$ANDROID_EMULATOR_LEVEL
@@ -32,9 +29,9 @@ env:
 
 before_install:
   - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "platforms;android-27"
 
 
 script:
-  - ./gradlew connectedAndroidTest
   - ./gradlew test --console rich
 
