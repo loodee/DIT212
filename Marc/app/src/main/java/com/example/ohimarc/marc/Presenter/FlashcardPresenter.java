@@ -24,6 +24,7 @@ public class FlashcardPresenter implements Presenter {
     @Override
     public void onCreate() {
         game = new FlashCardGame(testDeck);
+        view.initTexts(game.getDeckTitle(),game.peekNextCard()[0]);
     }
 
     @Override
@@ -49,5 +50,13 @@ public class FlashcardPresenter implements Presenter {
         else{
             view.flipCardButton("Q:",game.peekNextCard()[0]);
         }
+    }
+
+    public void correctButtonClicked(){
+
+    }
+
+    public void incrrectButtonClicked(){
+
     }
 }
