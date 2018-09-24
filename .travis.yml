@@ -1,4 +1,4 @@
 language: java
 before_script: cd Marc
-sript: ./gradlew test --console rich
+script: ./gradlew test --console rich
 
