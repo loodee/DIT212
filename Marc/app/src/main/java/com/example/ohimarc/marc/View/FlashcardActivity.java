@@ -2,7 +2,7 @@
  * Author: Victor Johansson githubnice: Vroxie
  * Last updated 20/9 2018
  */
-package com.example.ohimarc.marc.Activity;
+package com.example.ohimarc.marc.View;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
