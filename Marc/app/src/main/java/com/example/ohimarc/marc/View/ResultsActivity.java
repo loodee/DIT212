@@ -1,11 +1,13 @@
 package com.example.ohimarc.marc.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.ohimarc.marc.Presenter.ResultPresenter;
@@ -67,12 +69,10 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
         presenter.onDestroy();
     }
 
-    public void retryButton() {
-
-    }
-
-    public void returnButton(){
-
+    public void retryButton(View v) {
+        Intent intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
