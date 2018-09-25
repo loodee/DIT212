@@ -1,7 +1,6 @@
 package com.example.ohimarc.marc.models;
 
 public class FlashCardGame extends Game {
-
     private int nextCard = 0;
 
     public FlashCardGame(Deck deck){
@@ -10,7 +9,7 @@ public class FlashCardGame extends Game {
 
     @Override
     public String[] peekNextCard() {
-        return deck.getCardInfo(nextCard);
+        return cardCopies[nextCard];
     }
     @Override
     public void goToNextCard() {
