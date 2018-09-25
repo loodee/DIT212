@@ -4,7 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    tools:context=".View.Home">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="232dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/my_toolbar">
+
+        <ImageView
+            android:id="@+id/exercise_image"
+            android:layout_width="67dp"
+            android:layout_height="73dp"
+            android:layout_marginStart="24dp"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintStart_toStartOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintVertical_bias="0.539"
+            app:srcCompat="@drawable/ic_exercise" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="357dp"
+            android:layout_height="103dp"
+            android:layout_marginTop="8dp"
+            android:onClick="exercise_button"
+            android:text="@string/play_button_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -13,30 +48,19 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="357dp"
-        android:layout_height="103dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/play_button_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/logo_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/my_toolbar"
-        app:srcCompat="@drawable/home_logo"
-        android:contentDescription="@string/logo_description" />
+        app:srcCompat="@drawable/home_logo" />
 
 
 </android.support.constraint.ConstraintLayout>
