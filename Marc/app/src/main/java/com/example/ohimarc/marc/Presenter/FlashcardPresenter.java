@@ -79,6 +79,10 @@ public class FlashcardPresenter implements Presenter {
         return game.getDeckTitle();
     }
 
+    public String getGameName(){
+        return game.getName();
+    }
+
 
     public void flashCardClicked(boolean frontActive){
         if(frontActive){

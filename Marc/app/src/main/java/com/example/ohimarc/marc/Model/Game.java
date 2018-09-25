@@ -6,9 +6,11 @@ import java.util.ArrayList;
 public abstract class Game {
     Deck deck;
     private ArrayList<Pair> questionAns = new ArrayList<>();
+    private String name;
 
-    public Game(Deck deck){
+    public Game(Deck deck,String name){
         this.deck = deck;
+        this.name = name;
     }
 
     public abstract String[] peekNextCard();
@@ -26,5 +28,9 @@ public abstract class Game {
 
     public ArrayList<Pair> getQuestionAns() {
         return questionAns;
+    }
+
+    public String getName() {
+        return name;
     }
 }
