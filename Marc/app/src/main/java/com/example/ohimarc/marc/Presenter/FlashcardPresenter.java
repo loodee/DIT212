@@ -1,8 +1,8 @@
 package com.example.ohimarc.marc.Presenter;
 
-import com.example.ohimarc.marc.Model.Card;
-import com.example.ohimarc.marc.Model.Deck;
-import com.example.ohimarc.marc.Model.FlashCardGame;
+import com.example.ohimarc.marc.models.Card;
+import com.example.ohimarc.marc.models.Deck;
+import com.example.ohimarc.marc.models.FlashCardGame;
 import com.example.ohimarc.marc.View.FlashcardView;
 
 public class FlashcardPresenter implements Presenter {
