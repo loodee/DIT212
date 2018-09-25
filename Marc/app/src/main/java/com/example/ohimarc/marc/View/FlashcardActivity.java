@@ -27,7 +27,6 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
         setContentView(R.layout.activity_flashcard);
         cardTitle = findViewById(R.id.cardTitle);
         cardButton = findViewById(R.id.cardButton);
-        cardTitle.setText("Q:");
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
         presenter.onCreate();
     }
@@ -54,6 +53,7 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
         ActionBar ab = getSupportActionBar();
         ab.setTitle(deckTitleText);
         cardButton.setText(cardText);
+        cardTitle.setText("Q:");
     }
 
     public void flipCardButton(String qora, String text) {
