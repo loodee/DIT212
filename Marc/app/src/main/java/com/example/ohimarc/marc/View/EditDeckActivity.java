@@ -17,9 +17,6 @@ public class EditDeckActivity extends AppCompatActivity {
 
     private Card test = new Card("Test", "Test2");
     private Deck testDeck = new Deck("testDeck");
-    //private RecyclerView mRecyclerView;
-    //private RecyclerView.LayoutManager mLayoutManager;
-    // recycleview for future, scroll through new cards
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +26,6 @@ public class EditDeckActivity extends AppCompatActivity {
         final TextView card = findViewById(R.id.tv_card);
         TextView deckTitle = findViewById(R.id.tv_deck_title);
         deckTitle.setText(testDeck.getTitle());
-        //mRecyclerView = (RecyclerView) findViewById(R.id.rc_cards);
-        //mLayoutManager = new LinearLayoutManager(this);
-        //mRecyclerView.setLayoutManager(mLayoutManager);
 
         ImageButton addCardButton = findViewById(R.id.btn_add_card_button);
         addCardButton.setOnClickListener(new View.OnClickListener() {
