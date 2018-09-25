@@ -84,7 +84,7 @@ public class FlashcardPresenter implements Presenter {
     }
 
     public void resultButtonsClicked(boolean isCorrect){
-        if(game.getNextCard() < game.getDecksize()) {
+        if(game.getNextCard() < game.getDecksize()-1) {
             game.questionAnswer(game.getNextCard(), isCorrect);
             game.goToNextCard();
             view.flipCardButton("Q:", game.peekNextCard()[0]);
