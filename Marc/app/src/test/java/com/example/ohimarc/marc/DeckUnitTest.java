@@ -24,13 +24,21 @@ public class DeckUnitTest {
     }
 
     @Test
-    public void addCardToDeck() {
-        String card1front = "front of card 1";
-        String card1back = "back of card 1";
-        d.addCard(card1front, card1back);
+    public void addBasicNotes() {
+        String front1 = "front of card 1";
+        String back1 = "back of card 1";
+        d.addBasicNote(front1, back1);
 
         assertEquals(1, d.getDeckSize());
-        assertEquals(card1front, d.getCardInfo(0)[0]);
-        assertEquals(card1back, d.getCardInfo(0)[1]);
+        assertEquals(front1, d.getCardCopies()[0][0]);
+        assertEquals(back1, d.getCardCopies()[0][1]);
+
+        String front2 = "frontTwo";
+        String back2 = "backTwo";
+        d.addBasicNote(front2, back2);
+
+        assertEquals(2, d.getDeckSize());
+        assertEquals(front2, d.getCardCopies()[1][0]);
+        assertEquals(back2, d.getCardCopies()[1][1]);
     }
 }
