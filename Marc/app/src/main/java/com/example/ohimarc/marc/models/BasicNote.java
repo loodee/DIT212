@@ -12,8 +12,8 @@ public class BasicNote extends Note {
      * @param back The text that will appear on the back of generated Cards.
      */
     public BasicNote(String front, String back) {
-        this.front = front;
-        this.back = back;
+        this.front = front != null ? front : "";
+        this.back = back != null ? back : "";
     }
 
     @Override
