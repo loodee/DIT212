@@ -16,4 +16,12 @@ public class FlashCardGame extends Game {
     public void goToNextCard() {
         nextCard++;
     }
+
+    public int getNextCard(){
+        return nextCard;
+    }
+
+    public int getDecksize(){
+        return deck.getDeckSize();
+    }
 }

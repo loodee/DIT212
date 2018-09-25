@@ -52,11 +52,15 @@ public class FlashcardPresenter implements Presenter {
         }
     }
 
-    public void correctButtonClicked(){
-
+    public void resultButtonsClicked(boolean isCorrect){
+        if(game.getNextCard() < game.getDecksize()) {
+            game.questionAnswer(game.getNextCard(), isCorrect);
+            game.goToNextCard();
+            view.flipCardButton("Q:", game.peekNextCard()[0]);
+        }
+        else{
+            game.questionAnswer(game.getNextCard(),isCorrect);
+        }
     }
 
-    public void incrrectButtonClicked(){
-
-    }
 }
