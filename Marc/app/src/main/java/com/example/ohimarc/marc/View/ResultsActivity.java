@@ -15,7 +15,7 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
 
     private ArrayList<Integer> value;
 
-    ResultPresenter presenter = new ResultPresenter(value, this);
+    ResultPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
         if(b != null) {
             value = b.getIntegerArrayList("fromFCtoResults");
         }
+        presenter = new ResultPresenter(value, this);
         presenter.onCreate();
     }
 
@@ -42,8 +43,6 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
         super.onResume();
         presenter.onResume();
     }
-
-
 
     @Override
     protected void onDestroy() {
