@@ -16,8 +16,7 @@ public class ResultPresenter implements Presenter {
 
     @Override
     public void onCreate() {
-
-
+        view.initTexts(amountCorret.get(0),amountCorret.get(1));
     }
 
     @Override
@@ -34,4 +33,7 @@ public class ResultPresenter implements Presenter {
     public void onDestroy() {
 
     }
+    
+
+
 }
