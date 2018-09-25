@@ -17,12 +17,15 @@ import java.util.ArrayList;
 
 public class ResultsActivity extends AppCompatActivity implements ResultsView {
 
+    ResultPresenter presenter;
+
     private ArrayList<Integer> value;
     private String deckTitle;
+    private String mode;
 
-    ResultPresenter presenter;
     private TextView resultText;
     private TextView deckTitleText;
+    private TextView modeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +35,28 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
 
         resultText = findViewById(R.id.scoreText);
         deckTitleText = findViewById(R.id.deckTitleText);
+        modeText = findViewById(R.id.modeText);
 
-        Bundle b = getIntent().getExtras();
-        value = null; // or other values
-        if(b != null) {
-            value = b.getIntegerArrayList("fromFCtoResults");
-            deckTitle = b.getString("deckTitle");
-        }
+        bundleHandler();
+
         presenter = new ResultPresenter(value, this);
         presenter.onCreate();
+    }
+
+    private void bundleHandler() {
+        Bundle b = getIntent().getExtras();
+        value = null;
+        if(b != null) {
+            value = b.getIntegerArrayList("results");
+            deckTitle = b.getString("deckTitle");
+            mode = b.getString("mode");
+        }
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_items,menu);
+        return true;
     }
 
     public void initTexts(int correct, int total) {
@@ -48,7 +64,14 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
         ActionBar ab = getSupportActionBar();
         ab.setTitle("Results");
         deckTitleText.setText(deckTitle);
+        modeText.setText("Mode: " + mode);
 
+    }
+
+    public void retryButton(View v) {
+        Intent intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -67,17 +90,5 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
     protected void onDestroy() {
         super.onDestroy();
         presenter.onDestroy();
-    }
-
-    public void retryButton(View v) {
-        Intent intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items,menu);
-        return true;
     }
 }

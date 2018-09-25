@@ -16,11 +16,10 @@ import com.example.ohimarc.marc.R;
 
 public class FlashcardActivity extends AppCompatActivity implements FlashcardView {
 
+    FlashcardPresenter presenter = new FlashcardPresenter(this);
 
     private Button cardButton;
     private TextView cardTitle;
-
-    FlashcardPresenter presenter = new FlashcardPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -32,24 +31,10 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
         presenter.onCreate();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        presenter.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.onResume();
-    }
-
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        presenter.onDestroy();
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_items,menu);
+        return true;
     }
 
     public void initTexts(String deckTitleText, String cardText) {
@@ -80,19 +65,34 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
         presenter.resultButtonsClicked(false);
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items,menu);
-        return true;
-    }
-
     public void changeView() {
         Intent intent = new Intent(FlashcardActivity.this, ResultsActivity.class);
+
         Bundle b = new Bundle();
-        b.putIntegerArrayList("fromFCtoResults", presenter.getAmountCorrectAnswers());
+        b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
         b.putString("deckTitle", presenter.getDeckTitle());
+        b.putString("mode", presenter.getGameName());
+
         intent.putExtras(b);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        presenter.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
     }
 }
