@@ -1,12 +1,9 @@
 package com.example.ohimarc.marc.Presenter;
 
-
-import com.example.ohimarc.marc.Model.Card;
 import com.example.ohimarc.marc.Model.Deck;
 import com.example.ohimarc.marc.Model.FlashCardGame;
 import com.example.ohimarc.marc.Model.Pair;
 import com.example.ohimarc.marc.View.FlashcardView;
-import com.example.ohimarc.marc.View.ResultsView;
 
 import java.util.ArrayList;
 
@@ -14,16 +11,13 @@ public class FlashcardPresenter implements Presenter {
 
     private FlashCardGame game;
     private FlashcardView view;
-    private  ResultsView resultsView;
     private Deck testDeck;
 
 
     public FlashcardPresenter(FlashcardView view){
-        Card testCard1 = new Card("Häst","Horse");
-        Card testCard2 = new Card("Hund","Dog");
         testDeck = new Deck("EnglishToSwedish");
-        testDeck.addCard(testCard1.getFront(),testCard1.getBack());
-        testDeck.addCard(testCard2.getFront(),testCard2.getBack());
+        testDeck.addCard("Häst","Horse");
+        testDeck.addCard("Hund","Dog");
         testDeck.addCard("Katt","Cat");
         testDeck.addCard("Näbbdjur","Platypus");
         testDeck.addCard("Känguru","Kangaroo");
