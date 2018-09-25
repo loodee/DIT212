@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.Model;
+package com.example.ohimarc.marc.models;
 
 /**
  * A class that holds the information for a Card, it holds the front and the back of the card.
@@ -34,4 +34,9 @@ public class Card {
         return back;
     }
 
+    @Override
+    public String toString() {
+        return "Front = " + front + '\'' + "Back=" + back + '\'';
+        //endast för att testa om texten kmr fram på skärmen, tas bort sen
+    }
 }

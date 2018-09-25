@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.Model;
+package com.example.ohimarc.marc.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,10 @@ public class Deck {
     public Deck(String title) {
         this.cards = new ArrayList<>();
         this.title = title != null ? title : "Default title";
+    }
+
+    public void addCard(Card card) {
+        cards.add(card);
     }
 
     public void addCard(String front, String back) {

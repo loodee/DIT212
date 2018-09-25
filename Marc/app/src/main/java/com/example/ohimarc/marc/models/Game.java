@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.Model;
+package com.example.ohimarc.marc.models;
 
 public abstract class Game {
     Deck deck;
