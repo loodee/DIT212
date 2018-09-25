@@ -70,7 +70,6 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
             bool = true;
         }
         presenter.flashCardClicked(bool);
-
     }
 
     public void correctButtonClicked(View v) {
@@ -89,6 +88,9 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
 
     public void changeView() {
         Intent intent = new Intent(FlashcardActivity.this, ResultsActivity.class);
+        Bundle b = new Bundle();
+        b.putIntegerArrayList("fromFCtoResults", presenter.getAmountCorrectAnswers());
+        intent.putExtras(b);
         startActivity(intent);
         finish();
     }
