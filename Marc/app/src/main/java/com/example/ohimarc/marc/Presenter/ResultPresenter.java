@@ -3,13 +3,15 @@ package com.example.ohimarc.marc.Presenter;
 import com.example.ohimarc.marc.Model.FlashCardGame;
 import com.example.ohimarc.marc.View.ResultsView;
 
+import java.util.ArrayList;
+
 public class ResultPresenter implements Presenter {
-    private final int amountCorret;
+    private final ArrayList<Integer> amountCorret;
     private ResultsView view;
 
-    public ResultPresenter(int amountCorrect,ResultsView view){
+    public ResultPresenter(ArrayList<Integer> amountCorret,ResultsView view){
         this.view = view;
-        this.amountCorret = amountCorrect;
+        this.amountCorret = amountCorret;
         }
 
     @Override
