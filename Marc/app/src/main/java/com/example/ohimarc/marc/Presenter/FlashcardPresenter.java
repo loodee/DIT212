@@ -1,9 +1,11 @@
 package com.example.ohimarc.marc.Presenter;
 
-import com.example.ohimarc.marc.Model.Card;
 import com.example.ohimarc.marc.Model.Deck;
 import com.example.ohimarc.marc.Model.FlashCardGame;
+import com.example.ohimarc.marc.Model.Pair;
 import com.example.ohimarc.marc.View.FlashcardView;
+
+import java.util.ArrayList;
 
 public class FlashcardPresenter implements Presenter {
 
@@ -13,11 +15,12 @@ public class FlashcardPresenter implements Presenter {
 
 
     public FlashcardPresenter(FlashcardView view){
-        Card testCard1 = new Card("Hej","Alexander");
-        Card testCard2 = new Card("Hej","Victor");
-        testDeck = new Deck("testdeck");
-        testDeck.addCard(testCard1.getFront(),testCard1.getBack());
-        testDeck.addCard(testCard2.getFront(),testCard2.getBack());
+        testDeck = new Deck("EnglishToSwedish");
+        testDeck.addCard("Häst","Horse");
+        testDeck.addCard("Hund","Dog");
+        testDeck.addCard("Katt","Cat");
+        testDeck.addCard("Näbbdjur","Platypus");
+        testDeck.addCard("Känguru","Kangaroo");
         this.view = view;
         game = new FlashCardGame(testDeck);
     }
@@ -42,6 +45,38 @@ public class FlashcardPresenter implements Presenter {
 
     }
 
+    /*
+    public ArrayList<Pair> getAnsList() {
+        return game.getQuestionAns();
+    }*/
+
+    /**
+     * Computes how many correct Answers I got from playing the deck
+     * @return a arraylist where index 0 is the amount of correct answers
+     * and index 1 is the deckSize
+     */
+    public ArrayList<Integer> getAmountCorrectAnswers(){
+        ArrayList<Integer> ansAmount = new ArrayList<>();
+        int amountCorrect = 0;
+        for(Pair p : game.getQuestionAns()){
+            if((Boolean)p.getElement1()){
+                amountCorrect++;
+            }
+        }
+        int totalDeckSize = game.getDecksize();
+        ansAmount.add(amountCorrect);
+        ansAmount.add(totalDeckSize);
+        return ansAmount;
+
+    }
+    public String getDeckTitle(){
+        return game.getDeckTitle();
+    }
+
+    public String getGameName(){
+        return game.getName();
+    }
+
 
     public void flashCardClicked(boolean frontActive){
         if(frontActive){
@@ -52,11 +87,16 @@ public class FlashcardPresenter implements Presenter {
         }
     }
 
-    public void correctButtonClicked(){
-
+    public void resultButtonsClicked(boolean isCorrect){
+        if(game.getNextCard() < game.getDecksize()-1) {
+            game.questionAnswer(game.getNextCard(), isCorrect);
+            game.goToNextCard();
+            view.flipCardButton("Q:", game.peekNextCard()[0]);
+        }
+        else{
+            game.questionAnswer(game.getNextCard(),isCorrect);
+            view.changeView();
+        }
     }
 
-    public void incrrectButtonClicked(){
-
-    }
 }

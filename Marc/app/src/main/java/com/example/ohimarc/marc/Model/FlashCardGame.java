@@ -5,7 +5,7 @@ public class FlashCardGame extends Game {
     private int nextCard = 0;
 
     public FlashCardGame(Deck deck){
-        super(deck);
+        super(deck,"Flashcard Game");
     }
 
     @Override
@@ -15,5 +15,13 @@ public class FlashCardGame extends Game {
     @Override
     public void goToNextCard() {
         nextCard++;
+    }
+
+    public int getNextCard(){
+        return nextCard;
+    }
+
+    public int getDecksize(){
+        return deck.getDeckSize();
     }
 }
