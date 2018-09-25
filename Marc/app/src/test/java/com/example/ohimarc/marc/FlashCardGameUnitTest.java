@@ -59,4 +59,30 @@ public class FlashCardGameUnitTest {
         assertEquals(s[1], "Back1");
     }
 
+    @Test
+    public void addResult(){
+        Deck d = new Deck("Test");
+        d.addCard("Front","Back");
+        d.addCard("Front1","Back1");
+        FlashCardGame g = new FlashCardGame(d);
+        g.questionAnswer(0,true);
+
+        assertEquals(true,g.getQuestionAns().get(0).getElement1());
+        assertEquals(1,g.getQuestionAns().size());
+        assertEquals(0,g.getQuestionAns().get(0).getElement0());
+    }
+
+    @Test
+    public void testGetters(){
+        Deck d = new Deck("Test");
+        d.addCard("Front","Back");
+        d.addCard("Front1","Back1");
+        FlashCardGame g = new FlashCardGame(d);
+
+        assertEquals("Test",g.getDeckTitle());
+        assertEquals(0,g.getNextCard());
+        assertEquals(2,g.getDecksize());
+        assertEquals("Flashcard Game",g.getName());
+    }
+
 }
