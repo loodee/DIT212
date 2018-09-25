@@ -1,6 +1,6 @@
 package com.example.ohimarc.marc.models;
 
-public abstract class Note {
+abstract class Note {
     Card[] cards;
 
     /**
