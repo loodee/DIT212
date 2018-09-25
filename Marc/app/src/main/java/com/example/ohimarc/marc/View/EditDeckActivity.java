@@ -31,15 +31,14 @@ public class EditDeckActivity extends AppCompatActivity {
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Card newCard = new Card("New card front", "New card back");
-                addCard(newCard);
-                card.setText(newCard.toString());
+                addBasicNote("front of the card", "butt of the card");
+                // card.setText(newCard.toString());
             }
         });
     }
 
-    public void addCard(Card card) {
-        testDeck.addCard(card);
+    public void addBasicNote(String front, String back) {
+        testDeck.addBasicNote(front, back);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

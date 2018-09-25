@@ -13,11 +13,9 @@ public class FlashcardPresenter implements Presenter {
 
 
     public FlashcardPresenter(FlashcardView view){
-        Card testCard1 = new Card("Hej","Alexander");
-        Card testCard2 = new Card("Hej","Victor");
         testDeck = new Deck("testdeck");
-        testDeck.addCard(testCard1.getFront(),testCard1.getBack());
-        testDeck.addCard(testCard2.getFront(),testCard2.getBack());
+        testDeck.addBasicNote("hund (front)", "dog");
+        testDeck.addBasicNote("katt (front)", "katt");
         this.view = view;
         game = new FlashCardGame(testDeck);
     }
