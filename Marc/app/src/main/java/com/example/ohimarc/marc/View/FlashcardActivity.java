@@ -1,5 +1,6 @@
 package com.example.ohimarc.marc.View;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,6 +44,8 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
         presenter.onResume();
     }
 
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -67,19 +70,26 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
             bool = true;
         }
         presenter.flashCardClicked(bool);
-    }
-
-    public void correctButton() {
 
     }
 
-    public void incorrectButton() {
+    public void correctButtonClicked(View v) {
+        presenter.resultButtonsClicked(true);
+    }
 
+    public void incorrectButtonClicked(View v) {
+        presenter.resultButtonsClicked(false);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.toolbar_items,menu);
         return true;
+    }
+
+    public void changeView() {
+        Intent intent = new Intent(FlashcardActivity.this, ResultsActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
