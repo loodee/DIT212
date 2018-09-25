@@ -9,34 +9,32 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BasicNoteUnitTest {
-    @Test
-    public void createBasicNote(){
     BasicNote b = new BasicNote("Front", "Back");
 
-    assertEquals(b.getFront(), "Front");
-    assertEquals(b.getBack(), "Back");
+    @Test
+    public void createBasicNote() {
+        assertEquals(b.getFront(), "Front");
+        assertEquals(b.getBack(), "Back");
     }
 
     @Test
-    public void emptyFront(){
-    BasicNote b = new BasicNote (null, "Back");
+    public void emptyFront() {
 
-    assertEquals(b.getFront(), "");
-    assertEquals(b.getBack(), "Back");
+        BasicNote b = new BasicNote(null, "Back");
+        assertEquals(b.getFront(), "");
+        assertEquals(b.getBack(), "Back");
     }
 
     @Test
-    public void emptyBack(){
-    BasicNote b = new BasicNote ("Front", null);
+    public void emptyBack() {
 
-    assertEquals(b.getFront(),("Front"));
-    assertEquals(b.getBack(),"");
+        BasicNote b = new BasicNote("Front", null);
+        assertEquals(b.getFront(), ("Front"));
+        assertEquals(b.getBack(), "");
     }
 
     @Test
-    public void checkCardsFront(){
-        BasicNote b = new BasicNote("Front", "Back");
-
+    public void checkCardsFront() {
         b.generateCards();
 
         Card generatedCard = b.getCards()[0];
@@ -45,13 +43,18 @@ public class BasicNoteUnitTest {
     }
 
     @Test
-    public void checkCardsBack(){
-        BasicNote b = new BasicNote("Front", "Back");
-
+    public void checkCardsBack() {
         b.generateCards();
 
         Card generatedCard = b.getCards()[0];
         assertEquals(b.getBack(), generatedCard.getBack());
+    }
+
+    @Test
+    public void checkCardInfo() {
+        assertEquals(b.getCardInfo().length, 1);
+        assertEquals(b.getCardInfo()[0][0], "Front");
+        assertEquals(b.getCardInfo()[0][1], "Back");
     }
 
 
