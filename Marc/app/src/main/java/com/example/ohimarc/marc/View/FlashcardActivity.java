@@ -90,6 +90,7 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
         Intent intent = new Intent(FlashcardActivity.this, ResultsActivity.class);
         Bundle b = new Bundle();
         b.putIntegerArrayList("fromFCtoResults", presenter.getAmountCorrectAnswers());
+        b.putString("deckTitle", presenter.getDeckTitle());
         intent.putExtras(b);
         startActivity(intent);
         finish();
