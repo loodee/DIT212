@@ -14,12 +14,22 @@ public class BasicNote extends Note {
     public BasicNote(String front, String back) {
         this.front = front != null ? front : "";
         this.back = back != null ? back : "";
+        generateCards();
     }
 
     @Override
     public void generateCards() {
         Card[] newCards = {new Card(front, back)};
         cards = newCards;
+    }
+
+    @Override
+    public String[][] getCardInfo() {
+        String[][] cardInfos = new String[cards.length][];
+        for (int i = 0; i < cardInfos.length; i++) {
+            cardInfos[i] = new String[] {cards[i].getFront(), cards[i].getBack()};
+        }
+        return cardInfos;
     }
 
     public String getFront() {

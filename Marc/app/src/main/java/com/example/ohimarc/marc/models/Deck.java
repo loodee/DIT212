@@ -7,7 +7,7 @@ import java.util.List;
  * Class containing groups of Card objects and functions for retrieving information from the cards.
  */
 public class Deck {
-    private List<Card> cards;
+    private List<Note> notes;
     private String title;
 
     /**
@@ -15,33 +15,33 @@ public class Deck {
      * @param title Defaults to a preset default if null is provided as a title.
      */
     public Deck(String title) {
-        this.cards = new ArrayList<>();
+        this.notes = new ArrayList<>();
         this.title = title != null ? title : "Default title";
     }
 
-    public void addCard(Card card) {
-        cards.add(card);
-    }
-
-    public void addCard(String front, String back) {
-        cards.add(new Card(front, back));
+    /**
+     * Creates a BasicNote and generates its Card(s), then adds the note to the Deck.
+     * @param front The text that will go in the `front` field of the note.
+     * @param back The text that will go in the `back` field of the note.
+     */
+    public void addBasicNote(String front, String back) {
+        notes.add(new BasicNote(front, back));
     }
 
     /**
-     * Given an index of an existing card in the deck, returns
-     * an array containing the string values of the front and back
-     * of the card. If given an invalid index the method will return null
-     * @param index Index of the desired card from the deck.
-     * @return If the index is valid A String array of size 2, where index 0 corresponds to the front of the card,
-     * and index 1 corresponds to the back. If the index is invalid null will be returned.
+     * Iterates through all the notes in the deck and returns an array of tuples of strings,
+     * where each tuple contains the front and back of the Cards.
+     * @return Array of tuples of strings, where index 0 contains the info on the front,
+     * and index 1 contains the information on the back
      */
-    public String[] getCardInfo(int index) {
-        if(cards.size() <= index){
-            return null;
+    public String[][] getCardCopies() {
+        ArrayList<String[]> copies = new ArrayList<>();
+        for (Note n : notes) {
+            for (String[] cardInfo : n.getCardInfo()) {
+                copies.add(cardInfo);
+            }
         }
-
-        Card c = cards.get(index);
-        return new String[] {c.getFront(), c.getBack()};
+        return copies.toArray(new String[0][]);
     }
 
     public String getTitle() {
@@ -49,6 +49,10 @@ public class Deck {
     }
 
     public int getDeckSize() {
-        return cards.size();
+        int size = 0;
+        for (Note n : notes) {
+            size += n.getSize();
+        }
+        return size;
     }
 }
