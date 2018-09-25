@@ -1,14 +1,20 @@
 package com.example.ohimarc.marc.Presenter;
 
+
 import com.example.ohimarc.marc.Model.Card;
 import com.example.ohimarc.marc.Model.Deck;
 import com.example.ohimarc.marc.Model.FlashCardGame;
+import com.example.ohimarc.marc.Model.Pair;
 import com.example.ohimarc.marc.View.FlashcardView;
+import com.example.ohimarc.marc.View.ResultsView;
+
+import java.util.ArrayList;
 
 public class FlashcardPresenter implements Presenter {
 
     private FlashCardGame game;
     private FlashcardView view;
+    private  ResultsView resultsView;
     private Deck testDeck;
 
 
@@ -42,6 +48,20 @@ public class FlashcardPresenter implements Presenter {
 
     }
 
+    /*
+    public ArrayList<Pair> getAnsList() {
+        return game.getQuestionAns();
+    }*/
+
+    public int getAmountCorrectAnswers(){
+        int amountCorrect = 0;
+        for(Pair p : game.getQuestionAns()){
+            if((Boolean)p.getElement1()){
+                amountCorrect++;
+            }
+        }
+        return amountCorrect;
+    }
 
     public void flashCardClicked(boolean frontActive){
         if(frontActive){
@@ -60,6 +80,7 @@ public class FlashcardPresenter implements Presenter {
         }
         else{
             game.questionAnswer(game.getNextCard(),isCorrect);
+            view.changeView();
         }
     }
 
