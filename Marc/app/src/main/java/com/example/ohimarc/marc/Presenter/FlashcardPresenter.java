@@ -53,15 +53,26 @@ public class FlashcardPresenter implements Presenter {
         return game.getQuestionAns();
     }*/
 
-    public int getAmountCorrectAnswers(){
+    /**
+     * Computes how many correct Answers I got from playing the deck
+     * @return a arraylist where index 0 is the amount of correct answers
+     * and index 1 is the deckSize
+     */
+    public ArrayList<Integer> getAmountCorrectAnswers(){
+        ArrayList<Integer> ansAmount = new ArrayList<>();
         int amountCorrect = 0;
         for(Pair p : game.getQuestionAns()){
             if((Boolean)p.getElement1()){
                 amountCorrect++;
             }
         }
-        return amountCorrect;
+        int totalDeckSize = game.getDecksize();
+        ansAmount.add(amountCorrect);
+        ansAmount.add(totalDeckSize);
+        return ansAmount;
+
     }
+
 
     public void flashCardClicked(boolean frontActive){
         if(frontActive){
