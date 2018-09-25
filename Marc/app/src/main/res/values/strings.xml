@@ -2,4 +2,6 @@
     <string name="app_name">Marc</string>
     <string name="action_menu">Menu</string>
     <string name="action_settings">Settings</string>
+    <string name="play_button_text">Exercise</string>
+    <string name="logo_description">Picture of the Marc logo</string>
 </resources>
