@@ -9,7 +9,7 @@ public class FlashCardGame extends Game {
 
     @Override
     public String[] peekNextCard() {
-        return cardCopies[nextCard];
+        return nextCard < cardCopies.length ? cardCopies[nextCard] : null;
     }
     @Override
     public void goToNextCard() {
