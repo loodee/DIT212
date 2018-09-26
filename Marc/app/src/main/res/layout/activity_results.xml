@@ -9,7 +9,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/my_toolbar"
@@ -18,19 +19,7 @@
             android:background="?attr/colorPrimary"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-        <ImageView
-            android:id="@+id/backgroundView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@android:color/darker_gray" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <TextView
             android:id="@+id/deckTitleText"
@@ -48,8 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="170dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="170dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -57,8 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="240dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="240dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <Button
@@ -69,9 +58,10 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="120dp"
             android:background="@android:color/background_light"
+            android:onClick="retryButton"
             android:text="Retry"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:onClick="retryButton"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
         <Button
             android:id="@+id/returnButton"
             android:layout_width="180dp"

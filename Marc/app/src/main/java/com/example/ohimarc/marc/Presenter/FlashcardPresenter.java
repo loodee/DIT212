@@ -15,7 +15,7 @@ public class FlashcardPresenter implements Presenter {
 
 
     public FlashcardPresenter(FlashcardView view){
-        testDeck = new Deck("EnglishToSwedish");
+        testDeck = new Deck("Swedish to English");
         testDeck.addCard("Häst","Horse");
         testDeck.addCard("Hund","Dog");
         testDeck.addCard("Katt","Cat");
