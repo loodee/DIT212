@@ -93,9 +93,13 @@ public class FlashcardPresenter implements Presenter {
             game.goToNextCard();
             view.flipCardButton("Q:", game.peekNextCard()[0]);
         }
-        else{
-            game.questionAnswer(game.getNextCard(),isCorrect);
-            view.changeView();
+        else {
+            int changedview = 0;
+            if ((game.getQuestionAns().size() < game.getDecksize()) && changedview < 1) {
+                game.questionAnswer(game.getNextCard(), isCorrect);
+                view.changeView();
+                changedview++;
+            }
         }
     }
 
