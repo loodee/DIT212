@@ -1,5 +1,6 @@
 package com.example.ohimarc.marc.view;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,6 +26,9 @@ public class EditDeckActivity extends AppCompatActivity {
         final TextView card = findViewById(R.id.tv_card);
         TextView deckTitle = findViewById(R.id.tv_deck_title);
         deckTitle.setText(testDeck.getTitle());
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("Edit Deck");
+
 
         ImageButton addCardButton = findViewById(R.id.btn_add_card_button);
         addCardButton.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +46,7 @@ public class EditDeckActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items,menu);
+        inflater.inflate(R.menu.toolbar_items, menu);
         return true;
     }
 }
