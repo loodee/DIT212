@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.View;
+package com.example.ohimarc.marc.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
