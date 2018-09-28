@@ -8,4 +8,6 @@
     <string name="achivements_decs">Achivements button</string>
     <string name="deck_ico">Deck icon</string>
     <string name="achivements_ico">Achivement button</string>
+    <string name="decks">Decks</string>
+    <string name="achievements">Achievements</string>
 </resources>
