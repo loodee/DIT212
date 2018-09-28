@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.View;
+package com.example.ohimarc.marc.view;
 
 public interface FlashcardView {
     void flipCardButton(String qora, String text);

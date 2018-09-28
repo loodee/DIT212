@@ -1,6 +1,6 @@
 package com.example.ohimarc.marc;
 
-import com.example.ohimarc.marc.models.Card;
+import com.example.ohimarc.marc.model.Card;
 
 import org.junit.Test;
 

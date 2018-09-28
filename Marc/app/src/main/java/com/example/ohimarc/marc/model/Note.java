@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.models;
+package com.example.ohimarc.marc.model;
 
 abstract class Note {
     Card[] cards;

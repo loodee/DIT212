@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.Presenter;
+package com.example.ohimarc.marc.presenter;
 
 public interface Presenter {
     void onCreate();

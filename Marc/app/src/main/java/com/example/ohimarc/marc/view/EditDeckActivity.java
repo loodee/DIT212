@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.View;
+package com.example.ohimarc.marc.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,9 +7,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
-import com.example.ohimarc.marc.models.*;
+import com.example.ohimarc.marc.model.*;
 
 import com.example.ohimarc.marc.R;
 

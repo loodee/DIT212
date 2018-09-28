@@ -1,6 +1,6 @@
 package com.example.ohimarc.marc;
 
-import com.example.ohimarc.marc.models.Deck;
+import com.example.ohimarc.marc.model.Deck;
 
 import org.junit.Before;
 import org.junit.Test;

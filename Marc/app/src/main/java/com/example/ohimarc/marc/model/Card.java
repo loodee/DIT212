@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.models;
+package com.example.ohimarc.marc.model;
 
 /**
  * A class that holds the information for a Card, it holds the front and the back of the card.

@@ -1,16 +1,17 @@
-package com.example.ohimarc.marc.Model;
-
+package com.example.ohimarc.marc.model;
 
 import java.util.ArrayList;
 
 public abstract class Game {
     Deck deck;
+    String[][] cardCopies;
     private ArrayList<Pair> questionAns = new ArrayList<>();
     private String name;
 
-    public Game(Deck deck,String name){
+    public Game(Deck deck, String name){
         this.deck = deck;
         this.name = name;
+        this.cardCopies = deck.getCardCopies();
     }
 
     public abstract String[] peekNextCard();

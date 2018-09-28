@@ -1,7 +1,7 @@
-package com.example.ohimarc.marc.Presenter;
+package com.example.ohimarc.marc.presenter;
 
-import com.example.ohimarc.marc.Model.FlashCardGame;
-import com.example.ohimarc.marc.View.ResultsView;
+import com.example.ohimarc.marc.model.FlashCardGame;
+import com.example.ohimarc.marc.view.ResultsView;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.View;
+package com.example.ohimarc.marc.view;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.ohimarc.marc.Presenter.FlashcardPresenter;
+import com.example.ohimarc.marc.presenter.FlashcardPresenter;
 import com.example.ohimarc.marc.R;
 
 public class FlashcardActivity extends AppCompatActivity implements FlashcardView {

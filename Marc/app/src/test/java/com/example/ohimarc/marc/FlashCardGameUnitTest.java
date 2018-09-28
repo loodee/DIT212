@@ -1,6 +1,6 @@
 package com.example.ohimarc.marc;
 
-import com.example.ohimarc.marc.models.*;
+import com.example.ohimarc.marc.model.*;
 
 import org.junit.Test;
 
@@ -62,8 +62,8 @@ public class FlashCardGameUnitTest {
     @Test
     public void addResult(){
         Deck d = new Deck("Test");
-        d.addCard("Front","Back");
-        d.addCard("Front1","Back1");
+        d.addBasicNote("Front","Back");
+        d.addBasicNote("Front1","Back1");
         FlashCardGame g = new FlashCardGame(d);
         g.questionAnswer(0,true);
 
@@ -75,8 +75,8 @@ public class FlashCardGameUnitTest {
     @Test
     public void testGetters(){
         Deck d = new Deck("Test");
-        d.addCard("Front","Back");
-        d.addCard("Front1","Back1");
+        d.addBasicNote("Front","Back");
+        d.addBasicNote("Front1","Back1");
         FlashCardGame g = new FlashCardGame(d);
 
         assertEquals("Test",g.getDeckTitle());

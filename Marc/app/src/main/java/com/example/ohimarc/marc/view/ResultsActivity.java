@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.View;
+package com.example.ohimarc.marc.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.ohimarc.marc.Presenter.ResultPresenter;
+import com.example.ohimarc.marc.presenter.ResultPresenter;
 import com.example.ohimarc.marc.R;
 
 import java.util.ArrayList;

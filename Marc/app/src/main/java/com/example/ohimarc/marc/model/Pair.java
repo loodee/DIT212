@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.Model;
+package com.example.ohimarc.marc.model;
 
 public class Pair<K,V> {
     private final K element0;
