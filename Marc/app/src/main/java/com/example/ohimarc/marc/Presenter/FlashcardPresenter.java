@@ -15,12 +15,9 @@ public class FlashcardPresenter implements Presenter {
 
 
     public FlashcardPresenter(FlashcardView view){
-        testDeck = new Deck("Swedish to English");
-        testDeck.addCard("Häst","Horse");
-        testDeck.addCard("Hund","Dog");
-        testDeck.addCard("Katt","Cat");
-        testDeck.addCard("Näbbdjur","Platypus");
-        testDeck.addCard("Känguru","Kangaroo");
+        testDeck = new Deck("testdeck");
+        testDeck.addBasicNote("hund (front)", "dog");
+        testDeck.addBasicNote("katt (front)", "katt");
         this.view = view;
         game = new FlashCardGame(testDeck);
     }

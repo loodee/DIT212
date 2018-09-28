@@ -12,10 +12,13 @@
         <activity android:name=".View.FlashcardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".View.EditDeckActivity"
+            android:exported="true" />
         <activity android:name=".View.ResultsActivity"/>
     </application>
 
