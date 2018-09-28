@@ -4,4 +4,8 @@
     <string name="action_settings">Settings</string>
     <string name="play_button_text">Exercise</string>
     <string name="logo_description">Picture of the Marc logo</string>
+    <string name="exercise_icon">Exercise icon</string>
+    <string name="achivements_decs">Achivements button</string>
+    <string name="deck_ico">Deck icon</string>
+    <string name="achivements_ico">Achivement button</string>
 </resources>
