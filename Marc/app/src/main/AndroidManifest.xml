@@ -12,14 +12,18 @@
         <activity android:name=".view.Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".view.FlashcardActivity"></activity>
 
         <activity
+            android:name=".view.EditNoteActivity"
+            android:exported="true"/>
+        <activity
             android:name=".view.EditDeckActivity"
             android:exported="true" />
-        <activity android:name=".view.ResultsActivity"/>
+        <activity android:name=".view.ResultsActivity" />
     </application>
 </manifest>
