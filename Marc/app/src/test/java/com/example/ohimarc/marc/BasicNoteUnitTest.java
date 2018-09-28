@@ -57,5 +57,16 @@ public class BasicNoteUnitTest {
         assertEquals(b.getCardInfo()[0][1], "Back");
     }
 
+    @Test
+    public void testSetBack() {
+        b.setBack("TestSet");
+        assertEquals("TestSet", b.getBack());
+    }
+
+    @Test
+    public void testSetFront() {
+        b.setFront("TestSetFront");
+        assertEquals("TestSetFront", b.getFront());
+    }
 
 }

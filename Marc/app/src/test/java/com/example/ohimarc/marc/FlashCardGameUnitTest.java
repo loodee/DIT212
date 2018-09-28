@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class FlashCardGameUnitTest {
     @Test
-    public void createEmptyFlashcardGame() {
+    public void testDeckNameIsEmpty() {
         Deck d = new Deck("Test");
         FlashCardGame g = new FlashCardGame(d);
 
@@ -19,7 +19,7 @@ public class FlashCardGameUnitTest {
     }
 
     @Test
-    public void createCard() {
+    public void testExistsOneCardWithFrontAndBack() {
         Deck d = new Deck("Test");
         d.addBasicNote("Front", "Back");
 
@@ -29,23 +29,11 @@ public class FlashCardGameUnitTest {
 
         assertEquals(s[0], "Front");
         assertEquals(s[1], "Back");
+        assertTrue(d.getDeckSize() == 1);
     }
 
     @Test
-    public void createCards() {
-        Deck d = new Deck("Test");
-        d.addBasicNote("Front", "Back");
-
-        FlashCardGame g = new FlashCardGame(d);
-
-        String[] s = g.peekNextCard();
-
-        assertEquals(s[0], "Front");
-        assertEquals(s[1], "Back");
-    }
-
-    @Test
-    public void stepNextCard() {
+    public void testStepNextCard() {
         Deck d = new Deck("Test");
         d.addBasicNote("Front", "Back");
         d.addBasicNote("Front1", "Back1");
@@ -83,6 +71,31 @@ public class FlashCardGameUnitTest {
         assertEquals(0, g.getNextCard());
         assertEquals(2, g.getDecksize());
         assertEquals("Flashcard Game", g.getName());
+    }
+
+    @Test
+    public void testQuestionAnswerSize() {
+        Deck d = new Deck("Test");
+        d.addBasicNote("Front1", "Back1");
+        d.addBasicNote("Front2", "Back2");
+        d.addBasicNote("Front3", "Back3");
+        FlashCardGame g = new FlashCardGame(d);
+        assertEquals(g.getDecksize(), g.getQuestionAns().length);
+    }
+
+    @Test
+    public void testQuestionAnsAnswers() {
+        Deck d = new Deck("Test");
+        d.addBasicNote("Front1", "Back1");
+        d.addBasicNote("Front2", "Back2");
+        d.addBasicNote("Front3", "Back3");
+        FlashCardGame g = new FlashCardGame(d);
+        g.questionAnswer(0, true);
+        g.questionAnswer(1, false);
+
+        assertEquals(g.getQuestionAns()[0].getElement1(), true);
+        assertEquals(g.getQuestionAns()[1].getElement1(), false);
+        assertEquals(g.getQuestionAns()[2], null);
     }
 
 }
