@@ -3,15 +3,14 @@
 
     <item
         android:id="@+id/action_menu"
-        android:icon="@drawable/sharp_menu_black_18dp"
+        android:icon="@drawable/ic_menu_black_24dp"
         android:title="@string/action_menu"
         app:showAsAction="always"
         android:orderInCategory="100"/>
     <item
         android:id="@+id/action_settings"
-        android:icon="@drawable/sharp_settings_black_18dp"
+        android:icon="@drawable/ic_settings_black_24dp"
         android:title="@string/action_settings"
         app:showAsAction="always"
         android:orderInCategory="200"/>
-    <!-- "Mark Favorite", should appear as action button if possible -->
 </menu>
