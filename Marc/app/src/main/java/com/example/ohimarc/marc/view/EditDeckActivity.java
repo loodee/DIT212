@@ -30,12 +30,12 @@ public class EditDeckActivity extends AppCompatActivity {
         ab.setTitle("Edit Deck");
 
 
-        ImageButton addCardButton = findViewById(R.id.btn_add_card_button);
+        ImageButton addCardButton = findViewById(R.id.fb_add_card_button);
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addBasicNote("front of the card", "butt of the card");
-                // card.setText(newCard.toString());
+                 //card.setText(card.toString());
             }
         });
     }
