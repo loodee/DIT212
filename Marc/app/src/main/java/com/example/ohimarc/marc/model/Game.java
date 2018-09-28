@@ -13,9 +13,17 @@ public abstract class Game {
         this.pairs = new Pair[deck.getDeckSize()];
     }
 
+    /**
+     * Returns the next card in the game, if there are no more cards in the game null will be returned
+     * @return Returns an array where the first index is the front of the card and the second index is the back of the card.
+     * */
     public abstract String[] peekNextCard();
 
+    /**
+     * Goes to the next card in the deck
+    * */
     public abstract void goToNextCard();
+
 
     public String getDeckTitle() {
         return deck.getTitle();
