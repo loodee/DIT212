@@ -60,29 +60,29 @@ public class FlashCardGameUnitTest {
     }
 
     @Test
-    public void addResult(){
+    public void addResult() {
         Deck d = new Deck("Test");
-        d.addBasicNote("Front","Back");
-        d.addBasicNote("Front1","Back1");
+        d.addBasicNote("Front", "Back");
+        d.addBasicNote("Front1", "Back1");
         FlashCardGame g = new FlashCardGame(d);
-        g.questionAnswer(0,true);
+        g.questionAnswer(0, true);
 
-        assertEquals(true,g.getQuestionAns().get(0).getElement1());
-        assertEquals(1,g.getQuestionAns().size());
-        assertEquals(0,g.getQuestionAns().get(0).getElement0());
+        assertEquals(true, g.getQuestionAns()[0].getElement1());
+        assertEquals(2, g.getQuestionAns().length);
+        assertEquals(0, g.getQuestionAns()[0].getElement0());
     }
 
     @Test
-    public void testGetters(){
+    public void testGetters() {
         Deck d = new Deck("Test");
-        d.addBasicNote("Front","Back");
-        d.addBasicNote("Front1","Back1");
+        d.addBasicNote("Front", "Back");
+        d.addBasicNote("Front1", "Back1");
         FlashCardGame g = new FlashCardGame(d);
 
-        assertEquals("Test",g.getDeckTitle());
-        assertEquals(0,g.getNextCard());
-        assertEquals(2,g.getDecksize());
-        assertEquals("Flashcard Game",g.getName());
+        assertEquals("Test", g.getDeckTitle());
+        assertEquals(0, g.getNextCard());
+        assertEquals(2, g.getDecksize());
+        assertEquals("Flashcard Game", g.getName());
     }
 
 }
