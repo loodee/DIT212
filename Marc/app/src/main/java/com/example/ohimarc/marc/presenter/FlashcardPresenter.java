@@ -21,10 +21,11 @@ public class FlashcardPresenter implements Presenter {
         this.view = view;
         game = new FlashCardGame(testDeck);
     }
+
     @Override
     public void onCreate() {
         game = new FlashCardGame(testDeck);
-        view.initTexts(game.getDeckTitle(),game.peekNextCard()[0]);
+        view.initTexts(game.getDeckTitle(), game.peekNextCard()[0]);
     }
 
     @Override
@@ -49,14 +50,15 @@ public class FlashcardPresenter implements Presenter {
 
     /**
      * Computes how many correct Answers I got from playing the deck
+     *
      * @return a arraylist where index 0 is the amount of correct answers
      * and index 1 is the deckSize
      */
-    public ArrayList<Integer> getAmountCorrectAnswers(){
+    public ArrayList<Integer> getAmountCorrectAnswers() {
         ArrayList<Integer> ansAmount = new ArrayList<>();
         int amountCorrect = 0;
-        for(Pair p : game.getQuestionAns()){
-            if((Boolean)p.getElement1()){
+        for (Pair p : game.getQuestionAns()) {
+            if ((Boolean) p.getElement1()) {
                 amountCorrect++;
             }
         }
@@ -66,38 +68,32 @@ public class FlashcardPresenter implements Presenter {
         return ansAmount;
 
     }
-    public String getDeckTitle(){
+
+    public String getDeckTitle() {
         return game.getDeckTitle();
     }
 
-    public String getGameName(){
+    public String getGameName() {
         return game.getName();
     }
 
 
-    public void flashCardClicked(boolean frontActive){
-        if(frontActive){
-            view.flipCardButton("A:",game.peekNextCard()[1]);
-        }
-        else{
-            view.flipCardButton("Q:",game.peekNextCard()[0]);
+    public void flashCardClicked(boolean frontActive) {
+        if (frontActive) {
+            view.flipCardButton("A:", game.peekNextCard()[1]);
+        } else {
+            view.flipCardButton("Q:", game.peekNextCard()[0]);
         }
     }
 
-    public void resultButtonsClicked(boolean isCorrect){
-        if(game.getNextCard() < game.getDecksize()-1) {
+    public void resultButtonsClicked(boolean isCorrect) {
+        if (game.getNextCard() < game.getDecksize() - 1) {
             game.questionAnswer(game.getNextCard(), isCorrect);
             game.goToNextCard();
             view.flipCardButton("Q:", game.peekNextCard()[0]);
-        }
-        else {
-            int changedview = 0;
-            if ((game.getQuestionAns().size() < game.getDecksize()) && changedview < 1) {
-                game.questionAnswer(game.getNextCard(), isCorrect);
-                view.changeView();
-                changedview++;
-            }
+        } else {
+            game.questionAnswer(game.getNextCard(), isCorrect);
+            view.changeView();
         }
     }
-
 }
