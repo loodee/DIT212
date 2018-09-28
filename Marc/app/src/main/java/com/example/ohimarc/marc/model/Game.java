@@ -21,6 +21,17 @@ public abstract class Game {
         return deck.getTitle();
     }
 
+    /**
+     * questionAnswer creates a Pair of the parameters, which is then added
+     * to a list of Pair. If the Pair already exists in the Pair list, the
+     * pair currently in the list is replaced.
+     * @param index is expected to equal the spot of the current card
+     *              in its' deck. This index will later be used to add an
+     *              answer at the same index in the Pair list.
+     * @param isCorrect is the answer given to the question (Right = true,
+     *                  Wrong = false). This answer is later added to the
+     *                  Pair list.
+     */
     public void questionAnswer(int index, boolean isCorrect) {
         Pair<Integer, Boolean> ans = new Pair<>(index, isCorrect);
         pairs[index] = ans;
