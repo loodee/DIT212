@@ -1,0 +1,47 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-09-28
+Chair: Gustav Albertsson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Mathias Forsman
+
+## Objectives (5 min)
+Discuss how the presenters are supposed to get all the Deck and card information for an active game mode.
+Discuss how we are going to complete our current user stories before this sprint is finished.
+Discuss how to solve the bug where you can receive multiple correct answers from the same question.
+
+
+## Reports (15 min) 
+* We added new user stories, and rewrote existing user stories, for our new domain model. (Everyone)
+* We continued our work with the user stories. 
+   * Completed user story number 4 (Alexander & Victor)
+   * Continued work on user story 7 (Mathias & Thomas)
+   * Continued work on user story 5 (Gustav)
+* None of us read up on domain models nor functional/non functional requirements. (Everyone)
+
+
+## Discussion items (35 min)
+1. How should the presenter get the Deck and card information from an active game mode?
+2. How are we going to complete the current user stories within this sprint?
+3. What can we do to solve the bug where the user can get multiple “correct” answers per card? There is a current fix in place, can we improve on it? Who should be responsible for looking into it?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+1. We will be using the singleton pattern to create consistent instances of the MemorizationTrainingTool (MTT) class. The purpose of this is that MTT will know what user is active, and thus know what game is active. By doing this, we will be able to pass the active game and deck to each presenter as we create the instance of MTT in the presenter. MTT will become a bit of a state handler.
+2. We will focus on completing the work we have commenced for this sprint. I.e, we will not start working on the point above. Instead, Gustav will complete the little work he’s got left. After this, Alexander and Gustav will help Mathias and Thomas to complete user story 7.
+3. The bug will be fixed by making changes to the Model, especially in Game, but also in FlashcardPresenter. The changes include that when you add an answer to a list, there should be functionality for checking whether the answer has already been added. If so, the answer will be changed, instead of added once more.
+
+
+
+
+
+
+Assignments: 
+* Merge in the model changes (inclusion of Notes) to the master branch before continuing work on other user stories (Everyone)
+* Continue working on user story 7 (Mathias, Thomas)
+* Continue working on user story 5 (Gustav)
+* Implement barebones versions of the MemorizationTrainingTool and User classes, to move the application model towards our intended vision. (Alexander, Gustav) (Postponed until next week)
+
+
+## Wrap up
+The next meeting will be held at 2018-10-01, 13:00.
