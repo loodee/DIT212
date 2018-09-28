@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.View;
 
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.StaticTestDeck;
 
 public class Home extends AppCompatActivity {
 
@@ -17,6 +18,8 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
+
+        StaticTestDeck.addFirst();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
