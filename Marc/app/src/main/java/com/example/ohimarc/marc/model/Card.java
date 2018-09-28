@@ -33,10 +33,4 @@ public class Card {
     public String getBack() {
         return back;
     }
-
-    @Override
-    public String toString() {
-        return "Front = " + front + '\'' + "Back=" + back + '\'';
-        //endast för att testa om texten kmr fram på skärmen, tas bort sen
-    }
 }
