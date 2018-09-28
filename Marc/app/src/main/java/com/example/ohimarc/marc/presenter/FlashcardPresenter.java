@@ -14,7 +14,7 @@ public class FlashcardPresenter implements Presenter {
     private Deck testDeck;
 
 
-    public FlashcardPresenter(FlashcardView view){
+    public FlashcardPresenter(FlashcardView view) {
         testDeck = new Deck("testdeck");
         testDeck.addBasicNote("hund (front)", "dog");
         testDeck.addBasicNote("katt (front)", "katt");
@@ -25,7 +25,9 @@ public class FlashcardPresenter implements Presenter {
     @Override
     public void onCreate() {
         game = new FlashCardGame(testDeck);
-        view.initTexts(game.getDeckTitle(), game.peekNextCard()[0]);
+        if (game.getDecksize() > 0) {
+            view.initTexts(game.getDeckTitle(), game.peekNextCard()[0]);
+        }
     }
 
     @Override
@@ -79,21 +81,25 @@ public class FlashcardPresenter implements Presenter {
 
 
     public void flashCardClicked(boolean frontActive) {
-        if (frontActive) {
-            view.flipCardButton("A:", game.peekNextCard()[1]);
-        } else {
-            view.flipCardButton("Q:", game.peekNextCard()[0]);
+        if (game.getDecksize() > 0) {
+            if (frontActive) {
+                view.flipCardButton("A:", game.peekNextCard()[1]);
+            } else {
+                view.flipCardButton("Q:", game.peekNextCard()[0]);
+            }
         }
     }
 
     public void resultButtonsClicked(boolean isCorrect) {
-        if (game.getNextCard() < game.getDecksize() - 1) {
-            game.questionAnswer(game.getNextCard(), isCorrect);
-            game.goToNextCard();
-            view.flipCardButton("Q:", game.peekNextCard()[0]);
-        } else {
-            game.questionAnswer(game.getNextCard(), isCorrect);
-            view.changeView();
-        }
+        if (game.getDecksize() > 0) {
+            if (game.getNextCard() < game.getDecksize() - 1) {
+                game.questionAnswer(game.getNextCard(), isCorrect);
+                game.goToNextCard();
+                view.flipCardButton("Q:", game.peekNextCard()[0]);
+            } else {
+                game.questionAnswer(game.getNextCard(), isCorrect);
+                view.changeView();
+            }
+        } else view.changeView();
     }
 }
