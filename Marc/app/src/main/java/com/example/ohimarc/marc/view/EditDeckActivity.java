@@ -3,6 +3,8 @@ package com.example.ohimarc.marc.view;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -13,7 +15,10 @@ import com.example.ohimarc.marc.model.*;
 
 import com.example.ohimarc.marc.R;
 
-public class EditDeckActivity extends AppCompatActivity {
+public class EditDeckActivity extends AppCompatActivity implements  EditDeckView{
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     private Card test = new Card("Test", "Test2");
     private Deck testDeck = new Deck("testDeck");
@@ -22,13 +27,17 @@ public class EditDeckActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_deck);
+        deckTitles();
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+     //   mAdapter = new MyAdapter(myDataset);
+        mRecyclerView.setAdapter(mAdapter);
+
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
         final TextView card = findViewById(R.id.tv_card);
-        TextView deckTitle = findViewById(R.id.tv_deck_title);
-        deckTitle.setText(testDeck.getTitle());
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Edit Deck");
-
 
         ImageButton addCardButton = findViewById(R.id.fb_add_card_button);
         addCardButton.setOnClickListener(new View.OnClickListener() {
@@ -49,4 +58,16 @@ public class EditDeckActivity extends AppCompatActivity {
         inflater.inflate(R.menu.toolbar_items, menu);
         return true;
     }
+
+    public void deckTitles(){
+        TextView deckTitle = findViewById(R.id.tv_deck_title);
+        deckTitle.setText(testDeck.getTitle());
+
+    }
+
+    public void editDeckTitle(){
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("Edit Deck");
+    }
+
 }
