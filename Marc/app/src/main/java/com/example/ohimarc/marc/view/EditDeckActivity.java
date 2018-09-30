@@ -38,6 +38,7 @@ public class EditDeckActivity extends AppCompatActivity implements  EditDeckView
 
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
         final TextView card = findViewById(R.id.tv_card);
+        editDeckTitle();
 
         ImageButton addCardButton = findViewById(R.id.fb_add_card_button);
         addCardButton.setOnClickListener(new View.OnClickListener() {
