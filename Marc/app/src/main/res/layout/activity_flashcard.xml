@@ -15,8 +15,6 @@
         <include android:id="@+id/toolbar"
             layout="@layout/activity_toolbar"/>
 
-
-
         <Button
             android:id="@+id/cardButton"
             android:layout_width="match_parent"
@@ -82,5 +80,8 @@
             app:layout_constraintVertical_bias="0.969" />
 
     </RelativeLayout>
+
+    <include android:id="@+id/sidemenu"
+        layout="@layout/activity_side_menu"/>
 
 </android.support.constraint.ConstraintLayout>
