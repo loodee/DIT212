@@ -12,14 +12,19 @@
         <activity android:name=".view.Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.FlashcardActivity"></activity>
-
+        <activity android:name=".view.FlashcardActivity" />
         <activity
             android:name=".view.EditDeckActivity"
             android:exported="true" />
-        <activity android:name=".view.ResultsActivity"/>
+        <activity android:name=".view.ResultsActivity" />
+        <activity
+            android:name=".view.startMenuActivity"
+            android:label="@string/title_activity_start_menu"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
+
 </manifest>
