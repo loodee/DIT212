@@ -4,17 +4,20 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.AddNotePresenter;
 
 public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
 
-    AddNotePresenter presenter = new AddNotePresenter(this);
+    private AddNotePresenter presenter = new AddNotePresenter(this);
 
     private EditText front;
     private EditText back;
@@ -31,6 +34,8 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
         front = findViewById(R.id.input_front);
         back = findViewById(R.id.input_back);
 
+        setupListeners();
+
         presenter.onCreate();
     }
 
@@ -41,6 +46,10 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
     }
 
     public void confirmAdd(View v) {
+        confirmAdd();
+    }
+
+    public void confirmAdd() {
         String frontText = front.getText().toString();
         String backText = back.getText().toString();
         presenter.confirmAddClicked(frontText, backText);
@@ -71,5 +80,19 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
     protected void onDestroy() {
         super.onDestroy();
         presenter.onDestroy();
+    }
+
+    private void setupListeners() {
+        back.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    confirmAdd();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
     }
 }
