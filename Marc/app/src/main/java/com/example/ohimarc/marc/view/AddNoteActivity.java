@@ -16,6 +16,9 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
 
     AddNotePresenter presenter = new AddNotePresenter(this);
 
+    private EditText front;
+    private EditText back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,10 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
         ActionBar bar = getSupportActionBar();
         bar.setTitle("Add Note");
+
+        front = findViewById(R.id.input_front);
+        back = findViewById(R.id.input_back);
+
         presenter.onCreate();
     }
 
@@ -34,9 +41,18 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
     }
 
     public void confirmAdd(View v) {
-        String front = ((EditText) findViewById(R.id.input_front)).getText().toString();
-        String back = ((EditText) findViewById(R.id.input_back)).getText().toString();
-        presenter.confirmAddClicked(front, back);
+        String frontText = front.getText().toString();
+        String backText = back.getText().toString();
+        presenter.confirmAddClicked(frontText, backText);
+    }
+
+    public void clearInputs() {
+        front.setText("");
+        back.setText("");
+    }
+
+    public void resetFocus() {
+        front.requestFocus();
     }
 
     @Override
