@@ -14,6 +14,7 @@ public class Home extends ToolbarExtension {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         initiateToolbar("Home");
+        initiateMenu();
     }
 
     public void exercise_button(View view) {

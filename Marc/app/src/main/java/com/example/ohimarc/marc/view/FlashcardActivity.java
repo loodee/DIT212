@@ -18,12 +18,13 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
     private TextView cardTitle;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
         cardTitle = findViewById(R.id.cardTitle);
         cardButton = findViewById(R.id.cardButton);
         initiateToolbar();
+        initiateMenu();
         presenter.onCreate();
     }
 
@@ -40,7 +41,7 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
 
     public void flipCardButtonClicked(View v) {
         boolean bool = false;
-        if(cardTitle.getText().equals("Q:")) {
+        if (cardTitle.getText().equals("Q:")) {
             bool = true;
         }
         presenter.flashCardClicked(bool);

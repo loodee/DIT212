@@ -29,6 +29,7 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         initiateToolbar("Results");
+        initiateMenu();
 
         resultText = findViewById(R.id.scoreText);
         deckTitleText = findViewById(R.id.deckTitleText);
@@ -44,7 +45,7 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
     private void bundleHandler() {
         Bundle b = getIntent().getExtras();
         value = null;
-        if(b != null) {
+        if (b != null) {
             value = b.getIntegerArrayList("results");
             deckTitle = b.getString("deckTitle");
             mode = b.getString("mode");
