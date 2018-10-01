@@ -35,6 +35,7 @@ public class AddNotePresenter implements Presenter {
     public void confirmAddClicked(String front, String back) {
         deck.addBasicNote(front, back);
         resetInputs();
+        view.showToast();
     }
 
     private void resetInputs() {
