@@ -29,7 +29,7 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
 
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
         ActionBar bar = getSupportActionBar();
-        bar.setTitle("Add Note");
+        if (bar != null) bar.setTitle("Add Note");
 
         front = findViewById(R.id.input_front);
         back = findViewById(R.id.input_back);
