@@ -2,20 +2,16 @@ package com.example.ohimarc.marc.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.ohimarc.marc.model.ToolbarExtension;
 import com.example.ohimarc.marc.presenter.ResultPresenter;
 import com.example.ohimarc.marc.R;
 
 import java.util.ArrayList;
 
-public class ResultsActivity extends AppCompatActivity implements ResultsView {
+public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
     ResultPresenter presenter;
 
@@ -26,16 +22,18 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
     private TextView resultText;
     private TextView deckTitleText;
     private TextView modeText;
+    private TextView titleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
+        initiateToolbar("Results");
 
         resultText = findViewById(R.id.scoreText);
         deckTitleText = findViewById(R.id.deckTitleText);
         modeText = findViewById(R.id.modeText);
+        titleText = findViewById(R.id.toolbar_text);
 
         bundleHandler();
 
@@ -53,16 +51,8 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
         }
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items,menu);
-        return true;
-    }
-
     public void initTexts(int correct, int total) {
         resultText.setText("Score: " + correct + "/" + total);
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Results");
         deckTitleText.setText(deckTitle);
         modeText.setText("Mode: " + mode);
 
