@@ -18,7 +18,7 @@ abstract public class ToolbarExtension extends AppCompatActivity {
         return true;
     }
 
-    public void initiateToolbar(String title) {
+    protected void initiateToolbar(String title) {
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         tb.setNavigationIcon(R.drawable.ic_menu_black_24dp);
@@ -27,7 +27,7 @@ abstract public class ToolbarExtension extends AppCompatActivity {
         titleText.setText(title);
     }
 
-    public void initiateToolbar() {
+    protected void initiateToolbar() {
         Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         tb.setNavigationIcon(R.drawable.ic_menu_black_24dp);
