@@ -1,20 +1,16 @@
 package com.example.ohimarc.marc.view;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.ohimarc.marc.model.ToolbarExtension;
 import com.example.ohimarc.marc.presenter.FlashcardPresenter;
 import com.example.ohimarc.marc.R;
 
-public class FlashcardActivity extends AppCompatActivity implements FlashcardView {
+public class FlashcardActivity extends ToolbarExtension implements FlashcardView {
 
     FlashcardPresenter presenter = new FlashcardPresenter(this);
 
@@ -27,21 +23,14 @@ public class FlashcardActivity extends AppCompatActivity implements FlashcardVie
         setContentView(R.layout.activity_flashcard);
         cardTitle = findViewById(R.id.cardTitle);
         cardButton = findViewById(R.id.cardButton);
-        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
+        initiateToolbar();
         presenter.onCreate();
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items,menu);
-        return true;
-    }
-
     public void initTexts(String deckTitleText, String cardText) {
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle(deckTitleText);
         cardButton.setText(cardText);
         cardTitle.setText("Q:");
+        titleText.setText(deckTitleText);
     }
 
     public void flipCardButton(String qora, String text) {
