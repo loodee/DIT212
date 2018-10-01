@@ -2,15 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_menu"
-        android:icon="@drawable/ic_menu_black_24dp"
-        android:title="@string/action_menu"
-        app:showAsAction="always"
-        android:orderInCategory="100"/>
-    <item
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_settings_black_24dp"
         android:title="@string/action_settings"
-        app:showAsAction="always"
-        android:orderInCategory="200"/>
+        app:showAsAction="always"/>
 </menu>
