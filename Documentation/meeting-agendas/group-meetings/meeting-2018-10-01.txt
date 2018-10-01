@@ -1,0 +1,50 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-10-01
+Chair: Victor Johansson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Mathias Forsman, Victor Johansson
+
+## Objectives (5 min)
+Discuss the color theme in the app.
+Discuss user stories that we may will implement this week.
+Discuss the SDD.
+
+
+## Reports (15 min) 
+* User story 5 has been completed. (Gustav)
+* Progress has been made on user story 7 (basic ability to add notes) (Thomas, Mathias, Gustav)
+
+
+## Discussion items (35 min)
+1. What kind of color theme should be used in our application?
+   1. Are we to define standard colors to be used in the Values-file?
+   2. Should the colors the saved in the colors.xml file?
+1. Do we have enough user stories for us to have work to do? If not, what new user stories could we create?
+2. What should the SDD contain? When should we start writing it?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+1. There exists a tool on the MaterialDesign (https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=00838F&secondary.color=455A64) site to help choose fitting color themes. The group decided on using the following preliminary color scheme:
+   1. The group decided on using the following colors for the preliminary color scheme:
+      1. Primary color: Cyan 800
+      2. Secondary color: Blue Gray 700
+   1. The color scheme will be exported from the tool as an XML file to smoothly be integrated into the project.
+1. There is some work that needs to be done, that user stories don’t exist for yet. The group decided on implementing/adjusting user stories for the following features:
+   1. The side menu bar, with its elements and functionality, needs to be implemented and needs a user story.
+   2. User story #11 addresses user profiles, but doesn’t cover that a user might want to logout and change profile in-app, without restarting. The acceptance criteria needs to be adjusted to address this.
+1. The SDD needs to get some progress until the next meeting. Since the group hasn’t started work on the SDD yet, this needs to be done until next meeting.
+   1. Regarding the content of the SDD, the group members should check the template on the course page
+
+
+Assignments: 
+* Continue work on user story #7 (Mathias, Thomas)
+* Rewrite user story #11 acceptance criteria and add a user story for the side menu feature. (everyone)
+   * Start work on the side menu (Alexander)
+* Update the design model and domain model (Gustav)
+* Start work on user story #8 (Victor)
+* Start work on user story #11 (Gustav)
+
+
+## Wrap up
+The next meeting will be held at 2018-10-05, 13:00 efter maten.
