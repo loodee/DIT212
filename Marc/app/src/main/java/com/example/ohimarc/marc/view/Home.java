@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.View;
 
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.StaticTestDeck;
 
 public class Home extends AppCompatActivity {
 
@@ -17,16 +18,24 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
+
+        StaticTestDeck.addFirst();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items,menu);
+        inflater.inflate(R.menu.toolbar_items, menu);
         return true;
     }
 
     public void exercise_button(View view) {
         Intent intent = new Intent(Home.this, FlashcardActivity.class);
+        startActivity(intent);
+        //finish();
+    }
+
+    public void deck_button(View view) {
+        Intent intent = new Intent(Home.this, AddNoteActivity.class);
         startActivity(intent);
         //finish();
     }
