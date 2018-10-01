@@ -1,19 +1,38 @@
 package com.example.ohimarc.marc.presenter;
 
+import com.example.ohimarc.marc.model.BasicNote;
 import com.example.ohimarc.marc.model.Deck;
-import com.example.ohimarc.marc.view.EditDeckView;
+import com.example.ohimarc.marc.view.editdeck.BasicNoteRowView;
+import com.example.ohimarc.marc.view.editdeck.BasicNoteViewHolder;
+import com.example.ohimarc.marc.view.editdeck.EditDeckContract;
 
-public class EditDeckPresenter {
-    private Deck testDeck;
+public class EditDeckPresenter implements EditDeckContract.Presenter {
 
-    public EditDeckPresenter(EditDeckView view){
-        testDeck = new Deck("testdeck");
-        testDeck.addBasicNote("hund (front)", "dog");
+
+    private Deck deck;
+
+    @Override
+    public void start() {
+        // TODO: Add presenter init logic
+        deck = new Deck("Test");
+        deck.addBasicNote("hej", "san"); // testing purposes
+    }
+
+    @Override
+    public void onBindBasicNoteRowViewAtPosition(BasicNoteViewHolder position, int rowView) {
 
     }
 
-    public String getDeckTitle() {
-        return testDeck.getTitle();
+
+    public void onBindBasicNoteRowViewAtPosition(BasicNoteRowView rowView, int position) {
+        // TODO: Solve potential casting problem. The list must be BasicNotes or it will cause exception
+        BasicNote basicNote = (BasicNote) deck.getNotes().get(position);
+        rowView.setFrontText(basicNote.getFront());
+        rowView.setBackText(basicNote.getBack());
     }
 
+    @Override
+    public int getBasicNoteRowsCount() {
+        return deck.getDeckSize();
+    }
 }
