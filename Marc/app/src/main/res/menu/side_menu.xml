@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/home_button"
@@ -11,14 +10,14 @@
     <item
         android:id="@+id/exercises_button"
         android:icon="@drawable/ic_exercise_remake"
-        android:title="Exercises"
-        android:orderInCategory="2"/>
+        android:orderInCategory="2"
+        android:title="Exercises" />
 
     <item
         android:id="@+id/achievements_button"
         android:icon="@drawable/ic_trophy"
-        android:title="Achievements"
-        android:orderInCategory="3"/>
+        android:orderInCategory="3"
+        android:title="Achievements" />
 
     <item
         android:id="@+id/decks_button"
@@ -29,14 +28,14 @@
     <item
         android:id="@+id/logout_button"
         android:icon="@drawable/ic_baseline_person_24px"
-        android:title="Logout"
-        android:orderInCategory="5"/>
+        android:orderInCategory="5"
+        android:title="Logout" />
 
     <item
         android:id="@+id/settings_button"
         android:icon="@drawable/ic_settings_black_24dp"
-        android:title="Settings"
-        android:orderInCategory="6"/>
+        android:orderInCategory="6"
+        android:title="Settings" />
 
-    
+
 </menu>
