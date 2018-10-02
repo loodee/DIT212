@@ -23,8 +23,7 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         setContentView(R.layout.activity_flashcard);
         cardTitle = findViewById(R.id.cardTitle);
         cardButton = findViewById(R.id.cardButton);
-        initiateToolbar();
-        initiateMenu();
+        initToolbar(this, R.id.flashcardactivity);
         presenter.onCreate();
     }
 

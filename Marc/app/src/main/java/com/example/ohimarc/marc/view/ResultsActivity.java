@@ -22,14 +22,12 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
     private TextView resultText;
     private TextView deckTitleText;
     private TextView modeText;
-    private TextView titleText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-        initiateToolbar("Results");
-        initiateMenu();
+        initToolbar(this,R.id.resultsactivity,"Results");
 
         resultText = findViewById(R.id.scoreText);
         deckTitleText = findViewById(R.id.deckTitleText);

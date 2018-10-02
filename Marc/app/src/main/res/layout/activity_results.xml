@@ -1,70 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/resultsactivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.ResultsActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/darker_gray">
+        android:orientation="vertical">
 
-        <include android:id="@+id/toolbar"
-            layout="@layout/activity_toolbar"/>
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/activity_toolbar" />
 
-        <TextView
-            android:id="@+id/deckTitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:background="@android:color/background_light"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray">
 
-        <TextView
-            android:id="@+id/modeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="170dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            <TextView
+                android:id="@+id/deckTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-        <TextView
-            android:id="@+id/scoreText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="240dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            <TextView
+                android:id="@+id/modeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="120dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-        <Button
-            android:id="@+id/retryButton"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="120dp"
-            android:background="@android:color/background_light"
-            android:onClick="retryButton"
-            android:text="Retry"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="190dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-        <Button
-            android:id="@+id/returnButton"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp"
-            android:background="@android:color/background_light"
-            android:text="Return to deck"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    </RelativeLayout>
+            <Button
+                android:id="@+id/retryButton"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="120dp"
+                android:background="@android:color/background_light"
+                android:onClick="retryButton"
+                android:text="Retry"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-</android.support.constraint.ConstraintLayout>
+            <Button
+                android:id="@+id/returnButton"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:background="@android:color/background_light"
+                android:text="Return to deck"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/side_menu"
+        layout="@layout/activity_side_menu" />
+
+</android.support.v4.widget.DrawerLayout>
