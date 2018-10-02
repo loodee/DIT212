@@ -10,4 +10,6 @@
     <string name="achivements_ico">Achivement button</string>
     <string name="decks">Decks</string>
     <string name="achievements">Achievements</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
 </resources>
