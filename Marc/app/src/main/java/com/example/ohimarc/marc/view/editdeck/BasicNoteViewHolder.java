@@ -9,15 +9,18 @@ import com.example.ohimarc.marc.R;
 
 public class BasicNoteViewHolder extends RecyclerView.ViewHolder {
 
-    private EditText basicNoteText;
+    private EditText basicNoteTextFront;
+    private EditText basicNoteTextBack;
 
     public BasicNoteViewHolder(@NonNull View itemView) {
         super(itemView);
-        basicNoteText = itemView.findViewById(R.id.et_front_basic_note);
-        basicNoteText = itemView.findViewById(R.id.et_back_basic_note);
+        basicNoteTextFront = itemView.findViewById(R.id.et_front_basic_note);
+        basicNoteTextBack = itemView.findViewById(R.id.et_back_basic_note);
     }
 
-    public void setBasicNoteText(String text) {
-        basicNoteText.setText(text);
+    public void setBasicNoteText(String frontText, String backText) {
+        basicNoteTextFront.setText(frontText);
+        basicNoteTextBack.setText(backText);
+
     }
 }
