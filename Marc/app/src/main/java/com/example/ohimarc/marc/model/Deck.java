@@ -29,6 +29,24 @@ public class Deck {
     }
 
     /**
+     * Creates the BasicNote at index with a new Note and generates its Card(s).
+     * @param front The text that will go in the `front` field of the Note.
+     * @param back The text that will go in the `back` field of the Note.
+     * @param index The index at which to replace the Note.
+     */
+    public void addBasicNote(String front, String back, int index) {
+        notes.set(index, new BasicNote(front, back));
+    }
+
+    /**
+     * Deletes the Note at index
+     * @param index The index at which to delete the Note.
+     */
+    public void deleteNote(int index) {
+        notes.remove(index);
+    }
+
+    /**
      * Iterates through all the notes in the deck and returns an array of tuples of strings,
      * where each tuple contains the front and back of the Cards.
      * @return Array of tuples of strings, where index 0 contains the info on the front,
