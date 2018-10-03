@@ -50,4 +50,8 @@ public class AddRemoveDeckActivity extends AppCompatActivity {
         inflater.inflate(R.menu.toolbar_items,menu);
         return true;
     }
+
+    public void addButtonClicked(View v){
+        presenter.addButtonClicked();
+    }
 }

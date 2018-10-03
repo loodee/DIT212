@@ -49,4 +49,8 @@ public class AddRemoveDeckPresenter implements Presenter {
         return deckList.size();
     }
 
+    public void addButtonClicked(){
+
+    }
+
 }
