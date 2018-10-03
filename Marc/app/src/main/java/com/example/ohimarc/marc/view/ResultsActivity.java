@@ -51,7 +51,7 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
     public void initTexts(int correct, int total) {
         resultText.setText("Score: " + correct + "/" + total);
-        deckTitleText.setText(deckTitle);
+        deckTitleText.setText("Deck: " + deckTitle);
         modeText.setText("Mode: " + mode);
 
     }
