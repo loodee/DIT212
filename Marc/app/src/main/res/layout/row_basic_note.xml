@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/et_front_basic_note"
+    <TextView
+        android:id="@+id/tv_front_basic_note"
         android:layout_width="match_parent"
         android:layout_height="87dp"
         android:background="@android:color/background_light" />
@@ -16,8 +15,8 @@
         android:layout_height="1dp"
         android:background="@android:color/black" />
 
-    <EditText
-        android:id="@+id/et_back_basic_note"
+    <TextView
+        android:id="@+id/tv_back_basic_note"
         android:layout_width="match_parent"
         android:layout_height="87dp"
         android:background="@android:color/background_light" />
