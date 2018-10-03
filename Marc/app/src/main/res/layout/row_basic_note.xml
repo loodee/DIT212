@@ -8,17 +8,17 @@
     <EditText
         android:id="@+id/et_front_basic_note"
         android:layout_width="match_parent"
-        android:layout_height="102dp"
+        android:layout_height="87dp"
         android:background="@android:color/background_light" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black" />
 
     <EditText
         android:id="@+id/et_back_basic_note"
         android:layout_width="match_parent"
-        android:layout_height="102dp"
+        android:layout_height="93dp"
         android:background="#fa0606" />
 </LinearLayout>

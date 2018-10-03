@@ -36,6 +36,13 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
         editDeckTitle();
 
+        RecyclerView rv = findViewById(R.id.rv_recyclerView);
+        rv.setAdapter(new AdapterEditDeckRC(editDeckPresenter));
+        editDeckPresenter.start();
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        rv.setLayoutManager(layoutManager);
+
 
         ImageButton addCardButton = findViewById(R.id.fb_add_card_button);
         addCardButton.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +71,7 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
     @Override
     public void updateDeckList() {
         RecyclerView revVi = findViewById(R.id.rv_recyclerView);
-        (Objects.requireNonNull(revVi.getAdapter())).notifyDataSetChanged();
+        Objects.requireNonNull(revVi.getAdapter()).notifyDataSetChanged();
     }
 
     @Override

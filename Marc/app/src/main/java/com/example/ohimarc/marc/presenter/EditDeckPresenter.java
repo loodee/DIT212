@@ -25,8 +25,8 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
         // TODO: Add presenter init logic
         deck = new Deck("testDeck");
         deck.addBasicNote("hej", "san"); // testing purposes
+        deck.addBasicNote("Äntligen", "klar");
         editDeckActivity.updateDeckList();
-        Log.d("visa rött", ""+getBasicNoteRowsCount());
     }
 
     @Override
