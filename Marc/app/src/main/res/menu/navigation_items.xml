@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_button"
+        android:icon="@drawable/ic_sharp_home_24px"
+        android:orderInCategory="1"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/exercises_button"
+        android:icon="@drawable/ic_exercise_remake"
+        android:orderInCategory="2"
+        android:title="Exercises" />
+
+    <item
+        android:id="@+id/achievements_button"
+        android:icon="@drawable/ic_trophy"
+        android:orderInCategory="3"
+        android:title="Achievements" />
+
+    <item
+        android:id="@+id/decks_button"
+        android:icon="@drawable/ic_deck"
+        android:orderInCategory="4"
+        android:title="Decks" />
+
+    <item
+        android:id="@+id/settings_button"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:orderInCategory="5"
+        android:title="Settings" />
+
+</menu>
