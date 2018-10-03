@@ -10,14 +10,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.model.Card;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.presenter.EditDeckPresenter;
-import com.example.ohimarc.marc.view.Home;
 
 import java.util.Objects;
 
@@ -50,14 +48,10 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditDeckActivity.this, AddNoteActivity.class);
+                Intent intent = new Intent(EditDeckActivity.this, EditNoteActivity.class);
                 startActivity(intent);
             }
         });
-    }
-
-    public void addBasicNote(String front, String back) {
-        testDeck.addBasicNote(front, back);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,7 +59,6 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
         inflater.inflate(R.menu.toolbar_items, menu);
         return true;
     }
-
 
     public void setPresenter(EditDeckContract.Presenter presenter) {
         //this.presenter = presenter;

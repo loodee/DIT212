@@ -2,14 +2,21 @@ package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.StaticTestDeck;
 import com.example.ohimarc.marc.model.Deck;
-import com.example.ohimarc.marc.view.editdeck.AddNoteView;
+import com.example.ohimarc.marc.view.editdeck.EditNoteView;
 
-public class AddNotePresenter implements Presenter {
-    private AddNoteView view;
-    private Deck deck = StaticTestDeck.globalDeck;
+public class EditNotePresenter implements Presenter {
+    private EditNoteView view;
+    private Deck deck;
+    private int index;
 
-    public AddNotePresenter(AddNoteView view) {
+    public EditNotePresenter(EditNoteView view) {
         this.view = view;
+        this.deck = StaticTestDeck.globalDeck;
+    }
+    public EditNotePresenter(EditNoteView view, int index) {
+        this.view = view;
+        this.deck = StaticTestDeck.globalDeck;
+        this.index = index;
     }
 
     @Override

@@ -19,7 +19,7 @@
         <activity android:name=".view.FlashcardActivity"></activity>
 
         <activity
-            android:name=".view.editdeck.AddNoteActivity"
+            android:name=".view.editdeck.EditNoteActivity"
             android:exported="true"/>
         <activity
             android:name=".view.editdeck.EditDeckActivity"

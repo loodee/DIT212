@@ -19,34 +19,50 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
-import com.example.ohimarc.marc.presenter.AddNotePresenter;
+import com.example.ohimarc.marc.presenter.EditNotePresenter;
 
-public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
-    private AddNotePresenter presenter = new AddNotePresenter(this);
+public class EditNoteActivity extends AppCompatActivity implements EditNoteView {
+    private enum ActionType {
+        ADD,
+        EDIT,
+    }
 
+    private EditNotePresenter presenter;
     private TextInputLayout frontLayout, backLayout;
     private EditText frontEditText, backEditText;
-
     private Toast toast;
+    private ActionType mode;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_note);
-
-        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
-        ActionBar bar = getSupportActionBar();
-        if (bar != null) bar.setTitle("Add Note");
-
+    private void setupVars(Bundle extras) {
         frontLayout = findViewById(R.id.textInputFront);
         backLayout = findViewById(R.id.textInputBack);
         frontEditText = findViewById(R.id.input_front);
         backEditText = findViewById(R.id.input_back);
 
-        setupListeners();
-        setupToast();
+        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
+        ActionBar bar = getSupportActionBar();
+
+        if (extras == null) {   // if adding a new Note
+            mode = ActionType.ADD;
+            presenter = new EditNotePresenter(this);
+            if (bar != null) bar.setTitle("Add Note");
+        } else {                // if editing an existing Note
+            mode = ActionType.EDIT;
+            presenter = new EditNotePresenter(this, extras.getInt("index"));
+            if (bar != null) bar.setTitle("Edit Note");
+        }
 
         presenter.onCreate();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_edit_note);
+
+        setupVars(getIntent().getExtras());
+        setupListeners();
+        setupToast();
     }
 
     @Override
