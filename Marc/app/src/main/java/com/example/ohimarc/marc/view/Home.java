@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.ohimarc.marc.R;
-import com.example.ohimarc.marc.model.ToolbarExtension;
 
 public class Home extends ToolbarExtension {
 

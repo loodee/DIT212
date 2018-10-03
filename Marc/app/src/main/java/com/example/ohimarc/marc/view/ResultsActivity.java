@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.ohimarc.marc.model.ToolbarExtension;
 import com.example.ohimarc.marc.presenter.ResultPresenter;
 import com.example.ohimarc.marc.R;
 

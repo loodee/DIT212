@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.model;
+package com.example.ohimarc.marc.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -65,14 +65,25 @@ abstract public class ToolbarExtension extends AppCompatActivity {
         return true;
     }
 
+    private boolean currentActivityEqualsNextActivity(String className) {
+        if (this.getClass().getSimpleName().equals(className)) {
+            return true;
+        }
+        return false;
+    }
+
     private void initNavigationListeners() {
         navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case (R.id.home_button):
-                        Intent intent = new Intent(getApplicationContext(), Home.class);
-                        startActivity(intent);
+                        if (!currentActivityEqualsNextActivity(Home.class.getSimpleName())) {
+                            Intent intent = new Intent(getApplicationContext(), Home.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                        navView.closeDrawers();
                         break;
                 }
                 return true;
