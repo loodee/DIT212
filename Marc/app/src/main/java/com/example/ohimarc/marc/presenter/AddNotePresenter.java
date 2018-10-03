@@ -32,14 +32,26 @@ public class AddNotePresenter implements Presenter {
 
     }
 
-    public void confirmAddClicked(String front, String back) {
-        deck.addBasicNote(front, back);
-        resetInputs();
-        view.showToast();
+    /**
+     * Checks if the input string is invalid (contains only whitespaces)
+     * @param input String value to be validated
+     * @return true if the string contains only whitespaces, false otherwise
+     */
+    public boolean invalidInput(String input) {
+        return input.replaceAll("\\s", "").isEmpty();
     }
 
-    private void resetInputs() {
-        view.clearInputs();
-        view.resetFocus();
+    public void confirmAddClicked(String front, String back) {
+        boolean valid = true;
+        if (invalidInput(front)) valid = false;
+        else if (invalidInput(back)) valid = false;
+
+        if (valid) {
+            deck.addBasicNote(front, back);
+            view.resetInputs();
+            view.showToast();
+        } else {
+            view.showErrors();
+        }
     }
 }

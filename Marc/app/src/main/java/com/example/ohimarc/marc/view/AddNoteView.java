@@ -4,7 +4,7 @@ import android.view.View;
 
 public interface AddNoteView {
     void confirmAdd(View v);
-    void clearInputs();
-    void resetFocus();
+    void resetInputs();
     void showToast();
+    void showErrors();
 }

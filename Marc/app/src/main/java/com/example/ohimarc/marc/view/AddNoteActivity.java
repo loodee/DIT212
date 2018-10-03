@@ -1,10 +1,14 @@
 package com.example.ohimarc.marc.view;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -19,11 +23,10 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.AddNotePresenter;
 
 public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
-
     private AddNotePresenter presenter = new AddNotePresenter(this);
 
-    private EditText front;
-    private EditText back;
+    private TextInputLayout frontLayout, backLayout;
+    private EditText frontEditText, backEditText;
 
     private Toast toast;
 
@@ -36,8 +39,10 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
         ActionBar bar = getSupportActionBar();
         if (bar != null) bar.setTitle("Add Note");
 
-        front = findViewById(R.id.input_front);
-        back = findViewById(R.id.input_back);
+        frontLayout = findViewById(R.id.textInputFront);
+        backLayout = findViewById(R.id.textInputBack);
+        frontEditText = findViewById(R.id.input_front);
+        backEditText = findViewById(R.id.input_back);
 
         setupListeners();
         setupToast();
@@ -74,22 +79,34 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
     }
 
     public void confirmAdd() {
-        String frontText = front.getText().toString();
-        String backText = back.getText().toString();
+        String frontText = frontEditText.getText().toString();
+        String backText = backEditText.getText().toString();
+
         presenter.confirmAddClicked(frontText, backText);
     }
 
-    public void clearInputs() {
-        front.setText("");
-        back.setText("");
-    }
-
-    public void resetFocus() {
-        front.requestFocus();
+    public void resetInputs() {
+        frontEditText.setText("");
+        backEditText.setText("");
+        frontEditText.requestFocus();
     }
 
     public void showToast() {
         toast.show();
+    }
+
+    public void showErrors() {
+        String errorMsg = "Field cannot be blank.";
+        String frontText = frontEditText.getText().toString();
+        String backText = backEditText.getText().toString();
+
+        if (presenter.invalidInput(frontText)) frontLayout.setError(errorMsg);
+        if (presenter.invalidInput(backText)) backLayout.setError(errorMsg);
+    }
+
+    private void hideErrors() {
+        frontLayout.setError(null);
+        backLayout.setError(null);
     }
 
     private void setupToast() {
@@ -102,7 +119,7 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
     }
 
     private void setupListeners() {
-        back.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        backEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 boolean handled = false;
@@ -111,6 +128,38 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
                     handled = true;
                 }
                 return handled;
+            }
+        });
+        frontEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hideErrors();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        backEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hideErrors();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
     }
