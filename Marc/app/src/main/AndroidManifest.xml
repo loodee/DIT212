@@ -12,14 +12,20 @@
         <activity android:name=".view.Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.FlashcardActivity"></activity>
-
+        <activity android:name=".view.FlashcardActivity" />
         <activity
             android:name=".view.EditDeckActivity"
             android:exported="true" />
-        <activity android:name=".view.ResultsActivity"/>
+        <activity android:name=".view.ResultsActivity" />
+        <activity
+            android:name=".view.AddRemoveDeckActivity"
+            android:exported="true"
+            android:label="@string/title_activity_add_remove_deck"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
+
 </manifest>
