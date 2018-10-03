@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.view;
+package com.example.ohimarc.marc.view.editdeck;
 
 import android.view.View;
 

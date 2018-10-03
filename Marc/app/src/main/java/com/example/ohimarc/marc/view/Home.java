@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.StaticTestDeck;
+import com.example.ohimarc.marc.view.editdeck.EditDeckActivity;
 
 public class Home extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void deck_button(View view) {
-        Intent intent = new Intent(Home.this, AddNoteActivity.class);
+        Intent intent = new Intent(Home.this, EditDeckActivity.class);
         startActivity(intent);
         //finish();
     }

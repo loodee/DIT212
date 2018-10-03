@@ -1,5 +1,6 @@
 package com.example.ohimarc.marc.view.editdeck;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.model.Card;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.presenter.EditDeckPresenter;
+import com.example.ohimarc.marc.view.Home;
 
 import java.util.Objects;
 
@@ -48,7 +50,8 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addBasicNote("front of the card", "butt of the card");
+                Intent intent = new Intent(EditDeckActivity.this, AddNoteActivity.class);
+                startActivity(intent);
             }
         });
     }

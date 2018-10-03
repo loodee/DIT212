@@ -2,7 +2,7 @@ package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.StaticTestDeck;
 import com.example.ohimarc.marc.model.Deck;
-import com.example.ohimarc.marc.view.AddNoteView;
+import com.example.ohimarc.marc.view.editdeck.AddNoteView;
 
 public class AddNotePresenter implements Presenter {
     private AddNoteView view;

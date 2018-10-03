@@ -1,7 +1,6 @@
-package com.example.ohimarc.marc.view;
+package com.example.ohimarc.marc.view.editdeck;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
