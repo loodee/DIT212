@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.EditDeckActivity">
+    tools:context=".view.editdeck.EditDeckActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -47,7 +47,8 @@
         app:srcCompat="@drawable/ic_add_black_24dp" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rv_recyclerView"
+        tools:listitem="@layout/row_basic_note"
         android:layout_width="160dp"
         android:layout_height="234dp"
         android:layout_marginBottom="8dp"
@@ -59,19 +60,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_deck_title"
         app:layout_constraintVertical_bias="0.125" />
-
-    <TextView
-        android:id="@+id/tv_card"
-        android:layout_width="159dp"
-        android:layout_height="233dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="40dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_deck_title"
-        app:layout_constraintVertical_bias="0.012"
-        tools:ignore="LabelFor,TextFields" />
 
 </android.support.constraint.ConstraintLayout>

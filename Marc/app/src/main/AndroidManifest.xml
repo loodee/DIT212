@@ -22,7 +22,7 @@
             android:name=".view.AddNoteActivity"
             android:exported="true"/>
         <activity
-            android:name=".view.EditDeckActivity"
+            android:name=".view.editdeck.EditDeckActivity"
             android:exported="true" />
         <activity android:name=".view.ResultsActivity" />
     </application>
