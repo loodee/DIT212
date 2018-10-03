@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.StaticTestDeck;
+import com.example.ohimarc.marc.model.BasicNote;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.view.editdeck.EditNoteView;
 
@@ -9,10 +10,6 @@ public class EditNotePresenter implements Presenter {
     private Deck deck;
     private int index;
 
-    public EditNotePresenter(EditNoteView view) {
-        this.view = view;
-        this.deck = StaticTestDeck.globalDeck;
-    }
     public EditNotePresenter(EditNoteView view, int index) {
         this.view = view;
         this.deck = StaticTestDeck.globalDeck;
@@ -21,7 +18,12 @@ public class EditNotePresenter implements Presenter {
 
     @Override
     public void onCreate() {
-
+        if (index != -1) {
+            if (deck.getNote(index)instanceof BasicNote) {
+                BasicNote note = ((BasicNote) deck.getNote(index));
+                view.setValues(note.getFront(), note.getBack());
+            }
+        }
     }
 
     @Override

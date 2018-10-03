@@ -7,4 +7,5 @@ public interface EditNoteView {
     void resetInputs();
     void showToast();
     void showErrors();
+    void setValues(String front, String back);
 }

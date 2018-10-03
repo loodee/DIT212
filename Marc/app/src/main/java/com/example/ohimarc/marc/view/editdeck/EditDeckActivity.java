@@ -49,6 +49,7 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditDeckActivity.this, EditNoteActivity.class);
+                intent.putExtra("index", 0);
                 startActivity(intent);
             }
         });

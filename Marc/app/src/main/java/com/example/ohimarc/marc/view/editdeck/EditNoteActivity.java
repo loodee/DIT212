@@ -44,7 +44,7 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
 
         if (extras == null) {   // if adding a new Note
             mode = ActionType.ADD;
-            presenter = new EditNotePresenter(this);
+            presenter = new EditNotePresenter(this, -1);
             if (bar != null) bar.setTitle("Add Note");
         } else {                // if editing an existing Note
             mode = ActionType.EDIT;
@@ -81,6 +81,11 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
     protected void onDestroy() {
         super.onDestroy();
         presenter.onDestroy();
+    }
+
+    public void setValues(String front, String back) {
+        frontEditText.setText(front);
+        backEditText.setText(back);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
