@@ -47,4 +47,11 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
     public int getUserRowsCount() {
         return users.size();
     }
+
+    public void createUser(String name){
+        //TODO: MTT addUser(name)
+        //model.addUser();
+        users.add(new User(name));
+        store.storeUsers(users);
+    }
 }
