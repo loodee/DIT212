@@ -13,7 +13,7 @@ public class Home extends ToolbarExtension {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        initToolbar(this, R.id.homeactivity,"Home");
+        initExtension(this, R.id.homeactivity,"Home");
     }
 
     public void exercise_button(View view) {

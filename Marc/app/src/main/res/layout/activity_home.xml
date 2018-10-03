@@ -191,14 +191,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/toolbar"
                 app:srcCompat="@drawable/home_logo" />
-
-
         </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
 
     <include
-        android:id="@+id/side_menu"
-        layout="@layout/activity_side_menu" />
+        android:id="@+id/navigation"
+        layout="@layout/activity_navigation" />
 
 </android.support.v4.widget.DrawerLayout>

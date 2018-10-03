@@ -27,7 +27,7 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-        initToolbar(this,R.id.resultsactivity,"Results");
+        initExtension(this,R.id.resultsactivity,"Results");
 
         resultText = findViewById(R.id.scoreText);
         deckTitleText = findViewById(R.id.deckTitleText);
