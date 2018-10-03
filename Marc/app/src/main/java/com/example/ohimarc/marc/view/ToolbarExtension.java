@@ -11,10 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
-import com.example.ohimarc.marc.view.Home;
 
 abstract public class ToolbarExtension extends AppCompatActivity {
 
@@ -89,6 +90,11 @@ abstract public class ToolbarExtension extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    public void logoutClicked(View v) {
+        Toast toast = Toast.makeText(getApplicationContext(), "Logout Clicked", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
