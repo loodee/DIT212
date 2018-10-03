@@ -26,16 +26,9 @@
         android:title="Decks" />
 
     <item
-        android:id="@+id/logout_button"
-        android:icon="@drawable/ic_baseline_person_24px"
-        android:orderInCategory="5"
-        android:title="Logout" />
-
-    <item
         android:id="@+id/settings_button"
         android:icon="@drawable/ic_settings_black_24dp"
-        android:orderInCategory="6"
+        android:orderInCategory="5"
         android:title="Settings" />
-
 
 </menu>
