@@ -1,32 +1,58 @@
 package com.example.ohimarc.marc.service;
 
-import android.content.Context;
 
 import com.example.ohimarc.marc.model.Note;
 import com.example.ohimarc.marc.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LocalUserStorage implements UserStorage{
 
 
-    File file;
+    private String filePath;
+    private Gson g;
+    private String fileName = "/users.json";
 
-    public LocalUserStorage(File file) {
-        this.file = file;
+    public LocalUserStorage(String filePath) {
+        this.filePath = filePath;
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Note.class, new NoteClassAdapter());
+        g = gsonBuilder.create();
     }
 
+
+
     @Override
-    public void storeUsers(List<User> users) {
+    public boolean storeUsers(List<User> users) {
+        try {
+            String json = g.toJson(users);
+            FileWriter fw = new FileWriter(filePath+fileName);
+            fw.write(json);
+            fw.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
     }
 
     @Override
     public List<User> getStoredUsers() {
-        return null;
+        try {
+            List<User> users = g.fromJson(new FileReader(filePath+fileName), new TypeToken<ArrayList<User>>(){}.getType());
+            if(users == null){
+                return new ArrayList<>();
+            }
+            return users;
+        } catch (FileNotFoundException e) {
+            return new ArrayList<>();
+        }
     }
 }
