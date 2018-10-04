@@ -5,10 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.PopupWindow;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.MainMenuPresenter;
@@ -33,7 +29,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuCon
 
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
 
-        mainPresenter = new MainMenuPresenter(getFilesDir());
+        mainPresenter = new MainMenuPresenter(getFilesDir().getAbsolutePath());
 
         RecyclerView rv = findViewById(R.id.userRecyclerView);
         rv.setAdapter(new AdapterUserRC(mainPresenter));
