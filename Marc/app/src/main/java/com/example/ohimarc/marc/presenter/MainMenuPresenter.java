@@ -15,8 +15,8 @@ import java.util.List;
 
 public class MainMenuPresenter implements StartMenuContract.Presenter {
 
-    List<User> users;
-    UserStorage store;
+    private List<User> users;
+    private UserStorage store;
 
 
     public MainMenuPresenter(String filePath) {
