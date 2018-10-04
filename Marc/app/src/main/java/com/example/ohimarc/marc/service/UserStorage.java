@@ -8,13 +8,14 @@ public interface UserStorage {
 
     /**
      * Given a list of users stores all the users so they can be accessed at a later time, returns false if the users fails to save
-     * @param users The user that are going to be saved
+     * @param users The users that are going to be saved
      * @return returns true if the users are successfully stored, otherwise returns false
      * */
     boolean storeUsers(List<User> users);
 
     /**
-     * Returns a list of all stored users
+     * Retries all the stored users and removes them
+     * @return A list of all stored users, if there are no users saved an empty List object will be returned
      * */
     List<User> getStoredUsers();
 
