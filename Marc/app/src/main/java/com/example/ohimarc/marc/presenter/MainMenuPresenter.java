@@ -15,6 +15,10 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
     private UserStorage store;
 
 
+    /**
+     * Creates a MainMenuPresenter which retrieve its persistent state from the given path
+     * @param filePath The absolute filepath where the persistent state file is saved
+     * */
     public MainMenuPresenter(String filePath) {
         store = new LocalUserStorage(filePath);
         users = store.getStoredUsers();
@@ -35,10 +39,16 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
         return users != null ? users.size() : 0;
     }
 
-    public void createUser(String name){
+    /**
+     * Given a name of a user creates a new user and saves it persistently
+     * @param name The name of the user that is going to be added
+     * @return returns true if the user is successfully created, otherwise returns false
+     * */
+    public boolean createUser(String name){
         //TODO: MTT addUser(name)
         //model.addUser();
         users.add(new User(name));
-        store.storeUsers(users);
+        Boolean sucess = store.storeUsers(users);
+        return sucess;
     }
 }
