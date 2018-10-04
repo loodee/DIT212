@@ -6,7 +6,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/input"
-        android:text="TEST TEST TEST"/>
+        android:id="@+id/input"/>
 
 </android.support.constraint.ConstraintLayout>
