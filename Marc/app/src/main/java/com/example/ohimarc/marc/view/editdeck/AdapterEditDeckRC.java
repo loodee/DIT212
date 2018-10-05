@@ -19,7 +19,7 @@ public class AdapterEditDeckRC extends RecyclerView.Adapter<BasicNoteViewHolder>
     @NonNull
     @Override
     public BasicNoteViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new BasicNoteViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_basic_note, viewGroup, false));
+        return new BasicNoteViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_basic_note, viewGroup, false), presenter);
     }
 
 
