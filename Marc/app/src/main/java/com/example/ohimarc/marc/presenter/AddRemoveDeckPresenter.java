@@ -16,8 +16,6 @@ public class AddRemoveDeckPresenter implements Presenter {
         deckList.add(testDeck);
         deckList.add(testDeck1);
         deckList.add(testDeck2);
-        deckList.add(testDeck);
-        deckList.add(testDeck);
         }
 
     @Override
@@ -49,8 +47,8 @@ public class AddRemoveDeckPresenter implements Presenter {
         return deckList.size();
     }
 
-    public void addButtonClicked(){
-
+    public void addDeck(String deckTitle){
+        deckList.add(new Deck(deckTitle));
     }
 
 }
