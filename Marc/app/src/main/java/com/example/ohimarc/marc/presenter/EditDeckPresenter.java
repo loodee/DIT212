@@ -33,5 +33,4 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     public int getBasicNoteRowsCount() {
         return deck.getDeckSize();
     }
-
 }

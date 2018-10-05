@@ -25,12 +25,14 @@ public class AdapterEditDeckRC extends RecyclerView.Adapter<BasicNoteViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull BasicNoteViewHolder basicNoteViewHolder, int i) {
-        presenter.onBindBasicNoteRowViewAtPosition(basicNoteViewHolder,i);
+        presenter.onBindBasicNoteRowViewAtPosition(basicNoteViewHolder, i);
 
     }
 
 
     @Override
-    public int getItemCount() { return presenter.getBasicNoteRowsCount(); }
+    public int getItemCount() {
+        return presenter.getBasicNoteRowsCount();
+    }
 
 }

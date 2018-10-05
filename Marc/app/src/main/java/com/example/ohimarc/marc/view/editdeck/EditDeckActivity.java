@@ -22,7 +22,6 @@ import java.util.Objects;
 public class EditDeckActivity extends AppCompatActivity implements EditDeckContract.View {
 
 
-    private Card test = new Card("Test", "Test2");
     private Deck testDeck = new Deck("testDeck");
     private EditDeckPresenter editDeckPresenter = new EditDeckPresenter(this);
 
@@ -31,7 +30,6 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_deck);
         deckTitles();
-        testDeck.addBasicNote("hej", "san"); // testing purposes
 
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
         editDeckTitle();
