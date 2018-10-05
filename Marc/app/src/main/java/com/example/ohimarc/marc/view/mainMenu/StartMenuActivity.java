@@ -29,15 +29,14 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuCon
 
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
 
-        mainPresenter = new MainMenuPresenter(getFilesDir().getAbsolutePath());
-
-        RecyclerView rv = findViewById(R.id.userRecyclerView);
-        rv.setAdapter(new AdapterUserRC(mainPresenter));
+        mainPresenter = new MainMenuPresenter(this,getFilesDir().getAbsolutePath());
         mainPresenter.start();
 
+        RecyclerView rv = findViewById(R.id.userRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(layoutManager);
 
+        rv.setAdapter(new AdapterUserRC(mainPresenter));
         ImageButton addCardButton = findViewById(R.id.floatingActionButton);
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,5 +97,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuCon
         });
 
         builder.show();
+    }
+    public void login() {
     }
 }

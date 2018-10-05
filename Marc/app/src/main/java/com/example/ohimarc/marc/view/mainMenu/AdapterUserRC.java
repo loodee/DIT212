@@ -14,12 +14,11 @@ public class AdapterUserRC extends RecyclerView.Adapter<UserViewHolder> {
     public AdapterUserRC(StartMenuContract.Presenter presenter) {
         this.presenter = presenter;
     }
-
-
+    
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new UserViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_user, viewGroup, false));
+        return new UserViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_user, viewGroup, false), presenter);
     }
 
     @Override
