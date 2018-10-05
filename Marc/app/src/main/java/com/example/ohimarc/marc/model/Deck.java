@@ -62,6 +62,10 @@ public class Deck {
         return copies.toArray(new String[0][]);
     }
 
+    public Note getNote(int index) {
+        return notes.size() > index ? notes.get(index) : null;
+    }
+
     public List<Note> getNotes() {
         return notes;
     }

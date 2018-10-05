@@ -19,34 +19,45 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
-import com.example.ohimarc.marc.presenter.AddNotePresenter;
+import com.example.ohimarc.marc.presenter.EditNotePresenter;
 
-public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
-    private AddNotePresenter presenter = new AddNotePresenter(this);
-
+public class EditNoteActivity extends AppCompatActivity implements EditNoteView {
+    private EditNotePresenter presenter;
     private TextInputLayout frontLayout, backLayout;
     private EditText frontEditText, backEditText;
-
     private Toast toast;
+    private boolean isEditing;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_note);
-
-        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
-        ActionBar bar = getSupportActionBar();
-        if (bar != null) bar.setTitle("Add Note");
-
+    private void setupVars(Bundle extras) {
         frontLayout = findViewById(R.id.textInputFront);
         backLayout = findViewById(R.id.textInputBack);
         frontEditText = findViewById(R.id.input_front);
         backEditText = findViewById(R.id.input_back);
 
-        setupListeners();
-        setupToast();
+        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
+        ActionBar bar = getSupportActionBar();
+
+        if (extras == null) {   // if adding a new Note
+            isEditing = false;
+            presenter = new EditNotePresenter(this, -1);
+            if (bar != null) bar.setTitle("Add Note");
+        } else {                // if editing an existing Note
+            isEditing = true;
+            presenter = new EditNotePresenter(this, extras.getInt("index"));
+            if (bar != null) bar.setTitle("Edit Note");
+        }
 
         presenter.onCreate();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_edit_note);
+
+        setupVars(getIntent().getExtras());
+        setupListeners();
+        setupToast();
     }
 
     @Override
@@ -73,6 +84,15 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
         return true;
     }
 
+    public void selfDestruct() {
+        finishAfterTransition();
+    }
+
+    public void setValues(String front, String back) {
+        frontEditText.setText(front);
+        backEditText.setText(back);
+    }
+
     public void confirmAdd(View v) {
         confirmAdd();
     }
@@ -81,7 +101,7 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteView {
         String frontText = frontEditText.getText().toString();
         String backText = backEditText.getText().toString();
 
-        presenter.confirmAddClicked(frontText, backText);
+        presenter.confirmAddClicked(frontText, backText, isEditing);
     }
 
     public void resetInputs() {
