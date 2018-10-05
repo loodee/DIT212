@@ -19,7 +19,7 @@ public class EditNotePresenter implements Presenter {
     @Override
     public void onCreate() {
         if (index != -1) {
-            if (deck.getNote(index)instanceof BasicNote) {
+            if (deck.getNote(index) instanceof BasicNote) {
                 BasicNote note = ((BasicNote) deck.getNote(index));
                 view.setValues(note.getFront(), note.getBack());
             }
@@ -43,6 +43,7 @@ public class EditNotePresenter implements Presenter {
 
     /**
      * Checks if the input string is invalid (contains only whitespaces)
+     *
      * @param input String value to be validated
      * @return true if the string contains only whitespaces, false otherwise
      */
@@ -50,14 +51,24 @@ public class EditNotePresenter implements Presenter {
         return input.replaceAll("\\s", "").isEmpty();
     }
 
-    public void confirmAddClicked(String front, String back) {
+    /**
+     * @param front     String value to go on the front of the card.
+     * @param back      String value to go on the back of the card.
+     * @param isEditing true if editing an existing Note, false if creating a new Note,
+     */
+    public void confirmAddClicked(String front, String back, boolean isEditing) {
         boolean valid = true;
         if (invalidInput(front)) valid = false;
         else if (invalidInput(back)) valid = false;
 
         if (valid) {
-            deck.addBasicNote(front, back);
-            view.resetInputs();
+            if (isEditing) {
+                deck.addBasicNote(front, back, index);
+                view.selfDestruct();
+            } else {
+                deck.addBasicNote(front, back);
+                view.resetInputs();
+            }
             view.showToast();
         } else {
             view.showErrors();

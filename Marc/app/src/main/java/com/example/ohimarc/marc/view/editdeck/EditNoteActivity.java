@@ -22,16 +22,11 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.EditNotePresenter;
 
 public class EditNoteActivity extends AppCompatActivity implements EditNoteView {
-    private enum ActionType {
-        ADD,
-        EDIT,
-    }
-
     private EditNotePresenter presenter;
     private TextInputLayout frontLayout, backLayout;
     private EditText frontEditText, backEditText;
     private Toast toast;
-    private ActionType mode;
+    private boolean isEditing;
 
     private void setupVars(Bundle extras) {
         frontLayout = findViewById(R.id.textInputFront);
@@ -43,11 +38,11 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         ActionBar bar = getSupportActionBar();
 
         if (extras == null) {   // if adding a new Note
-            mode = ActionType.ADD;
+            isEditing = false;
             presenter = new EditNotePresenter(this, -1);
             if (bar != null) bar.setTitle("Add Note");
         } else {                // if editing an existing Note
-            mode = ActionType.EDIT;
+            isEditing = true;
             presenter = new EditNotePresenter(this, extras.getInt("index"));
             if (bar != null) bar.setTitle("Edit Note");
         }
@@ -83,15 +78,19 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         presenter.onDestroy();
     }
 
-    public void setValues(String front, String back) {
-        frontEditText.setText(front);
-        backEditText.setText(back);
-    }
-
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.toolbar_items, menu);
         return true;
+    }
+
+    public void selfDestruct() {
+        finishAfterTransition();
+    }
+
+    public void setValues(String front, String back) {
+        frontEditText.setText(front);
+        backEditText.setText(back);
     }
 
     public void confirmAdd(View v) {
@@ -102,7 +101,7 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         String frontText = frontEditText.getText().toString();
         String backText = backEditText.getText().toString();
 
-        presenter.confirmAddClicked(frontText, backText);
+        presenter.confirmAddClicked(frontText, backText, isEditing);
     }
 
     public void resetInputs() {
