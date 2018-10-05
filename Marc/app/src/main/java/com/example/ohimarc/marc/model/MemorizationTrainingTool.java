@@ -7,15 +7,22 @@ public class MemorizationTrainingTool {
 
     private static final MemorizationTrainingTool INSTANCE = new MemorizationTrainingTool();
 
+    //Here to make sure that no one accidentally uses "new" instead of the getInstance() method
+    private MemorizationTrainingTool(){}
+
     public static MemorizationTrainingTool getInstance(){
         return INSTANCE;
     }
 
-    private List<User> users = new ArrayList<>();
+    public List<User> users = new ArrayList<>();
     private int activeUser;
 
     public User getActiveUser() {
         return users.get(activeUser);
+    }
+
+    public int getActiveUserId(){
+        return activeUser;
     }
 
     public void addNewUser(String name){
@@ -25,5 +32,10 @@ public class MemorizationTrainingTool {
     public void setActiveUser(int id){
         activeUser = id;
     }
+
+    public List<User> getUsers(){
+        return users;
+    }
+
 
 }
