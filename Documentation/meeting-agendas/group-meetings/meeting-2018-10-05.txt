@@ -1,0 +1,71 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-10-05
+Chair: Gustav Albertsson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Mathias Forsman, Victor Johansson
+
+
+## Objectives (5 min)
+Decide on questions to ask Ayberk.
+Talk about what features to be added next.
+
+
+## Reports (15 min) 
+* Updated the domain model diagram (Gustav).
+* Updated the design model diagram (Gustav).
+* Implemented a navigation menu and toolbar (Alexander).
+   * An abstract class was created, to make the use of the navigation menu and toolbar easy to use in new activities.
+   * The toolbar and navigation menu was created in separate files, making them includable by other XML files.
+   * Views that need the navigation menu and toolbar have been modified.
+* Implemented a recyclerview for the Add/Remove Deck view (Victor).
+* Implemented “Add Note”-screen (Thomas).
+* Worked on implementing “Edit Note”-functionality into the same screen as the “Add Note”-screen (Thomas).
+   * Full functionality for editing an existing Note is NOT finished.
+* Implemented screen to view cards in a deck (Mathias).
+   * Implemented a recyclerview for scrolling browsing Cards in a Deck.
+* Implemented button that redirects the screen from deck to “Add Note” screen (Mathias).
+* Worked on implementing the user system (Gustav).
+   * Persistent storage is done.
+   * Showing users on start screen is done.
+   * Selecting user is NOT done.
+
+
+## Discussion items (35 min)
+* What are we going to discuss with Ayberk on the meeting?
+* What features would we want to add to the application and which one do we prioritize?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+* Questions for Ayberk:
+   * What do we do with all our “finished” branches? They add clutter, but if we remove them, can we still view the commit history for commits made in those branches?
+   * We decided to implement our MemorizationTrainingTool class as a singleton, is this bad practise or is it fine? Is there something more elegant?
+* We want to add the following features (In the given order)
+   * Cloze notes
+   * Quiz game mode
+   * User Statistics 
+      * Total times played
+      * Times played, per deck, per game mode
+      * High Score per deck, per game mode
+      * Average score per deck, per game mode
+   * Achievements
+      * Get all answers correct on a deck
+      * Reviewed X times in total (milestones)
+      * Created your first Deck!
+      * Played your first Deck!
+      * Unlock all achievements!
+      * 100% average score per deck, per game mode
+      * (Share a Deck for the first time)
+      * (Import a Deck for the first time)
+
+
+Assignments: 
+* Finish functionality for viewing Cards and editing Notes, user story #7 (Mathias, Thomas)
+* Finish the user system story, user story #11. (Gustav)
+* Write on the SDD (Anyone who’s free)
+* Update Trello to reflect where we are in our work. (Everyone)
+
+
+## Wrap up
+Next meeting will be on Monday 2018-10-08 at 13:00
+
