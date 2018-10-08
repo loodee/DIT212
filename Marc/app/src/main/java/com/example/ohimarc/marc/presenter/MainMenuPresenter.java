@@ -2,6 +2,7 @@ package com.example.ohimarc.marc.presenter;
 
 
 import com.example.ohimarc.marc.view.mainMenu.StartMenuView;
+import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.User;
 import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
