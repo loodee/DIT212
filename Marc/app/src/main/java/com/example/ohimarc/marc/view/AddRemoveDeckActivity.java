@@ -135,6 +135,11 @@ public class AddRemoveDeckActivity extends AppCompatActivity implements AddDeckV
         });
 
         builder.show();
+
+        //TODO: ReImplement this method so it redirects to a decks' cards.
+        /* Just change in this presenters method deckClicked() so it returns that you need instead a string
+            Also change AddDeckViews deckIsClicked(String title) to a more proper argument
+         */
     }
 
     ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
