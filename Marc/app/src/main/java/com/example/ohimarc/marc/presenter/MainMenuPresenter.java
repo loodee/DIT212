@@ -53,13 +53,12 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
     /**
      * Given a name of a user creates a new user and saves it persistently
      * @param name The name of the user that is going to be added
-     * @return returns true if the user is successfully created, otherwise returns false
      * */
-    public boolean createUser(String name){
+    public void createUser(String name){
         //TODO: MTT addUser(name)
-        //model.addUser();
+        store.storeState(MemorizationTrainingTool.getInstance());
         users.add(new User(name));
-        Boolean sucess = store.storeUsers(users);
-        return sucess;
+    }
+
     }
 }
