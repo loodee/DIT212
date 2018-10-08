@@ -15,6 +15,14 @@ public class UserViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         username = itemView.findViewById(R.id.username);
 
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                presenter.onUserLongClickedAtPosition(getAdapterPosition());
+                return true;
+            }
+        });
+
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
