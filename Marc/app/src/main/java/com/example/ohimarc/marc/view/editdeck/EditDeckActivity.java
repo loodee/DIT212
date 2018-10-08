@@ -24,9 +24,12 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
 
     private Deck testDeck = new Deck("testDeck");
     private EditDeckPresenter editDeckPresenter = new EditDeckPresenter(this);
+    private AdapterEditDeckRC adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        adapter = new AdapterEditDeckRC(editDeckPresenter);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_deck);
         deckTitles();
@@ -35,7 +38,7 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
         editDeckTitle();
 
         RecyclerView rv = findViewById(R.id.rv_recyclerView);
-        rv.setAdapter(new AdapterEditDeckRC(editDeckPresenter));
+        rv.setAdapter(adapter);
         editDeckPresenter.start();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -47,16 +50,24 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditDeckActivity.this, EditNoteActivity.class);
-                intent.putExtra("index", 0);
+                intent.putExtra("index", -1);
                 startActivity(intent);
             }
         });
     }
 
+
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.toolbar_items, menu);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        adapter.notifyDataSetChanged();
+        super.onResume();
     }
 
     public void setPresenter(EditDeckContract.Presenter presenter) {
