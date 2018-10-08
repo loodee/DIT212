@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.presenter;
 
 
+import com.example.ohimarc.marc.view.mainMenu.StartMenuView;
 import com.example.ohimarc.marc.model.User;
 import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
@@ -13,13 +14,14 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
 
     private List<User> users;
     private UserStorage store;
+    private StartMenuView view;
 
 
     /**
      * Creates a MainMenuPresenter which retrieve its persistent state from the given path
      * @param filePath The absolute filepath where the persistent state file is saved
      * */
-    public MainMenuPresenter(String filePath) {
+    public MainMenuPresenter(StartMenuView view, String filePath) {
         store = new LocalUserStorage(filePath);
         users = store.getStoredUsers();
     }
