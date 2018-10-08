@@ -107,6 +107,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                mainPresenter.confirmDeletion(index);
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();
             }
