@@ -28,7 +28,7 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
     private Toast toast;
     private boolean isEditing;
 
-    private void setupVars(Bundle extras) {
+    private void setupVars(int index) {
         frontLayout = findViewById(R.id.textInputFront);
         backLayout = findViewById(R.id.textInputBack);
         frontEditText = findViewById(R.id.input_front);
@@ -37,16 +37,14 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
         ActionBar bar = getSupportActionBar();
 
-        if (extras == null) {   // if adding a new Note
+        if (index == -1) {      // if adding a new Note
             isEditing = false;
-            presenter = new EditNotePresenter(this, -1);
             if (bar != null) bar.setTitle("Add Note");
         } else {                // if editing an existing Note
             isEditing = true;
-            presenter = new EditNotePresenter(this, extras.getInt("index"));
             if (bar != null) bar.setTitle("Edit Note");
         }
-
+        presenter = new EditNotePresenter(this, index);
         presenter.onCreate();
     }
 
@@ -55,7 +53,7 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
 
-        setupVars(getIntent().getExtras());
+        setupVars(getIntent().getExtras().getInt("index"));
         setupListeners();
         setupToast();
     }
