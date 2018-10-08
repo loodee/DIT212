@@ -5,6 +5,7 @@
     android:id="@+id/addRemoveDeckActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackGround"
     tools:context=".view.AddRemoveDeckActivity">
 
     <LinearLayout
@@ -47,6 +48,7 @@
                 android:layout_marginStart="8dp"
                 android:clickable="true"
                 android:onClick="addButtonClicked"
+                android:backgroundTint="@color/colorSecondary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.929"
