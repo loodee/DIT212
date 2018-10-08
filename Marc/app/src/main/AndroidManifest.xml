@@ -20,7 +20,12 @@
 
         <activity
             android:name=".view.editdeck.EditNoteActivity"
-            android:exported="true"/>
+            android:exported="true"
+            android:parentActivityName=".view.editdeck.EditDeckActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ohimarc.marc.view.editdeck.EditDeckActivity"/>
+        </activity>
         <activity
             android:name=".view.editdeck.EditDeckActivity"
             android:exported="true" />
