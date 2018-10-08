@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.service;
 
 
+import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Note;
 import com.example.ohimarc.marc.model.User;
 import com.google.gson.Gson;
@@ -32,12 +33,10 @@ public class LocalUserStorage implements UserStorage{
         g = gsonBuilder.create();
     }
 
-
-
     @Override
-    public boolean storeUsers(List<User> users) {
+    public boolean storeState(MemorizationTrainingTool mtt) {
         try {
-            String json = g.toJson(users);
+            String json = g.toJson(mtt);
             FileWriter fw = new FileWriter(filePath+fileName);
             fw.write(json);
             fw.close();
@@ -48,15 +47,16 @@ public class LocalUserStorage implements UserStorage{
     }
 
     @Override
-    public List<User> getStoredUsers() {
+    public MemorizationTrainingTool getStoredState() {
         try {
-            List<User> users = g.fromJson(new FileReader(filePath+fileName), new TypeToken<ArrayList<User>>(){}.getType());
-            if(users == null){
-                return new ArrayList<>();
+            MemorizationTrainingTool mtt = g.fromJson(new FileReader(filePath+fileName), new TypeToken<MemorizationTrainingTool>(){}.getType());
+            if(mtt == null){
+                return new MemorizationTrainingTool();
+            }else{
+                return mtt;
             }
-            return users;
         } catch (FileNotFoundException e) {
-            return new ArrayList<>();
+            return new MemorizationTrainingTool();
         }
     }
 }

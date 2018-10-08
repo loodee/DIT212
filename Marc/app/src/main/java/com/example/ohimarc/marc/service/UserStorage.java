@@ -11,12 +11,12 @@ public interface UserStorage {
      * @param users The users that are going to be saved
      * @return returns true if the users are successfully stored, otherwise returns false
      * */
-    boolean storeUsers(List<User> users);
+    boolean storeState(MemorizationTrainingTool mtt);
 
     /**
      * Retries all the stored users and removes them
      * @return A list of all stored users, if there are no users saved an empty List object will be returned
      * */
-    List<User> getStoredUsers();
+    MemorizationTrainingTool getStoredState();
 
 }
