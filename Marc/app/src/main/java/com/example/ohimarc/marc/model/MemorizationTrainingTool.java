@@ -7,9 +7,10 @@ public class MemorizationTrainingTool {
 
     private static final MemorizationTrainingTool INSTANCE = new MemorizationTrainingTool();
 
-    //Here to make sure that no one accidentally uses "new" instead of the getInstance() method
-    private MemorizationTrainingTool(){}
-
+    /**
+     * Returns a singelton instance of MemorizationTrainingTool
+     * @return a singelton instance
+     * */
     public static MemorizationTrainingTool getInstance(){
         return INSTANCE;
     }
