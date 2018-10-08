@@ -30,7 +30,7 @@ import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 import com.example.ohimarc.marc.view.addremovedeck.AddDeckView;
 import com.example.ohimarc.marc.view.addremovedeck.AddRemoveAdapter;
 
-public class AddRemoveDeckActivity extends AppCompatActivity implements AddDeckView {
+public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckView {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -54,18 +54,7 @@ public class AddRemoveDeckActivity extends AppCompatActivity implements AddDeckV
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
 
-        Toolbar toolbar = findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
-
-        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("AddRemoveDeck");
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items,menu);
-        return true;
+        initExtension(this, R.id.addRemoveDeckActivity, "Decks");
     }
 
     public void addButtonClicked(View v){
