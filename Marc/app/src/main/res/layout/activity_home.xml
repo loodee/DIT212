@@ -99,6 +99,7 @@
                         android:background="@drawable/ic_menu_remake_v2"
                         android:contentDescription="@string/play_button_text"
                         android:src="?android:attr/selectableItemBackground"
+                        android:onClick="deck_button"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
