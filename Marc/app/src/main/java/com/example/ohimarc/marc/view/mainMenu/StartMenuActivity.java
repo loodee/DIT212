@@ -61,28 +61,6 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         return true;
     }
 
-    @Override
-    public void setPresenter(StartMenuContract.Presenter presenter) {
-
-    }
-
-    public void login() {
-        Intent intent = new Intent(StartMenuActivity.this, Home.class);
-
-        startActivity(intent);
-        finish();
-    }
-
-    public void failedUserCreation(){
-        Toast.makeText(this, "Failed to create user! Make sure the app has permission to read/write" ,Toast.LENGTH_LONG).show();
-
-    }
-
-    @Override
-    public void promptForDeletion(final int index, String name) {
-
-    }
-
     public void showAddUserPopup(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Create User");
@@ -96,6 +74,41 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
                 mainPresenter.createUser(input.getText().toString());
+                adapter.notifyDataSetChanged();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
+    public void login() {
+        Intent intent = new Intent(StartMenuActivity.this, Home.class);
+
+        startActivity(intent);
+        finish();
+    }
+
+    public void failedUserCreation(){
+        Toast.makeText(this, "Failed to create user! Make sure the app has permission to read/write" ,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void promptForDeletion(final int index, String name) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Are you sure you want to delete " + name + "?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                adapter.notifyDataSetChanged();
+                dialog.dismiss();
             }
         });
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
