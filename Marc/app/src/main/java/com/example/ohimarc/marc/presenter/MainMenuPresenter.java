@@ -60,5 +60,6 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
         users.add(new User(name));
     }
 
+    public void confirmDeletion(int index) {
     }
 }
