@@ -30,4 +30,9 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
         //finish();
     }
+
+    public void deck_button(View view){
+        Intent intent = new Intent(Home.this,AddRemoveDeckActivity.class);
+        startActivity(intent);
+    }
 }
