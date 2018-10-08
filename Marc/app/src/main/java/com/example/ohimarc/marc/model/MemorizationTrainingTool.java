@@ -50,7 +50,6 @@ public class MemorizationTrainingTool {
      * */
     public void setActiveUser(Integer id){
         activeUser = id;
-        System.out.println(activeUser);
     }
 
     /**
