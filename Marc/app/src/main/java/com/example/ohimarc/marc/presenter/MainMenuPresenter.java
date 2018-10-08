@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.presenter;
 
 
+
 import com.example.ohimarc.marc.view.mainMenu.StartMenuView;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.User;
@@ -11,12 +12,12 @@ import com.example.ohimarc.marc.view.mainMenu.UserViewHolder;
 
 import java.util.List;
 
-public class MainMenuPresenter implements StartMenuContract.Presenter {
 
-    private List<User> users;
+public class MainMenuPresenter implements StartMenuContract.Presenter{
+
+    private List<String> users;
     private UserStorage store;
     private StartMenuView view;
-
 
     /**
      * Creates a MainMenuPresenter which retrieve its persistent state from the given path
@@ -25,6 +26,14 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
     public MainMenuPresenter(StartMenuView view, String filePath) {
         store = new LocalUserStorage(filePath);
         this.view = view;
+
+        //Set up the MemorizationTrainingTool with stored values
+        MemorizationTrainingTool global = MemorizationTrainingTool.getInstance();
+        MemorizationTrainingTool mtt = store.getStoredState();
+        global.setActiveUser(mtt.getActiveUserId());
+        global.setUsers(mtt.getUsers());
+
+        users = global.getUserNames();
     }
 
     @Override
@@ -34,7 +43,7 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
 
     @Override
     public void onBindBasicNoteRowViewAtPosition(UserViewHolder rowView, int index) {
-        rowView.setUsername(users.get(index).getName());
+        rowView.setUsername(users.get(index));
     }
 
     @Override
@@ -45,24 +54,33 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
     @Override
     public void onUserClickedAtPosition(int adapterPosition) {
         MemorizationTrainingTool.getInstance().setActiveUser(adapterPosition);
+        store.storeState(MemorizationTrainingTool.getInstance());
         view.login();
     }
+
     @Override
     public void onUserLongClickedAtPosition(int adapterPosition) {
+        view.promptForDeletion(adapterPosition, users.get(adapterPosition));
     }
+
     public boolean logedin() {
         return MemorizationTrainingTool.getInstance().getActiveUser() != null;
     }
+
     /**
      * Given a name of a user creates a new user and saves it persistently
      * @param name The name of the user that is going to be added
      * */
     public void createUser(String name){
-        //TODO: MTT addUser(name)
+        MemorizationTrainingTool.getInstance().addNewUser(name);
         store.storeState(MemorizationTrainingTool.getInstance());
-        users.add(new User(name));
+        users = MemorizationTrainingTool.getInstance().getUserNames();
     }
 
+
     public void confirmDeletion(int index) {
+        MemorizationTrainingTool.getInstance().removeUser(index);
+        store.storeState(MemorizationTrainingTool.getInstance());
+        users = MemorizationTrainingTool.getInstance().getUserNames();
     }
 }
