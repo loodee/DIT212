@@ -18,14 +18,10 @@
         </activity>
         <activity android:name=".view.FlashcardActivity" />
         <activity
-            android:name=".view.EditDeckActivity"
-            android:exported="true" />
+            android:name=".view.EditDeckActivity"/>
         <activity android:name=".view.ResultsActivity" />
         <activity
-            android:name=".view.AddRemoveDeckActivity"
-            android:exported="true"
-            android:label="@string/title_activity_add_remove_deck"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:name=".view.AddRemoveDeckActivity" />
     </application>
 
 </manifest>
