@@ -24,6 +24,7 @@ import com.example.ohimarc.marc.view.Home;
 
 public class StartMenuActivity extends AppCompatActivity implements StartMenuView {
     private MainMenuPresenter mainPresenter;
+    private AdapterUserRC adapter;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,10 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(layoutManager);
 
-        rv.setAdapter(new AdapterUserRC(mainPresenter));
+        adapter = new AdapterUserRC(mainPresenter);
+
+        rv.setAdapter(adapter);
+
         ImageButton addCardButton = findViewById(R.id.floatingActionButton);
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
