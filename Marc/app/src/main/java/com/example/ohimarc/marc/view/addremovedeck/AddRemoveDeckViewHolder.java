@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.view.addremovedeck;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,9 +12,16 @@ public class AddRemoveDeckViewHolder extends RecyclerView.ViewHolder implements 
 
     TextView titleTextView;
 
-    public AddRemoveDeckViewHolder(View itemView) {
+    public AddRemoveDeckViewHolder(View itemView, final AddRemoveDeckPresenter presenter) {
         super(itemView);
         titleTextView = itemView.findViewById(R.id.deck_Title);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.deckClicked(getAdapterPosition());
+            }
+        });
     }
 
     @Override

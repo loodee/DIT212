@@ -27,14 +27,15 @@ import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
+import com.example.ohimarc.marc.view.addremovedeck.AddDeckView;
 import com.example.ohimarc.marc.view.addremovedeck.AddRemoveAdapter;
 
-public class AddRemoveDeckActivity extends AppCompatActivity {
+public class AddRemoveDeckActivity extends AppCompatActivity implements AddDeckView {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    AddRemoveDeckPresenter presenter = new AddRemoveDeckPresenter();
+    AddRemoveDeckPresenter presenter = new AddRemoveDeckPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +93,7 @@ public class AddRemoveDeckActivity extends AppCompatActivity {
         builder.show();
     }
 
-    public void deleteDeck(){
+    public void deleteDeck(final int deckIndex){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Do you really want to delete this deck?");
 
@@ -103,12 +104,33 @@ public class AddRemoveDeckActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
+                presenter.deleteDeck(deckIndex);
+                mAdapter.notifyDataSetChanged();
             }
         });
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
+                mAdapter.notifyDataSetChanged();
+            }
+        });
+
+        builder.show();
+    }
+
+    @Override
+    public void deckIsClicked(String title){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("YOU HAVE CLICKED ON DECK: " + title);
+
+        View viewInflated = LayoutInflater.from(this).inflate(R.layout.delete_deck_popup, (ViewGroup) findViewById(R.id.baseLayout), false);
+        builder.setView(viewInflated);
+
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
             }
         });
 
@@ -119,21 +141,20 @@ public class AddRemoveDeckActivity extends AppCompatActivity {
 
         @Override
         public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-            Toast.makeText(AddRemoveDeckActivity.this, "on Move", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(AddRemoveDeckActivity.this, "on Move", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         @Override
         public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-            deleteDeck();
-            Toast.makeText(AddRemoveDeckActivity.this, "on Swiped ", Toast.LENGTH_SHORT).show();
-            //Remove swiped item from list and notify the RecyclerView
-            int position = viewHolder.getAdapterPosition();
             /*
-            arrayList.remove(position);
-            adapter.notifyDataSetChanged();
-*/
+            Point out which element that has been swiped
+             */
+            int position = viewHolder.getAdapterPosition();
+            deleteDeck(position);
+            //Toast.makeText(AddRemoveDeckActivity.this, "on Swiped ", Toast.LENGTH_SHORT).show();
         }
+
 
     };
 
