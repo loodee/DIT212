@@ -66,7 +66,7 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
 
     @Override
     protected void onResume() {
-        adapter.notifyDataSetChanged();
+        editDeckPresenter.start();
         super.onResume();
     }
 
