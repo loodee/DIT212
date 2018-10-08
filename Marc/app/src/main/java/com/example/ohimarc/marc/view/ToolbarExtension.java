@@ -15,8 +15,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.presenter.ToolbarExtensionPresenter;
 
-abstract public class ToolbarExtension extends AppCompatActivity {
+abstract public class ToolbarExtension extends AppCompatActivity implements ToolbarExtensionView {
+
+    ToolbarExtensionPresenter tep;
 
     protected TextView titleText;
     protected Toolbar tb;
