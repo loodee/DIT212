@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ToolbarExtensionPresenter;
+import com.example.ohimarc.marc.view.mainMenu.StartMenuActivity;
 
 abstract public class ToolbarExtension extends AppCompatActivity implements ToolbarExtensionView {
 
@@ -138,9 +139,9 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     }
 
     public void navigateLogout() {
-        /*Intent intent = new Intent(getApplicationContext(), StartMenuActivity.class);
+        Intent intent = new Intent(getApplicationContext(), StartMenuActivity.class);
         startActivity(intent);
-        finish();*/
+        finish();
     }
 
     @Override
