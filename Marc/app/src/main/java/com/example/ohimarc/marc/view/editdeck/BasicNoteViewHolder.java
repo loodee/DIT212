@@ -21,7 +21,8 @@ public class BasicNoteViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("hej", "då");
+
+                Log.d("hej", "" + getAdapterPosition());
             }
         });
 
