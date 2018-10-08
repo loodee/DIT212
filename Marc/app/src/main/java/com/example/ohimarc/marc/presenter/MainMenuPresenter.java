@@ -23,7 +23,7 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
      * */
     public MainMenuPresenter(StartMenuView view, String filePath) {
         store = new LocalUserStorage(filePath);
-        users = store.getStoredUsers();
+        this.view = view;
     }
 
     @Override

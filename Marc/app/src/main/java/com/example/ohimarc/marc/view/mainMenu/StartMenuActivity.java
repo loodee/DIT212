@@ -18,8 +18,8 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.MainMenuPresenter;
 
 
-public class StartMenuActivity extends AppCompatActivity implements StartMenuContract.View {
 
+public class StartMenuActivity extends AppCompatActivity implements StartMenuView {
     private MainMenuPresenter mainPresenter;
     
     @Override
@@ -59,18 +59,20 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuCon
 
     }
 
-    @Override
-    public void updateDeckList() {
+    public void login() {
+        Intent intent = new Intent(StartMenuActivity.this, Home.class);
+
+        startActivity(intent);
+        finish();
+    }
+
+    public void failedUserCreation(){
+        Toast.makeText(this, "Failed to create user! Make sure the app has permission to read/write" ,Toast.LENGTH_LONG).show();
 
     }
 
     @Override
-    public void deckTitles() {
-
-    }
-
-    @Override
-    public void editDeckTitle() {
+    public void promptForDeletion(final int index, String name) {
 
     }
 
@@ -97,7 +99,5 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuCon
         });
 
         builder.show();
-    }
-    public void login() {
     }
 }
