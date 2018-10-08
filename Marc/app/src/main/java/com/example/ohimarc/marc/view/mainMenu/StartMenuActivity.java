@@ -23,6 +23,7 @@ import com.example.ohimarc.marc.view.Home;
 
 
 public class StartMenuActivity extends AppCompatActivity implements StartMenuView {
+
     private MainMenuPresenter mainPresenter;
     private AdapterUserRC adapter;
     
@@ -35,6 +36,10 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
 
         mainPresenter = new MainMenuPresenter(this,getFilesDir().getAbsolutePath());
         mainPresenter.start();
+
+        if(mainPresenter.logedin()){
+            login();
+        }
 
         RecyclerView rv = findViewById(R.id.userRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
