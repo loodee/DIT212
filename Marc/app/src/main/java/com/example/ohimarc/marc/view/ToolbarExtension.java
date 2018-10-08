@@ -13,13 +13,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ToolbarExtensionPresenter;
 
 abstract public class ToolbarExtension extends AppCompatActivity implements ToolbarExtensionView {
 
-    ToolbarExtensionPresenter tep;
+    ToolbarExtensionPresenter tep = new ToolbarExtensionPresenter(this);
 
     protected TextView titleText;
     protected Toolbar tb;
@@ -133,6 +134,10 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     }
 
     public void logoutClicked(View v) {
+        tep.logoutButton();
+    }
+
+    public void navigateLogout() {
         /*Intent intent = new Intent(getApplicationContext(), StartMenuActivity.class);
         startActivity(intent);
         finish();*/
