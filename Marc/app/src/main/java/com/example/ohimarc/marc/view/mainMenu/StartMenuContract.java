@@ -20,5 +20,8 @@ public interface StartMenuContract {
 
         int getUserRowsCount();
 
+        void onUserClickedAtPosition(int adapterPosition);
+
+        void onUserLongClickedAtPosition(int adapterPosition);
     }
 }

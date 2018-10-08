@@ -46,6 +46,9 @@ public class MainMenuPresenter implements StartMenuContract.Presenter {
         MemorizationTrainingTool.getInstance().setActiveUser(adapterPosition);
         view.login();
     }
+    @Override
+    public void onUserLongClickedAtPosition(int adapterPosition) {
+    }
     /**
      * Given a name of a user creates a new user and saves it persistently
      * @param name The name of the user that is going to be added
