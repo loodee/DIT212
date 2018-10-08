@@ -13,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 
@@ -66,8 +65,15 @@ abstract public class ToolbarExtension extends AppCompatActivity {
         return true;
     }
 
-    private boolean currentActivityEqualsNextActivity(String className) {
-        if (this.getClass().getSimpleName().equals(className)) {
+    private boolean thisActivityIsNextActivity(Class<?> nextClass) {
+        if (this.getClass().getSimpleName().equals(nextClass.getSimpleName())) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean inHome() {
+        if (this.getClass().getSimpleName().equals(Home.class.getSimpleName())) {
             return true;
         }
         return false;
@@ -77,15 +83,46 @@ abstract public class ToolbarExtension extends AppCompatActivity {
         navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Intent intent;
+                Class<?> nextActivity;
                 switch (menuItem.getItemId()) {
-                    case (R.id.home_button):
-                        if (!currentActivityEqualsNextActivity(Home.class.getSimpleName())) {
-                            Intent intent = new Intent(getApplicationContext(), Home.class);
-                            startActivity(intent);
+                    case (R.id.home_button):            //Special case, home is not allowed to be finished.
+                        navView.closeDrawers();
+                        if (!inHome()) {
                             finish();
                         }
-                        navView.closeDrawers();
+                        return true;
+                    case (R.id.exercises_button):
+                        intent = new Intent(getApplicationContext(), FlashcardActivity.class);
+                        nextActivity = FlashcardActivity.class;
                         break;
+                    case (R.id.achievements_button):
+                        intent = null;
+                        nextActivity = null;
+                        break;
+                    case (R.id.decks_button):
+                        intent = null;
+                        nextActivity = null;
+                        break;
+                    case (R.id.settings_button):
+                        intent = null;
+                        nextActivity = null;
+                        break;
+                    default:
+                        intent = null;
+                        nextActivity = null;
+                        break;
+                }
+                if (intent != null) {
+                    if (inHome()) {
+                        navView.closeDrawers();
+                        startActivity(intent);
+                    } else if (thisActivityIsNextActivity(nextActivity)) {
+                        navView.closeDrawers();
+                    } else {
+                        startActivity(intent);
+                        finish();
+                    }
                 }
                 return true;
             }
@@ -93,8 +130,9 @@ abstract public class ToolbarExtension extends AppCompatActivity {
     }
 
     public void logoutClicked(View v) {
-        Toast toast = Toast.makeText(getApplicationContext(), "Logout Clicked", Toast.LENGTH_SHORT);
-        toast.show();
+        /*Intent intent = new Intent(getApplicationContext(), StartMenuActivity.class);
+        startActivity(intent);
+        finish();*/
     }
 
     @Override
