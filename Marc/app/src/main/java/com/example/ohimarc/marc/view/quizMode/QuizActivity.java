@@ -1,5 +1,6 @@
 package com.example.ohimarc.marc.view.quizMode;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +18,8 @@ public class QuizActivity extends AppCompatActivity implements QuizView {
     private Button answer2;
     private Button answer3;
     private Button answer4;
+    Button[] buttons = new Button[4];
+    private boolean answered;
 
     private TextView question;
 
@@ -31,9 +34,25 @@ public class QuizActivity extends AppCompatActivity implements QuizView {
         answer4 = findViewById(R.id.answer4);
 
         question = findViewById(R.id.card);
+        buttons[0] = answer1;
+        buttons[1] = answer2;
+        buttons[2] = answer3;
+        buttons[3] = answer4;
+        answered = false;
+
 
         presenter = new QuizPresenter(this);
         presenter.onCreate();
+    }
+
+    @Override
+    public void highlightRightA(int i) {
+        buttons[i].setBackgroundColor(Color.GREEN);
+    }
+
+    @Override
+    public void highlightWrongA(int i) {
+        buttons[i].setBackgroundColor(Color.RED);
     }
 
     @Override
@@ -46,23 +65,41 @@ public class QuizActivity extends AppCompatActivity implements QuizView {
     }
 
     public void answer1Clicked(View v) {
-        presenter.questionAnswered(1);
+        if(!answered) {
+            presenter.questionAnswered(1);
+            answered = true;
+        }
     }
 
     public void answer2Clicked(View v) {
-        presenter.questionAnswered(2);
+        if(!answered) {
+            presenter.questionAnswered(2);
+            answered = true;
+        }
     }
 
     public void answer3Clicked(View v) {
-        presenter.questionAnswered(3);
+        if(!answered) {
+            presenter.questionAnswered(3);
+            answered = true;
+        }
     }
 
     public void answer4Clicked(View v) {
-        presenter.questionAnswered(4);
+        if(!answered) {
+            presenter.questionAnswered(4);
+            answered = true;
+        }
     }
 
     public void proceedClicked(View v) {
-        presenter.proceed();
+        if(answered) {
+            presenter.proceed();
+            for (Button b : buttons) {
+                b.setBackgroundColor(Color.WHITE);
+            }
+            answered = false;
+        }
     }
 
     @Override
