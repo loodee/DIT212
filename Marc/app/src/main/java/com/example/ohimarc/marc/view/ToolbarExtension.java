@@ -2,6 +2,7 @@ package com.example.ohimarc.marc.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -21,13 +22,19 @@ import com.example.ohimarc.marc.view.mainMenu.StartMenuActivity;
 
 abstract public class ToolbarExtension extends AppCompatActivity implements ToolbarExtensionView {
 
-    ToolbarExtensionPresenter tep = new ToolbarExtensionPresenter(this);
+    ToolbarExtensionPresenter tep;
 
     protected TextView titleText;
     protected Toolbar tb;
     protected DrawerLayout navView;
     protected ActionBarDrawerToggle navToggle;
     protected NavigationView navigation;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        tep = new ToolbarExtensionPresenter(this, getFilesDir().getAbsolutePath());
+    }
 
     private void initViews(int viewID) {
         tb = findViewById(R.id.toolbar);

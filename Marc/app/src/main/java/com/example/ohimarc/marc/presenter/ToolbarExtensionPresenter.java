@@ -8,19 +8,17 @@ import com.example.ohimarc.marc.view.ToolbarExtensionView;
 public class ToolbarExtensionPresenter implements Presenter {
 
     private ToolbarExtensionView view;
-    //private UserStorage store;
+    private UserStorage store;
 
-    public ToolbarExtensionPresenter(ToolbarExtensionView view) {
+    public ToolbarExtensionPresenter(ToolbarExtensionView view, String filePath) {
         this.view = view;
-        //TODO: input the filepath
-        //this.store = new LocalUserStorage(filePath);
+        this.store = new LocalUserStorage(filePath);
     }
 
     public void logoutButton() {
         //Some functionality for logging out through the model
         MemorizationTrainingTool.getInstance().setActiveUser(null);
-        //TODO: Save MTT state after logout
-        //new LocalUserStorage(filePath).storeState(MemorizationTrainingTool.getInstance());
+        store.storeState(MemorizationTrainingTool.getInstance());
         view.navigateLogout();
     }
 
