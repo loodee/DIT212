@@ -5,7 +5,7 @@ public abstract class Game {
     String[][] cardCopies;
     private Pair[] pairs;
     private String name;
-    int nextCard = 0;
+    private int nextCard = 0;
 
     public Game(Deck deck, String name) {
         this.deck = deck;

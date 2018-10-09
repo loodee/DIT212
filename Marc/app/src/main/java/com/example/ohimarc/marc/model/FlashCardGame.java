@@ -8,7 +8,7 @@ public class FlashCardGame extends Game {
 
     @Override
     public String[] peekNextCard() {
-        return nextCard < cardCopies.length ? cardCopies[nextCard] : null;
+        return getNextCard() < cardCopies.length ? cardCopies[getNextCard()] : null;
     }
 
 }
