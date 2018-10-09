@@ -27,7 +27,7 @@
 
     <item
         android:id="@+id/settings_button"
-        android:icon="@drawable/ic_settings_black_24dp"
+        android:icon="@drawable/ic_baseline_settings_20px"
         android:orderInCategory="5"
         android:title="Settings" />
 
