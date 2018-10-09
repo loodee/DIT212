@@ -4,7 +4,6 @@ package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.view.mainMenu.StartMenuView;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.model.User;
 import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
 import com.example.ohimarc.marc.view.mainMenu.StartMenuContract;
@@ -63,6 +62,9 @@ public class MainMenuPresenter implements StartMenuContract.Presenter{
         view.promptForDeletion(adapterPosition, users.get(adapterPosition));
     }
 
+    /**
+     * @return Returns true if a user is currently logged in, otherwise returns false
+     * */
     public boolean logedin() {
         return MemorizationTrainingTool.getInstance().getActiveUser() != null;
     }
@@ -77,7 +79,11 @@ public class MainMenuPresenter implements StartMenuContract.Presenter{
         users = MemorizationTrainingTool.getInstance().getUserNames();
     }
 
-
+    /**
+     * Method used to confirm the deletion of a user with a specific index, when this method is called with a valid
+     * index the user will be removed, if the index is invalid no changes will be made
+     * @param index The index with the user has in the list of users
+     * */
     public void confirmDeletion(int index) {
         MemorizationTrainingTool.getInstance().removeUser(index);
         store.storeState(MemorizationTrainingTool.getInstance());
