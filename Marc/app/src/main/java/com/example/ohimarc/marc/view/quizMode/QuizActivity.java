@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.QuizPresenter;
@@ -103,6 +104,10 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
                 b.setBackgroundColor(Color.WHITE);
             }
             hasAnswered = false;
+        }
+        else {
+            Toast toast = Toast.makeText(this, "Please select an answer.", Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 
