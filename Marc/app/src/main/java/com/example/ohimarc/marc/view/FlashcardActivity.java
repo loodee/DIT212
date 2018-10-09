@@ -53,15 +53,17 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         presenter.resultButtonsClicked(false);
     }
 
-    public void changeView() {
-        Intent intent = new Intent(FlashcardActivity.this, ResultsActivity.class);
-
+    private void packBundle(Intent intent) {
         Bundle b = new Bundle();
         b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
         b.putString("deckTitle", presenter.getDeckTitle());
         b.putString("mode", presenter.getGameName());
-
         intent.putExtras(b);
+    }
+
+    public void changeView() {
+        Intent intent = new Intent(FlashcardActivity.this, ResultsActivity.class);
+        packBundle(intent);
         startActivity(intent);
         finish();
     }

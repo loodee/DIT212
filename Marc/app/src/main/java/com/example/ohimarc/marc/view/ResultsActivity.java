@@ -34,13 +34,13 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
         modeText = findViewById(R.id.modeText);
         titleText = findViewById(R.id.toolbar_text);
 
-        bundleHandler();
+        unpackBundle();
 
         presenter = new ResultPresenter(value, this);
         presenter.onCreate();
     }
 
-    private void bundleHandler() {
+    private void unpackBundle() {
         Bundle b = getIntent().getExtras();
         value = null;
         if (b != null) {
