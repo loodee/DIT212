@@ -42,14 +42,24 @@ public class QuizPresenter implements Presenter {
     }
 
     private void getNextTexts(QuizGame g) {
-        g.goToNextCard();
         texts = g.peekNextCard();
+    }
 
+    public String getDeckTitle() {
+        return d.getTitle();
+    }
+
+    public String getGameName() {
+        return g.getName();
     }
 
     public void proceed() {
-        getNextTexts(g);
-        view.initTexts(texts[0], texts[1], texts[2], texts[3], texts[4]);
+        g.goToNextCard();
+        if(g.peekNextCard()!=null) {
+            getNextTexts(g);
+            view.initTexts(texts[0], texts[1], texts[2], texts[3], texts[4]);
+        }
+        else view.changeView();
     }
 
     public ArrayList<Integer> getAmountCorrectAnswers() {

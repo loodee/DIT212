@@ -1,5 +1,6 @@
 package com.example.ohimarc.marc.view.quizMode;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.QuizPresenter;
+import com.example.ohimarc.marc.view.FlashcardActivity;
+import com.example.ohimarc.marc.view.ResultsActivity;
 
 public class QuizActivity extends AppCompatActivity implements QuizView {
 
@@ -100,6 +103,20 @@ public class QuizActivity extends AppCompatActivity implements QuizView {
             }
             answered = false;
         }
+    }
+
+    @Override
+    public void changeView() {
+        Intent intent = new Intent(QuizActivity.this, ResultsActivity.class);
+
+        Bundle b = new Bundle();
+        b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
+        b.putString("deckTitle", presenter.getDeckTitle());
+        b.putString("mode", presenter.getGameName());
+
+        intent.putExtras(b);
+        startActivity(intent);
+        finish();
     }
 
     @Override
