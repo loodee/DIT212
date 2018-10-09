@@ -59,7 +59,7 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
     public void retryButton(View v) {
         Intent intent;
-        if(mode.equals("Flashcard Mode")) {
+        if(mode.equals("Flashcard Game")) {
             intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
         } else intent = new Intent(ResultsActivity.this, QuizActivity.class);
         startActivity(intent);
