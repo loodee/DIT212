@@ -6,10 +6,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
@@ -43,7 +45,7 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
         initExtension(this, R.id.addRemoveDeckActivity, "Decks");
     }
 
-    public void addButtonClicked(View v){
+    public void addButtonClicked(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Create Deck");
 
@@ -54,8 +56,13 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                presenter.addDeck(input.getText().toString());
-                dialog.dismiss();
+                String s = input.getText().toString();
+                if (s.replaceAll("\\s", "").isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "You cant create a deck without a name!", Toast.LENGTH_LONG);
+                } else {
+                    presenter.addDeck(input.getText().toString());
+                    dialog.dismiss();
+                }
             }
         });
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -68,7 +75,7 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
         builder.show();
     }
 
-    public void deleteDeck(final int deckIndex){
+    public void deleteDeck(final int deckIndex) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Do you really want to delete this deck?");
 
@@ -95,7 +102,7 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
     }
 
     @Override
-    public void deckIsClicked(String title){
+    public void deckIsClicked(String title) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("YOU HAVE CLICKED ON DECK: " + title);
 
@@ -136,5 +143,5 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
 
     };
 
-    }
+}
 
