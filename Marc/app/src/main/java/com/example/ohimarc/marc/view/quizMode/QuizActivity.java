@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.QuizPresenter;
-import com.example.ohimarc.marc.view.FlashcardActivity;
 import com.example.ohimarc.marc.view.ResultsActivity;
+import com.example.ohimarc.marc.view.ToolbarExtension;
 
-public class QuizActivity extends AppCompatActivity implements QuizView {
+public class QuizActivity extends ToolbarExtension implements QuizView {
 
     private QuizPresenter presenter;
 
@@ -42,10 +42,9 @@ public class QuizActivity extends AppCompatActivity implements QuizView {
         buttons[2] = answer3;
         buttons[3] = answer4;
         answered = false;
-
-
         presenter = new QuizPresenter(this);
         presenter.onCreate();
+        initExtension(this,R.id.quizactivity,presenter.getDeckTitle());
     }
 
     @Override
