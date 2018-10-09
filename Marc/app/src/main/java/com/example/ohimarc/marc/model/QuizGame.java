@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class QuizGame extends Game {
     private Random rand = new Random();
-    private int rigthAnswerIndex = getRandomIndex();
+    private int rigthAnswerIndex;
 
     public QuizGame(Deck deck){
         super(deck,"Quiz Game");
@@ -23,11 +23,13 @@ public class QuizGame extends Game {
     /*
     front will always be the first element of the array
     the rest is answeralternatives.
+    The correct answers index is being randomized every time you want a new card
      */
     @Override
     public String[] peekNextCard() {
         String[] cardWithAnswer = new String[5];
         ArrayList<String> answers = new ArrayList<>();
+        rigthAnswerIndex = getRandomIndex();
         String front = cardCopies[nextCard][0];
         String rightAnswer = cardCopies[nextCard][1];
         cardWithAnswer[0] = front;
