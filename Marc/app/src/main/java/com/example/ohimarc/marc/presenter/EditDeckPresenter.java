@@ -10,9 +10,11 @@ import com.example.ohimarc.marc.view.editdeck.EditDeckContract;
 public class EditDeckPresenter implements EditDeckContract.Presenter {
     private Deck deck;
     private EditDeckActivity editDeckActivity;
+    private EditDeckContract.View view;
 
     public EditDeckPresenter(EditDeckActivity a) {
         editDeckActivity = a;
+        this.view = view;
     }
 
     @Override
@@ -33,4 +35,17 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     public int getBasicNoteRowsCount() {
         return deck.getDeckSize();
     }
+
+    @Override
+    public void onUserClickedAtPosition(int adapterPosition) {
+
+    }
+
+    @Override
+    public void onUserLongClickedAtPosition(int adapterPosition) {
+    }
+
+    public void confirmDeletion(int index) {
+    }
+
 }
