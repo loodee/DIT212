@@ -17,31 +17,34 @@ public class QuizPresenter implements Presenter {
 
     public QuizPresenter(QuizView view) {
         this.view = view;
+        initDeckAndGame();
+        texts = g.peekNextCard();
+        view.initTexts(texts);
+    }
+
+    private void initDeckAndGame() {
         d = new Deck("Djur på svenska");
         d.addBasicNote("Hund", "Dog");
         d.addBasicNote("Katt", "Cat");
         d.addBasicNote("Häst", "Horse");
         d.addBasicNote("Råtta", "Rat");
         g = new QuizGame(d);
-        texts = g.peekNextCard();
-        view.initTexts(texts[0], texts[1], texts[2], texts[3], texts[4]);
-
     }
 
     public void questionAnswered(int answer) {
-        g.sendAnswer(answer);                                                   //1-4
-        for (int possibleAnswer = 1; possibleAnswer < 5; possibleAnswer++) {    //1-4
+        g.sendAnswer(answer);
+        for (int possibleAnswer = 1; possibleAnswer < 5; possibleAnswer++) {
             if (g.isCorrect(possibleAnswer)) {
-                view.highlightRightA(possibleAnswer - 1);
+                view.highlightRightAnswer(possibleAnswer - 1);
                 if (!(answer == possibleAnswer)) {
-                    view.highlightWrongA(answer - 1);
+                    view.highlightWrongAnswer(answer - 1);
                 }
                 break;
             }
         }
     }
 
-    private void getNextTexts(QuizGame g) {
+    private void setTexts() {
         texts = g.peekNextCard();
     }
 
@@ -55,11 +58,10 @@ public class QuizPresenter implements Presenter {
 
     public void proceed() {
         g.goToNextCard();
-        if(g.peekNextCard()!=null) {
-            getNextTexts(g);
-            view.initTexts(texts[0], texts[1], texts[2], texts[3], texts[4]);
-        }
-        else view.changeView();
+        if (g.peekNextCard() != null) {
+            setTexts();
+            view.initTexts(texts);
+        } else view.changeView();
     }
 
     public ArrayList<Integer> getAmountCorrectAnswers() {
