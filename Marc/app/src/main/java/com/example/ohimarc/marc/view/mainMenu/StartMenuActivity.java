@@ -32,7 +32,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_menu);
 
-        setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
+        setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.activity_toolbar));
 
         mainPresenter = new MainMenuPresenter(this,getFilesDir().getAbsolutePath());
         mainPresenter.start();

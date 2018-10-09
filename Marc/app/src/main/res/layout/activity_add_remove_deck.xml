@@ -59,7 +59,7 @@
     </LinearLayout>
 
     <include
-        android:id="@+id/navigation"
+        android:id="@+id/activity_navigation"
         layout="@layout/activity_navigation" />
 
 </android.support.v4.widget.DrawerLayout>

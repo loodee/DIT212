@@ -21,7 +21,7 @@ public class EditDeckActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_deck);
-        setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
+        setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.activity_toolbar));
         final TextView card = findViewById(R.id.tv_card);
         TextView deckTitle = findViewById(R.id.tv_deck_title);
         deckTitle.setText(testDeck.getTitle());

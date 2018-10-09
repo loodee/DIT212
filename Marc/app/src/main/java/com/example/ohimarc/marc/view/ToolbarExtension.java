@@ -14,7 +14,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ToolbarExtensionPresenter;
@@ -41,7 +40,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
         tb = findViewById(R.id.toolbar);
         titleText = findViewById(R.id.toolbar_text);
         navView = findViewById(viewID);
-        navigation = findViewById(R.id.navigation);
+        navigation = findViewById(R.id.activity_navigation);
     }
 
     private void setUpToolbar() {
@@ -118,8 +117,8 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         nextActivity = AddRemoveDeckActivity.class;
                         break;
                     case (R.id.settings_button):
-                        intent = null;
-                        nextActivity = null;
+                        intent = new Intent(getApplicationContext(), QuizActivity.class);
+                        nextActivity = QuizActivity.class;
                         break;
                     default:
                         intent = null;

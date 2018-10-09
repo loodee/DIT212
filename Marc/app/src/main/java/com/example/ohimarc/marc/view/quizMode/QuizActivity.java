@@ -37,7 +37,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
         putButtonsInButtons();
         presenter = new QuizPresenter(this);
         presenter.onCreate();
-        initExtension(this, R.id.quizactivity, presenter.getDeckTitle());
+        initExtension(this, R.id.quiz_activity, presenter.getDeckTitle());
     }
 
     private void assignButtons() {
