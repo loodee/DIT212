@@ -1,8 +1,10 @@
 package com.example.ohimarc.marc.view.editdeck;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +15,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
-import com.example.ohimarc.marc.model.Card;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.presenter.EditDeckPresenter;
 
@@ -57,7 +58,6 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
     }
 
 
-
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.toolbar_items, menu);
@@ -92,5 +92,30 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
         ActionBar ab = getSupportActionBar();
         ab.setTitle("Edit Deck");
     }
+
+    @Override
+    public void promptForDeletion(final int index, Deck deck) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Are you sure you want to delete " + deck + "?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                editDeckPresenter.confirmDeletion(index);
+                adapter.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
 
 }
