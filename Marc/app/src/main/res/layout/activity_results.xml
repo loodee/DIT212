@@ -6,6 +6,7 @@
     android:id="@+id/resultsactivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackGround"
     tools:context=".view.ResultsActivity">
 
     <LinearLayout
@@ -55,7 +56,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="120dp"
-                android:background="@android:color/darker_gray"
+                android:background="@android:color/white"
                 android:onClick="retryButton"
                 android:text="Retry"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
@@ -67,7 +68,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="50dp"
-                android:background="@android:color/darker_gray"
+                android:background="@android:color/white"
                 android:text="Return to deck"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </RelativeLayout>
