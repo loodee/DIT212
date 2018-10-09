@@ -5,14 +5,30 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.presenter.HomePresenter;
 
 public class Home extends ToolbarExtension {
+
+    HomePresenter presenter = new HomePresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home);
         initExtension(this, R.id.homeactivity,"Home");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(presenter.isLoggedOut()){
+            logout();
+        }
+    }
+
+    private void logout() {
+        finish();
     }
 
     public void exercise_button(View view) {
@@ -25,4 +41,5 @@ public class Home extends ToolbarExtension {
         Intent intent = new Intent(Home.this,AddRemoveDeckActivity.class);
         startActivity(intent);
     }
+
 }
