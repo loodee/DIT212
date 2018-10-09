@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ToolbarExtensionPresenter;
 import com.example.ohimarc.marc.view.mainMenu.StartMenuActivity;
+import com.example.ohimarc.marc.view.quizMode.QuizActivity;
 
 abstract public class ToolbarExtension extends AppCompatActivity implements ToolbarExtensionView {
 
@@ -110,8 +111,8 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         nextActivity = AddRemoveDeckActivity.class;
                         break;
                     case (R.id.settings_button):
-                        intent = null;
-                        nextActivity = null;
+                        intent = new Intent(getApplicationContext(), QuizActivity.class);
+                        nextActivity = QuizActivity.class;
                         break;
                     default:
                         intent = null;
