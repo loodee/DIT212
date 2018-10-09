@@ -41,6 +41,11 @@ public class User {
         decks.add(new Deck(localTitle));
     }
 
+    /**
+     * Given an index of a deck returns that deck
+     * @param i The index in the list of deck that the deck has
+     * @return A deck matching the index give, if the index is invalid null will be returned
+     * */
     public Deck getDeck(int i) {
         if(0 <= i && i < decks.size()){
             return decks.get(i);
