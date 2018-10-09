@@ -28,6 +28,11 @@ public class QuizPresenter implements Presenter {
         d.addBasicNote("Katt", "Cat");
         d.addBasicNote("Häst", "Horse");
         d.addBasicNote("Råtta", "Rat");
+        d.addBasicNote("Orm", "Snake");
+        d.addBasicNote("Sköldpadda", "Turtle");
+        d.addBasicNote("Igelkott", "Hedgehog");
+        d.addBasicNote("Lejon", "Lion");
+        d.addBasicNote("Myrslok", "Anteater");
         g = new QuizGame(d);
     }
 
