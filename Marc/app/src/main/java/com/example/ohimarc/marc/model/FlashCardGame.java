@@ -1,7 +1,6 @@
 package com.example.ohimarc.marc.model;
 
 public class FlashCardGame extends Game {
-    private int nextCard = 0;
 
     public FlashCardGame(Deck deck){
         super(deck,"Flashcard Game");
@@ -9,18 +8,7 @@ public class FlashCardGame extends Game {
 
     @Override
     public String[] peekNextCard() {
-        return nextCard < cardCopies.length ? cardCopies[nextCard] : null;
-    }
-    @Override
-    public void goToNextCard() {
-        nextCard++;
+        return getNextCard() < cardCopies.length ? cardCopies[getNextCard()] : null;
     }
 
-    public int getNextCard(){
-        return nextCard;
-    }
-
-    public int getDecksize(){
-        return deck.getDeckSize();
-    }
 }

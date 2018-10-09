@@ -20,10 +20,9 @@
         <activity
             android:name=".view.EditDeckActivity"/>
         <activity android:name=".view.ResultsActivity" />
-        <activity
-            android:name=".view.AddRemoveDeckActivity" />
-        <activity
-            android:name=".view.Home"></activity>
+        <activity android:name=".view.AddRemoveDeckActivity" />
+        <activity android:name=".view.Home"/>
+        <activity android:name=".view.quizMode.QuizActivity"/>
     </application>
 
 </manifest>

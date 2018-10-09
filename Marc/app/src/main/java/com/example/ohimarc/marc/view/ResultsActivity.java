@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.presenter.ResultPresenter;
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.view.quizMode.QuizActivity;
 
 import java.util.ArrayList;
 
@@ -57,7 +58,10 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
     }
 
     public void retryButton(View v) {
-        Intent intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
+        Intent intent;
+        if(mode.equals("Flashcard Mode")) {
+            intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
+        } else intent = new Intent(ResultsActivity.this, QuizActivity.class);
         startActivity(intent);
         finish();
     }
