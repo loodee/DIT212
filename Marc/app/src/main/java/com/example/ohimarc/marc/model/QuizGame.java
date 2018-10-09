@@ -31,10 +31,10 @@ public class QuizGame extends Game {
 
 
 
-    /*
-        front will always be the first element of the array
-        the rest is answeralternatives.
-        The correct answers index is being randomized every time you want a new card
+    /**
+     * front will always be the first element of the array
+     * the rest is answeralternatives.
+     * The correct answers index is being randomized every time you want a new card
          */
     @Override
     public String[] peekNextCard() {
