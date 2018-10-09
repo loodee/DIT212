@@ -12,8 +12,8 @@ public class QuizPresenter implements Presenter {
 
     private QuizView view;
     private String[] texts;
-    QuizGame g;
-    Deck d;
+    private QuizGame g;
+    private Deck d;
 
     public QuizPresenter(QuizView view) {
         this.view = view;
