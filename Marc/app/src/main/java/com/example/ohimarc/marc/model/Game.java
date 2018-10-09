@@ -5,6 +5,7 @@ public abstract class Game {
     String[][] cardCopies;
     private Pair[] pairs;
     private String name;
+    int nextCard = 0;
 
     public Game(Deck deck, String name) {
         this.deck = deck;
@@ -22,8 +23,9 @@ public abstract class Game {
     /**
      * Goes to the next card in the deck
     * */
-    public abstract void goToNextCard();
-
+    public void goToNextCard() {
+        nextCard++;
+    }
 
     public String getDeckTitle() {
         return deck.getTitle();
@@ -51,5 +53,13 @@ public abstract class Game {
 
     public String getName() {
         return name;
+    }
+
+    public int getNextCard(){
+        return nextCard;
+    }
+
+    public int getDecksize(){
+        return deck.getDeckSize();
     }
 }
