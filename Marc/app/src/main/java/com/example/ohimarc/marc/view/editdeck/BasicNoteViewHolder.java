@@ -13,16 +13,26 @@ public class BasicNoteViewHolder extends RecyclerView.ViewHolder {
     private TextView basicNoteTextFront;
     private TextView basicNoteTextBack;
 
-    public BasicNoteViewHolder(@NonNull View itemView, EditDeckContract.Presenter presenter) {
+    public BasicNoteViewHolder(@NonNull View itemView, final EditDeckContract.Presenter presenter) {
         super(itemView);
         basicNoteTextFront = itemView.findViewById(R.id.tv_front_basic_note);
         basicNoteTextBack = itemView.findViewById(R.id.tv_back_basic_note);
+
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.d("longclick", "" + getAdapterPosition());
+                presenter.onUserLongClickedAtPosition(getAdapterPosition());
+                return true;
+            }
+        });
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Log.d("hej", "" + getAdapterPosition());
+                presenter.onUserClickedAtPosition(getAdapterPosition());
             }
         });
 
@@ -33,6 +43,5 @@ public class BasicNoteViewHolder extends RecyclerView.ViewHolder {
         basicNoteTextBack.setText(backText);
 
     }
-
 
 }
