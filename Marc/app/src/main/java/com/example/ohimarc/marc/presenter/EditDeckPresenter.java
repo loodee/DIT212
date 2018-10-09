@@ -10,11 +10,10 @@ import com.example.ohimarc.marc.view.editdeck.EditDeckContract;
 public class EditDeckPresenter implements EditDeckContract.Presenter {
     private Deck deck;
     private EditDeckActivity editDeckActivity;
-    private EditDeckContract.View view;
+
 
     public EditDeckPresenter(EditDeckActivity a) {
         editDeckActivity = a;
-        this.view = view;
     }
 
     @Override
