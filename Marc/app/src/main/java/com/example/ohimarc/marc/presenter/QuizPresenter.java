@@ -1,8 +1,11 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.Deck;
+import com.example.ohimarc.marc.model.Pair;
 import com.example.ohimarc.marc.model.QuizGame;
 import com.example.ohimarc.marc.view.quizMode.QuizView;
+
+import java.util.ArrayList;
 
 public class QuizPresenter implements Presenter {
 
@@ -47,6 +50,20 @@ public class QuizPresenter implements Presenter {
     public void proceed() {
         getNextTexts(g);
         view.initTexts(texts[0], texts[1], texts[2], texts[3], texts[4]);
+    }
+
+    public ArrayList<Integer> getAmountCorrectAnswers() {
+        ArrayList<Integer> ansAmount = new ArrayList<>();
+        int amountCorrect = 0;
+        for (Pair p : g.getQuestionAns()) {
+            if ((Boolean) p.getElement1()) {
+                amountCorrect++;
+            }
+        }
+        int totalDeckSize = g.getDecksize();
+        ansAmount.add(amountCorrect);
+        ansAmount.add(totalDeckSize);
+        return ansAmount;
     }
 
     @Override
