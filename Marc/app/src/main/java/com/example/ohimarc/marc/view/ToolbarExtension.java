@@ -111,8 +111,8 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         nextActivity = AddRemoveDeckActivity.class;
                         break;
                     case (R.id.settings_button):
-                        intent = new Intent(getApplicationContext(), QuizActivity.class);
-                        nextActivity = QuizActivity.class;
+                        intent = null;
+                        nextActivity = null;
                         break;
                     default:
                         intent = null;
