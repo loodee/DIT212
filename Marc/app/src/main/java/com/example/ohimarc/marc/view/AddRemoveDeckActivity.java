@@ -63,9 +63,10 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
             public void onClick(DialogInterface dialog, int which) {
                 String s = input.getText().toString();
                 if (s.replaceAll("\\s", "").isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "You cant create a deck without a name!", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(), "You cant create a deck without a name!", Toast.LENGTH_LONG).show();
                 } else {
                     presenter.addDeck(input.getText().toString());
+                    mAdapter.notifyDataSetChanged();
                     dialog.dismiss();
                 }
             }
