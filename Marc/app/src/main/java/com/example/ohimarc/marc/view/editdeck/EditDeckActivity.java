@@ -16,28 +16,30 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.model.Deck;
+import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.presenter.EditDeckPresenter;
 
 import java.util.Objects;
 
 public class EditDeckActivity extends AppCompatActivity implements EditDeckContract.View {
 
-
-    private Deck testDeck = new Deck("testDeck");
+    private MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
+    private Deck deck;
     private EditDeckPresenter editDeckPresenter = new EditDeckPresenter(this);
     private AdapterEditDeckRC adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int index = Objects.requireNonNull(getIntent().getExtras()).getInt("index");
+        deck = mtt.getActiveUser().getDeck(index);
         adapter = new AdapterEditDeckRC(editDeckPresenter);
+
+        // setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_deck);
         deckTitles();
-
-        setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
-        editDeckTitle();
-
 
         RecyclerView rv = findViewById(R.id.rv_recyclerView);
         rv.setAdapter(adapter);
@@ -84,14 +86,8 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
     @Override
     public void deckTitles() {
         TextView deckTitle = findViewById(R.id.tv_deck_title);
-        deckTitle.setText(testDeck.getTitle());
+        deckTitle.setText(deck.getTitle());
 
-    }
-
-    @Override
-    public void editDeckTitle() {
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Edit Deck");
     }
 
     @Override

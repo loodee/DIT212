@@ -59,6 +59,6 @@ public class AddRemoveDeckPresenter implements Presenter {
     }
 
     public void deckClicked(int adapterPosition) {
-        view.deckIsClicked(deckList.get(adapterPosition));
+        view.deckIsClicked(adapterPosition);
     }
 }

@@ -10,8 +10,6 @@ public interface EditDeckContract {
 
         void deckTitles();
 
-        void editDeckTitle();
-
         void promptForDeletion(int index, Deck deck);
 
         void editCardInDeck(int index);
