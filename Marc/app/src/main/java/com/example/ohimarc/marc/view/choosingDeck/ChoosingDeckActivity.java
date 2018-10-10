@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.view.choosingDeck;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
 import com.example.ohimarc.marc.view.ToolbarExtension;
+import com.example.ohimarc.marc.view.exerciseView.ExerciseActivity;
 
 
 public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDeckView{
@@ -49,7 +51,16 @@ public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDe
 
 
     public void deckIsClicked(int index) {
+        Intent intent = new Intent(getApplicationContext(), ExerciseActivity.class);
+        packBundle(index,intent);
+        startActivity(intent);
+        finish();
+    }
 
+    private void packBundle(int index, Intent intent){
+        Bundle b = new Bundle();
+        b.putInt("deckIndex",index);
+        intent.putExtras(b);
     }
 
 }
