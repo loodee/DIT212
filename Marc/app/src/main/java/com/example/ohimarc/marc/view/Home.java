@@ -6,12 +6,10 @@ import android.view.View;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.HomePresenter;
-import com.example.ohimarc.marc.StaticTestDeck;
-import com.example.ohimarc.marc.view.editdeck.EditDeckActivity;
 
 public class Home extends ToolbarExtension {
 
-    HomePresenter presenter = new HomePresenter();
+    private final HomePresenter presenter = new HomePresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

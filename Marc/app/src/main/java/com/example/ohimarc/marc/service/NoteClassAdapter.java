@@ -17,7 +17,7 @@ import java.lang.reflect.Type;
  * Adapter to handle abstract Note class when converting to and from JSON format,
  * This class is heavily inspired from "http://ovaraksin.blogspot.com/2011/05/json-with-gson-and-abstract-classes.html"
  * */
-public class NoteClassAdapter implements JsonSerializer<Note>, JsonDeserializer<Note> {
+class NoteClassAdapter implements JsonSerializer<Note>, JsonDeserializer<Note> {
     @Override
     public Note deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();

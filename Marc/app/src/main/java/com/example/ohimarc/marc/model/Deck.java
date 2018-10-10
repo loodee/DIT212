@@ -7,7 +7,7 @@ import java.util.List;
  * Class containing groups of Card objects and functions for retrieving information from the cards.
  */
 public class Deck {
-    private List<Note> notes;
+    private final List<Note> notes;
     private String title;
 
     /**

@@ -53,7 +53,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showAddUserPopup(v);
+                showAddUserPopup();
             }
         });
 
@@ -66,12 +66,12 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         return true;
     }
 
-    public void showAddUserPopup(View view) {
+    private void showAddUserPopup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Create User");
 
         View viewInflated = LayoutInflater.from(this).inflate(R.layout.add_user_popup, (ViewGroup) findViewById(R.id.baseLayout), false);
-        final EditText input = (EditText) viewInflated.findViewById(R.id.input);
+        final EditText input = viewInflated.findViewById(R.id.input);
         builder.setView(viewInflated);
 
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
