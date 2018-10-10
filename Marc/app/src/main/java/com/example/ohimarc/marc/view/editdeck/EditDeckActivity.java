@@ -97,7 +97,7 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
     public void promptForDeletion(final int index, Deck deck) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Are you sure you want to delete " + deck + "?");
+        builder.setTitle("Are you sure you want to delete this card from " + deck + "?");
 
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
