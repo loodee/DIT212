@@ -4,6 +4,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#e0e0e0" />
+
     <TextView
         android:id="@+id/tv_front_basic_note"
         android:layout_width="match_parent"
@@ -11,12 +17,6 @@
         android:background="#ff0000"
         android:gravity="center"
         android:textAlignment="gravity" />
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black" />
 
     <TextView
         android:id="@+id/tv_back_basic_note"
