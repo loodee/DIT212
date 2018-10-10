@@ -8,7 +8,9 @@
         android:id="@+id/tv_front_basic_note"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:background="#ff0000" />
+        android:background="#ff0000"
+        android:gravity="center"
+        android:textAlignment="gravity"/>
 
 
     <View
@@ -20,5 +22,7 @@
         android:id="@+id/tv_back_basic_note"
         android:layout_width="match_parent"
         android:layout_height="87dp"
+        android:gravity="center"
+        android:textAlignment="gravity"
         android:background="@android:color/background_light" />
 </LinearLayout>
