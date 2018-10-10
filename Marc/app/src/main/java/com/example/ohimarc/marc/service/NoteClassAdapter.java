@@ -25,8 +25,8 @@ class NoteClassAdapter implements JsonSerializer<Note>, JsonDeserializer<Note> {
         JsonElement element = jsonObject.get("properties");
 
         try {
-            String thepackage = "com.example.ohimarc.marc.model.";
-            return context.deserialize(element, Class.forName(thepackage + type));
+            String thePackage = "com.example.ohimarc.marc.model.";
+            return context.deserialize(element, Class.forName(thePackage + type));
         } catch (ClassNotFoundException cnfe) {
             throw new JsonParseException("Unknown element type: " + type, cnfe);
         }

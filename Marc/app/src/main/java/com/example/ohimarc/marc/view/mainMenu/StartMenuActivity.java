@@ -37,7 +37,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         mainPresenter = new MainMenuPresenter(this,getFilesDir().getAbsolutePath());
         mainPresenter.start();
 
-        if(mainPresenter.logedin()){
+        if(mainPresenter.loggedIn()){
             login();
         }
 

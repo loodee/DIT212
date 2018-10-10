@@ -65,7 +65,7 @@ public class MainMenuPresenter implements StartMenuContract.Presenter{
     /**
      * @return Returns true if a user is currently logged in, otherwise returns false
      * */
-    public boolean logedin() {
+    public boolean loggedIn() {
         return MemorizationTrainingTool.getInstance().getActiveUser() != null;
     }
 
