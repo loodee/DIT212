@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.HomePresenter;
+import com.example.ohimarc.marc.StaticTestDeck;
+import com.example.ohimarc.marc.view.editdeck.EditDeckActivity;
 
 public class Home extends ToolbarExtension {
 

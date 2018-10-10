@@ -1,5 +1,6 @@
 package com.example.ohimarc.marc.presenter;
 
+import com.example.ohimarc.marc.StaticTestDeck;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.FlashCardGame;
 import com.example.ohimarc.marc.model.Pair;
@@ -14,10 +15,8 @@ public class FlashcardPresenter implements Presenter {
     private Deck testDeck;
 
 
-    public FlashcardPresenter(FlashcardView view) {
-        testDeck = new Deck("testdeck");
-        testDeck.addBasicNote("hund (front)", "dog");
-        testDeck.addBasicNote("katt (front)", "katt");
+    public FlashcardPresenter(FlashcardView view){
+        testDeck = StaticTestDeck.globalDeck;
         this.view = view;
         game = new FlashCardGame(testDeck);
     }

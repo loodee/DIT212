@@ -1,5 +1,6 @@
 package com.example.ohimarc.marc;
 
+import com.example.ohimarc.marc.model.Card;
 import com.example.ohimarc.marc.model.Deck;
 
 import org.junit.Before;
@@ -40,5 +41,30 @@ public class DeckUnitTest {
         assertEquals(2, d.getDeckSize());
         assertEquals(front2, d.getCardCopies()[1][0]);
         assertEquals(back2, d.getCardCopies()[1][1]);
+    }
+
+    @Test
+    public void deleteNotes() {
+        String front1 = "front1"; String back1 = "back1";
+        String front2 = "front2"; String back2 = "back2";
+        String front3 = "front3"; String back3 = "back3";
+        String front4 = "front4"; String back4 = "back4";
+
+        d.addBasicNote(front1, back1);
+        d.addBasicNote(front2, back2);
+        d.addBasicNote(front3, back3);
+        d.addBasicNote(front4, back4);
+
+        d.deleteNote(2);
+        assertEquals(3, d.getDeckSize());
+
+        String[][] cardCopies = d.getCardCopies();
+
+        assertEquals(cardCopies[2][0], front4);
+
+        int cardIndex = 0;
+        int noteIndex = d.getNoteIndexFromCardIndex(cardIndex);
+
+        assertEquals(cardCopies[cardIndex][0], cardCopies[noteIndex][0]);
     }
 }
