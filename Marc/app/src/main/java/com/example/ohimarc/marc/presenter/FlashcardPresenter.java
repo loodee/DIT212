@@ -1,7 +1,10 @@
 package com.example.ohimarc.marc.presenter;
 
+import android.util.Log;
+
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.FlashCardGame;
+import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Pair;
 import com.example.ohimarc.marc.view.FlashcardView;
 
@@ -9,22 +12,24 @@ import java.util.ArrayList;
 
 public class FlashcardPresenter implements Presenter {
 
+
+    private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
     private FlashCardGame game;
     private FlashcardView view;
-    private Deck testDeck;
+    private Deck deck;
+    private int index;
 
 
-    public FlashcardPresenter(FlashcardView view) {
-        testDeck = new Deck("testdeck");
-        testDeck.addBasicNote("hund (front)", "dog");
-        testDeck.addBasicNote("katt (front)", "katt");
+    public FlashcardPresenter(FlashcardView view, int index) {
         this.view = view;
-        game = new FlashCardGame(testDeck);
+        this.index = index;
     }
 
     @Override
     public void onCreate() {
-        game = new FlashCardGame(testDeck);
+        deck = mtt.getActiveUser().getDeck(index);
+        game = new FlashCardGame(deck);
+        Log.d("somemessage", "" + game.getDeckTitle());
         if (game.getDecksize() > 0) {
             view.initTexts(game.getDeckTitle(), game.peekNextCard()[0]);
         }
@@ -68,7 +73,6 @@ public class FlashcardPresenter implements Presenter {
         ansAmount.add(amountCorrect);
         ansAmount.add(totalDeckSize);
         return ansAmount;
-
     }
 
     public String getDeckTitle() {

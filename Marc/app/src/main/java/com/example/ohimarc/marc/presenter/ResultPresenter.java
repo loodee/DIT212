@@ -1,22 +1,32 @@
 package com.example.ohimarc.marc.presenter;
 
-import com.example.ohimarc.marc.model.FlashCardGame;
+import android.util.Log;
+
+import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.view.ResultsView;
 
 import java.util.ArrayList;
 
 public class ResultPresenter implements Presenter {
-    private final ArrayList<Integer> amountCorret;
+    private final ArrayList<Integer> amountCorrect;
     private ResultsView view;
+    String deckTitle;
 
-    public ResultPresenter(ArrayList<Integer> amountCorret, ResultsView view) {
+    private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
+
+    public ResultPresenter(ResultsView view, ArrayList<Integer> amountCorrect, int deckIndex) {
         this.view = view;
-        this.amountCorret = amountCorret;
+        this.amountCorrect = amountCorrect;
+        deckTitle = mtt.getActiveUser().getDeck(deckIndex).getTitle();
+    }
+
+    public String getDeckTitle() {
+        return deckTitle;
     }
 
     @Override
     public void onCreate() {
-        view.initTexts(amountCorret.get(0), amountCorret.get(1));
+        view.initTexts(amountCorrect.get(0), amountCorrect.get(1));
     }
 
     @Override

@@ -15,9 +15,10 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
     ResultPresenter presenter;
 
-    private ArrayList<Integer> value;
+    private ArrayList<Integer> values;
     private String deckTitle;
     private String mode;
+    private int deckIndex;
 
     private TextView resultText;
     private TextView deckTitleText;
@@ -36,23 +37,23 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
         unpackBundle();
 
-        presenter = new ResultPresenter(value, this);
+        presenter = new ResultPresenter(this, values, deckIndex);
         presenter.onCreate();
     }
 
     private void unpackBundle() {
         Bundle b = getIntent().getExtras();
-        value = null;
+        values = null;
         if (b != null) {
-            value = b.getIntegerArrayList("results");
-            deckTitle = b.getString("deckTitle");
+            values = b.getIntegerArrayList("results");
             mode = b.getString("mode");
+            deckIndex = b.getInt("deckIndex");
         }
     }
 
     public void initTexts(int correct, int total) {
         resultText.setText("Score: " + correct + "/" + total);
-        deckTitleText.setText("Deck: " + deckTitle);
+        deckTitleText.setText("Deck: " + presenter.getDeckTitle());
         modeText.setText("Mode: " + mode);
 
     }
