@@ -46,7 +46,7 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     }
 
     public void confirmDeletion(int index) {
-        deck.deleteNote(index);
+        deck.deleteNote(deck.getNoteIndexFromCardIndex(index));
     }
 
 }
