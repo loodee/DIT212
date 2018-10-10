@@ -18,10 +18,11 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.presenter.EditDeckPresenter;
+import com.example.ohimarc.marc.view.ToolbarExtension;
 
 import java.util.Objects;
 
-public class EditDeckActivity extends AppCompatActivity implements EditDeckContract.View {
+public class EditDeckActivity extends ToolbarExtension implements EditDeckContract.View {
 
     private MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
     private Deck deck;
@@ -58,13 +59,7 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
                 startActivity(intent);
             }
         });
-    }
-
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items, menu);
-        return true;
+        initExtension(this, R.id.activity_edit_deck, "Edit Deck");
     }
 
     @Override

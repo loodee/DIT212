@@ -76,12 +76,6 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         presenter.onDestroy();
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items, menu);
-        return true;
-    }
-
     public void selfDestruct() {
         finishAfterTransition();
     }
