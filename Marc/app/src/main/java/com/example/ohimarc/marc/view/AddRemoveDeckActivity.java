@@ -108,33 +108,10 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
     }
 
     @Override
-    public void deckIsClicked(int index) {
-        /* AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("YOU HAVE CLICKED ON DECK: " + title);
-
-        View viewInflated = LayoutInflater.from(this).inflate(R.layout.delete_deck_popup, (ViewGroup) findViewById(R.id.baseLayout), false);
-        builder.setView(viewInflated);
-
-        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        builder.show();
-        */
-
+    public void deckIsClicked(int deckIndex) {
         Intent intent = new Intent(AddRemoveDeckActivity.this, EditDeckActivity.class);
-        intent.putExtra("index", index);
+        intent.putExtra("deckIndex", deckIndex);
         startActivity(intent);
-
-        //TODO: ReImplement this method so it redirects to a decks' cards.
-        /* Just change in this presenters method deckClicked() so it returns that you need instead a string
-            Also change AddDeckViews deckIsClicked(String title) to a more proper argument
-         */
-
-
     }
 
     ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
