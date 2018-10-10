@@ -42,6 +42,7 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
 
     @Override
     public void onUserLongClickedAtPosition(int adapterPosition) {
+        editDeckActivity.promptForDeletion(adapterPosition, deck);
     }
 
     public void confirmDeletion(int index) {
