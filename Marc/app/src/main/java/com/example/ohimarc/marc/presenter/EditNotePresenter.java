@@ -1,26 +1,30 @@
 package com.example.ohimarc.marc.presenter;
 
-import com.example.ohimarc.marc.StaticTestDeck;
 import com.example.ohimarc.marc.model.BasicNote;
 import com.example.ohimarc.marc.model.Deck;
+import com.example.ohimarc.marc.model.MemorizationTrainingTool;
+import com.example.ohimarc.marc.service.LocalUserStorage;
+import com.example.ohimarc.marc.service.UserStorage;
 import com.example.ohimarc.marc.view.editdeck.EditNoteView;
 
 public class EditNotePresenter implements Presenter {
     private EditNoteView view;
     private Deck deck;
-    private int index;
+    private int noteIndex;
+    private UserStorage store;
 
-    public EditNotePresenter(EditNoteView view, int index) {
+    public EditNotePresenter(EditNoteView view, int noteIndex, int deckIndex, String filepath) {
         this.view = view;
-        this.deck = StaticTestDeck.globalDeck;
-        this.index = index;
+        this.deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
+        this.noteIndex = noteIndex;
+        this.store = new LocalUserStorage(filepath);
     }
 
     @Override
     public void onCreate() {
-        if (index != -1) {
-            if (deck.getNote(index) instanceof BasicNote) {
-                BasicNote note = ((BasicNote) deck.getNote(index));
+        if (noteIndex != -1) {
+            if (deck.getNote(noteIndex) instanceof BasicNote) {
+                BasicNote note = ((BasicNote) deck.getNote(noteIndex));
                 view.setValues(note.getFront(), note.getBack());
             }
         }
@@ -63,12 +67,13 @@ public class EditNotePresenter implements Presenter {
 
         if (valid) {
             if (isEditing) {
-                deck.addBasicNote(front, back, index);
+                deck.addBasicNote(front, back, noteIndex);
                 view.selfDestruct();
             } else {
                 deck.addBasicNote(front, back);
                 view.resetInputs();
             }
+            store.storeState(MemorizationTrainingTool.getInstance());
             view.showToast();
         } else {
             view.showErrors();

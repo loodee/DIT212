@@ -4,8 +4,6 @@ import com.example.ohimarc.marc.model.Deck;
 
 public interface EditDeckContract {
     interface View {
-        void setPresenter(EditDeckContract.Presenter presenter);
-
         void updateDeckList();
 
         void deckTitles();
@@ -25,6 +23,5 @@ public interface EditDeckContract {
         void onUserClickedAtPosition(int adapterPosition);
 
         void onUserLongClickedAtPosition(int adapterPosition);
-
     }
 }

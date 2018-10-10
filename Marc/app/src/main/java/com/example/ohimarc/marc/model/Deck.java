@@ -58,12 +58,12 @@ public class Deck {
      * @return The index of the Card's parent Note, in its Deck.
      */
     public int getNoteIndexFromCardIndex(int index) {
-        int counter = 0;
+        int counter = -1;
         for (int i = 0; i < notes.size(); i++) {
             counter += notes.get(index).getSize();
             if (counter >= index) return i;
         }
-        return -1;
+        return -1; // should not happen
     }
 
     /**

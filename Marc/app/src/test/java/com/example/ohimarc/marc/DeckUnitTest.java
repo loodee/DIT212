@@ -62,7 +62,7 @@ public class DeckUnitTest {
 
         assertEquals(cardCopies[2][0], front4);
 
-        int cardIndex = 0;
+        int cardIndex = 1;
         int noteIndex = d.getNoteIndexFromCardIndex(cardIndex);
 
         assertEquals(cardCopies[cardIndex][0], cardCopies[noteIndex][0]);
