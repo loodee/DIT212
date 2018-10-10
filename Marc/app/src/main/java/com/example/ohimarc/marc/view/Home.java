@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.HomePresenter;
+import com.example.ohimarc.marc.view.choosingDeck.ChoosingDeckActivity;
 
 public class Home extends ToolbarExtension {
 
@@ -32,7 +33,7 @@ public class Home extends ToolbarExtension {
     }
 
     public void exercise_button(View view) {
-        Intent intent = new Intent(Home.this, FlashcardActivity.class);
+        Intent intent = new Intent(Home.this, ChoosingDeckActivity.class);
         startActivity(intent);
         //finish();
     }

@@ -107,8 +107,8 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         }
                         return true;
                     case (R.id.exercises_button):
-                        intent = new Intent(getApplicationContext(), FlashcardActivity.class);
-                        nextActivity = FlashcardActivity.class;
+                        intent = new Intent(getApplicationContext(), ChoosingDeckActivity.class);
+                        nextActivity = ChoosingDeckActivity.class;
                         break;
                     case (R.id.achievements_button):
                         intent = new Intent(getApplicationContext(), ExerciseActivity.class);
@@ -119,8 +119,8 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         nextActivity = AddRemoveDeckActivity.class;
                         break;
                     case (R.id.settings_button):
-                        intent = new Intent(getApplicationContext(), ChoosingDeckActivity.class);
-                        nextActivity = ChoosingDeckActivity.class;
+                        intent = null;
+                        nextActivity = null;
                         break;
                     default:
                         intent = null;
