@@ -37,7 +37,7 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
 
     @Override
     public void onUserClickedAtPosition(int adapterPosition) {
-
+        editDeckActivity.editCardInDeck(adapterPosition);
     }
 
     @Override
