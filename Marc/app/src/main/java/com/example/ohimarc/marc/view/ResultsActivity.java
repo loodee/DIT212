@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.presenter.ResultPresenter;
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.view.choosingDeck.ChoosingDeckActivity;
 import com.example.ohimarc.marc.view.quizMode.QuizActivity;
 
 import java.util.ArrayList;
@@ -63,6 +64,12 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
         if(mode.equals("Flashcard Game")) {
             intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
         } else intent = new Intent(ResultsActivity.this, QuizActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void returnClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), ChoosingDeckActivity.class);
         startActivity(intent);
         finish();
     }
