@@ -17,8 +17,11 @@ public class ExercisePresenter implements Presenter {
     }
 
     public String getDeckTitle() {
-        //return mtt.getActiveUser().getDeck(index).getTitle();
-        return "This is a deck title";
+        return mtt.getActiveUser().getDeck(index).getTitle();
+    }
+
+    public int getDeckSize() {
+        return mtt.getActiveUser().getDeck(index).getDeckSize();
     }
 
     @Override

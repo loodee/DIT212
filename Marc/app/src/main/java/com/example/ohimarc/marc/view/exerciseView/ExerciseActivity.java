@@ -3,6 +3,7 @@ package com.example.ohimarc.marc.view.exerciseView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ExercisePresenter;
@@ -39,15 +40,21 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
     }
 
     @Override
-    public void navigate() {
+    public boolean navigate() {
         Intent intent;
         switch(modeIndex) {
             case(0):
                 intent = new Intent(getApplicationContext(), FlashcardActivity.class);
                 break;
             case(1):
-                intent = new Intent(getApplicationContext(), QuizActivity.class);
-                break;
+                if(presenter.getDeckSize()>3) {
+                    intent = new Intent(getApplicationContext(), QuizActivity.class);
+                    break;
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"The deck needs to contain more than 4 cards to play the quiz mode.", Toast.LENGTH_LONG).show();
+                    return true;
+                }
             default: intent = null;
         }
         if(intent != null) {
@@ -55,12 +62,12 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
             startActivity(intent);
             finish();
         }
+        return true;
     }
 
     private void packBundle(Intent intent) {
         Bundle b = new Bundle();
         b.putInt("deckIndex" , deckIndex);
-        b.putInt("modeIndex", modeIndex);
         intent.putExtras(b);
     }
 
