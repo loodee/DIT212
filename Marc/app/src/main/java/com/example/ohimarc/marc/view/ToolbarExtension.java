@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ToolbarExtensionPresenter;
+import com.example.ohimarc.marc.view.exerciseView.ExerciseActivity;
 import com.example.ohimarc.marc.view.mainMenu.StartMenuActivity;
 import com.example.ohimarc.marc.view.quizMode.QuizActivity;
 
@@ -109,8 +110,8 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         nextActivity = FlashcardActivity.class;
                         break;
                     case (R.id.achievements_button):
-                        intent = null;
-                        nextActivity = null;
+                        intent = new Intent(getApplicationContext(), ExerciseActivity.class);
+                        nextActivity = ExerciseActivity.class;
                         break;
                     case (R.id.decks_button):
                         intent = new Intent(getApplicationContext(),AddRemoveDeckActivity.class);
