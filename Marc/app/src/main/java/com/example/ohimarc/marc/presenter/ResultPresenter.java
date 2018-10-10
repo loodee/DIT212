@@ -9,14 +9,14 @@ public class ResultPresenter implements Presenter {
     private final ArrayList<Integer> amountCorret;
     private ResultsView view;
 
-    public ResultPresenter(ArrayList<Integer> amountCorret,ResultsView view){
+    public ResultPresenter(ArrayList<Integer> amountCorret, ResultsView view) {
         this.view = view;
         this.amountCorret = amountCorret;
-        }
+    }
 
     @Override
     public void onCreate() {
-        view.initTexts(amountCorret.get(0),amountCorret.get(1));
+        view.initTexts(amountCorret.get(0), amountCorret.get(1));
     }
 
     @Override
@@ -33,7 +33,6 @@ public class ResultPresenter implements Presenter {
     public void onDestroy() {
 
     }
-    
 
 
 }

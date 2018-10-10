@@ -1,28 +1,24 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.view.exerciseView.ExerciseView;
 
 public class ExercisePresenter implements Presenter {
 
 
     MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
-    private ExerciseView view;
+    private int index;
 
-    public ExercisePresenter(ExerciseView view, int index) {
-        this.view = view;
+    public ExercisePresenter(int index) {
+        this.index = index;
     }
 
     @Override
     public void onCreate() {
     }
 
-    public void quizButton() {
-
-    }
-
-    public void flashcardButton() {
-
+    public String getDeckTitle() {
+        //return mtt.getActiveUser().getDeck(index).getTitle();
+        return "This is a deck title";
     }
 
     @Override
