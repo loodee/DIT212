@@ -118,5 +118,11 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
         builder.show();
     }
 
+    @Override
+    public void editCardInDeck(int index){
+        Intent intent = new Intent(EditDeckActivity.this, EditNoteActivity.class);
+        intent.putExtra("index", 0);
+        startActivity(intent);
+    }
 
 }
