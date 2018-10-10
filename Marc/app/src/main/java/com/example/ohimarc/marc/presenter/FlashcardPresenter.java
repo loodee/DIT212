@@ -1,7 +1,5 @@
 package com.example.ohimarc.marc.presenter;
 
-import android.util.Log;
-
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.FlashCardGame;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;

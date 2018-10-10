@@ -18,7 +18,14 @@
         </activity>
         <activity android:name=".view.FlashcardActivity" />
         <activity
-            android:name=".view.EditDeckActivity"/>
+            android:name=".view.editdeck.EditNoteActivity"
+            android:exported="true"
+            android:parentActivityName=".view.editdeck.EditDeckActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ohimarc.marc.view.editdeck.EditDeckActivity" />
+        </activity>
+        <activity android:name=".view.editdeck.EditDeckActivity" />
         <activity android:name=".view.ResultsActivity" />
         <activity android:name=".view.AddRemoveDeckActivity" />
         <activity android:name=".view.Home"/>

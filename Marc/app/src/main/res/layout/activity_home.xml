@@ -112,7 +112,7 @@
                         android:layout_width="67dp"
                         android:layout_height="73dp"
                         android:layout_marginStart="24dp"
-                        android:contentDescription="@string/deck_ico"
+                        android:contentDescription="@string/deck_icon"
                         app:layout_constraintBottom_toTopOf="@+id/deck_button"
                         app:layout_constraintStart_toStartOf="@+id/deck_button"
                         app:layout_constraintTop_toBottomOf="@+id/deck_button"
@@ -160,7 +160,7 @@
                         android:layout_width="67dp"
                         android:layout_height="73dp"
                         android:layout_marginStart="24dp"
-                        android:contentDescription="@string/achivements_ico"
+                        android:contentDescription="@string/achievements_icon"
                         app:layout_constraintBottom_toTopOf="@+id/achivements_button"
                         app:layout_constraintStart_toStartOf="@+id/achivements_button"
                         app:layout_constraintTop_toBottomOf="@+id/achivements_button"
@@ -193,7 +193,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:srcCompat="@drawable/logotype" />
+                app:srcCompat="@drawable/logo" />
         </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>

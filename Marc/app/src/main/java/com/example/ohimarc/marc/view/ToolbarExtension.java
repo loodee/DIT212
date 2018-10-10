@@ -52,7 +52,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     }
 
     private void initNavToggle(Activity act) {
-        navToggle = new ActionBarDrawerToggle(act, navView, R.string.Open, R.string.Close);
+        navToggle = new ActionBarDrawerToggle(act, navView, R.string.open, R.string.close);
         navView.addDrawerListener(navToggle);
         navToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

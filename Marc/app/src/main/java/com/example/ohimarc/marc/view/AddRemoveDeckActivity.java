@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.view;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 import com.example.ohimarc.marc.view.addremovedeck.AddDeckView;
 import com.example.ohimarc.marc.view.addremovedeck.AddRemoveAdapter;
+import com.example.ohimarc.marc.view.editdeck.EditDeckActivity;
 
 public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckView {
 
@@ -29,7 +31,7 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        presenter = new AddRemoveDeckPresenter(this,getFilesDir().getAbsolutePath());
+        presenter = new AddRemoveDeckPresenter(this, getFilesDir().getAbsolutePath());
 
         setContentView(R.layout.activity_add_remove_deck);
         mRecyclerView = findViewById(R.id.my_recycler_view);
@@ -61,9 +63,10 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
             public void onClick(DialogInterface dialog, int which) {
                 String s = input.getText().toString();
                 if (s.replaceAll("\\s", "").isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "You cant create a deck without a name!", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(), "You cant create a deck without a name!", Toast.LENGTH_LONG).show();
                 } else {
                     presenter.addDeck(input.getText().toString());
+                    mAdapter.notifyDataSetChanged();
                     dialog.dismiss();
                 }
             }
@@ -105,26 +108,10 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
     }
 
     @Override
-    public void deckIsClicked(String title) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("YOU HAVE CLICKED ON DECK: " + title);
-
-        View viewInflated = LayoutInflater.from(this).inflate(R.layout.delete_deck_popup, (ViewGroup) findViewById(R.id.baseLayout), false);
-        builder.setView(viewInflated);
-
-        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        builder.show();
-
-        //TODO: ReImplement this method so it redirects to a decks' cards.
-        /* Just change in this presenters method deckClicked() so it returns that you need instead a string
-            Also change AddDeckViews deckIsClicked(String title) to a more proper argument
-         */
+    public void deckIsClicked(int deckIndex) {
+        Intent intent = new Intent(AddRemoveDeckActivity.this, EditDeckActivity.class);
+        intent.putExtra("deckIndex", deckIndex);
+        startActivity(intent);
     }
 
     ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {

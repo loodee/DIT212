@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalUserStorage implements UserStorage{
+public class LocalUserStorage implements UserStorage {
 
 
     private String filePath;
@@ -24,8 +24,9 @@ public class LocalUserStorage implements UserStorage{
 
     /**
      * Creates an LocalUserStorage object which can store and retrieve Users from .json files
+     *
      * @param filePath The path which the .json file is going to be located in
-     * */
+     */
     public LocalUserStorage(String filePath) {
         this.filePath = filePath;
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -37,7 +38,7 @@ public class LocalUserStorage implements UserStorage{
     public boolean storeState(MemorizationTrainingTool mtt) {
         try {
             String json = g.toJson(mtt);
-            FileWriter fw = new FileWriter(filePath+fileName);
+            FileWriter fw = new FileWriter(filePath + fileName);
             fw.write(json);
             fw.close();
             return true;
@@ -49,10 +50,11 @@ public class LocalUserStorage implements UserStorage{
     @Override
     public MemorizationTrainingTool getStoredState() {
         try {
-            MemorizationTrainingTool mtt = g.fromJson(new FileReader(filePath+fileName), new TypeToken<MemorizationTrainingTool>(){}.getType());
-            if(mtt == null){
+            MemorizationTrainingTool mtt = g.fromJson(new FileReader(filePath + fileName), new TypeToken<MemorizationTrainingTool>() {
+            }.getType());
+            if (mtt == null) {
                 return new MemorizationTrainingTool();
-            }else{
+            } else {
                 return mtt;
             }
         } catch (FileNotFoundException e) {

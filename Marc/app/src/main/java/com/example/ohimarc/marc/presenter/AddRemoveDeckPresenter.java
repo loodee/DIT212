@@ -13,10 +13,11 @@ public class AddRemoveDeckPresenter implements Presenter {
     private List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     private AddDeckView view;
     private UserStorage userStorage;
-    public AddRemoveDeckPresenter(AddDeckView view, String filePath){
+
+    public AddRemoveDeckPresenter(AddDeckView view, String filePath) {
         this.view = view;
         userStorage = new LocalUserStorage(filePath);
-        }
+    }
 
     @Override
     public void onCreate() {
@@ -46,19 +47,19 @@ public class AddRemoveDeckPresenter implements Presenter {
         return deckList.size();
     }
 
-    public void addDeck(String deckTitle){
+    public void addDeck(String deckTitle) {
         MemorizationTrainingTool.getInstance().getActiveUser().createNewDeck(deckTitle);
         userStorage.storeState(MemorizationTrainingTool.getInstance());
         deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     }
 
-    public void deleteDeck(int index){
+    public void deleteDeck(int index) {
         MemorizationTrainingTool.getInstance().getActiveUser().deleteDeck(index);
         userStorage.storeState(MemorizationTrainingTool.getInstance());
         deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     }
 
     public void deckClicked(int adapterPosition) {
-        view.deckIsClicked(deckList.get(adapterPosition));
+        view.deckIsClicked(adapterPosition);
     }
 }
