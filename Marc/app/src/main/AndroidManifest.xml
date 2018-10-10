@@ -24,6 +24,7 @@
         <activity android:name=".view.Home"/>
         <activity android:name=".view.quizMode.QuizActivity"/>
         <activity android:name=".view.exerciseView.ExerciseActivity"/>
+        <activity android:name=".view.choosingDeck.ChoosingDeckActivity"/>
     </application>
 
 </manifest>
