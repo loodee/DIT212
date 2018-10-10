@@ -1,7 +1,5 @@
 package com.example.ohimarc.marc.view.editdeck;
 
-import android.view.View;
-
 import com.example.ohimarc.marc.model.Deck;
 
 public interface EditDeckContract {

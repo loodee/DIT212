@@ -38,6 +38,7 @@ public class EditDeckActivity extends AppCompatActivity implements EditDeckContr
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar));
         editDeckTitle();
 
+
         RecyclerView rv = findViewById(R.id.rv_recyclerView);
         rv.setAdapter(adapter);
         editDeckPresenter.start();
