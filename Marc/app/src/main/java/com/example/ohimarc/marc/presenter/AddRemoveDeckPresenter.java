@@ -1,24 +1,21 @@
 package com.example.ohimarc.marc.presenter;
 
-import com.example.ohimarc.marc.model.Deck;
+import com.example.ohimarc.marc.model.MemorizationTrainingTool;
+import com.example.ohimarc.marc.service.LocalUserStorage;
+import com.example.ohimarc.marc.service.UserStorage;
 import com.example.ohimarc.marc.view.addremovedeck.AddDeckView;
 import com.example.ohimarc.marc.view.addremovedeck.AddRemoveDeckView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class AddRemoveDeckPresenter implements Presenter {
 
-    private final ArrayList<Deck> deckList = new ArrayList<>();
+    private List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     private AddDeckView view;
-    private Deck testDeck = new Deck("TestDeck0");
-    private Deck testDeck1 = new Deck("TestDeck1");
-    private Deck testDeck2 = new Deck("TestDeck2");
-
-    public AddRemoveDeckPresenter(AddDeckView view){
+    private UserStorage userStorage;
+    public AddRemoveDeckPresenter(AddDeckView view, String filePath){
         this.view = view;
-        deckList.add(testDeck);
-        deckList.add(testDeck1);
-        deckList.add(testDeck2);
+        userStorage = new LocalUserStorage(filePath);
         }
 
     @Override
@@ -42,8 +39,7 @@ public class AddRemoveDeckPresenter implements Presenter {
     }
 
     public void onBindDeckListRowViewAtPosition(int position, AddRemoveDeckView rowView) {
-        Deck deck = deckList.get(position);
-        rowView.setTitle(deck.getTitle());
+        rowView.setTitle(deckList.get(position));
     }
 
     public int getDeckListRowsCount() {
@@ -51,15 +47,18 @@ public class AddRemoveDeckPresenter implements Presenter {
     }
 
     public void addDeck(String deckTitle){
-        deckList.add(new Deck(deckTitle));
+        MemorizationTrainingTool.getInstance().getActiveUser().createNewDeck(deckTitle);
+        userStorage.storeState(MemorizationTrainingTool.getInstance());
+        deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     }
 
     public void deleteDeck(int index){
-        deckList.remove(index);
+        MemorizationTrainingTool.getInstance().getActiveUser().deleteDeck(index);
+        userStorage.storeState(MemorizationTrainingTool.getInstance());
+        deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     }
 
     public void deckClicked(int adapterPosition) {
-        String title = deckList.get(adapterPosition).getTitle();
-        view.deckIsClicked(title);
+        view.deckIsClicked(deckList.get(adapterPosition));
     }
 }

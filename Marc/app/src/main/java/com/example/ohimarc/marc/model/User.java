@@ -52,4 +52,15 @@ public class User {
         }
         return null;
     }
+
+    /**
+     * Given an index of a deck deletes a deck.
+     * @param i The index of the deck you wish to delete
+     */
+    public void deleteDeck(int i){
+        if(0 <= i && i < decks.size()){
+            decks.remove(i);
+        }
+
+    }
 }
