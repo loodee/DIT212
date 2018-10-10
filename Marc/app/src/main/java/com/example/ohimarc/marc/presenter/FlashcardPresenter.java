@@ -27,7 +27,6 @@ public class FlashcardPresenter implements Presenter {
     public void onCreate() {
         deck = mtt.getActiveUser().getDeck(index);
         game = new FlashCardGame(deck);
-        Log.d("somemessage", "" + game.getDeckTitle());
         if (game.getDecksize() > 0) {
             view.initTexts(game.getDeckTitle(), game.peekNextCard()[0]);
         }

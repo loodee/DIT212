@@ -70,7 +70,7 @@
                     android:layout_width="67dp"
                     android:layout_height="73dp"
                     android:layout_marginStart="24dp"
-                    android:contentDescription="@string/deck_ico"
+                    android:contentDescription="@string/deck_icon"
                     android:elevation="10dp"
                     app:layout_constraintBottom_toTopOf="@+id/deck_button"
                     app:layout_constraintStart_toStartOf="@+id/deck_button"
