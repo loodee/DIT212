@@ -5,11 +5,14 @@
     <string name="play_button_text">Exercise</string>
     <string name="logo_description">Picture of the Marc logo</string>
     <string name="exercise_icon">Exercise icon</string>
-    <string name="achivements_decs">Achivements button</string>
-    <string name="deck_ico">Deck icon</string>
-    <string name="achivements_ico">Achivement button</string>
+    <string name="achievements_decks">Achievements button</string>
+    <string name="deck_icon">Deck icon</string>
+    <string name="achievements_icon">Achievements button</string>
     <string name="decks">Decks</string>
     <string name="achievements">Achievements</string>
-    <string name="Open">Open</string>
-    <string name="Close">Close</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="edit_note_front_hint">Card front</string>
+    <string name="edit_note_hint_back">Card back</string>
+    <string name="edit_note_save">Save</string>
 </resources>
