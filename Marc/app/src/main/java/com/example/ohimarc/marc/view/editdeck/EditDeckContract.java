@@ -13,6 +13,8 @@ public interface EditDeckContract {
         void editDeckTitle();
 
         void promptForDeletion(int index, Deck deck);
+
+        void editCardInDeck(int index);
     }
 
     interface Presenter {
