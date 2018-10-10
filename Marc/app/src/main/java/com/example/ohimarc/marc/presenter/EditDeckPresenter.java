@@ -1,5 +1,7 @@
 package com.example.ohimarc.marc.presenter;
 
+import android.util.Log;
+
 import com.example.ohimarc.marc.model.BasicNote;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
@@ -34,16 +36,17 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
 
     @Override
     public void onUserClickedAtPosition(int adapterPosition) {
-        editDeckActivity.editCardInDeck(adapterPosition);
+        editDeckActivity.editCardInDeck(deck.getNoteIndexFromCardIndex(adapterPosition));
     }
 
     @Override
     public void onUserLongClickedAtPosition(int adapterPosition) {
-        editDeckActivity.promptForDeletion(adapterPosition, deck);
+        editDeckActivity.promptForDeletion(deck.getNoteIndexFromCardIndex(adapterPosition), deck);
     }
 
     public void confirmDeletion(int index) {
-        deck.deleteNote(deck.getNoteIndexFromCardIndex(index));
+        Log.d("IN CONFIRM DELETION:", "" + deck.getNoteIndexFromCardIndex(index));
+        deck.deleteNote(index);
     }
 
 }

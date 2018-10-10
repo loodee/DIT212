@@ -97,9 +97,9 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
     }
 
     @Override
-    public void editCardInDeck(int index) {
+    public void editCardInDeck(int noteIndex) {
         Intent intent = new Intent(EditDeckActivity.this, EditNoteActivity.class);
-        intent.putExtra("index", 0);
+        intent.putExtra("noteIndex", noteIndex);
         startActivity(intent);
     }
 }
