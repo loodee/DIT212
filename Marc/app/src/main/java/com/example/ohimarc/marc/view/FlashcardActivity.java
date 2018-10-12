@@ -11,25 +11,30 @@ import com.example.ohimarc.marc.R;
 
 public class FlashcardActivity extends ToolbarExtension implements FlashcardView {
 
-    FlashcardPresenter presenter = new FlashcardPresenter(this);
+    FlashcardPresenter presenter;
 
     private Button cardButton;
     private TextView cardTitle;
+    private int deckIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
+
         cardTitle = findViewById(R.id.cardTitle);
         cardButton = findViewById(R.id.cardButton);
-        initExtension(this, R.id.flashcard_activity);
+
+        unpackBundle();
+
+        presenter = new FlashcardPresenter(this, deckIndex);
         presenter.onCreate();
+        initExtension(this, R.id.flashcard_activity, presenter.getDeckTitle());
     }
 
     public void initTexts(String deckTitleText, String cardText) {
         cardButton.setText(cardText);
         cardTitle.setText("Q:");
-        titleText.setText(deckTitleText);
     }
 
     public void flipCardButton(String qora, String text) {
@@ -56,9 +61,16 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
     private void packBundle(Intent intent) {
         Bundle b = new Bundle();
         b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
-        b.putString("deckTitle", presenter.getDeckTitle());
         b.putString("mode", presenter.getGameName());
+        b.putInt("deckIndex", deckIndex);
         intent.putExtras(b);
+    }
+
+    private void unpackBundle() {
+        Bundle b = getIntent().getExtras();
+        if (b != null) {
+            deckIndex = b.getInt("deckIndex");
+        }
     }
 
     public void changeView() {

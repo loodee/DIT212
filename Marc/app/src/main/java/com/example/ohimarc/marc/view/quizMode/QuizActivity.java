@@ -24,6 +24,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     Button[] buttons = new Button[4];
 
     private boolean hasAnswered = false;
+    private int deckIndex;
 
     private TextView questionText;
 
@@ -35,7 +36,9 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
 
         assignButtons();
         putButtonsInButtons();
-        presenter = new QuizPresenter(this);
+        unpackBundle();
+
+        presenter = new QuizPresenter(this, deckIndex);
         presenter.onCreate();
         initExtension(this, R.id.quiz_activity, presenter.getDeckTitle());
     }
@@ -104,8 +107,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
                 b.setBackgroundColor(Color.WHITE);
             }
             hasAnswered = false;
-        }
-        else {
+        } else {
             Toast toast = Toast.makeText(this, "Please select an answer.", Toast.LENGTH_LONG);
             toast.show();
         }
@@ -114,9 +116,16 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     private void packBundle(Intent intent) {
         Bundle b = new Bundle();
         b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
-        b.putString("deckTitle", presenter.getDeckTitle());
+        b.putInt("deckIndex", deckIndex);
         b.putString("mode", presenter.getGameName());
         intent.putExtras(b);
+    }
+
+    private void unpackBundle() {
+        Bundle b = getIntent().getExtras();
+        if (b != null) {
+            deckIndex = b.getInt("deckIndex");
+        }
     }
 
     public void changeView() {

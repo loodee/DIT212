@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.presenter.ResultPresenter;
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.view.choosingDeck.ChoosingDeckActivity;
 import com.example.ohimarc.marc.view.quizMode.QuizActivity;
 
 import java.util.ArrayList;
@@ -15,9 +16,9 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
     ResultPresenter presenter;
 
-    private ArrayList<Integer> value;
-    private String deckTitle;
+    private ArrayList<Integer> values;
     private String mode;
+    private int deckIndex;
 
     private TextView resultText;
     private TextView deckTitleText;
@@ -27,7 +28,6 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-        initExtension(this,R.id.results_activity,"Results");
 
         resultText = findViewById(R.id.scoreText);
         deckTitleText = findViewById(R.id.deckTitleText);
@@ -36,32 +36,45 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
         unpackBundle();
 
-        presenter = new ResultPresenter(value, this);
+        presenter = new ResultPresenter(this, values, deckIndex);
         presenter.onCreate();
+        initExtension(this, R.id.results_activity, "Results");
     }
 
     private void unpackBundle() {
         Bundle b = getIntent().getExtras();
-        value = null;
+        values = null;
         if (b != null) {
-            value = b.getIntegerArrayList("results");
-            deckTitle = b.getString("deckTitle");
+            values = b.getIntegerArrayList("results");
             mode = b.getString("mode");
+            deckIndex = b.getInt("deckIndex");
         }
+    }
+
+    private void packBundle(Intent intent) {
+        Bundle b = new Bundle();
+        b.putInt("deckIndex", deckIndex);
+        intent.putExtras(b);
     }
 
     public void initTexts(int correct, int total) {
         resultText.setText("Score: " + correct + "/" + total);
-        deckTitleText.setText("Deck: " + deckTitle);
+        deckTitleText.setText("Deck: " + presenter.getDeckTitle());
         modeText.setText("Mode: " + mode);
-
     }
 
     public void retryButton(View v) {
         Intent intent;
-        if(mode.equals("Flashcard Game")) {
+        if (mode.equals("Flashcard Game")) {
             intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
         } else intent = new Intent(ResultsActivity.this, QuizActivity.class);
+        packBundle(intent);
+        startActivity(intent);
+        finish();
+    }
+
+    public void returnClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), ChoosingDeckActivity.class);
         startActivity(intent);
         finish();
     }
