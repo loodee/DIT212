@@ -15,6 +15,9 @@ import com.example.ohimarc.marc.view.exerciseView.ExerciseActivity;
  */
 public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDeckView {
 
+    /**
+     * This class is the activity for Choosing a deck you want to play
+     */
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;

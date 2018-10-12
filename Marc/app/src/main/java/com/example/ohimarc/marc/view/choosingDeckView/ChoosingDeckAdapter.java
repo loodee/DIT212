@@ -12,6 +12,11 @@ import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
  */
 public class ChoosingDeckAdapter extends RecyclerView.Adapter<ChoosingDeckViewHolder> {
 
+    /**
+     * This class is the adapter for the recyclerview in the screen where you choose
+     *  a deck you want to play.
+     *  It chooses what should contain in the recyclerview
+     */
     private final ChoosingDeckPresenter presenter;
 
     public ChoosingDeckAdapter(ChoosingDeckPresenter presenter) {this.presenter = presenter;}

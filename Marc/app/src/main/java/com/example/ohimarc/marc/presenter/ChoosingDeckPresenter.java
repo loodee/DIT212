@@ -11,8 +11,12 @@ import java.util.List;
  */
 public class ChoosingDeckPresenter {
 
+    /**
+     * This class is the Presenter for the screen when choosing a deck you want to play
+     */
     private List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     private ChoosingDeckView view;
+
 
     public ChoosingDeckPresenter(ChoosingDeckView view) {
         this.view = view;
@@ -37,6 +41,14 @@ public class ChoosingDeckPresenter {
         return deckList.size();
     }
 
+    /**
+     * Handles a click on the deck
+     * Tells the view to run deckClicked(int adapterPostion)
+     * Which is implemented in the viw that basically navigates the user to a new screen
+     * Where the user can see the decks' cards/notes
+     *
+     * @param adapterPosition which deck that has been clicked
+     */
     public void deckClicked(int adapterPosition) {
         view.deckIsClicked(adapterPosition);
     }

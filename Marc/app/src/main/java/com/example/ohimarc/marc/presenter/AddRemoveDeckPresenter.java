@@ -13,6 +13,10 @@ import java.util.List;
  */
 public class AddRemoveDeckPresenter {
 
+    /**
+     * This class is the presenter for the screen where you can view decks you have
+     * But also add/delete decks
+     */
     private List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     private AddDeckView view;
     private UserStorage userStorage;

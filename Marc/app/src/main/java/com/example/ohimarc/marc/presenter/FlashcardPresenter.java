@@ -13,6 +13,10 @@ import java.util.ArrayList;
  */
 public class FlashcardPresenter {
 
+    /**
+     * This class is the presenter for playing a flashcardgame, tells
+     *  The view what to do when buttons are clicked etc.
+     */
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
     private FlashCardGame game;
