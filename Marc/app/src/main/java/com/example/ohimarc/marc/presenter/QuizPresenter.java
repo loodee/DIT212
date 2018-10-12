@@ -10,16 +10,21 @@ import java.util.ArrayList;
 
 public class QuizPresenter implements Presenter {
 
-
     private QuizView view;
     private String[] texts;
     private QuizGame game;
     private Deck deck;
+    private int deckIndex;
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
 
     public QuizPresenter(QuizView view, int deckIndex) {
         this.view = view;
+        this.deckIndex = deckIndex;
+    }
+
+    @Override
+    public void onCreate() {
         deck = mtt.getActiveUser().getDeck(deckIndex);
         game = new QuizGame(deck);
         texts = game.peekNextCard();
@@ -71,11 +76,6 @@ public class QuizPresenter implements Presenter {
         ansAmount.add(amountCorrect);
         ansAmount.add(totalDeckSize);
         return ansAmount;
-    }
-
-    @Override
-    public void onCreate() {
-
     }
 
     @Override
