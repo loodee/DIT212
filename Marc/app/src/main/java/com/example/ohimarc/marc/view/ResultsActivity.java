@@ -17,7 +17,6 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
     ResultPresenter presenter;
 
     private ArrayList<Integer> values;
-    private String deckTitle;
     private String mode;
     private int deckIndex;
 
@@ -29,7 +28,6 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-        initExtension(this,R.id.results_activity,"Results");
 
         resultText = findViewById(R.id.scoreText);
         deckTitleText = findViewById(R.id.deckTitleText);
@@ -40,6 +38,7 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
         presenter = new ResultPresenter(this, values, deckIndex);
         presenter.onCreate();
+        initExtension(this, R.id.results_activity, "Results");
     }
 
     private void unpackBundle() {
@@ -56,7 +55,7 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
         Bundle b = new Bundle();
         b.putInt("deckIndex", deckIndex);
         intent.putExtras(b);
-}
+    }
 
     public void initTexts(int correct, int total) {
         resultText.setText("Score: " + correct + "/" + total);
@@ -66,7 +65,7 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
     public void retryButton(View v) {
         Intent intent;
-        if(mode.equals("Flashcard Game")) {
+        if (mode.equals("Flashcard Game")) {
             intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
         } else intent = new Intent(ResultsActivity.this, QuizActivity.class);
         packBundle(intent);

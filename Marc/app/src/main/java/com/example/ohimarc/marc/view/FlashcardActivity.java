@@ -21,8 +21,10 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
+
         cardTitle = findViewById(R.id.cardTitle);
         cardButton = findViewById(R.id.cardButton);
+
         unpackBundle();
 
         presenter = new FlashcardPresenter(this, deckIndex);
@@ -66,7 +68,7 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
 
     private void unpackBundle() {
         Bundle b = getIntent().getExtras();
-        if(b != null) {
+        if (b != null) {
             deckIndex = b.getInt("deckIndex");
         }
     }
