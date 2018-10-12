@@ -179,7 +179,7 @@
                         app:layout_constraintEnd_toEndOf="@+id/achievements_button"
                         app:layout_constraintTop_toBottomOf="@+id/achievements_button"
                         app:layout_constraintVertical_bias="0.484"
-                        android:onClick="stats_button"/>
+                        android:onClick="statsButton"/>
                 </android.support.constraint.ConstraintLayout>
 
 
