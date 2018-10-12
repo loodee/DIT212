@@ -9,8 +9,8 @@ import com.example.ohimarc.marc.R;
 
 public class BasicNoteViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView basicNoteTextFront;
-    private TextView basicNoteTextBack;
+    private final TextView basicNoteTextFront;
+    private final TextView basicNoteTextBack;
 
     BasicNoteViewHolder(@NonNull View itemView, final EditDeckContract.Presenter presenter) {
         super(itemView);

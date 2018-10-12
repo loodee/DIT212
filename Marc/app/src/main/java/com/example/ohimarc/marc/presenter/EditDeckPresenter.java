@@ -8,8 +8,8 @@ import com.example.ohimarc.marc.view.editDeckView.EditDeckActivity;
 import com.example.ohimarc.marc.view.editDeckView.EditDeckContract;
 
 public class EditDeckPresenter implements EditDeckContract.Presenter {
-    private Deck deck;
-    private EditDeckActivity editDeckActivity;
+    private final Deck deck;
+    private final EditDeckActivity editDeckActivity;
 
     public EditDeckPresenter(EditDeckActivity a, int deckIndex) {
         this.editDeckActivity = a;
