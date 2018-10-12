@@ -141,6 +141,7 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
         Intent intent = new Intent(AddRemoveDeckActivity.this, EditDeckActivity.class);
         intent.putExtra("deckIndex", deckIndex);
         startActivity(intent);
+        finish();
     }
 
     /**
