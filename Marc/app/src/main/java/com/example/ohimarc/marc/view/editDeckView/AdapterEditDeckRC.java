@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.example.ohimarc.marc.R;
 
-public class AdapterEditDeckRC extends RecyclerView.Adapter<BasicNoteViewHolder> {
+    class AdapterEditDeckRC extends RecyclerView.Adapter<BasicNoteViewHolder> {
 
     private final EditDeckContract.Presenter presenter;
 
