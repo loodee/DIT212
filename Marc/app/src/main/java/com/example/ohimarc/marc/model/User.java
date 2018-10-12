@@ -5,7 +5,8 @@ import java.util.List;
 
 public class User {
     private final String name;
-    private List<Deck> decks = new ArrayList<>();
+    private final List<Deck> decks = new ArrayList<>();
+    private final Stats stats = new Stats();
 
     /**
      * @param name The name of the user, if null the name will be set to an empty string ("")
@@ -39,6 +40,7 @@ public class User {
     public void createNewDeck(String title){
         String localTitle = title != null ? title : "";
         decks.add(new Deck(localTitle));
+        stats.addNewDeck();
     }
 
     /**
@@ -60,7 +62,15 @@ public class User {
     public void deleteDeck(int i){
         if(0 <= i && i < decks.size()){
             decks.remove(i);
+            stats.removeDeck(i);
         }
+    }
 
+    public Stat[] getStatsForDeck(int index){
+        return stats.getStatsForDeck(index);
+    }
+
+    public void addNewStatistics(int index, String gameMode, int score) {
+        stats.addStatistics(index ,gameMode, score);
     }
 }

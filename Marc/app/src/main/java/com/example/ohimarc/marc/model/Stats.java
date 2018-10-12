@@ -54,9 +54,9 @@ public class Stats {
         }
     }
 
-    /*public int[] getUserStats() {
+    public int[] getUserStats() {
         return new int[]{totalTimesPlayed};
-    }*/
+    }
 
     public Stat[] getStatsForDeck(int index) {
         HashMap<String, Stat> map = stats.get(index);
@@ -68,7 +68,7 @@ public class Stats {
             List<String> sortedKeys = new ArrayList<>(keys.size());
             sortedKeys.addAll(keys);
             java.util.Collections.sort(sortedKeys);
-
+            
             if (sortedKeys.size() != 0) {
 
                 Stat[] localStats = new Stat[keys.size()];
@@ -86,5 +86,9 @@ public class Stats {
         }
 
         return null;
+    }
+
+    public void addNewDeck() {
+        stats.add(new HashMap<String, Stat>());
     }
 }
