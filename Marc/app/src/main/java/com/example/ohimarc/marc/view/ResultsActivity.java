@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class ResultsActivity extends ToolbarExtension implements ResultsView {
 
-    ResultPresenter presenter;
+    private ResultPresenter presenter;
 
     private ArrayList<Integer> values;
     private String mode;

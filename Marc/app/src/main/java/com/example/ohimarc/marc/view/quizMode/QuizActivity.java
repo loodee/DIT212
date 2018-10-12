@@ -21,7 +21,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     private Button answerButton2;
     private Button answerButton3;
     private Button answerButton4;
-    Button[] buttons = new Button[4];
+    private final Button[] buttons = new Button[4];
 
     private boolean hasAnswered = false;
     private int deckIndex;
