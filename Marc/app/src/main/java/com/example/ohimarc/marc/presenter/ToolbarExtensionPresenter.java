@@ -5,7 +5,7 @@ import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtensionView;
 
-public class ToolbarExtensionPresenter implements Presenter {
+public class ToolbarExtensionPresenter {
 
     private ToolbarExtensionView view;
     private UserStorage store;
@@ -20,22 +20,6 @@ public class ToolbarExtensionPresenter implements Presenter {
         MemorizationTrainingTool.getInstance().setActiveUser(null);
         store.storeState(MemorizationTrainingTool.getInstance());
         view.navigateLogout();
-    }
-
-    @Override
-    public void onCreate() {
-    }
-
-    @Override
-    public void onPause() {
-    }
-
-    @Override
-    public void onResume() {
-    }
-
-    @Override
-    public void onDestroy() {
     }
 
 }

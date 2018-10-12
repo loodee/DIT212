@@ -5,7 +5,7 @@ import com.example.ohimarc.marc.view.resultsView.ResultsView;
 
 import java.util.ArrayList;
 
-public class ResultPresenter implements Presenter {
+public class ResultPresenter {
     private final ArrayList<Integer> amountCorrect;
     private ResultsView view;
     String deckTitle;
@@ -22,25 +22,8 @@ public class ResultPresenter implements Presenter {
         return deckTitle;
     }
 
-    @Override
     public void onCreate() {
         view.initTexts(amountCorrect.get(0), amountCorrect.get(1));
     }
-
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
-    }
-
 
 }

@@ -6,32 +6,13 @@ import com.example.ohimarc.marc.view.choosingDeckView.ChoosingDeckViewHolder;
 
 import java.util.List;
 
-public class ChoosingDeckPresenter implements Presenter {
+public class ChoosingDeckPresenter {
 
     private List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     private ChoosingDeckView view;
 
-    public ChoosingDeckPresenter(ChoosingDeckView view){
+    public ChoosingDeckPresenter(ChoosingDeckView view) {
         this.view = view;
-    }
-    @Override
-    public void onCreate() {
-
-    }
-
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
     }
 
     public void onBindDeckListRowViewAtPosition(int position, ChoosingDeckViewHolder rowView) {

@@ -81,22 +81,4 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         b.putInt("deckIndex", deckIndex);
         intent.putExtras(b);
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        presenter.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        presenter.onDestroy();
-    }
 }

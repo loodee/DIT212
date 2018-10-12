@@ -8,7 +8,7 @@ import com.example.ohimarc.marc.view.quizView.QuizView;
 
 import java.util.ArrayList;
 
-public class QuizPresenter implements Presenter {
+public class QuizPresenter {
 
     private QuizView view;
     private String[] texts;
@@ -23,7 +23,6 @@ public class QuizPresenter implements Presenter {
         this.deckIndex = deckIndex;
     }
 
-    @Override
     public void onCreate() {
         deck = mtt.getActiveUser().getDeck(deckIndex);
         game = new QuizGame(deck);
@@ -78,18 +77,4 @@ public class QuizPresenter implements Presenter {
         return ansAmount;
     }
 
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
-    }
 }

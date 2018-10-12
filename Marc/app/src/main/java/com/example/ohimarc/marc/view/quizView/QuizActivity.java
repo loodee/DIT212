@@ -135,22 +135,4 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
         b.putString("mode", presenter.getGameName());
         intent.putExtras(b);
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        presenter.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        presenter.onDestroy();
-    }
 }

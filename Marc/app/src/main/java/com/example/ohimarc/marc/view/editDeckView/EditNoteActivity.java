@@ -59,24 +59,6 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         setupToast();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        presenter.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        presenter.onDestroy();
-    }
-
     public void selfDestruct() {
         finishAfterTransition();
     }

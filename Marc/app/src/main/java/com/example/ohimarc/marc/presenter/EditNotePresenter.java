@@ -7,7 +7,7 @@ import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
 import com.example.ohimarc.marc.view.editDeckView.EditNoteView;
 
-public class EditNotePresenter implements Presenter {
+public class EditNotePresenter {
     private EditNoteView view;
     private Deck deck;
     private int noteIndex;
@@ -20,7 +20,6 @@ public class EditNotePresenter implements Presenter {
         this.store = new LocalUserStorage(filepath);
     }
 
-    @Override
     public void onCreate() {
         if (noteIndex != -1) {
             if (deck.getNote(noteIndex) instanceof BasicNote) {
@@ -28,21 +27,6 @@ public class EditNotePresenter implements Presenter {
                 view.setValues(note.getFront(), note.getBack());
             }
         }
-    }
-
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
     }
 
     /**
