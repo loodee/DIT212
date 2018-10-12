@@ -30,6 +30,7 @@
         <activity android:name=".view.AddRemoveDeckActivity" />
         <activity android:name=".view.quizMode.QuizActivity" />
         <activity android:name=".view.Home" />
+        <activity android:name=".view.stats.StatsActivity" />
     </application>
 
 </manifest>
