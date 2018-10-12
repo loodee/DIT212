@@ -1,6 +1,5 @@
 package com.example.ohimarc.marc;
 
-import com.example.ohimarc.marc.model.Card;
 import com.example.ohimarc.marc.model.Deck;
 
 import org.junit.Before;

@@ -1,8 +1,6 @@
 package com.example.ohimarc.marc.service;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.model.User;
-import java.util.List;
 
 public interface UserStorage {
 

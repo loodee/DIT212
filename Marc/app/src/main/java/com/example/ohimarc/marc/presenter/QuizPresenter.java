@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.Deck;
+import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Pair;
 import com.example.ohimarc.marc.model.QuizGame;
 import com.example.ohimarc.marc.view.quizMode.QuizView;
@@ -12,34 +13,23 @@ public class QuizPresenter implements Presenter {
 
     private QuizView view;
     private String[] texts;
-    private QuizGame g;
-    private Deck d;
+    private QuizGame game;
+    private Deck deck;
 
-    public QuizPresenter(QuizView view) {
+    private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
+
+    public QuizPresenter(QuizView view, int deckIndex) {
         this.view = view;
-        initDeckAndGame();
-        texts = g.peekNextCard();
+        deck = mtt.getActiveUser().getDeck(deckIndex);
+        game = new QuizGame(deck);
+        texts = game.peekNextCard();
         view.initTexts(texts);
     }
 
-    private void initDeckAndGame() {
-        d = new Deck("Djur på svenska");
-        d.addBasicNote("Hund", "Dog");
-        d.addBasicNote("Katt", "Cat");
-        d.addBasicNote("Häst", "Horse");
-        d.addBasicNote("Råtta", "Rat");
-        d.addBasicNote("Orm", "Snake");
-        d.addBasicNote("Sköldpadda", "Turtle");
-        d.addBasicNote("Igelkott", "Hedgehog");
-        d.addBasicNote("Lejon", "Lion");
-        d.addBasicNote("Myrslok", "Anteater");
-        g = new QuizGame(d);
-    }
-
     public void questionAnswered(int answer) {
-        g.sendAnswer(answer);
+        game.sendAnswer(answer);
         for (int possibleAnswer = 1; possibleAnswer < 5; possibleAnswer++) {
-            if (g.isCorrect(possibleAnswer)) {
+            if (game.isCorrect(possibleAnswer)) {
                 view.highlightRightAnswer(possibleAnswer - 1);
                 if (!(answer == possibleAnswer)) {
                     view.highlightWrongAnswer(answer - 1);
@@ -50,20 +40,20 @@ public class QuizPresenter implements Presenter {
     }
 
     private void setTexts() {
-        texts = g.peekNextCard();
+        texts = game.peekNextCard();
     }
 
     public String getDeckTitle() {
-        return d.getTitle();
+        return deck.getTitle();
     }
 
     public String getGameName() {
-        return g.getName();
+        return game.getName();
     }
 
     public void proceed() {
-        g.goToNextCard();
-        if (g.peekNextCard() != null) {
+        game.goToNextCard();
+        if (game.peekNextCard() != null) {
             setTexts();
             view.initTexts(texts);
         } else view.changeView();
@@ -72,12 +62,12 @@ public class QuizPresenter implements Presenter {
     public ArrayList<Integer> getAmountCorrectAnswers() {
         ArrayList<Integer> ansAmount = new ArrayList<>();
         int amountCorrect = 0;
-        for (Pair p : g.getQuestionAns()) {
+        for (Pair p : game.getQuestionAns()) {
             if ((Boolean) p.getElement1()) {
                 amountCorrect++;
             }
         }
-        int totalDeckSize = g.getDecksize();
+        int totalDeckSize = game.getDecksize();
         ansAmount.add(amountCorrect);
         ansAmount.add(totalDeckSize);
         return ansAmount;

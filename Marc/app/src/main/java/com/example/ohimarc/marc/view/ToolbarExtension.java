@@ -17,8 +17,8 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ToolbarExtensionPresenter;
+import com.example.ohimarc.marc.view.choosingDeck.ChoosingDeckActivity;
 import com.example.ohimarc.marc.view.mainMenu.StartMenuActivity;
-import com.example.ohimarc.marc.view.quizMode.QuizActivity;
 
 abstract public class ToolbarExtension extends AppCompatActivity implements ToolbarExtensionView {
 
@@ -85,7 +85,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     }
 
     private boolean inHome() {
-        if (this.getClass().getSimpleName().equals(Home.class.getSimpleName())) {
+        if (this.getClass().getSimpleName().equals(HomeActivity.class.getSimpleName())) {
             return true;
         }
         return false;
@@ -105,8 +105,8 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         }
                         return true;
                     case (R.id.exercises_button):
-                        intent = new Intent(getApplicationContext(), FlashcardActivity.class);
-                        nextActivity = FlashcardActivity.class;
+                        intent = new Intent(getApplicationContext(), ChoosingDeckActivity.class);
+                        nextActivity = ChoosingDeckActivity.class;
                         break;
                     case (R.id.achievements_button):
                         intent = null;
@@ -117,8 +117,8 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         nextActivity = AddRemoveDeckActivity.class;
                         break;
                     case (R.id.settings_button):
-                        intent = new Intent(getApplicationContext(), QuizActivity.class);
-                        nextActivity = QuizActivity.class;
+                        intent = null;
+                        nextActivity = null;
                         break;
                     default:
                         intent = null;

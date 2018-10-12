@@ -5,7 +5,7 @@ package com.example.ohimarc.marc.model;
  * */
 public class Card {
 
-    private String front, back;
+    private final String front, back;
 
     /**
     * Creates a card with front and back,

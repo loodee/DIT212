@@ -71,8 +71,9 @@
                 android:layout_marginBottom="50dp"
                 android:background="@android:color/white"
                 android:elevation="10dp"
-                android:text="Return to deck"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:text="Return to decks"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:onClick="returnClicked"/>
         </RelativeLayout>
 
     </LinearLayout>

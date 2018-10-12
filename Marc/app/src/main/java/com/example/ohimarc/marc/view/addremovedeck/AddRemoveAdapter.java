@@ -20,7 +20,7 @@ public class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHold
     @Override
     public AddRemoveDeckViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
         return new AddRemoveDeckViewHolder(LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.content_add_remove_deck, parent, false),presenter);
+                inflate(R.layout.content_choosing_deck, parent, false),presenter);
     }
 
     @Override

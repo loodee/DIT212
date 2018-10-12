@@ -29,7 +29,9 @@
         <activity android:name=".view.ResultsActivity" />
         <activity android:name=".view.AddRemoveDeckActivity" />
         <activity android:name=".view.quizMode.QuizActivity" />
-        <activity android:name=".view.Home" />
+        <activity android:name=".view.HomeActivity" />
+        <activity android:name=".view.exerciseView.ExerciseActivity"/>
+        <activity android:name=".view.choosingDeck.ChoosingDeckActivity"/>
     </application>
 
 </manifest>

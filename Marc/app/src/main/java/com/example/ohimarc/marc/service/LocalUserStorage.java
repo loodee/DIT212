@@ -3,7 +3,6 @@ package com.example.ohimarc.marc.service;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Note;
-import com.example.ohimarc.marc.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -12,8 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class LocalUserStorage implements UserStorage {
 

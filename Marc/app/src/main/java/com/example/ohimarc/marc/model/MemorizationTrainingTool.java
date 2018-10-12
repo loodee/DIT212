@@ -8,8 +8,8 @@ public class MemorizationTrainingTool {
     private static final MemorizationTrainingTool INSTANCE = new MemorizationTrainingTool();
 
     /**
-     * Returns a singelton instance of MemorizationTrainingTool
-     * @return a singelton instance
+     * Returns a singleton instance of MemorizationTrainingTool
+     * @return a singleton instance
      * */
     public static MemorizationTrainingTool getInstance(){
         return INSTANCE;
