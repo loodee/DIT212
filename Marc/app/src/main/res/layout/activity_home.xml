@@ -7,7 +7,7 @@
     android:id="@+id/homeactivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Home">
+    tools:context=".view.HomeActivity">
 
 
     <LinearLayout
@@ -20,7 +20,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.Home"
+            tools:context=".view.HomeActivity"
             android:background="@color/colorBackGround">
 
             <include
@@ -51,7 +51,7 @@
                         android:layout_height="100dp"
                         android:background="@drawable/ic_menu_remake_v2"
                         android:contentDescription="@string/play_button_text"
-                        android:onClick="exercise_button"
+                        android:onClick="exerciseButton"
                         android:src="?android:attr/selectableItemBackground"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
@@ -100,7 +100,7 @@
                         android:layout_height="100dp"
                         android:background="@drawable/ic_menu_remake_v2"
                         android:contentDescription="@string/play_button_text"
-                        android:onClick="deck_button"
+                        android:onClick="deckButton"
                         android:src="?android:attr/selectableItemBackground"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"

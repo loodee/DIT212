@@ -17,14 +17,14 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
-import com.example.ohimarc.marc.presenter.MainMenuPresenter;
-import com.example.ohimarc.marc.view.Home;
+import com.example.ohimarc.marc.presenter.StartMenuPresenter;
+import com.example.ohimarc.marc.view.HomeActivity;
 
 
 
 public class StartMenuActivity extends AppCompatActivity implements StartMenuView {
 
-    private MainMenuPresenter mainPresenter;
+    private StartMenuPresenter mainPresenter;
     private AdapterUserRC adapter;
     
     @Override
@@ -34,7 +34,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
 
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.activity_toolbar));
 
-        mainPresenter = new MainMenuPresenter(this,getFilesDir().getAbsolutePath());
+        mainPresenter = new StartMenuPresenter(this,getFilesDir().getAbsolutePath());
         mainPresenter.start();
 
         if(mainPresenter.loggedIn()){
@@ -93,7 +93,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
     }
 
     public void login() {
-        Intent intent = new Intent(StartMenuActivity.this, Home.class);
+        Intent intent = new Intent(StartMenuActivity.this, HomeActivity.class);
 
         startActivity(intent);
         finish();

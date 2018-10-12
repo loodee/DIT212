@@ -85,7 +85,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     }
 
     private boolean inHome() {
-        if (this.getClass().getSimpleName().equals(Home.class.getSimpleName())) {
+        if (this.getClass().getSimpleName().equals(HomeActivity.class.getSimpleName())) {
             return true;
         }
         return false;

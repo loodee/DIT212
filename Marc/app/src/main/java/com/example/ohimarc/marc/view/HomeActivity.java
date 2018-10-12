@@ -7,7 +7,7 @@ import android.view.View;
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.HomePresenter;
 
-public class Home extends ToolbarExtension {
+public class HomeActivity extends ToolbarExtension {
 
     private final HomePresenter presenter = new HomePresenter();
 
@@ -16,7 +16,7 @@ public class Home extends ToolbarExtension {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home);
-        initExtension(this, R.id.homeactivity,"Home");
+        initExtension(this, R.id.homeactivity,"HomeActivity");
     }
 
     @Override
@@ -31,14 +31,14 @@ public class Home extends ToolbarExtension {
         finish();
     }
 
-    public void exercise_button(View view) {
-        Intent intent = new Intent(Home.this, FlashcardActivity.class);
+    public void exerciseButton(View view) {
+        Intent intent = new Intent(HomeActivity.this, FlashcardActivity.class);
         startActivity(intent);
         //finish();
     }
 
-    public void deck_button(View view){
-        Intent intent = new Intent(Home.this,AddRemoveDeckActivity.class);
+    public void deckButton(View view){
+        Intent intent = new Intent(HomeActivity.this,AddRemoveDeckActivity.class);
         startActivity(intent);
     }
 
