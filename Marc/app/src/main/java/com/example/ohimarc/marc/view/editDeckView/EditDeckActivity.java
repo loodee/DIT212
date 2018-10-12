@@ -11,8 +11,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
-import com.example.ohimarc.marc.model.Deck;
-import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.presenter.EditDeckPresenter;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
@@ -20,19 +18,19 @@ import java.util.Objects;
 
 public class EditDeckActivity extends ToolbarExtension implements EditDeckContract.View {
     private EditDeckPresenter editDeckPresenter;
-    private Deck deck;
+    // private Deck deck;
     private AdapterEditDeckRC adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final int deckIndex = Objects.requireNonNull(getIntent().getExtras()).getInt("deckIndex");
-        deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
         editDeckPresenter = new EditDeckPresenter(this, deckIndex);
         adapter = new AdapterEditDeckRC(editDeckPresenter);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_deck);
-        deckTitles();
+        TextView tv_title = findViewById(R.id.tv_deck_title);
+        tv_title.setText(editDeckPresenter.getDeckTitle());
 
         RecyclerView rv = findViewById(R.id.rv_recyclerView);
         rv.setAdapter(adapter);
@@ -69,23 +67,14 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
         Objects.requireNonNull(revVi.getAdapter()).notifyDataSetChanged();
     }
 
+
     /**
-     * sets the textview tv_deck_title to get the string from deck.getitle
-     */
-    @Override
-    public void deckTitles() {
-        TextView deckTitle = findViewById(R.id.tv_deck_title);
-        deckTitle.setText(deck.getTitle());
-    }
-
-
-    /** this creates a popup when called upon
+     * this creates a popup when called upon
      *
      * @param index is the cards index in the list which is being selected for deletion
-     * @param deck is the selected deck which is currently showing in our view
      */
     @Override
-    public void promptForDeletion(final int index, Deck deck) {
+    public void promptForDeletion(final int index) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete this card's parent note, as well as its other associated cards?");
@@ -109,7 +98,6 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
     }
 
     /**
-     *
      * @param noteIndex is the card in the list that is clicked on
      */
     @Override
