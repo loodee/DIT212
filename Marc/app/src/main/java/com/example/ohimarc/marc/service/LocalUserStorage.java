@@ -12,6 +12,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * This class is responsible for storing and reading a MemorizationTrainingTool from local JSON storage
+ * */
 public class LocalUserStorage implements UserStorage {
 
 

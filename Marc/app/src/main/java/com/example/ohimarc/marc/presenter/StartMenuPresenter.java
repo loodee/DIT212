@@ -11,7 +11,11 @@ import com.example.ohimarc.marc.view.startMenuView.UserViewHolder;
 
 import java.util.List;
 
-
+/**
+ * @author Gustav Albertsson
+ *
+ * This class is repsonsible for handling communication between the StartMenu and the model
+ * */
 public class StartMenuPresenter implements StartMenuContract.Presenter{
 
     private List<String> users;

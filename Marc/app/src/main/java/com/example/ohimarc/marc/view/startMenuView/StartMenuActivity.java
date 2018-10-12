@@ -21,7 +21,11 @@ import com.example.ohimarc.marc.presenter.StartMenuPresenter;
 import com.example.ohimarc.marc.view.homeView.HomeActivity;
 
 
-
+/**
+ * @author Gustav Albertsson
+ *
+ * Activity for showing the startMenu, this activity is responsible for choosing a user.
+ * */
 public class StartMenuActivity extends AppCompatActivity implements StartMenuView {
 
     private StartMenuPresenter mainPresenter;

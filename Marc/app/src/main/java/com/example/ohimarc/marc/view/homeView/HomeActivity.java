@@ -37,7 +37,6 @@ public class HomeActivity extends ToolbarExtension {
     public void exerciseButton(View view) {
         Intent intent = new Intent(HomeActivity.this, ChoosingDeckActivity.class);
         startActivity(intent);
-        //finish();
     }
 
     public void deckButton(View view){

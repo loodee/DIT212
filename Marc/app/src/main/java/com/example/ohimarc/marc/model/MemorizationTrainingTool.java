@@ -3,6 +3,12 @@ package com.example.ohimarc.marc.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * This class is responsible for being an entry point into the model, this class holds all the
+ * necceseary information that is needed to have a sence of users and having an active user
+ * */
 public class MemorizationTrainingTool {
 
     private static final MemorizationTrainingTool INSTANCE = new MemorizationTrainingTool();
