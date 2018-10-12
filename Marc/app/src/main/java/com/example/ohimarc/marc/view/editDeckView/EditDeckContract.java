@@ -1,14 +1,11 @@
 package com.example.ohimarc.marc.view.editDeckView;
 
-import com.example.ohimarc.marc.model.Deck;
 
 public interface EditDeckContract {
     interface View {
         void updateDeckList();
 
-        void deckTitles();
-
-        void promptForDeletion(int index, Deck deck);
+        void promptForDeletion(int index);
 
         void editCardInDeck(int index);
     }
@@ -23,5 +20,8 @@ public interface EditDeckContract {
         void onUserClickedAtPosition(int adapterPosition);
 
         void onUserLongClickedAtPosition(int adapterPosition);
+
+
+        String getDeckTitle();
     }
 }
