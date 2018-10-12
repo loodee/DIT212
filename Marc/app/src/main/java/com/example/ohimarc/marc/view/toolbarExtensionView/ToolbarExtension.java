@@ -75,17 +75,11 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     }
 
     private boolean thisActivityIsNextActivity(Class<?> nextClass) {
-        if (this.getClass().getSimpleName().equals(nextClass.getSimpleName())) {
-            return true;
-        }
-        return false;
+        return this.getClass().getSimpleName().equals(nextClass.getSimpleName());
     }
 
     private boolean inHome() {
-        if (this.getClass().getSimpleName().equals(HomeActivity.class.getSimpleName())) {
-            return true;
-        }
-        return false;
+        return this.getClass().getSimpleName().equals(HomeActivity.class.getSimpleName());
     }
 
     private void initNavigationListeners() {
@@ -97,9 +91,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                 switch (menuItem.getItemId()) {
                     case (R.id.home_button):            //Special case, home is not allowed to be finished.
                         navView.closeDrawers();
-                        if (!inHome()) {
-                            finish();
-                        }
+                        if (!inHome()) finish();
                         return true;
                     case (R.id.exercises_button):
                         intent = new Intent(getApplicationContext(), ChoosingDeckActivity.class);
