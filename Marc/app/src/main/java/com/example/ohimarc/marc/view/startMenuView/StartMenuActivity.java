@@ -35,7 +35,6 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.activity_toolbar));
 
         mainPresenter = new StartMenuPresenter(this,getFilesDir().getAbsolutePath());
-        mainPresenter.start();
 
         if(mainPresenter.loggedIn()){
             login();

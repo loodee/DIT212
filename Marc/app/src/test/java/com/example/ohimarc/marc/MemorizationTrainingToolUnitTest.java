@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNull;
 
 public class MemorizationTrainingToolUnitTest {
 
-    MemorizationTrainingTool mtt;
+    private MemorizationTrainingTool mtt;
 
     @Before
     public void setUp(){

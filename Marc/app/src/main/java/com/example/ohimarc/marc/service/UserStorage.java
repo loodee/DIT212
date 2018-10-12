@@ -9,7 +9,7 @@ public interface UserStorage {
      * @param mtt The users that are going to be saved
      * @return returns true if the users are successfully stored, otherwise returns false
      * */
-    boolean storeState(MemorizationTrainingTool mtt);
+    void storeState(MemorizationTrainingTool mtt);
 
     /**
      * Retrieves the MemorizationTrainingTool from the persistent storage.

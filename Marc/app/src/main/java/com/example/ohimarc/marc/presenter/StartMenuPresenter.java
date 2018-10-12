@@ -36,11 +36,6 @@ public class StartMenuPresenter implements StartMenuContract.Presenter{
     }
 
     @Override
-    public void start() {
-
-    }
-
-    @Override
     public void onBindBasicNoteRowViewAtPosition(UserViewHolder rowView, int index) {
         rowView.setUsername(users.get(index));
     }

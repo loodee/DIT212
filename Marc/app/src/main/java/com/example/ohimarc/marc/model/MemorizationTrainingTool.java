@@ -15,7 +15,7 @@ public class MemorizationTrainingTool {
         return INSTANCE;
     }
 
-    private List<User> users = new ArrayList<>();
+    private final List<User> users = new ArrayList<>();
     private Integer activeUser = null;
 
     /**

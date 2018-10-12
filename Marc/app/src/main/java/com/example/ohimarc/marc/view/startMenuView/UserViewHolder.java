@@ -9,7 +9,7 @@ import com.example.ohimarc.marc.R;
 
 public class UserViewHolder extends RecyclerView.ViewHolder{
 
-    private TextView username;
+    private final TextView username;
 
     public UserViewHolder(@NonNull View itemView, final StartMenuContract.Presenter presenter) {
         super(itemView);

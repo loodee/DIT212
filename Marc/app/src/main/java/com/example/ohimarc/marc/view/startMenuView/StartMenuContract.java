@@ -2,8 +2,6 @@ package com.example.ohimarc.marc.view.startMenuView;
 
 public interface StartMenuContract {
     interface Presenter {
-        void start();
-
         void onBindBasicNoteRowViewAtPosition(UserViewHolder rowView, int position);
 
         int getUserRowsCount();

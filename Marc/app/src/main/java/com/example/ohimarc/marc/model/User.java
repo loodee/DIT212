@@ -5,7 +5,7 @@ import java.util.List;
 
 public class User {
     private final String name;
-    private List<Deck> decks = new ArrayList<>();
+    private final List<Deck> decks = new ArrayList<>();
 
     /**
      * @param name The name of the user, if null the name will be set to an empty string ("")

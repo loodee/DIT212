@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Deck {
     private final List<Note> notes;
-    private String title;
+    private final String title;
 
     /**
      * Creates a new Deck with a provided title.
