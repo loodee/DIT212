@@ -4,11 +4,11 @@ import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.FlashCardGame;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Pair;
-import com.example.ohimarc.marc.view.FlashcardView;
+import com.example.ohimarc.marc.view.flashcardView.FlashcardView;
 
 import java.util.ArrayList;
 
-public class FlashcardPresenter implements Presenter {
+public class FlashcardPresenter {
 
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
@@ -23,7 +23,7 @@ public class FlashcardPresenter implements Presenter {
         this.index = index;
     }
 
-    @Override
+
     public void onCreate() {
         deck = mtt.getActiveUser().getDeck(index);
         game = new FlashCardGame(deck);
@@ -31,26 +31,6 @@ public class FlashcardPresenter implements Presenter {
             view.initTexts(game.getDeckTitle(), game.peekNextCard()[0]);
         }
     }
-
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
-    }
-
-    /*
-    public ArrayList<Pair> getAnsList() {
-        return game.getQuestionAns();
-    }*/
 
     /**
      * Computes how many correct Answers I got from playing the deck

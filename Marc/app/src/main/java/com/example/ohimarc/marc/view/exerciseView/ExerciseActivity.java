@@ -7,9 +7,9 @@ import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ExercisePresenter;
-import com.example.ohimarc.marc.view.FlashcardActivity;
-import com.example.ohimarc.marc.view.ToolbarExtension;
-import com.example.ohimarc.marc.view.quizMode.QuizActivity;
+import com.example.ohimarc.marc.view.flashcardView.FlashcardActivity;
+import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
+import com.example.ohimarc.marc.view.quizView.QuizActivity;
 
 public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
 
@@ -25,7 +25,6 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
         unpackBundle();
 
         presenter = new ExercisePresenter(deckIndex);
-        presenter.onCreate();
         initExtension(this, R.id.activity_exercise, presenter.getDeckTitle());
     }
 
@@ -78,24 +77,6 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
         Bundle b = new Bundle();
         b.putInt("deckIndex", deckIndex);
         intent.putExtras(b);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        presenter.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        presenter.onDestroy();
     }
 
 }

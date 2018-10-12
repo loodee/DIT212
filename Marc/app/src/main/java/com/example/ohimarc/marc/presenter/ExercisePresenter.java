@@ -2,7 +2,7 @@ package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 
-public class ExercisePresenter implements Presenter {
+public class ExercisePresenter {
 
 
     MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
@@ -12,9 +12,6 @@ public class ExercisePresenter implements Presenter {
         this.index = index;
     }
 
-    @Override
-    public void onCreate() {
-    }
 
     public String getDeckTitle() {
         return mtt.getActiveUser().getDeck(index).getTitle();
@@ -24,18 +21,4 @@ public class ExercisePresenter implements Presenter {
         return mtt.getActiveUser().getDeck(index).getDeckSize();
     }
 
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
-    }
 }
