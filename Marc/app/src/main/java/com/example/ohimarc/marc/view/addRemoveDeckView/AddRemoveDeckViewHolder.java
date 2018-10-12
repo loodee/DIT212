@@ -8,7 +8,7 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 
 /**
- * Author Victor Johansson (Vroxie on github)
+ * @author  Victor Johansson (Vroxie on github)
  */
 public class AddRemoveDeckViewHolder extends RecyclerView.ViewHolder implements AddRemoveDeckView {
 

@@ -8,7 +8,7 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
 
 /**
- * Author Victor Johansson (Vroxie on github)
+ * @author  Victor Johansson (Vroxie on github)
  */
 public class ChoosingDeckViewHolder extends RecyclerView.ViewHolder implements ChoosingDeckViewH {
 

@@ -7,7 +7,7 @@ import com.example.ohimarc.marc.view.choosingDeckView.ChoosingDeckViewHolder;
 import java.util.List;
 
 /**
- * Author Victor Johansson (Vroxie on github)
+ * @author  Victor Johansson (Vroxie on github)
  */
 public class ChoosingDeckPresenter {
 
@@ -20,7 +20,8 @@ public class ChoosingDeckPresenter {
 
     /**
      * Binds a viewholder to a item in the recyclerview
-     * @param rowView the viewholder for the item
+     *
+     * @param rowView  the viewholder for the item
      * @param position the item
      */
     public void onBindDeckListRowViewAtPosition(int position, ChoosingDeckViewHolder rowView) {
@@ -29,6 +30,7 @@ public class ChoosingDeckPresenter {
 
     /**
      * Counts how many rows/items the recyclerview will contain
+     *
      * @return the amount of rows that the recycler will contain
      */
     public int getDeckListRowsCount() {

@@ -21,7 +21,7 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckView {
 
     /**
-     * Author : Victor Johansson (Vroxie on github)
+     * @author Victor Johansson (Vroxie on github)
      */
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;

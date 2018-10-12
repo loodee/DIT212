@@ -6,7 +6,7 @@ import com.example.ohimarc.marc.view.resultsView.ResultsView;
 import java.util.ArrayList;
 
 /**
- * Author Victor Johansson (Vroxie on github)
+ * @author Victor Johansson (Vroxie on github)
  */
 public class ResultPresenter {
     private final ArrayList<Integer> amountCorrect;

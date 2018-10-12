@@ -9,7 +9,7 @@ import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 
 
 /**
- * Author Victor Johansson (Vroxie on github)
+ * @author Victor Johansson (Vroxie on github)
  */
 public class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHolder>
 {

@@ -11,7 +11,7 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 import com.example.ohimarc.marc.view.exerciseView.ExerciseActivity;
 
 /**
- * Author Victor Johansson (Vroxie on github)
+ * @author  Victor Johansson (Vroxie on github)
  */
 public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDeckView {
 
