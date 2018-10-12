@@ -5,9 +5,9 @@ import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
-import com.example.ohimarc.marc.view.editdeck.EditNoteView;
+import com.example.ohimarc.marc.view.editDeckView.EditNoteView;
 
-public class EditNotePresenter implements Presenter {
+public class EditNotePresenter {
     private EditNoteView view;
     private Deck deck;
     private int noteIndex;
@@ -18,9 +18,9 @@ public class EditNotePresenter implements Presenter {
         this.deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
         this.noteIndex = noteIndex;
         this.store = new LocalUserStorage(filepath);
+        onCreate();
     }
 
-    @Override
     public void onCreate() {
         if (noteIndex != -1) {
             if (deck.getNote(noteIndex) instanceof BasicNote) {
@@ -28,21 +28,6 @@ public class EditNotePresenter implements Presenter {
                 view.setValues(note.getFront(), note.getBack());
             }
         }
-    }
-
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
     }
 
     /**

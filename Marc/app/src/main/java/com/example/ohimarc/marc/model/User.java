@@ -3,6 +3,11 @@ package com.example.ohimarc.marc.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * This Class is responsible for holding the information about a user, sush as the users Decks, The users statistics and their name
+ * */
 public class User {
     private final String name;
     private final List<Deck> decks = new ArrayList<>();

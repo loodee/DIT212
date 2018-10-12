@@ -1,17 +1,15 @@
 package com.example.ohimarc.marc.presenter;
 
-import android.util.Log;
-
 import com.example.ohimarc.marc.model.BasicNote;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.view.editdeck.BasicNoteViewHolder;
-import com.example.ohimarc.marc.view.editdeck.EditDeckActivity;
-import com.example.ohimarc.marc.view.editdeck.EditDeckContract;
+import com.example.ohimarc.marc.view.editDeckView.BasicNoteViewHolder;
+import com.example.ohimarc.marc.view.editDeckView.EditDeckActivity;
+import com.example.ohimarc.marc.view.editDeckView.EditDeckContract;
 
 public class EditDeckPresenter implements EditDeckContract.Presenter {
-    private Deck deck;
-    private EditDeckActivity editDeckActivity;
+    private final Deck deck;
+    private final EditDeckActivity editDeckActivity;
 
     public EditDeckPresenter(EditDeckActivity a, int deckIndex) {
         this.editDeckActivity = a;
@@ -29,8 +27,11 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
         rowView.setBasicNoteText(basicNote.getFront(), basicNote.getBack());
     }
 
+    /**
+     * @return the amount of cards in deck
+     */
     @Override
-    public int getBasicNoteRowsCount() {
+    public int getCardRowsCount() {
         return deck.getDeckSize();
     }
 
@@ -41,12 +42,18 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
 
     @Override
     public void onUserLongClickedAtPosition(int adapterPosition) {
-        editDeckActivity.promptForDeletion(deck.getNoteIndexFromCardIndex(adapterPosition), deck);
+        editDeckActivity.promptForDeletion(deck.getNoteIndexFromCardIndex(adapterPosition));
     }
 
+    @Override
+    public String getDeckTitle() {
+        return deck.getTitle();
+    }
+
+    /**
+     * @param index is the card in the list that will get deleted
+     */
     public void confirmDeletion(int index) {
-        Log.d("IN CONFIRM DELETION:", "" + deck.getNoteIndexFromCardIndex(index));
         deck.deleteNote(index);
     }
-
 }

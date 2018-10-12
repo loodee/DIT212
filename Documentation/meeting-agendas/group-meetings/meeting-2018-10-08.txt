@@ -1,0 +1,54 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-10-08
+Chair: Gustav Albertsson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Mathias Forsman, Victor Johansson
+
+## Objectives (5 min)
+Discuss how we can narrow down the user stories to make them easier to complete.
+Discuss what colors should be used where.
+Discuss how the different presenters should access the model.
+
+
+## Reports (15 min) 
+* Trello has been updated, but still needs some more updates (Everyone).
+* Implemented deck screen, you can add/remove decks and click on them (Victor).
+* User story #11, the user can now delete and select a user (Gustav).
+* Cards are clickable inside of a deck, gives index of the clicked card (Mathias)
+* Notes can now be edited and saved (Thomas). 
+
+
+## Discussion items (35 min)
+* How can we narrow down user stories to make them easier to complete
+   * Can we make the GUI simpler?
+   * Can we somehow make things simpler/easier?
+* What colors should be used for what?
+   * What background color should the app have?
+   * What colors should the menu buttons have?
+* How are the presenters going to access the model?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+* How we should handle the user stories
+   * We want to make the user stories easier, the group decided that an “Acceptable user experience” will suffice. Don’t end up sinking time into features that, for example, look good/impressive, but take a disproportionately high amount of time to complete. In other words, if there is a passable, easy way to solve something (GUI-wise), use that solution initially.
+   * The stats and achievements should be kept at a basic level, it should not contain things that are not easy accessible. There should not be too many achievements.
+   * * The colors should be:
+   * The background should be a light grey color, this color will be defined in the Color.xml file
+   * The colors of the menu buttons should be white for the moment, this might be changed at a later time if we are not satisfied with the looks.
+* It should use the singleton item which should be parsed from the stored state at app start.
+
+
+Assignments: 
+* Remaining things to be done for user story #7 (Thomas, Mathias):
+   * Click card to edit corresponding Note
+   * Long press card to delete Note
+   * Refresh view of cards when finishing editing/adding cards.
+* Write in the SDD today between 16:00 and 17:00 (Everyone).
+* Finish user story #11 (Gustav)
+* Create a user story for quiz mode (Everyone)
+* Implement quiz mode (Victor, Alexander)
+
+
+## Wrap up
+Next meeting will be on Friday 2018-10-12 at 13:00

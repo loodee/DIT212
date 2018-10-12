@@ -14,6 +14,8 @@ import com.example.ohimarc.marc.model.Note;
 import java.lang.reflect.Type;
 
 /**
+ * @author Gustav Albertsson
+ *
  * Adapter to handle abstract Note class when converting to and from JSON format,
  * This class is heavily inspired from "http://ovaraksin.blogspot.com/2011/05/json-with-gson-and-abstract-classes.html"
  * */

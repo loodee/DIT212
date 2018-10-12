@@ -1,39 +1,39 @@
 package com.example.ohimarc.marc.presenter;
 
-import com.example.ohimarc.marc.model.FlashCardGame;
-import com.example.ohimarc.marc.view.ResultsView;
+import com.example.ohimarc.marc.model.MemorizationTrainingTool;
+import com.example.ohimarc.marc.view.resultsView.ResultsView;
 
 import java.util.ArrayList;
 
-public class ResultPresenter implements Presenter {
-    private final ArrayList<Integer> amountCorret;
-    private ResultsView view;
+/**
+ * @author Victor Johansson (Vroxie on github)
+ */
+public class ResultPresenter {
+    private final ArrayList<Integer> amountCorrect;
+    private final ResultsView view;
+    private final String deckTitle;
 
-    public ResultPresenter(ArrayList<Integer> amountCorret,ResultsView view){
+    public ResultPresenter(ResultsView view, ArrayList<Integer> amountCorrect, int deckIndex) {
         this.view = view;
-        this.amountCorret = amountCorret;
-        }
+        this.amountCorrect = amountCorrect;
+        MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
+        deckTitle = mtt.getActiveUser().getDeck(deckIndex).getTitle();
+    }
 
-    @Override
+    /**
+     * @return the deck that has being played title
+     */
+    public String getDeckTitle() {
+        return deckTitle;
+    }
+
+    /**
+     * Tells the view the result
+     * Where the first element in amountCorrect is amount of correct answers
+     * And the second element is total amount of questions
+     */
     public void onCreate() {
-        view.initTexts(amountCorret.get(0),amountCorret.get(1));
+        view.initTexts(amountCorrect.get(0), amountCorrect.get(1));
     }
-
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
-    }
-    
-
 
 }

@@ -12,12 +12,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * This class is responsible for storing and reading a MemorizationTrainingTool from local JSON storage
+ * */
 public class LocalUserStorage implements UserStorage {
 
 
-    private String filePath;
-    private Gson g;
-    private String fileName = "/users.json";
+    private final String filePath;
+    private final Gson g;
+    private final String fileName = "/users.json";
 
     /**
      * Creates an LocalUserStorage object which can store and retrieve Users from .json files
@@ -32,15 +37,13 @@ public class LocalUserStorage implements UserStorage {
     }
 
     @Override
-    public boolean storeState(MemorizationTrainingTool mtt) {
+    public void storeState(MemorizationTrainingTool mtt) {
         try {
             String json = g.toJson(mtt);
             FileWriter fw = new FileWriter(filePath + fileName);
             fw.write(json);
             fw.close();
-            return true;
-        } catch (IOException e) {
-            return false;
+        } catch (IOException ignored) {
         }
     }
 
