@@ -11,7 +11,7 @@ import com.example.ohimarc.marc.R;
 
 public class FlashcardActivity extends ToolbarExtension implements FlashcardView {
 
-    FlashcardPresenter presenter;
+    private FlashcardPresenter presenter;
 
     private Button cardButton;
     private TextView cardTitle;
@@ -37,8 +37,8 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         cardTitle.setText("Q:");
     }
 
-    public void flipCardButton(String qora, String text) {
-        cardTitle.setText(qora);
+    public void flipCardButton(String qOrA, String text) {
+        cardTitle.setText(qOrA);
         cardButton.setText(text);
     }
 
