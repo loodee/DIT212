@@ -8,8 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -36,8 +34,6 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_menu);
 
-        setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.activity_toolbar));
-
         mainPresenter = new StartMenuPresenter(this,getFilesDir().getAbsolutePath());
 
         if(mainPresenter.loggedIn()){
@@ -60,13 +56,6 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
             }
         });
 
-    }
-
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items, menu);
-        return true;
     }
 
     private void showAddUserPopup() {

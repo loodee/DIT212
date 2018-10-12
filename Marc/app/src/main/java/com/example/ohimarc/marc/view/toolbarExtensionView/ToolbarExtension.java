@@ -9,8 +9,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -66,12 +64,6 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
         initNavToggle(activity);
         initNavigationListeners();
         titleText.setText(title);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_items, menu);
-        return true;
     }
 
     private boolean thisActivityIsNextActivity(Class<?> nextClass) {
@@ -145,11 +137,6 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
         if (navToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 }
