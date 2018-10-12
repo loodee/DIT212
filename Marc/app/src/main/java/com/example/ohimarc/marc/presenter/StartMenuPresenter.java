@@ -2,12 +2,12 @@ package com.example.ohimarc.marc.presenter;
 
 
 
-import com.example.ohimarc.marc.view.mainMenu.StartMenuView;
+import com.example.ohimarc.marc.view.startMenuView.StartMenuView;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
-import com.example.ohimarc.marc.view.mainMenu.StartMenuContract;
-import com.example.ohimarc.marc.view.mainMenu.UserViewHolder;
+import com.example.ohimarc.marc.view.startMenuView.StartMenuContract;
+import com.example.ohimarc.marc.view.startMenuView.UserViewHolder;
 
 import java.util.List;
 

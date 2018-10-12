@@ -7,9 +7,9 @@ import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ExercisePresenter;
-import com.example.ohimarc.marc.view.FlashcardActivity;
-import com.example.ohimarc.marc.view.ToolbarExtension;
-import com.example.ohimarc.marc.view.quizMode.QuizActivity;
+import com.example.ohimarc.marc.view.flashcardView.FlashcardActivity;
+import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
+import com.example.ohimarc.marc.view.quizView.QuizActivity;
 
 public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
 

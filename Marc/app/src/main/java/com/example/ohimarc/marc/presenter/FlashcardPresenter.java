@@ -4,7 +4,7 @@ import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.FlashCardGame;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Pair;
-import com.example.ohimarc.marc.view.FlashcardView;
+import com.example.ohimarc.marc.view.flashcardView.FlashcardView;
 
 import java.util.ArrayList;
 

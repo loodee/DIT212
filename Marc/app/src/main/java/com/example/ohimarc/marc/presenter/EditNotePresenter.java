@@ -5,7 +5,7 @@ import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
-import com.example.ohimarc.marc.view.editdeck.EditNoteView;
+import com.example.ohimarc.marc.view.editDeckView.EditNoteView;
 
 public class EditNotePresenter implements Presenter {
     private EditNoteView view;

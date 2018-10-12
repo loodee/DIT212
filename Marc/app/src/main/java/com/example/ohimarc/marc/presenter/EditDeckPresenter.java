@@ -5,9 +5,9 @@ import android.util.Log;
 import com.example.ohimarc.marc.model.BasicNote;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.view.editdeck.BasicNoteViewHolder;
-import com.example.ohimarc.marc.view.editdeck.EditDeckActivity;
-import com.example.ohimarc.marc.view.editdeck.EditDeckContract;
+import com.example.ohimarc.marc.view.editDeckView.BasicNoteViewHolder;
+import com.example.ohimarc.marc.view.editDeckView.EditDeckActivity;
+import com.example.ohimarc.marc.view.editDeckView.EditDeckContract;
 
 public class EditDeckPresenter implements EditDeckContract.Presenter {
     private Deck deck;

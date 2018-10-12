@@ -3,7 +3,7 @@ package com.example.ohimarc.marc.presenter;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
-import com.example.ohimarc.marc.view.ToolbarExtensionView;
+import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtensionView;
 
 public class ToolbarExtensionPresenter implements Presenter {
 

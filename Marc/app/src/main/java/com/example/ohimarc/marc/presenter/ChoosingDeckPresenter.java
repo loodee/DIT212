@@ -1,9 +1,8 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.service.UserStorage;
-import com.example.ohimarc.marc.view.choosingDeck.ChoosingDeckView;
-import com.example.ohimarc.marc.view.choosingDeck.ChoosingDeckViewHolder;
+import com.example.ohimarc.marc.view.choosingDeckView.ChoosingDeckView;
+import com.example.ohimarc.marc.view.choosingDeckView.ChoosingDeckViewHolder;
 
 import java.util.List;
 

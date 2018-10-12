@@ -3,8 +3,8 @@ package com.example.ohimarc.marc.presenter;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
-import com.example.ohimarc.marc.view.addremovedeck.AddDeckView;
-import com.example.ohimarc.marc.view.addremovedeck.AddRemoveDeckView;
+import com.example.ohimarc.marc.view.addRemoveDeckView.AddDeckView;
+import com.example.ohimarc.marc.view.addRemoveDeckView.AddRemoveDeckView;
 
 import java.util.List;
 

@@ -1,9 +1,7 @@
 package com.example.ohimarc.marc.presenter;
 
-import android.util.Log;
-
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.view.ResultsView;
+import com.example.ohimarc.marc.view.resultsView.ResultsView;
 
 import java.util.ArrayList;
 

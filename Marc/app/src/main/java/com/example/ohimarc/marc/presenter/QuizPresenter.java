@@ -4,7 +4,7 @@ import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Pair;
 import com.example.ohimarc.marc.model.QuizGame;
-import com.example.ohimarc.marc.view.quizMode.QuizView;
+import com.example.ohimarc.marc.view.quizView.QuizView;
 
 import java.util.ArrayList;
 
