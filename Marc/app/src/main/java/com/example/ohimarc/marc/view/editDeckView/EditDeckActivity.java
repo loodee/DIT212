@@ -60,18 +60,30 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
         super.onResume();
     }
 
+    /**
+     * notifies the list that changes have been made and updates
+     */
     @Override
     public void updateDeckList() {
         RecyclerView revVi = findViewById(R.id.rv_recyclerView);
         Objects.requireNonNull(revVi.getAdapter()).notifyDataSetChanged();
     }
 
+    /**
+     * sets the textview tv_deck_title to get the string from deck.getitle
+     */
     @Override
     public void deckTitles() {
         TextView deckTitle = findViewById(R.id.tv_deck_title);
         deckTitle.setText(deck.getTitle());
     }
 
+
+    /** this creates a popup when called upon
+     *
+     * @param index is the cards index in the list which is being selected for deletion
+     * @param deck is the selected deck which is currently showing in our view
+     */
     @Override
     public void promptForDeletion(final int index, Deck deck) {
 
