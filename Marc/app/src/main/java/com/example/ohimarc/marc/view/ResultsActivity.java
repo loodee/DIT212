@@ -52,11 +52,16 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
         }
     }
 
+    private void packBundle(Intent intent) {
+        Bundle b = new Bundle();
+        b.putInt("deckIndex", deckIndex);
+        intent.putExtras(b);
+}
+
     public void initTexts(int correct, int total) {
         resultText.setText("Score: " + correct + "/" + total);
         deckTitleText.setText("Deck: " + presenter.getDeckTitle());
         modeText.setText("Mode: " + mode);
-
     }
 
     public void retryButton(View v) {
@@ -64,6 +69,7 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
         if(mode.equals("Flashcard Game")) {
             intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
         } else intent = new Intent(ResultsActivity.this, QuizActivity.class);
+        packBundle(intent);
         startActivity(intent);
         finish();
     }
