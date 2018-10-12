@@ -96,6 +96,10 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
         builder.show();
     }
 
+    /**
+     *
+     * @param noteIndex is the card in the list that is clicked on
+     */
     @Override
     public void editCardInDeck(int noteIndex) {
         Intent intent = new Intent(EditDeckActivity.this, EditNoteActivity.class);

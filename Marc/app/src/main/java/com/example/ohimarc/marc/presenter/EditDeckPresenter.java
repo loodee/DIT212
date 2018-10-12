@@ -1,7 +1,5 @@
 package com.example.ohimarc.marc.presenter;
 
-import android.util.Log;
-
 import com.example.ohimarc.marc.model.BasicNote;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
@@ -29,8 +27,11 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
         rowView.setBasicNoteText(basicNote.getFront(), basicNote.getBack());
     }
 
+    /**
+     * @return the amount of cards in deck
+     */
     @Override
-    public int getBasicNoteRowsCount() {
+    public int getCardRowsCount() {
         return deck.getDeckSize();
     }
 
@@ -44,8 +45,10 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
         editDeckActivity.promptForDeletion(deck.getNoteIndexFromCardIndex(adapterPosition), deck);
     }
 
+    /**
+     * @param index is the card in the list that will get deleted
+     */
     public void confirmDeletion(int index) {
-        Log.d("IN CONFIRM DELETION:", "" + deck.getNoteIndexFromCardIndex(index));
         deck.deleteNote(index);
     }
 

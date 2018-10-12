@@ -18,7 +18,7 @@ public interface EditDeckContract {
 
         void onBindBasicNoteRowViewAtPosition(BasicNoteViewHolder position, int rowView);
 
-        int getBasicNoteRowsCount();
+        int getCardRowsCount();
 
         void onUserClickedAtPosition(int adapterPosition);
 

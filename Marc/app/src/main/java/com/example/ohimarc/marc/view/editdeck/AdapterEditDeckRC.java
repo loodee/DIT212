@@ -28,6 +28,6 @@ public class AdapterEditDeckRC extends RecyclerView.Adapter<BasicNoteViewHolder>
 
     @Override
     public int getItemCount() {
-        return presenter.getBasicNoteRowsCount();
+        return presenter.getCardRowsCount();
     }
 }
