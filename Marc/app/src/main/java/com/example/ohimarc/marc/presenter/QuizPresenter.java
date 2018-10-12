@@ -10,11 +10,11 @@ import java.util.ArrayList;
 
 public class QuizPresenter {
 
-    private QuizView view;
+    private final QuizView view;
     private String[] texts;
     private QuizGame game;
     private Deck deck;
-    private int deckIndex;
+    private final int deckIndex;
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
 

@@ -7,8 +7,8 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtensionView;
 
 public class ToolbarExtensionPresenter {
 
-    private ToolbarExtensionView view;
-    private UserStorage store;
+    private final ToolbarExtensionView view;
+    private final UserStorage store;
 
     public ToolbarExtensionPresenter(ToolbarExtensionView view, String filePath) {
         this.view = view;
@@ -16,7 +16,6 @@ public class ToolbarExtensionPresenter {
     }
 
     public void logoutButton() {
-        //Some functionality for logging out through the model
         MemorizationTrainingTool.getInstance().setActiveUser(null);
         store.storeState(MemorizationTrainingTool.getInstance());
         view.navigateLogout();

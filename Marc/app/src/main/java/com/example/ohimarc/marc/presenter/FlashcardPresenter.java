@@ -16,9 +16,8 @@ public class FlashcardPresenter {
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
     private FlashCardGame game;
-    private FlashcardView view;
-    private Deck deck;
-    private int index;
+    private final FlashcardView view;
+    private final int index;
 
 
     public FlashcardPresenter(FlashcardView view, int index) {
@@ -28,7 +27,7 @@ public class FlashcardPresenter {
 
 
     public void onCreate() {
-        deck = mtt.getActiveUser().getDeck(index);
+        Deck deck = mtt.getActiveUser().getDeck(index);
         game = new FlashCardGame(deck);
         if (game.getDecksize() > 0) {
             view.initTexts(game.getDeckTitle(), game.peekNextCard()[0]);
@@ -38,7 +37,7 @@ public class FlashcardPresenter {
     /**
      * Computes how many correct Answers I got from playing the deck
      *
-     * @return a arraylist where index 0 is the amount of correct answers
+     * @return an arrayList where index 0 is the amount of correct answers
      * and index 1 is the deckSize
      */
     public ArrayList<Integer> getAmountCorrectAnswers() {
@@ -81,7 +80,7 @@ public class FlashcardPresenter {
     }
 
     /**
-     * Handles when one of the resultbuttons is clicked
+     * Handles when one of the result buttons is clicked
      * Puts the question and the result the array that holds it
      * Also go to next card if it is not the last card, then it
      * Tells the view to change view

@@ -4,9 +4,8 @@ import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 
 public class ExercisePresenter {
 
-
-    MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
-    private int index;
+    private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
+    private final int index;
 
     public ExercisePresenter(int index) {
         this.index = index;

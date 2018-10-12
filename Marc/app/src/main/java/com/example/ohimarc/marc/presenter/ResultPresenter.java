@@ -10,14 +10,13 @@ import java.util.ArrayList;
  */
 public class ResultPresenter {
     private final ArrayList<Integer> amountCorrect;
-    private ResultsView view;
-    String deckTitle;
-
-    private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
+    private final ResultsView view;
+    private final String deckTitle;
 
     public ResultPresenter(ResultsView view, ArrayList<Integer> amountCorrect, int deckIndex) {
         this.view = view;
         this.amountCorrect = amountCorrect;
+        MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
         deckTitle = mtt.getActiveUser().getDeck(deckIndex).getTitle();
     }
 
