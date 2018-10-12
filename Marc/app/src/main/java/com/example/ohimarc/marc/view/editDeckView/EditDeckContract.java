@@ -22,6 +22,6 @@ public interface EditDeckContract {
         void onUserLongClickedAtPosition(int adapterPosition);
 
 
-        String deckTitles();
+        String getDeckTitle();
     }
 }
