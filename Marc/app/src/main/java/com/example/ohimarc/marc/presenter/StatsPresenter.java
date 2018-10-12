@@ -1,11 +1,12 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.view.stats.StatsContract;
+import com.example.ohimarc.marc.model.Stat;
+import com.example.ohimarc.marc.view.stats.IStatsPresenter;
 import com.example.ohimarc.marc.view.stats.StatsView;
 import com.example.ohimarc.marc.view.stats.StatsViewHolder;
 
-public class StatsPresenter implements Presenter, StatsContract.Presenter{
+public class StatsPresenter implements IStatsPresenter {
 
     private StatsView view;
     private MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
@@ -15,37 +16,23 @@ public class StatsPresenter implements Presenter, StatsContract.Presenter{
     }
 
     @Override
-    public void onCreate() {
-
-    }
-
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
-    }
-
-    @Override
-    public void start() {
-
-    }
-
-    @Override
     public void onBindBasicNoteRowViewAtPosition(StatsViewHolder rowView, int position) {
         rowView.setDeckTitle(mtt.getActiveUser().getDeck(position).getTitle());
+
     }
 
     @Override
     public int getStatRowsCount() {
-        return mtt.getActiveUser().getDeckTitles().size();
+        int counts = 0;
+
+        for (int i = 0; i < mtt.getActiveUser().getDeckTitles().size(); i++) {
+            Stat[] stats = mtt.getActiveUser().getStatsForDeck(i);
+
+            if(stats != null) {
+                counts += mtt.getActiveUser().getStatsForDeck(i).length;
+            }
+        }
+
+        return counts;
     }
 }
