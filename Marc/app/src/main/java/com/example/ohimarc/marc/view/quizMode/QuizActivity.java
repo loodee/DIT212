@@ -32,6 +32,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
         questionText = findViewById(R.id.card);
 
         assignButtons();
@@ -113,12 +114,11 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
         }
     }
 
-    private void packBundle(Intent intent) {
-        Bundle b = new Bundle();
-        b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
-        b.putInt("deckIndex", deckIndex);
-        b.putString("mode", presenter.getGameName());
-        intent.putExtras(b);
+    public void changeView() {
+        Intent intent = new Intent(QuizActivity.this, ResultsActivity.class);
+        packBundle(intent);
+        startActivity(intent);
+        finish();
     }
 
     private void unpackBundle() {
@@ -128,11 +128,12 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
         }
     }
 
-    public void changeView() {
-        Intent intent = new Intent(QuizActivity.this, ResultsActivity.class);
-        packBundle(intent);
-        startActivity(intent);
-        finish();
+    private void packBundle(Intent intent) {
+        Bundle b = new Bundle();
+        b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
+        b.putInt("deckIndex", deckIndex);
+        b.putString("mode", presenter.getGameName());
+        intent.putExtras(b);
     }
 
     @Override

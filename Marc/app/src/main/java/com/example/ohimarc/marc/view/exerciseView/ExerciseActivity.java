@@ -23,10 +23,10 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
         setContentView(R.layout.activity_exercise);
 
         unpackBundle();
+
         presenter = new ExercisePresenter(deckIndex);
         presenter.onCreate();
-        String deckTitle = presenter.getDeckTitle();
-        initExtension(this, R.id.activity_exercise, deckTitle);
+        initExtension(this, R.id.activity_exercise, presenter.getDeckTitle());
     }
 
     public void flashcardClicked(View v) {
@@ -42,22 +42,24 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
     @Override
     public boolean navigate() {
         Intent intent;
-        switch(modeIndex) {
-            case(0):
+        switch (modeIndex) {
+            case (0):
                 intent = new Intent(getApplicationContext(), FlashcardActivity.class);
                 break;
-            case(1):
-                if(presenter.getDeckSize()>3) {
+            case (1):
+                if (presenter.getDeckSize() > 3) {
                     intent = new Intent(getApplicationContext(), QuizActivity.class);
                     break;
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"The deck needs to contain more than 4 cards to play the quiz mode.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "The deck needs to contain at least" +
+                            " 4 cards to play the quiz mode.", Toast.LENGTH_LONG).show();
                     return true;
                 }
-            default: intent = null;
+            default:
+                intent = null;
+                break;
         }
-        if(intent != null) {
+        if (intent != null) {
             packBundle(intent);
             startActivity(intent);
             finish();
@@ -65,19 +67,18 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
         return true;
     }
 
-    private void packBundle(Intent intent) {
-        Bundle b = new Bundle();
-        b.putInt("deckIndex" , deckIndex);
-        intent.putExtras(b);
-    }
-
     private void unpackBundle() {
         Bundle b = getIntent().getExtras();
-        if(b != null) {
+        if (b != null) {
             deckIndex = b.getInt("deckIndex");
         }
     }
 
+    private void packBundle(Intent intent) {
+        Bundle b = new Bundle();
+        b.putInt("deckIndex", deckIndex);
+        intent.putExtras(b);
+    }
 
     @Override
     protected void onPause() {

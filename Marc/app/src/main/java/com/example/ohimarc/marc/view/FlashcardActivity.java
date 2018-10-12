@@ -58,12 +58,11 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         presenter.resultButtonsClicked(false);
     }
 
-    private void packBundle(Intent intent) {
-        Bundle b = new Bundle();
-        b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
-        b.putString("mode", presenter.getGameName());
-        b.putInt("deckIndex", deckIndex);
-        intent.putExtras(b);
+    public void changeView() {
+        Intent intent = new Intent(FlashcardActivity.this, ResultsActivity.class);
+        packBundle(intent);
+        startActivity(intent);
+        finish();
     }
 
     private void unpackBundle() {
@@ -73,11 +72,12 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         }
     }
 
-    public void changeView() {
-        Intent intent = new Intent(FlashcardActivity.this, ResultsActivity.class);
-        packBundle(intent);
-        startActivity(intent);
-        finish();
+    private void packBundle(Intent intent) {
+        Bundle b = new Bundle();
+        b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
+        b.putString("mode", presenter.getGameName());
+        b.putInt("deckIndex", deckIndex);
+        intent.putExtras(b);
     }
 
     @Override

@@ -41,6 +41,38 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
         initExtension(this, R.id.results_activity, "Results");
     }
 
+    public void initTexts(int correct, int total) {
+        resultText.setText("Score: " + correct + "/" + total);
+        deckTitleText.setText("Deck: " + presenter.getDeckTitle());
+        modeText.setText("Mode: " + mode);
+    }
+
+    public void retryButton(View v) {
+        Intent intent;
+        switch (mode) {
+            case ("Flashcard Game"):
+                intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
+                break;
+            case ("Quiz Game"):
+                intent = new Intent(ResultsActivity.this, QuizActivity.class);
+                break;
+            default:
+                intent = null;
+                break;
+        }
+        if (intent != null) {
+            packBundle(intent);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    public void returnClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), ChoosingDeckActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void unpackBundle() {
         Bundle b = getIntent().getExtras();
         values = null;
@@ -55,28 +87,6 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
         Bundle b = new Bundle();
         b.putInt("deckIndex", deckIndex);
         intent.putExtras(b);
-    }
-
-    public void initTexts(int correct, int total) {
-        resultText.setText("Score: " + correct + "/" + total);
-        deckTitleText.setText("Deck: " + presenter.getDeckTitle());
-        modeText.setText("Mode: " + mode);
-    }
-
-    public void retryButton(View v) {
-        Intent intent;
-        if (mode.equals("Flashcard Game")) {
-            intent = new Intent(ResultsActivity.this, FlashcardActivity.class);
-        } else intent = new Intent(ResultsActivity.this, QuizActivity.class);
-        packBundle(intent);
-        startActivity(intent);
-        finish();
-    }
-
-    public void returnClicked(View v) {
-        Intent intent = new Intent(getApplicationContext(), ChoosingDeckActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     @Override
