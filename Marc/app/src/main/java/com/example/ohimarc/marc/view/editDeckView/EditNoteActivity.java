@@ -43,7 +43,6 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
             if (bar != null) bar.setTitle("Edit Note");
         }
         presenter = new EditNotePresenter(this, noteIndex, deckIndex, getFilesDir().getAbsolutePath());
-        presenter.onCreate();
     }
 
     @Override

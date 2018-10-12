@@ -18,6 +18,7 @@ public class EditNotePresenter {
         this.deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
         this.noteIndex = noteIndex;
         this.store = new LocalUserStorage(filepath);
+        onCreate();
     }
 
     public void onCreate() {
