@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.HomePresenter;
+import com.example.ohimarc.marc.view.stats.StatsActivity;
 
 public class Home extends ToolbarExtension {
 
@@ -39,6 +40,11 @@ public class Home extends ToolbarExtension {
 
     public void deck_button(View view){
         Intent intent = new Intent(Home.this,AddRemoveDeckActivity.class);
+        startActivity(intent);
+    }
+
+    public void stats_button(View view){
+        Intent intent = new Intent(Home.this,StatsActivity.class);
         startActivity(intent);
     }
 
