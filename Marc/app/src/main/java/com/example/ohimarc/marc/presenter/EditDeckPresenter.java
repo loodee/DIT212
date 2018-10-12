@@ -42,7 +42,12 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
 
     @Override
     public void onUserLongClickedAtPosition(int adapterPosition) {
-        editDeckActivity.promptForDeletion(deck.getNoteIndexFromCardIndex(adapterPosition), deck);
+        editDeckActivity.promptForDeletion(deck.getNoteIndexFromCardIndex(adapterPosition));
+    }
+
+    @Override
+    public String getDeckTitle() {
+        return deck.getTitle();
     }
 
     /**
@@ -51,5 +56,4 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     public void confirmDeletion(int index) {
         deck.deleteNote(index);
     }
-
 }
