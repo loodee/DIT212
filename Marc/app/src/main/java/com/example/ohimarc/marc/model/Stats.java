@@ -85,7 +85,7 @@ public class Stats {
             }
         }
 
-        return null;
+        return new Stat[]{};
     }
 
     public void addNewDeck() {
