@@ -7,6 +7,9 @@ import android.widget.TextView;
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 
+/**
+ * Author Victor Johansson (Vroxie on github)
+ */
 public class AddRemoveDeckViewHolder extends RecyclerView.ViewHolder implements AddRemoveDeckView {
 
     TextView titleTextView;
@@ -23,6 +26,10 @@ public class AddRemoveDeckViewHolder extends RecyclerView.ViewHolder implements 
         });
     }
 
+    /**
+     * Sets the title of deck in the recyclerview
+     * @param title the title of the deck
+     */
     @Override
     public void setTitle(String title) {
         titleTextView.setText(title);

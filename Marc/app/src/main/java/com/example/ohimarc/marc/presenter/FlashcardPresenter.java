@@ -8,6 +8,9 @@ import com.example.ohimarc.marc.view.flashcardView.FlashcardView;
 
 import java.util.ArrayList;
 
+/**
+ * Author Victor Johansson (Vroxie on github)
+ */
 public class FlashcardPresenter {
 
 
@@ -61,6 +64,12 @@ public class FlashcardPresenter {
     }
 
 
+    /**
+     * Handles when the card is clicked
+     * Changes the card depending on what side that were active
+     *
+     * @param frontActive a boolean that says if the front is active or not
+     */
     public void flashCardClicked(boolean frontActive) {
         if (game.getDecksize() > 0) {
             if (frontActive) {
@@ -71,6 +80,14 @@ public class FlashcardPresenter {
         }
     }
 
+    /**
+     * Handles when one of the resultbuttons is clicked
+     * Puts the question and the result the array that holds it
+     * Also go to next card if it is not the last card, then it
+     * Tells the view to change view
+     *
+     * @param isCorrect the result of the question
+     */
     public void resultButtonsClicked(boolean isCorrect) {
         if (game.getDecksize() > 0) {
             if (game.getNextCard() < game.getDecksize() - 1) {

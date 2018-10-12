@@ -7,13 +7,21 @@ import android.view.ViewGroup;
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
 
-
+/**
+ * Author Victor Johansson (Vroxie on github)
+ */
 public class ChoosingDeckAdapter extends RecyclerView.Adapter<ChoosingDeckViewHolder> {
 
     private final ChoosingDeckPresenter presenter;
 
     public ChoosingDeckAdapter(ChoosingDeckPresenter presenter) {this.presenter = presenter;}
 
+    /**
+     * Creates a viewholder for each item in the recyclerview
+     * @param parent the Viewholder for the recyclerview
+     * @param viewType
+     * @return the new viewholder for a item in the recylcerview
+     */
     @Override
     public ChoosingDeckViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         return new ChoosingDeckViewHolder(LayoutInflater.from(parent.getContext()).
@@ -21,12 +29,21 @@ public class ChoosingDeckAdapter extends RecyclerView.Adapter<ChoosingDeckViewHo
     }
 
 
+    /**
+     * Binds a viewholder to a item in the recyclerview
+     * @param holder the viewholder for the item
+     * @param position the item
+     */
     @Override
     public void onBindViewHolder(ChoosingDeckViewHolder holder, int position) {
         presenter.onBindDeckListRowViewAtPosition(position, holder);
 
     }
 
+    /**
+     * Counts how many rows/items the recyclerview will contain
+     * @return the amount of rows that the recycler will contain
+     */
     @Override
     public int getItemCount() {
         return presenter.getDeckListRowsCount();

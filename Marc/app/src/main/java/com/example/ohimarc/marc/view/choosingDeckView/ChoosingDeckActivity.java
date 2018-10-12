@@ -4,14 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 import com.example.ohimarc.marc.view.exerciseView.ExerciseActivity;
 
-
-public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDeckView{
-
+/**
+ * Author Victor Johansson (Vroxie on github)
+ */
+public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDeckView {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -19,6 +21,13 @@ public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDe
 
     ChoosingDeckPresenter presenter;
 
+    /**
+     * Sets up the screen when this activity is started
+     * Such as recyclerview, which layout file shall be ran etc.
+     *
+     * @param savedInstanceState what was active when last closed this screen
+     *                           in case you want to save something
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,21 +46,32 @@ public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDe
         mRecyclerView.setAdapter(mAdapter);
 
 
-
         initExtension(this, R.id.choosingDeckActivity, "Choose a Deck");
     }
 
 
+    /**
+     * Handles when a deck is pressed, i.e navigates to select game mode screen
+     * with that particular deck choosen.
+     *
+     * @param index what deck in the RecylerView that has been pressed
+     */
     public void deckIsClicked(int index) {
         Intent intent = new Intent(getApplicationContext(), ExerciseActivity.class);
-        packBundle(index,intent);
+        packBundle(index, intent);
         startActivity(intent);
         finish();
     }
 
-    private void packBundle(int index, Intent intent){
+    /**
+     * Sets up that should sent to next activity
+     *
+     * @param index  what deck that should be "packed"
+     * @param intent Where to put the data, intent is the object that will be sent to next activity
+     */
+    private void packBundle(int index, Intent intent) {
         Bundle b = new Bundle();
-        b.putInt("deckIndex",index);
+        b.putInt("deckIndex", index);
         intent.putExtras(b);
     }
 

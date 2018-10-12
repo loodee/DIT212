@@ -7,6 +7,9 @@ import android.widget.TextView;
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
 
+/**
+ * Author Victor Johansson (Vroxie on github)
+ */
 public class ChoosingDeckViewHolder extends RecyclerView.ViewHolder implements ChoosingDeckViewH {
 
     TextView titleTextView;
@@ -23,6 +26,10 @@ public class ChoosingDeckViewHolder extends RecyclerView.ViewHolder implements C
         });
     }
 
+    /**
+     * Sets the title of deck in the recyclerview
+     * @param title the title of the deck
+     */
     @Override
     public void setTitle(String title) {
         titleTextView.setText(title);
