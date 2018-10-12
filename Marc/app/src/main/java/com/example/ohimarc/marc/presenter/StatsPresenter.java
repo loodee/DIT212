@@ -19,11 +19,17 @@ public class StatsPresenter implements IStatsPresenter {
     public void onBindBasicNoteRowViewAtPosition(StatsViewHolder rowView, int position) {
         rowView.setDeckTitle(mtt.getActiveUser().getDeck(position).getTitle());
 
+        //For every stat
+        for (Stat stat : mtt.getActiveUser().getStatsForDeck(position)) {
+            rowView.addGameMode(stat.getGameMode(), stat.getHighScore(), stat.getTimesPlayed(), stat.getAverageScore());
+        }
     }
 
     @Override
     public int getStatRowsCount() {
-        int counts = 0;
+        return mtt.getActiveUser().getDeckTitles().size();
+
+        /*int counts = 0;
 
         for (int i = 0; i < mtt.getActiveUser().getDeckTitles().size(); i++) {
             Stat[] stats = mtt.getActiveUser().getStatsForDeck(i);
@@ -33,6 +39,6 @@ public class StatsPresenter implements IStatsPresenter {
             }
         }
 
-        return counts;
+        return counts;*/
     }
 }

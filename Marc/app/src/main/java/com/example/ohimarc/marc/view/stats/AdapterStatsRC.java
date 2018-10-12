@@ -11,7 +11,7 @@ import com.example.ohimarc.marc.presenter.StatsPresenter;
 
 class AdapterStatsRC extends RecyclerView.Adapter<StatsViewHolder> {
 
-    private final StatsContract.Presenter presenter;
+    private final IStatsPresenter presenter;
 
     public AdapterStatsRC(StatsPresenter presenter) {
         this.presenter = presenter;

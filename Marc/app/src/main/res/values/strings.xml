@@ -16,4 +16,6 @@
     <string name="edit_note_hint_back">Card back</string>
     <string name="edit_note_save">Save</string>
     <string name="stats">Statistics</string>
+    <string name="stats_gamemode_text">Game Mode:</string>
+    <string name="stats_highscore_text">High Score:</string>
 </resources>
