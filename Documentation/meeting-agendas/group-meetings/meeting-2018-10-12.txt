@@ -1,0 +1,65 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-10-12
+Chair: Gustav Albertsson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Mathias Forsman, Victor Johansson
+
+## Objectives (5 min)
+* Discuss the Presenter interface
+* Discuss what to do in the last weeks following up to the presentation.
+* Discuss what we are going to talk about with Ayberk this afternoon.
+* Discuss what logo we should use for the application. 
+
+
+## Reports (15 min) 
+* Updated component diagram (Gustav, Thomas)
+* Write user story for Quiz gamemode(user story #14) (Everyone)
+* Finished work on user story #9 (Gustav)
+* Started working on user story #10 (Gustav)
+* Finished user story #7 (Thomas, Mathias)
+* Finished user story #14 (Victor, Alexander)
+* Starting writing on SDD (Everyone).
+
+
+
+
+## Discussion items (35 min)
+1. Should we keep the Presenter interface ? If yes, should all presenters implement it?
+2. What lies ahead? What needs to be done in these last few weeks?
+3. Do we have any questions to Ayberk that we should ask him during the meeting at 16:15 today?
+4. We have now 3 different logos, which one should we use?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+1. The presenter interface is to be removed. All presenters will instead implement any necessary functions on their own. The presenter.onCreate() call in activities will be removed in the activity. onCreate() will instead be called in the presenter’s constructor. 
+2.    1. We would like to implement the following app features:
+      1. Stats, Achievements
+      2. Cloze Notes
+   1. Other things that need to be finished before the deadline:
+      1. SDD
+         1. Section 2
+      1. RAD (keeping it updated)
+3. Questions to Ayberk:
+   1. Questions regarding SDD content, definitions, vocabulary (Check comments in SDD document) 
+      1. “system component” What does this mean? Does it mean what we think it means?
+      2. “high level overall flow of some user stories” Overall flow? How high level? Only “some” of the user stories?
+      3. “design model” Is it implementation of the domain model or should it contain Activities, Presenters etc.
+      4. UML sequence diagram of application flow? (see slide 12) Is this mandatory to include?
+      5. How do we go about actually fitting the various diagrams into the SDD? They are big images, and trying to fit them into the pdf sounds like they’d be hard to view properly. Links? Point to repository directories?
+   1. SDD requirement at deadline time, what should it contain?
+4. We will be using the colored logo, with a straight bottom card, where the text should be smaller.
+Assignments: 
+1. Fix the bug where our app crashes once “Exercises” is selected without any existing decks. 
+2. Clean code (Everyone).
+   1. Use code inspection and make changes accordingly.
+   2. Try to maintain a consistent look between classes, i.e Activities should follow the same look as other activities when it comes to the order of functions.
+   3. Try to use Strings in values/strings instead of hardcoding a string.
+   4. Add proper comments to code
+3. Keep on writing on SDD and working on the UML (design model?) (Everyone)
+4. Finish user story #11 (Gustav)
+5. Fix code after removal 
+
+
+## Wrap up
+Next meeting will be on Monday 2018-10-15, 13:15.
