@@ -7,32 +7,43 @@ import java.util.Set;
 
 public class Stats {
     private int totalTimesPlayed;
-    private HashMap<Integer, HashMap<String, Stat>> stats = new HashMap<>();
+    private List<HashMap<String, Stat>> stats = new ArrayList<>();
 
-    public void addStatistics(int index, String gameType, int score) {
+    /**
+     * Given an index of an valid deck updates/adds statistics for the specified game mode
+     * @param index The id that the deck has
+     * @param gameMode The game mode
+     * @param score the score that the user got when playing the deck
+     * */
+    public void addStatistics(int index, String gameMode, int score) {
+        //New deck
+        if(index >= stats.size()){
+            stats.add(new HashMap<String, Stat>());
+        }
 
-        //Gets stats for deck
         HashMap<String, Stat> deckStats = stats.get(index);
 
+
+
         //Dealing with a new deck
-        if (deckStats == null) {
+        /*if (deckStats == null) {
             deckStats = new HashMap<>();
 
-            Stat stat = new Stat(gameType);
+            Stat stat = new Stat(gameMode);
             stat.updateStat(score);
-            deckStats.put(gameType, stat);
+            deckStats.put(gameMode, stat);
             stats.put(index, deckStats);
-        } else {
-            Stat gameStats = deckStats.get(gameType);
+        } else {*/
+            Stat gameStats = deckStats.get(gameMode);
             if (gameStats == null) { //Dealing with new game mode
-                Stat stat = new Stat(gameType);
+                Stat stat = new Stat(gameMode);
                 stat.updateStat(score);
 
-                deckStats.put(gameType, stat);
+                deckStats.put(gameMode, stat);
             } else { //Known deck and known game mode
                 gameStats.updateStat(score);
             }
-        }
+        //}
 
         totalTimesPlayed++;
     }
@@ -43,12 +54,17 @@ public class Stats {
         }
     }
 
+    /*public int[] getUserStats() {
+        return new int[]{totalTimesPlayed};
+    }*/
+
     public Stat[] getStatsForDeck(int index) {
         HashMap<String, Stat> map = stats.get(index);
 
         if (map != null) {
             Set<String> keys = map.keySet();
 
+            //Done to make sure that the stats are given in oder by their name
             List<String> sortedKeys = new ArrayList<>(keys.size());
             sortedKeys.addAll(keys);
             java.util.Collections.sort(sortedKeys);

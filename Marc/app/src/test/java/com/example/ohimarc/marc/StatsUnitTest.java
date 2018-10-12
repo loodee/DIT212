@@ -122,7 +122,7 @@ public class StatsUnitTest {
 
         stats.removeDeck(0);
 
-        Stat[] stat = stats.getStatsForDeck(1);
+        Stat[] stat = stats.getStatsForDeck(0);
 
         assertEquals(1,stat.length);
 
