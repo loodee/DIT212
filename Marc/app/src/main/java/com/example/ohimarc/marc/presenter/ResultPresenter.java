@@ -13,11 +13,12 @@ public class ResultPresenter {
     private final ResultsView view;
     private final String deckTitle;
 
-    public ResultPresenter(ResultsView view, ArrayList<Integer> amountCorrect, int deckIndex) {
+    public ResultPresenter(ResultsView view, ArrayList<Integer> amountCorrect, int deckIndex, String mode) {
         this.view = view;
         this.amountCorrect = amountCorrect;
         MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
         deckTitle = mtt.getActiveUser().getDeck(deckIndex).getTitle();
+        mtt.getActiveUser().addNewStatistics(deckIndex, mode, amountCorrect.get(0));
     }
 
     /**
