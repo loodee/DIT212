@@ -18,7 +18,6 @@ import java.util.Objects;
 
 public class EditDeckActivity extends ToolbarExtension implements EditDeckContract.View {
     private EditDeckPresenter editDeckPresenter;
-    // private Deck deck;
     private AdapterEditDeckRC adapter;
 
     @Override
