@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.view.stats;
+package com.example.ohimarc.marc.view.statsView;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.ohimarc.marc.R;
-import com.example.ohimarc.marc.model.Stat;
 import com.example.ohimarc.marc.presenter.StatsPresenter;
 
 class AdapterStatsRC extends RecyclerView.Adapter<StatsViewHolder> {

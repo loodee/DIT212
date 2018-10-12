@@ -2,9 +2,9 @@ package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Stat;
-import com.example.ohimarc.marc.view.stats.IStatsPresenter;
-import com.example.ohimarc.marc.view.stats.StatsView;
-import com.example.ohimarc.marc.view.stats.StatsViewHolder;
+import com.example.ohimarc.marc.view.statsView.IStatsPresenter;
+import com.example.ohimarc.marc.view.statsView.StatsView;
+import com.example.ohimarc.marc.view.statsView.StatsViewHolder;
 
 public class StatsPresenter implements IStatsPresenter {
 

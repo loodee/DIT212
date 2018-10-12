@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.view.stats;
+package com.example.ohimarc.marc.view.statsView;
 
 public interface IStatsPresenter {
 

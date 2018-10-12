@@ -1,4 +1,4 @@
-package com.example.ohimarc.marc.view.stats;
+package com.example.ohimarc.marc.view.statsView;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -26,20 +26,23 @@ public class StatsViewHolder extends RecyclerView.ViewHolder{
 
     public void addGameMode(String gameMode, int highScore, int timesPlayed, double averageScore) {
         TextView tv = new TextView(rowLayout.getContext());
-        tv.setText(rowLayout.getContext().getString(R.string.stats_gamemode_text) + gameMode);
+        tv.setText(rowLayout.getContext().getString(R.string.stats_gameMode_text) + gameMode);
+        tv.setPadding(20,0,0,0);
         rowLayout.addView(tv);
 
         tv = new TextView(rowLayout.getContext());
-        tv.setText(rowLayout.getContext().getString(R.string.stats_highscore_text) + highScore);
+        tv.setText(rowLayout.getContext().getString(R.string.stats_highScore_text) + highScore);
+        tv.setPadding(20,0,0,0);
         rowLayout.addView(tv);
 
         tv = new TextView(rowLayout.getContext());
         tv.setText("Times Played: " + timesPlayed);
+        tv.setPadding(20,0,0,0);
         rowLayout.addView(tv);
 
         tv = new TextView(rowLayout.getContext());
         tv.setText("Average Score: " + averageScore);
-        tv.setPadding(0,0,0,20);
+        tv.setPadding(20,0,0,20);
 
         rowLayout.addView(tv);
     }
