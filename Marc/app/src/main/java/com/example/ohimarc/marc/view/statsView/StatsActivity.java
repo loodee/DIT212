@@ -29,6 +29,6 @@ public class StatsActivity extends ToolbarExtension implements StatsView {
 
         rv.setAdapter(adapter);
 
-        //initExtension(this, R.id.statsActivity,"StatsActivity");
+        initExtension(this, R.id.statsActivity,"Statistics");
     }
 }
