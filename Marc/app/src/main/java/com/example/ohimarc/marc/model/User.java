@@ -71,10 +71,20 @@ public class User {
         }
     }
 
+    /**
+     * Returns a list of Stat objects which contains the statistics for the deck
+     * @param index The index of the deck
+     * */
     public Stat[] getStatsForDeck(int index){
         return stats.getStatsForDeck(index);
     }
 
+    /**
+     * Adds/updates the statistics for a deck/game mode combination
+     * @param index The index of the deck that the statistics is for
+     * @param gameMode The game mode that the statistics is for
+     * @param score The score that the user scored
+     * */
     public void addNewStatistics(int index, String gameMode, int score) {
         stats.addStatistics(index ,gameMode, score);
     }
