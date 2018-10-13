@@ -66,4 +66,21 @@ public class DeckUnitTest {
 
         assertEquals(cardCopies[cardIndex][0], cardCopies[noteIndex][0]);
     }
+
+    @Test
+    public void testGets() {
+        d.addBasicNote("front 1", "front2");
+        boolean b1 = d.getNote(0).getCards()[0].getFront().equals("front 1");
+        boolean b2 = d.getNotes().size() == 1;
+        assertTrue(b1 && b2);
+    }
+
+    @Test
+    public void addBasicNote() {
+        d.addBasicNote("front1", "back1");
+        boolean b1 = d.getNote(0).getCards()[0].getFront().equals("front1");
+        d.addBasicNote("frontNew", "backNew",0);
+        boolean b2 = d.getNote(0).getCards()[0].getFront().equals("frontNew");
+        assertTrue(b1 && b2);
+    }
 }
