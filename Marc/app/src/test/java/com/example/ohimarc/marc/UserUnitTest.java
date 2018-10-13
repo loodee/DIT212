@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class UserUnitTest {
     @Test
@@ -63,5 +64,16 @@ public class UserUnitTest {
         Deck d = u.getDeck(18);
 
         assertNull(d);
+    }
+
+    @Test
+    public void deleteDeck() {
+        User u = new User("Bob");
+        Boolean b1 = u.getDeck(0) == null;
+        u.createNewDeck("English animals");
+        Boolean b2 = u.getDeck(0) != null;
+        u.deleteDeck(0);
+        Boolean b3 = u.getDeck(0) == null;
+        assertTrue(b1 && b2 && b3);
     }
 }
