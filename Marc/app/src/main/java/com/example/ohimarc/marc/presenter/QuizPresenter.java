@@ -21,6 +21,7 @@ public class QuizPresenter {
     public QuizPresenter(QuizView view, int deckIndex) {
         this.view = view;
         this.deckIndex = deckIndex;
+        onCreate();
     }
 
     public void onCreate() {

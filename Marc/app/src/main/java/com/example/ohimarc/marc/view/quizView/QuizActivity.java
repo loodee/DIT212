@@ -44,7 +44,6 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
         unpackBundle();
 
         presenter = new QuizPresenter(this, deckIndex);
-        presenter.onCreate();
         initExtension(this, R.id.quiz_activity, presenter.getDeckTitle());
     }
 
