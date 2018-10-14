@@ -18,7 +18,6 @@ public class ResultPresenter {
         this.amountCorrect = amountCorrect;
         MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
         deckTitle = mtt.getActiveUser().getDeck(deckIndex).getTitle();
-        onCreate();
     }
 
     /**
