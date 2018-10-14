@@ -43,7 +43,6 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
         unpackBundle();
 
         presenter = new ResultPresenter(this, values, deckIndex);
-        presenter.onCreate();
         initExtension(this, R.id.results_activity, "Results");
     }
 
