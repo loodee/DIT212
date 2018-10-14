@@ -119,7 +119,8 @@ public class ResultsActivity extends ToolbarExtension implements ResultsView {
     /**
      * This function packs a bundle for the next activity. It creates a Bundle b and puts the int
      * deckIndex into it with the key "deckIndex".
-     * @param intent
+     * @param intent is an Intent which is given by the function retryButton above. This is the
+     *               Intent which the bundle is supposed to belong to.
      */
 
     private void packBundle(Intent intent) {
