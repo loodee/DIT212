@@ -1,9 +1,5 @@
 package com.example.ohimarc.marc.view.exerciseView;
 
-/**
- * @author Alexander Sandberg (alexandersand on github)
- */
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +11,11 @@ import com.example.ohimarc.marc.view.flashcardView.FlashcardActivity;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 import com.example.ohimarc.marc.view.quizView.QuizActivity;
 
-public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
+/**
+ * @author Alexander Sandberg (alexandersand on github)
+ */
+
+public class ExerciseActivity extends ToolbarExtension {
 
     private ExercisePresenter presenter;
     private int deckIndex;
@@ -62,13 +62,9 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
      * After the Intent has been set, the function checks whether Intent is null. If it is, the
      * function should do nothing in order not to break the program. Else, it will pack a bundle,
      * start the next activity and finish itself.
-     * The function is a boolean to be able to make a return statement and finish the function in
-     * an earlier state.
-     * @return
      */
 
-    @Override
-    public boolean navigate() {
+    public void navigate() {
         Intent intent;
         switch (modeIndex) {
             case (0):
@@ -81,7 +77,7 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
                 } else {
                     Toast.makeText(getApplicationContext(), "The deck needs to contain at least" +
                             " 4 cards to play the quiz mode.", Toast.LENGTH_LONG).show();
-                    return true;
+                    return;
                 }
             default:
                 intent = null;
@@ -92,7 +88,6 @@ public class ExerciseActivity extends ToolbarExtension implements ExerciseView {
             startActivity(intent);
             finish();
         }
-        return true;
     }
 
     /**
