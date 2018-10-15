@@ -33,7 +33,7 @@ public class QuizPresenter {
      * with texts given by QuizGame.
      */
 
-    public void onCreate() {
+    private void onCreate() {
         deck = mtt.getActiveUser().getDeck(deckIndex);
         game = new QuizGame(deck);
         texts = game.peekNextCard();
