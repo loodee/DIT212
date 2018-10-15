@@ -62,7 +62,7 @@
                     android:background="@android:color/white"
                     android:elevation="10dp"
                     android:onClick="proceedClicked"
-                    android:text="Proceed"
+                    android:text="@string/proceed_string"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintLeft_toLeftOf="parent"
