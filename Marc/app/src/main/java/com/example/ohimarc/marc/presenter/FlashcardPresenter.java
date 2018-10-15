@@ -27,6 +27,7 @@ public class FlashcardPresenter {
     public FlashcardPresenter(FlashcardView view, int index) {
         this.view = view;
         this.index = index;
+        onCreate();
     }
 
 

@@ -5,6 +5,11 @@ import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtensionView;
 
+/**
+ * @author Alexander Sandberg (alexandersand on github)
+ * @author Gustav Albertsson (galbertsson on github)
+ */
+
 public class ToolbarExtensionPresenter {
 
     private final ToolbarExtensionView view;

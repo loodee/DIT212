@@ -48,4 +48,12 @@ public class QuizGameUnitTest {
         game.sendAnswer(index);
         assertTrue(game.isCorrect(index));
     }
+
+    @Test
+    public void peekNextCardNull() {
+        Deck d = new Deck("Test");
+        QuizGame g = new QuizGame(d);
+        Boolean b = g.peekNextCard() == null;
+        assertTrue(b);
+    }
 }
