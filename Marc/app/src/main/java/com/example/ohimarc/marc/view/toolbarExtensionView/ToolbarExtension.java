@@ -114,10 +114,10 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     }
 
     /**
-     * This function handles any navigation through the quickmenu, using a case switch.
+     * This function handles any navigation through the quick menu, using a case switch.
      * If the user clicks a navigation item, an Intent is set, and the variable nextActivity is
      * set. There is a special case. If the user clicks home, the switch will finish the current
-     * Activity if it isn't HomeActivity. Otherwise it will just close the quickmenu. This will
+     * Activity if it isn't HomeActivity. Otherwise it will just close the quick menu. This will
      * also finish the function.
      * After this, if the Intent isn't set to null, navigation will be commenced, commented further
      * below.
@@ -157,10 +157,10 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                 }
                 if (intent != null) {
                     if (inHome()) {                                             //If you're in HomeActivity:
-                        navView.closeDrawers();                                 //Close the quickmenu -
+                        navView.closeDrawers();                                 //Close the quick menu -
                         startActivity(intent);                                  //Start the next Activity.
                     } else if (thisActivityIsNextActivity(nextActivity)) {      //if current Activity is the next Activity:
-                        navView.closeDrawers();                                 //Close the quickmenu.
+                        navView.closeDrawers();                                 //Close the quick menu.
                     } else {                                                    //If none of the above:
                         startActivity(intent);                                  //Start the next Activity -
                         finish();                                               //Finish the current Activity.
