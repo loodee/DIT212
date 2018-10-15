@@ -83,4 +83,11 @@ public class DeckUnitTest {
         boolean b2 = d.getNote(0).getCards()[0].getFront().equals("frontNew");
         assertTrue(b1 && b2);
     }
+
+    @Test
+    public void inValidIndex(){
+        d.addBasicNote("front1","back1");
+        int index = d.getNoteIndexFromCardIndex(-1);
+        assertEquals(-1,index);
+    }
 }
