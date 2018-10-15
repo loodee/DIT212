@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertTrue;
 
 public class StatsUnitTest {
@@ -130,6 +131,31 @@ public class StatsUnitTest {
         assertEquals(1,stat[0].getTimesPlayed());
         assertEquals(5.0,stat[0].getAverageScore());
         assertEquals("B", stat[0].getGameMode());
+    }
+
+
+    @Test
+    public void getUserStat(){
+        stats.addStatistics(0,"A",10);
+
+        Stat[] stat = stats.getStatsForDeck(0);
+
+        assertEquals(1, stats.getUserStats()[0]);
+
+        stats.addStatistics(0,"A",2);
+
+        assertEquals(2, stats.getUserStats()[0]);
+    }
+
+
+    @Test
+    public void getStatsForEmptyDeck(){
+        //stats.addNewDeck();
+
+        Stat[] stat = stats.getStatsForDeck(0);
+
+        assertNotNull(stat);
+        assertEquals(0, stat.length);
     }
 
 }

@@ -11,39 +11,29 @@ public class Stats {
 
     /**
      * Given an index of an valid deck updates/adds statistics for the specified game mode
-     * @param index The id that the deck has
+     *
+     * @param index    The id that the deck has
      * @param gameMode The game mode
-     * @param score the score that the user got when playing the deck
-     * */
+     * @param score    the score that the user got when playing the deck
+     */
     public void addStatistics(int index, String gameMode, int score) {
         //New deck
-        if(index >= stats.size()){
+        if (index >= stats.size()) {
             stats.add(new HashMap<String, Stat>());
         }
 
         HashMap<String, Stat> deckStats = stats.get(index);
 
 
-
-        //Dealing with a new deck
-        /*if (deckStats == null) {
-            deckStats = new HashMap<>();
-
+        Stat gameStats = deckStats.get(gameMode);
+        if (gameStats == null) { //Dealing with new game mode
             Stat stat = new Stat(gameMode);
             stat.updateStat(score);
-            deckStats.put(gameMode, stat);
-            stats.put(index, deckStats);
-        } else {*/
-            Stat gameStats = deckStats.get(gameMode);
-            if (gameStats == null) { //Dealing with new game mode
-                Stat stat = new Stat(gameMode);
-                stat.updateStat(score);
 
-                deckStats.put(gameMode, stat);
-            } else { //Known deck and known game mode
-                gameStats.updateStat(score);
-            }
-        //}
+            deckStats.put(gameMode, stat);
+        } else { //Known deck and known game mode
+            gameStats.updateStat(score);
+        }
 
         totalTimesPlayed++;
     }
@@ -59,6 +49,13 @@ public class Stats {
     }
 
     public Stat[] getStatsForDeck(int index) {
+
+        //Is the index valid
+        if(0 > index || index >= stats.size()){
+            return new Stat[]{};
+        }
+
+
         HashMap<String, Stat> map = stats.get(index);
 
         if (map != null) {
@@ -68,7 +65,7 @@ public class Stats {
             List<String> sortedKeys = new ArrayList<>(keys.size());
             sortedKeys.addAll(keys);
             java.util.Collections.sort(sortedKeys);
-            
+
             if (sortedKeys.size() != 0) {
 
                 Stat[] localStats = new Stat[keys.size()];
