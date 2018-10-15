@@ -1,0 +1,67 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-10-15
+Chair: Victor Johansson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Mathias Forsman, Victor Johansson
+
+## Objectives (5 min)
+* Discuss what to do with changes suggested by the “Inspect code” option in Android Studio
+* Discuss schedules, what times can the group meet to work together?
+* Discuss what we are going to do this week, SDD/user stories
+* Discuss the final presentation
+
+
+## Reports (15 min) 
+* Got questions answered by Ayberk
+   * Our code coverage is sufficient (>90%).
+   * Got some definitions from the SDD template explained, ask Alex if there are further questions.
+   * Got directions for what our diagrams in the SDD should cover.
+* Finished user story #11 (Gustav).
+* Cleaned and commented some parts of the code, some parts are still left (Everyone).
+* Worked on the SDD and UML diagrams (Everyone).
+* Fixed code after removal of presenter interface (Alexander).
+
+
+## Discussion items (35 min)
+* Who should do the changes suggested by “inspect code”?
+* Which parts of the “inspect code” result should we look at? Android, Java, Spelling, XML?
+* What days are we able to work together to write on the SDD?
+* What are we going to do this week?
+   * What user stories are we going to complete?
+   * What other things needs to be done, SDD?
+* How are we going to perform the presentation? Slides? Demo?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+* Ideally, the person who wrote the code with the issues, should be the one responsible for applying the suggested changes.
+* We should focus mainly on fixing issues regarding Java and XML, then spelling errors and Android-related issues.
+* We can meet on Tuesday 2018-10-16, from 13.00 onwards to work on the SDD. We will also work Wednesday between 15:00-17:00, as well as Friday after the group meeting.
+* We will do the following this week:
+   * We will finish Achievements and Cloze (#12) notes user stories.
+   * We will complete the UML diagrams, the 4 diagrams for each packet and one that describes how the 4 packets interact.
+   * Will continue to write on the SDD so that it is near completion.
+   * Fix visual issues:
+      * Wrong card colors in EditDeck, should be white cards
+      * Wrong deck colors in AddRemoveDeck, should be white decks
+      * Wrong logo, should be the one sent in Slack. (logo.png)
+* Presentation: 
+   * Have some premade users with some Decks with different Notes in them and have some statistics.
+   * Talk briefly about MVP
+   * Show the diagram of how the different packages interact. Show an example for one feature, for example add a note, 1 presenter, 1 view and parts of the model.
+   * Talk about persistent storage, why we choose to do what we did.
+   * Talk about the security in the app.
+
+
+Assignments: 
+* Ensure that landscape mode can’t be enabled in the app (Thomas)
+* Write a user story for achievements. (Everyone)
+* Implement user story #12 Cloze Notes (Thomas, Mathias, Gustav)
+* Implement user story #15 Achievements (Victor, Alexander)
+* Run “Inspect Code” and implement changes (Everyone)
+* Write on the SDD (Everyone)
+* Work on the UML diagrams (Everyone)
+
+
+## Wrap up
+Next meeting will be on Friday 19 October 2018-10-19, 13:15
