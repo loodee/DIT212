@@ -9,9 +9,8 @@ import com.example.ohimarc.marc.presenter.StatsPresenter;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
 
-public class StatsActivity extends ToolbarExtension implements StatsView {
+public class StatsActivity extends ToolbarExtension {
 
-    private StatsPresenter statsPresenter;
     private AdapterStatsRC adapter;
 
     @Override
@@ -19,7 +18,7 @@ public class StatsActivity extends ToolbarExtension implements StatsView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
 
-        statsPresenter = new StatsPresenter(this);
+        StatsPresenter statsPresenter = new StatsPresenter();
 
         RecyclerView rv = findViewById(R.id.statsRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

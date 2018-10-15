@@ -3,17 +3,11 @@ package com.example.ohimarc.marc.presenter;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Stat;
 import com.example.ohimarc.marc.view.statsView.IStatsPresenter;
-import com.example.ohimarc.marc.view.statsView.StatsView;
 import com.example.ohimarc.marc.view.statsView.StatsViewHolder;
 
 public class StatsPresenter implements IStatsPresenter {
 
-    private StatsView view;
-    private MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
-
-    public StatsPresenter(StatsView view){
-        this.view = view;
-    }
+    private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
 
     @Override
     public void onBindBasicNoteRowViewAtPosition(StatsViewHolder rowView, int position) {
@@ -28,17 +22,5 @@ public class StatsPresenter implements IStatsPresenter {
     @Override
     public int getStatRowsCount() {
         return mtt.getActiveUser().getDeckTitles().size();
-
-        /*int counts = 0;
-
-        for (int i = 0; i < mtt.getActiveUser().getDeckTitles().size(); i++) {
-            Stat[] stats = mtt.getActiveUser().getStatsForDeck(i);
-
-            if(stats != null) {
-                counts += mtt.getActiveUser().getStatsForDeck(i).length;
-            }
-        }
-
-        return counts;*/
     }
 }

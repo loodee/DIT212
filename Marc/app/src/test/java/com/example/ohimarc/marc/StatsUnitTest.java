@@ -6,15 +6,12 @@ import com.example.ohimarc.marc.model.Stats;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
-import static junit.framework.TestCase.assertTrue;
 
 public class StatsUnitTest {
 
-    Stats stats;
+    private Stats stats;
 
     @Before
     public void init(){
@@ -137,8 +134,6 @@ public class StatsUnitTest {
     @Test
     public void getUserStat(){
         stats.addStatistics(0,"A",10);
-
-        Stat[] stat = stats.getStatsForDeck(0);
 
         assertEquals(1, stats.getUserStats()[0]);
 

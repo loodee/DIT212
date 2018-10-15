@@ -19,8 +19,8 @@ import java.util.List;
 public class StartMenuPresenter implements StartMenuContract.Presenter{
 
     private List<String> users;
-    private UserStorage store;
-    private StartMenuView view;
+    private final UserStorage store;
+    private final StartMenuView view;
 
     /**
      * Creates a StartMenuPresenter which retrieve its persistent state from the given path

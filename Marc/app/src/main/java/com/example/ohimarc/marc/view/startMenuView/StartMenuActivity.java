@@ -91,10 +91,6 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         finish();
     }
 
-    public void failedUserCreation(){
-        Toast.makeText(this, "Failed to create user! Make sure the app has permission to read/write" ,Toast.LENGTH_LONG).show();
-    }
-
     @Override
     public void promptForDeletion(final int index, String name) {
 
