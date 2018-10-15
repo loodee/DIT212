@@ -21,7 +21,7 @@ public class HomeActivity extends ToolbarExtension {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home);
-        initExtension(this, R.id.homeActivity,"HomeActivity");
+        initExtension(this, R.id.homeActivity,"Home");
     }
 
     @Override

@@ -23,7 +23,7 @@ public class LocalUserStorageUnitTests {
     private MemorizationTrainingTool stored;
 
     @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+    public final TemporaryFolder folder = new TemporaryFolder();
 
     @Before
     public void setup() {

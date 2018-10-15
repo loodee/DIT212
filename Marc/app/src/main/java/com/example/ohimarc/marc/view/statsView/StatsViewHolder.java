@@ -8,10 +8,10 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 
-public class StatsViewHolder extends RecyclerView.ViewHolder{
+public class StatsViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView deckTitle;
-    private LinearLayout rowLayout;
+    private final TextView deckTitle;
+    private final LinearLayout rowLayout;
 
     public StatsViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -36,7 +36,7 @@ public class StatsViewHolder extends RecyclerView.ViewHolder{
         rowLayout.addView(tv);
 
         tv = new TextView(rowLayout.getContext());
-        tv.setText("Times Played: " + timesPlayed);
+        tv.setText(rowLayout.getContext().getString(R.string.stats_timesPlayed_text) + timesPlayed);
         tv.setPadding(20,0,0,0);
         rowLayout.addView(tv);
 

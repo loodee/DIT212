@@ -15,14 +15,10 @@ import com.example.ohimarc.marc.view.exerciseView.ExerciseActivity;
  */
 public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDeckView {
 
+
     /**
      * This class is the activity for Choosing a deck you want to play
      */
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-
-    ChoosingDeckPresenter presenter;
 
     /**
      * Sets up the screen when this activity is started
@@ -35,17 +31,16 @@ public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        presenter = new ChoosingDeckPresenter(this);
+        ChoosingDeckPresenter presenter = new ChoosingDeckPresenter(this);
 
         setContentView(R.layout.activity_choosing_deck);
-        mRecyclerView = findViewById(R.id.my_recycler_view);
+        RecyclerView mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
-        mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new ChoosingDeckAdapter(presenter);
+        RecyclerView.Adapter mAdapter = new ChoosingDeckAdapter(presenter);
         mRecyclerView.setAdapter(mAdapter);
 
 
@@ -55,9 +50,9 @@ public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDe
 
     /**
      * Handles when a deck is pressed, i.e navigates to select game mode screen
-     * with that particular deck choosen.
+     * with that particular deck chosen.
      *
-     * @param index what deck in the RecylerView that has been pressed
+     * @param index what deck in the RecyclerView that has been pressed
      */
     public void deckIsClicked(int index) {
         Intent intent = new Intent(getApplicationContext(), ExerciseActivity.class);

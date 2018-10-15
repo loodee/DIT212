@@ -8,11 +8,6 @@ public interface StartMenuView {
     void login();
 
     /**
-     * Tells the view that the creation of a user failed
-     * */
-    void failedUserCreation();
-
-    /**
      * Tells the view to prompt the user for deletion
      * */
     void promptForDeletion(int index, String name);

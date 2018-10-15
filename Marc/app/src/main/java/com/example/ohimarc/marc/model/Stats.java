@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Stats {
     private int totalTimesPlayed;
-    private List<HashMap<String, Stat>> stats = new ArrayList<>();
+    private final List<HashMap<String, Stat>> stats = new ArrayList<>();
 
     /**
      * Given an index of an valid deck updates/adds statistics for the specified game mode
