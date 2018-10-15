@@ -95,6 +95,7 @@ public class Stats {
     }
 
     public void checkIfAchiIsCompleted(String gamemode){
+        int totAvgScore = 0;
         for(int i = 0;i<stats.size();i++) {
             if(stats.get(i).get(gamemode).getAllCorrect()) {
                 userAchievements.updateAchievements(Achievements.achievements.GET_ALL_ANSWERS_CORRECT_IN_A_DECK);
@@ -112,6 +113,20 @@ public class Stats {
         if(totalTimesPlayed >= 100){
             userAchievements.updateAchievements(Achievements.achievements.REVIEWED_100_TIMES_IN_TOTAL);
         }
-        
+        if(stats.get(0).get(gamemode).getTimesPlayed() <= 1){
+            userAchievements.updateAchievements(Achievements.achievements.PLAYED_YOUR_FIRST_DECK);
+        }
+        for(int i = 0;i<stats.size();i++){
+            totAvgScore += stats.get(i).get(gamemode).getAverageScore();
+        }
+        totAvgScore = totAvgScore / totalTimesPlayed;
+        if(totAvgScore == 1){
+            if(gamemode.equals("Flashcard Game")){
+                userAchievements.updateAchievements(Achievements.achievements.ONEHUNDRED_PERCENT_AVERAGE_SCORE_FLASHCARD);
+            }
+            else {
+                userAchievements.updateAchievements(Achievements.achievements.ONEHUNDRED_PERCENT_AVERAGE_SCORE_QUIZ);
+            }
+        }
     }
 }
