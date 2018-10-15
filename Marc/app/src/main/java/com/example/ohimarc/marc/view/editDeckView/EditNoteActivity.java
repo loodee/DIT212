@@ -12,7 +12,9 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,12 +27,14 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
     private EditText frontEditText, backEditText;
     private Toast toast;
     private boolean isEditing;
+    private Spinner dropdown;
 
     private void setupVars(int noteIndex, int deckIndex) {
         frontLayout = findViewById(R.id.textInputFront);
         backLayout = findViewById(R.id.textInputBack);
         frontEditText = findViewById(R.id.input_front);
         backEditText = findViewById(R.id.input_back);
+        dropdown = findViewById(R.id.s_spinner);
 
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
         ActionBar bar = getSupportActionBar();
@@ -52,10 +56,13 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
 
         int noteIndex = getIntent().getExtras().getInt("noteIndex");
         int deckIndex = getIntent().getExtras().getInt("deckIndex");
+        String[] items = new String[]{"Cloze note", "Basic note"};
 
         setupVars(noteIndex, deckIndex);
         setupListeners();
         setupToast();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
     }
 
     public void selfDestruct() {
