@@ -1,11 +1,12 @@
 package com.example.ohimarc.marc.model;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
 public class Achievements {
 
-    private enum achievements {
+    enum achievements {
         GET_ALL_ANSWERS_CORRECT_IN_A_DECK,
         REVIEWED_10_TIMES_IN_TOTAL,
         REVIEWED_20_TIMES_IN_TOTAL,
@@ -17,8 +18,8 @@ public class Achievements {
         ONEHUNDRED_PERCENT_AVERAGE_SCORE_QUIZ
     }
 
-    private List<achievements> completedAchievements;
-    private List<achievements> uncompletedAchievements;
+    private List<achievements> completedAchievements = new ArrayList<>();
+    private List<achievements> uncompletedAchievements = new ArrayList<>();
 
     public Achievements(){
         for(achievements a : EnumSet.allOf(achievements.class)){

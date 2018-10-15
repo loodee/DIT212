@@ -86,6 +86,7 @@ public class User {
      * @param score The score that the user scored
      * */
     public void addNewStatistics(int index, String gameMode, int score) {
-        stats.addStatistics(index ,gameMode, score);
+        boolean allCorrect = getDeck(index).getDeckSize() == score;
+        stats.addStatistics(index ,gameMode, score,allCorrect);
     }
 }
