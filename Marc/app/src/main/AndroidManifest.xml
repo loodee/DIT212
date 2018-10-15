@@ -9,30 +9,50 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".view.startMenuView.StartMenuActivity">
+        <activity
+            android:name=".view.startMenuView.StartMenuActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.flashcardView.FlashcardActivity" />
+        <activity
+            android:name=".view.flashcardView.FlashcardActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.editDeckView.EditNoteActivity"
             android:exported="true"
-            android:parentActivityName=".view.editDeckView.EditDeckActivity">
+            android:parentActivityName=".view.editDeckView.EditDeckActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ohimarc.marc.view.editDeckView.EditDeckActivity" />
         </activity>
-        <activity android:name=".view.editDeckView.EditDeckActivity" />
-        <activity android:name=".view.resultsView.ResultsActivity" />
-        <activity android:name=".view.addRemoveDeckView.AddRemoveDeckActivity" />
-        <activity android:name=".view.quizView.QuizActivity" />
-        <activity android:name=".view.homeView.HomeActivity" />
-        <activity android:name=".view.exerciseView.ExerciseActivity"/>
-        <activity android:name=".view.choosingDeckView.ChoosingDeckActivity"/>
-        <activity android:name=".view.statsView.StatsActivity" />
+        <activity
+            android:name=".view.editDeckView.EditDeckActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.resultsView.ResultsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.addRemoveDeckView.AddRemoveDeckActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.quizView.QuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.homeView.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.exerciseView.ExerciseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.choosingDeckView.ChoosingDeckActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.statsView.StatsActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
