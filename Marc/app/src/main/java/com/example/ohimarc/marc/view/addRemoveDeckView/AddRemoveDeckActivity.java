@@ -2,7 +2,7 @@ package com.example.ohimarc.marc.view.addRemoveDeckView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,16 +18,14 @@ import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 import com.example.ohimarc.marc.view.editDeckView.EditDeckActivity;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
+/**
+ * @author Victor Johansson, (Vroxie on github)
+ */
 public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckView {
 
-    /**
-     * @author Victor Johansson (Vroxie on github)
-     */
-    private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
 
-    AddRemoveDeckPresenter presenter;
+    private AddRemoveDeckPresenter presenter;
 
     /**
      * Sets up the screen when this activity is started
@@ -43,11 +41,10 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
         presenter = new AddRemoveDeckPresenter(this, getFilesDir().getAbsolutePath());
 
         setContentView(R.layout.activity_add_remove_deck);
-        mRecyclerView = findViewById(R.id.my_recycler_view);
+        RecyclerView mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
-        mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new AddRemoveAdapter(presenter);
@@ -98,13 +95,13 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
     }
 
     /**
-     * Handles deleteion of a deck, i.e the user has swiped a deck
-     * Sets up a poup that asks the user if he/she is sure of the deletion of that deck
+     * Handles deletion of a deck, i.e the user has swiped a deck
+     * Sets up a popup that asks the user if he/she is sure of the deletion of that deck
      * If the user really wants to delete then, tells the presenter to delete that deck from the list of decks
      *
      * @param deckIndex what deck that have been swiped, i.e what deck that may be shall be deleted
      */
-    public void deleteDeck(final int deckIndex) {
+    private void deleteDeck(final int deckIndex) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Do you really want to delete this deck?");
 
@@ -146,9 +143,9 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
 
     /**
      * This object handles the swiping of decks in the recyclerview
-     * So it decides which direction it is possible to swpide etc.
+     * So it decides which direction it is possible to swiped etc.
      */
-    ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+    private final ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
 
         /**
          * Handles if a deck is moved
@@ -164,7 +161,7 @@ public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckVi
 
         /**
          * Handles if a deck is swiped
-         * Points out which deck that has been swiped and sends that to deltedeck(int index)
+         * Points out which deck that has been swiped and sends that to deleteDeck(int index)
          * @param viewHolder The viewholder for that item that has been swiped
          * @param swipeDir which direction the decks has been swiped( in our case that does not matter)
          */

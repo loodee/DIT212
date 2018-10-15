@@ -11,7 +11,7 @@ import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 /**
  * @author Victor Johansson (Vroxie on github)
  */
-public class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHolder>
+class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHolder>
 {
 
     /**
@@ -28,8 +28,8 @@ public class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHold
     /**
      * Creates a viewholder for each item in the recyclerview
      * @param parent the Viewholder for the recyclerview
-     * @param viewType
-     * @return the new viewholder for a item in the recylcerview
+     * @param viewType the the current index the viewholder is "holding" right now
+     * @return the new viewholder for a item in the recyclerview
      */
     @Override
     public AddRemoveDeckViewHolder onCreateViewHolder(ViewGroup parent,int viewType){

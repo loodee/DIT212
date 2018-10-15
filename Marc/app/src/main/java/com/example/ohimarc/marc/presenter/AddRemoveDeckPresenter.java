@@ -18,8 +18,8 @@ public class AddRemoveDeckPresenter {
      * But also add/delete decks
      */
     private List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
-    private AddDeckView view;
-    private UserStorage userStorage;
+    private final AddDeckView view;
+    private final UserStorage userStorage;
 
     public AddRemoveDeckPresenter(AddDeckView view, String filePath) {
         this.view = view;
@@ -29,7 +29,7 @@ public class AddRemoveDeckPresenter {
     /**
      * Binds a viewholder to a item in the recyclerview
      *
-     * @param rowView  the viewholderfor the item
+     * @param rowView  the viewholder for the item
      * @param position the item
      */
     public void onBindDeckListRowViewAtPosition(int position, AddRemoveDeckView rowView) {
@@ -69,7 +69,7 @@ public class AddRemoveDeckPresenter {
 
     /**
      * Handles a click on the deck
-     * Tells the view to run deckClicked(int adapterPostion)
+     * Tells the view to run deckClicked(int adapterPosition)
      * Which is implemented in the viw that basically navigates the user to a new screen
      * Where the user can see the decks' cards/notes
      *
