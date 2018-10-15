@@ -32,6 +32,7 @@
         <activity android:name=".view.homeView.HomeActivity" />
         <activity android:name=".view.exerciseView.ExerciseActivity"/>
         <activity android:name=".view.choosingDeckView.ChoosingDeckActivity"/>
+        <activity android:name=".view.statsView.StatsActivity" />
     </application>
 
 </manifest>

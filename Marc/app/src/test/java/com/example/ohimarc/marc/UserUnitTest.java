@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc;
 
 import com.example.ohimarc.marc.model.Deck;
+import com.example.ohimarc.marc.model.Stat;
 import com.example.ohimarc.marc.model.User;
 
 import org.junit.Test;
@@ -69,11 +70,25 @@ public class UserUnitTest {
     @Test
     public void deleteDeck() {
         User u = new User("Bob");
-        Boolean b1 = u.getDeck(0) == null;
-        u.createNewDeck("English animals");
-        Boolean b2 = u.getDeck(0) != null;
+        u.createNewDeck("Test deck");
+
         u.deleteDeck(0);
-        Boolean b3 = u.getDeck(0) == null;
-        assertTrue(b1 && b2 && b3);
+
+
+        assertEquals(0,u.getDeckTitles().size());
+        assertEquals(0,u.getStatsForDeck(0).length);
+    }
+
+
+    @Test
+    public void addNewStatistics(){
+        User u = new User("Bob");
+
+        u.createNewDeck("Test deck");
+        u.addNewStatistics(0,"testMode", 10);
+
+        Stat[] stat = u.getStatsForDeck(0);
+
+        assertEquals(1, stat.length);
     }
 }
