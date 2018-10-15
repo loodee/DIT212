@@ -31,7 +31,7 @@ public class FlashcardPresenter {
     }
 
 
-    public void onCreate() {
+    private void onCreate() {
         Deck deck = mtt.getActiveUser().getDeck(index);
         game = new FlashCardGame(deck);
         if (game.getDecksize() > 0) {

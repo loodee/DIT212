@@ -16,7 +16,7 @@ public class ChoosingDeckViewHolder extends RecyclerView.ViewHolder implements C
      * This class is the viewholder for choosing a deck you want to play
      * Sets up view for each item in recycler view such as title etc.
      */
-    TextView titleTextView;
+    private final TextView titleTextView;
 
     public ChoosingDeckViewHolder(View itemView, final ChoosingDeckPresenter presenter) {
         super(itemView);

@@ -16,7 +16,7 @@ public class AddRemoveDeckViewHolder extends RecyclerView.ViewHolder implements 
      * This class is the viewholder for the screen where you view your decks
      * Sets up view for each item in recycler view such as title etc.
      */
-    TextView titleTextView;
+    private final TextView titleTextView;
 
     public AddRemoveDeckViewHolder(View itemView, final AddRemoveDeckPresenter presenter) {
         super(itemView);

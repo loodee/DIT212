@@ -10,7 +10,7 @@ import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
 /**
  * @author  Victor Johansson (Vroxie on github)
  */
-public class ChoosingDeckAdapter extends RecyclerView.Adapter<ChoosingDeckViewHolder> {
+class ChoosingDeckAdapter extends RecyclerView.Adapter<ChoosingDeckViewHolder> {
 
     /**
      * This class is the adapter for the recyclerview in the screen where you choose
@@ -24,8 +24,8 @@ public class ChoosingDeckAdapter extends RecyclerView.Adapter<ChoosingDeckViewHo
     /**
      * Creates a viewholder for each item in the recyclerview
      * @param parent the Viewholder for the recyclerview
-     * @param viewType
-     * @return the new viewholder for a item in the recylcerview
+     * @param viewType the current index the viewholder "holds" right now
+     * @return the new viewholder for a item in the recyclerview
      */
     @Override
     public ChoosingDeckViewHolder onCreateViewHolder(ViewGroup parent, int viewType){

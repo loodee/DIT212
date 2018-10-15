@@ -8,8 +8,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class DeckUnitTest {
-    Deck d;
-    String title = "testing title";
+    private Deck d;
+    private final String title = "testing title";
 
     @Before
     public void createEmptyDeck() {

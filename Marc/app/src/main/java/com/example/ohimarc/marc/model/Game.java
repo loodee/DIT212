@@ -1,13 +1,13 @@
 package com.example.ohimarc.marc.model;
 
 public abstract class Game {
-    Deck deck;
-    String[][] cardCopies;
-    private Pair[] pairs;
-    private String name;
+    private final Deck deck;
+    final String[][] cardCopies;
+    private final Pair[] pairs;
+    private final String name;
     private int nextCard = 0;
 
-    public Game(Deck deck, String name) {
+    Game(Deck deck, String name) {
         this.deck = deck;
         this.name = name;
         this.cardCopies = deck.getCardCopies();
