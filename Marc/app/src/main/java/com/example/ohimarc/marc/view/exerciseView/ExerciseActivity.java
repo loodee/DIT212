@@ -64,7 +64,7 @@ public class ExerciseActivity extends ToolbarExtension {
      * start the next activity and finish itself.
      */
 
-    public void navigate() {
+    private void navigate() {
         Intent intent;
         switch (modeIndex) {
             case (0):
