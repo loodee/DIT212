@@ -9,7 +9,8 @@
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:srcCompat="@color/colorPrimary" />
+        app:srcCompat="@color/colorPrimary"
+        android:contentDescription="@string/quick_menu_string" />
 
     <TextView
         android:id="@+id/textView3"
@@ -19,7 +20,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Quickmenu"
+        android:text="@string/quick_menu_string"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/colorTextPrimary" />
 </RelativeLayout>

@@ -19,4 +19,15 @@
     <string name="stats_gameMode_text">Game:</string>
     <string name="stats_highScore_text">High Score:</string>
     <string name="deck_title">deck_title</string>
+    <string name="logout">Logout</string>
+    <string name="retry_string">Retry</string>
+    <string name="return_to_deck_string">Return to decks</string>
+    <string name="home_string">Home</string>
+    <string name="exercises_string">Exercises</string>
+    <string name="proceed_string">Proceed</string>
+    <string name="quick_menu_string">Quick Menu</string>
+    <string name="flashcard_mode_string">Flashcard Mode</string>
+    <string name="quiz_mode_string">Quiz Mode</string>
+    <string name="toolbar_string">Toolbar</string>
+
 </resources>
