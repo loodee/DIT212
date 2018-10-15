@@ -1,4 +1,4 @@
 package com.example.ohimarc.marc.presenter;
 
-public class achievementsPresenter {
+public class AchievementsPresenter {
 }
