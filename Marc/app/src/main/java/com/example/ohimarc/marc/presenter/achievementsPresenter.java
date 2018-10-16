@@ -35,6 +35,11 @@ public class AchievementsPresenter {
     }
 
     public void achievementClicked(int index) {
+        if(index < achiList.size()) {
+            String s = achiList.get(index).toString();
+            view.showAchievementPopup(parseString(s));
+        }
+    }
 
     private String parseString(String s) {
         String noUnderScore = s.replaceAll("_", " ");
