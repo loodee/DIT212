@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_achievements"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.achievementsView.AchievementsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/activity_toolbar" />
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackGround">
+
+            <Button
+                android:id="@+id/ach1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/ach2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/ach3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/ach4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/ach5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ach1" />
+
+            <Button
+                android:id="@+id/ach6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach5"
+                app:layout_constraintTop_toBottomOf="@+id/ach2" />
+
+            <Button
+                android:id="@+id/ach7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach6"
+                app:layout_constraintTop_toBottomOf="@+id/ach3" />
+
+            <Button
+                android:id="@+id/ach8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach7"
+                app:layout_constraintTop_toBottomOf="@+id/ach4" />
+
+            <Button
+                android:id="@+id/ach9"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ach5" />
+
+            <Button
+                android:id="@+id/ach10"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach9"
+                app:layout_constraintTop_toBottomOf="@+id/ach6" />
+
+            <Button
+                android:id="@+id/ach11"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach10"
+                app:layout_constraintTop_toBottomOf="@+id/ach7" />
+
+            <Button
+                android:id="@+id/ach12"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach11"
+                app:layout_constraintTop_toBottomOf="@+id/ach8" />
+
+            <Button
+                android:id="@+id/ach13"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ach9" />
+
+            <Button
+                android:id="@+id/ach14"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach13"
+                app:layout_constraintTop_toBottomOf="@+id/ach10" />
+
+            <Button
+                android:id="@+id/ach15"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach14"
+                app:layout_constraintTop_toBottomOf="@+id/ach11" />
+
+            <Button
+                android:id="@+id/ach16"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_lock_24px"
+                android:onClick="buttonPress"
+                app:layout_constraintStart_toEndOf="@+id/ach15"
+                app:layout_constraintTop_toBottomOf="@+id/ach12" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/activity_navigation"
+        layout="@layout/activity_navigation" />
+
+</android.support.v4.widget.DrawerLayout>

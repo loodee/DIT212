@@ -3,14 +3,16 @@ package com.example.ohimarc.marc.model;
 public class Stat {
     private int highScore;
     private int timesPlayed;
+    private boolean allCorrect;
     private double averageScore;
     private final String gameMode;
 
-    Stat(String gameMode){
+    Stat(String gameMode,boolean allCorrect){
         this.gameMode = gameMode;
         highScore = 0;
         timesPlayed = 0;
         averageScore = 0;
+        this.allCorrect = allCorrect;
     }
 
     /**
@@ -21,6 +23,7 @@ public class Stat {
         highScore = s.highScore;
         averageScore = s.averageScore;
         timesPlayed = s.timesPlayed;
+        allCorrect = s.allCorrect;
     }
 
     public void updateStat(int score){
@@ -44,4 +47,6 @@ public class Stat {
     public int getTimesPlayed() {
         return timesPlayed;
     }
+
+    public boolean getAllCorrect(){return allCorrect;}
 }

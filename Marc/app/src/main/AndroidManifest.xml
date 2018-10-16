@@ -53,6 +53,9 @@
         <activity
             android:name=".view.statsView.StatsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.achievementsView.AchievementsActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

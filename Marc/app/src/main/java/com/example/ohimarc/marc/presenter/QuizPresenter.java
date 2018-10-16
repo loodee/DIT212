@@ -33,7 +33,7 @@ public class QuizPresenter {
      * with texts given by QuizGame.
      */
 
-    public void onCreate() {
+    private void onCreate() {
         deck = mtt.getActiveUser().getDeck(deckIndex);
         game = new QuizGame(deck);
         texts = game.peekNextCard();
@@ -106,7 +106,7 @@ public class QuizPresenter {
     }
 
     /**
-     * This function is written by Victor Johansson (Vroxxie on github). This function creates
+     * This function is written by Victor Johansson (Vroxie on github). This function creates
      * a list, where some data is to be stored, called ansAmount. It cycles through a list of
      * Pair's. If the current Pair is marked as correct, by the Boolean true, amountCorrect
      * is incremented. This will give us the total amount of correct answers in this game.

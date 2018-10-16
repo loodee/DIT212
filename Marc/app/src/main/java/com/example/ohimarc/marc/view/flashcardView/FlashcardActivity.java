@@ -40,11 +40,10 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
     /**
      * This function initializes the view with some Strings. It is called once, from
      * FlashcardPresenter.
-     * @param deckTitleText is a String which is the deckTitle of a selected deck.
      * @param cardText is a String which is the front text of the first card in the deck.
      */
 
-    public void initTexts(String deckTitleText, String cardText) {
+    public void initTexts(String cardText) {
         cardButton.setText(cardText);
         cardTitle.setText("Q:");
     }
