@@ -38,6 +38,7 @@ public class Stats {
         }
 
         totalTimesPlayed++;
+        checkIfAchiIsCompleted(gameMode);
     }
 
     public void removeDeck(int index) {
@@ -89,14 +90,13 @@ public class Stats {
 
     public void addNewDeck() {
         if(stats.isEmpty()) {
-            stats.add(new HashMap<String, Stat>());
             userAchievements.updateAchievements(Achievements.achievements.CREATED_YOUR_FIRST_DECK);
         }
         stats.add(new HashMap<String, Stat>());
     }
 
-    public void checkIfAchiIsCompleted(String gamemode){
-        boolean allachis = false;
+    private void checkIfAchiIsCompleted(String gamemode){
+        boolean allachis = true;
         for(int i = 0;i<stats.size();i++) {
             if(stats.get(i).get(gamemode).getAllCorrect()) {
                 userAchievements.updateAchievements(Achievements.achievements.GET_ALL_ANSWERS_CORRECT_IN_A_DECK);
@@ -118,7 +118,7 @@ public class Stats {
             userAchievements.updateAchievements(Achievements.achievements.PLAYED_YOUR_FIRST_DECK);
         }
         for(int i = 0; i<userAchievements.getEnumsAsList().size()-1; i++){
-            allachis = search(userAchievements.getEnumsAsList().get(i));
+            allachis = allachis && search(userAchievements.getEnumsAsList().get(i));
         }
         if(allachis){
             userAchievements.updateAchievements(Achievements.achievements.UNLOCKED_ALL_ACHIEVEMENTS);
@@ -133,5 +133,9 @@ public class Stats {
             }
         }
         return false;
+    }
+
+    public Achievements getAchievements() {
+        return userAchievements;
     }
 }
