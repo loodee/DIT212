@@ -1,14 +1,23 @@
 package com.example.ohimarc.marc.model;
 
 public class ClozeNote extends Note {
+    private String text;
 
-    @Override
-    void generateCards() {
-        
+    public ClozeNote(String text) {
+        this.text = text != null ? text : "";
+        generateCards();
     }
 
     @Override
-    String[][] getCardInfo() {
-        return new String[0][];
+    void generateCards() {
+
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
     }
 }
