@@ -23,6 +23,7 @@ public class Stat {
         highScore = s.highScore;
         averageScore = s.averageScore;
         timesPlayed = s.timesPlayed;
+        allCorrect = s.allCorrect;
     }
 
     public void updateStat(int score){
