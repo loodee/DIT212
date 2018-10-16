@@ -28,6 +28,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/ach3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/ic_baseline_lock_24px"
+        app:layout_constraintStart_toEndOf="@+id/ach2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/ach4"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -36,6 +46,16 @@
         android:background="@drawable/ic_baseline_lock_24px"
         app:layout_constraintStart_toEndOf="@+id/ach3"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ach5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_lock_24px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ach1" />
 
     <Button
         android:id="@+id/ach6"
@@ -68,27 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ach4" />
 
     <Button
-        android:id="@+id/ach3"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/ic_baseline_lock_24px"
-        app:layout_constraintStart_toEndOf="@+id/ach2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/ach5"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ic_baseline_lock_24px"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ach1" />
-
-    <Button
-        android:id="@+id/ach10"
+        android:id="@+id/ach9"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="50dp"
