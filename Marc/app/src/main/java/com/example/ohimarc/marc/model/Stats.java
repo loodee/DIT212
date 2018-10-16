@@ -95,6 +95,12 @@ public class Stats {
         stats.add(new HashMap<String, Stat>());
     }
 
+    /**
+     * A checker for all achievements that a user can get for the moment
+     * @param gamemode the gamemode that that particular stat object holds,
+     *                 this is since there could be different achievements
+     *                 for different gamemodes
+     */
     private void checkIfAchiIsCompleted(String gamemode){
         boolean allachis = true;
         for(int i = 0;i<stats.size();i++) {
@@ -126,6 +132,11 @@ public class Stats {
 
     }
 
+    /**
+     * Just a linear search for a achievement to see if a achievement is completed
+     * @param a the given achievement that should be searched after
+     * @return a boolean that says if the achievement is completed or not
+     */
     private boolean search(Achievements.achievements a){
         for(Achievements.achievements achi : userAchievements.getCompletedAchievements()){
             if(a.equals(achi)){
@@ -135,6 +146,9 @@ public class Stats {
         return false;
     }
 
+    /**
+     * @return the achievement object that is bounded to a certain Stats object which is bounded to a User
+     */
     public Achievements getAchievements() {
         return userAchievements;
     }
