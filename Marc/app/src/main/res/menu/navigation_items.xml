@@ -14,21 +14,21 @@
         android:title="@string/exercises_string" />
 
     <item
-        android:id="@+id/achievements_button"
-        android:icon="@drawable/ic_trophy"
-        android:orderInCategory="3"
-        android:title="@string/achievements" />
-
-    <item
         android:id="@+id/decks_button"
         android:icon="@drawable/ic_deck"
-        android:orderInCategory="4"
+        android:orderInCategory="3"
         android:title="@string/decks" />
 
     <item
-        android:id="@+id/settings_button"
-        android:icon="@drawable/ic_baseline_settings_20px"
+        android:id="@+id/stats_button"
+        android:icon="@drawable/ic_baseline_bar_chart_24px"
+        android:orderInCategory="4"
+        android:title="@string/stats" />
+
+    <item
+        android:id="@+id/achievements_button"
+        android:icon="@drawable/ic_trophy"
         android:orderInCategory="5"
-        android:title="@string/action_settings" />
+        android:title="@string/achievements" />
 
 </menu>

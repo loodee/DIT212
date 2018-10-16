@@ -20,6 +20,7 @@ import com.example.ohimarc.marc.view.homeView.HomeActivity;
 import com.example.ohimarc.marc.view.choosingDeckView.ChoosingDeckActivity;
 import com.example.ohimarc.marc.view.startMenuView.StartMenuActivity;
 import com.example.ohimarc.marc.view.achievementsView.AchievementsActivity;
+import com.example.ohimarc.marc.view.statsView.StatsActivity;
 
 import java.util.Objects;
 
@@ -147,9 +148,9 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         intent = new Intent(getApplicationContext(), AddRemoveDeckActivity.class);
                         nextActivity = AddRemoveDeckActivity.class;
                         break;
-                    case (R.id.settings_button):
-                        intent = null;
-                        nextActivity = null;
+                    case (R.id.stats_button):
+                        intent = new Intent(getApplicationContext(), StatsActivity.class);
+                        nextActivity = StatsActivity.class;
                         break;
                     default:
                         intent = null;
