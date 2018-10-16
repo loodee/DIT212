@@ -8,12 +8,28 @@ import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
 import com.example.ohimarc.marc.view.editDeckView.EditNoteView;
 
+/**
+ * Presenter responsible for handling user calls for updating the model by handling input validation
+ * and deleting/adding notes in the model.
+ *
+ * @author Thomas Li
+ */
 public class EditNotePresenter {
     private EditNoteView view;
     private Deck deck;
     private int noteIndex;
     private UserStorage store;
 
+    /**
+     * Creates an EditNotePresenter which handles interaction from the user in the corresponding activity.
+     *
+     * @param view      Lists the methods that may be called from the presenter in the
+     *                  corresponding activity. The activity should implement this activity.
+     * @param noteIndex Specifies the index of the currently handled Note in the Deck. If the user
+     *                  is adding a new Note rather than editing an existing one, this value will be < 0.
+     * @param deckIndex Specifies the index of the currently handled Deck in the active User's collection.
+     * @param filepath  Absolute filepath where the persistent state file of the app is saved.
+     */
     public EditNotePresenter(EditNoteView view, int noteIndex, int deckIndex, String filepath) {
         this.view = view;
         this.deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
@@ -22,6 +38,10 @@ public class EditNotePresenter {
         onCreate();
     }
 
+    /**
+     * Sets the corresponding activity up with the correct environment, determining if editing an
+     * existing Note or not, as well as the type of Note (Basic, Cloze).
+     */
     public void onCreate() {
         if (noteIndex != -1) {
             if (deck.getNote(noteIndex) instanceof BasicNote) {
