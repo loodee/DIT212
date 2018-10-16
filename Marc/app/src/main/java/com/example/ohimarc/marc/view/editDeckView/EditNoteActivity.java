@@ -25,6 +25,12 @@ import com.example.ohimarc.marc.presenter.EditNotePresenter;
 
 import java.util.Objects;
 
+/**
+ * Activity presenting the graphical interface for modifying Notes, both creating new Notes and
+ * editing existing ones, as well as different types of Notes.
+ *
+ * @author Thomas Li (loodee)
+ */
 public class EditNoteActivity extends AppCompatActivity implements EditNoteView {
     private EditNotePresenter presenter;
     private TextInputLayout frontLayout, backLayout, clozeLayout;
