@@ -90,7 +90,7 @@ public class Stats {
 
     public void addNewDeck() {
         if(stats.isEmpty()) {
-            userAchievements.updateAchievements(Achievements.achievements.CREATED_YOUR_FIRST_DECK);
+            userAchievements.updateAchievements(Achievements.achievements.CREATE_YOUR_FIRST_DECK);
         }
         stats.add(new HashMap<String, Stat>());
     }
@@ -109,25 +109,25 @@ public class Stats {
             }
         }
         if(totalTimesPlayed >= 10){
-            userAchievements.updateAchievements(Achievements.achievements.REVIEWED_10_TIMES_IN_TOTAL);
+            userAchievements.updateAchievements(Achievements.achievements.PLAY_10_GAMES);
         }
         if(totalTimesPlayed >= 20){
-            userAchievements.updateAchievements(Achievements.achievements.REVIEWED_20_TIMES_IN_TOTAL);
+            userAchievements.updateAchievements(Achievements.achievements.PLAY_20_GAMES);
         }
         if(totalTimesPlayed >= 50){
-            userAchievements.updateAchievements(Achievements.achievements.REVIEWED_50_TIMES_IN_TOTAL);
+            userAchievements.updateAchievements(Achievements.achievements.PLAY_50_GAMES);
         }
         if(totalTimesPlayed >= 100){
-            userAchievements.updateAchievements(Achievements.achievements.REVIEWED_100_TIMES_IN_TOTAL);
+            userAchievements.updateAchievements(Achievements.achievements.PLAY_100_GAMES);
         }
         if(stats.get(0).get(gamemode) != null && stats.get(0).get(gamemode).getTimesPlayed() <= 1){
-            userAchievements.updateAchievements(Achievements.achievements.PLAYED_YOUR_FIRST_DECK);
+            userAchievements.updateAchievements(Achievements.achievements.PLAY_YOUR_FIRST_DECK);
         }
         for(int i = 0; i<userAchievements.getEnumsAsList().size()-1; i++){
             allachis = allachis && search(userAchievements.getEnumsAsList().get(i));
         }
         if(allachis){
-            userAchievements.updateAchievements(Achievements.achievements.UNLOCKED_ALL_ACHIEVEMENTS);
+            userAchievements.updateAchievements(Achievements.achievements.UNLOCK_ALL_ACHIEVEMENTS);
         }
 
     }

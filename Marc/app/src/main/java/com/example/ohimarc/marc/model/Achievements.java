@@ -14,13 +14,13 @@ public class Achievements {
      */
     public enum achievements {
         GET_ALL_ANSWERS_CORRECT_IN_A_DECK,
-        REVIEWED_10_TIMES_IN_TOTAL,
-        REVIEWED_20_TIMES_IN_TOTAL,
-        REVIEWED_50_TIMES_IN_TOTAL,
-        REVIEWED_100_TIMES_IN_TOTAL,
-        CREATED_YOUR_FIRST_DECK,
-        PLAYED_YOUR_FIRST_DECK,
-        UNLOCKED_ALL_ACHIEVEMENTS
+        PLAY_10_GAMES,
+        PLAY_20_GAMES,
+        PLAY_50_GAMES,
+        PLAY_100_GAMES,
+        CREATE_YOUR_FIRST_DECK,
+        PLAY_YOUR_FIRST_DECK,
+        UNLOCK_ALL_ACHIEVEMENTS
     }
 
     private List<achievements> completedAchievements = new ArrayList<>();
@@ -39,7 +39,6 @@ public class Achievements {
     /**
      * Moving a achievement from uncompleted to completed list if it is not in there already
      * Given a completed achievement that stats says have checked and syas it is done
-     *
      * @param achi the completed achievement
      */
     public void updateAchievements(achievements achi) {
