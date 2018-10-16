@@ -23,7 +23,7 @@
         android:id="@+id/decks_button"
         android:icon="@drawable/ic_deck"
         android:orderInCategory="4"
-        android:title="@string/home_string" />
+        android:title="@string/decks" />
 
     <item
         android:id="@+id/settings_button"
