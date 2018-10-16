@@ -12,6 +12,11 @@ public class BasicNoteViewHolder extends RecyclerView.ViewHolder {
     private final TextView basicNoteTextFront;
     private final TextView basicNoteTextBack;
 
+    /**
+     * @param itemView  is the view that is being connected by ID to a variable, in this case TextView basicNoteTextFront/Back is connected to
+     *                  tv_front_basic_note/tv_back_basic_note
+     * @param presenter TODO to be added
+     */
     BasicNoteViewHolder(@NonNull View itemView, final EditDeckContract.Presenter presenter) {
         super(itemView);
         basicNoteTextFront = itemView.findViewById(R.id.tv_front_basic_note);

@@ -28,7 +28,8 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
         rowView.setBasicNoteText(basicNote.getFront(), basicNote.getBack());
     }
 
-    /** Used when the needed to get the amount of objects inside of deck(size)
+    /**
+     * Used when the needed to get the amount of objects inside of deck(size)
      *
      * @return the amount of cards in deck
      */
@@ -38,7 +39,6 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     }
 
     /**
-     *
      * @param adapterPosition is the index in the recyclerView that the user clicked at
      */
     @Override
@@ -47,7 +47,6 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     }
 
     /**
-     *
      * @param adapterPosition is the index in the recyclerView that the user long clicked at
      */
     @Override
@@ -55,7 +54,8 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
         editDeckActivity.promptForDeletion(deck.getNoteIndexFromCardIndex(adapterPosition));
     }
 
-    /** gets the deckTitle from deck and returns it
+    /**
+     * gets the deckTitle from deck and returns it
      *
      * @return the title of the deck that is currently in "editing mode"
      */

@@ -19,8 +19,8 @@ class AdapterEditDeckRC extends RecyclerView.Adapter<BasicNoteViewHolder> {
      * Creates the viewHolder for every single item inside the recyclerView
      *
      * @param viewGroup is the viewHolder in the recyclerView
-     * @param i         is not being used but has to be there because of overriding the method
-     * @return
+     * @param i         the index for the viewHolder
+     * @return the new ViewHolder for the new item in the recyclerView
      */
     @NonNull
     @Override

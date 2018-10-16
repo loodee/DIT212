@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 
-public class UserViewHolder extends RecyclerView.ViewHolder{
+public class UserViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView username;
 
@@ -31,7 +31,7 @@ public class UserViewHolder extends RecyclerView.ViewHolder{
         });
     }
 
-    public void setUsername(String name){
+    public void setUsername(String name) {
         username.setText(name);
     }
 

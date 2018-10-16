@@ -56,6 +56,9 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
         initExtension(this, R.id.activity_edit_deck, "Edit Deck");
     }
 
+    /**
+     * This method is called when the activity goes from being paused to being opened again
+     */
     @Override
     protected void onResume() {
         editDeckPresenter.start();
@@ -102,6 +105,8 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
     }
 
     /**
+     * Forwards the card that has been clicked to EditNoteActivity where the card will be up for editing
+     *
      * @param noteIndex is the card in the list that is clicked on
      */
     @Override
