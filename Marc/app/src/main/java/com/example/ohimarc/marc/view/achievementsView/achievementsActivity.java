@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.ohimarc.marc.R;
@@ -64,6 +65,30 @@ public class AchievementsActivity extends AppCompatActivity implements Achieveme
 
     public void unlockAchievement(int index) {
         buttons[index].setBackground(trophy);
+    }
+
+    public void buttonPress(View view) {
+        switch (view.getId()) {
+            case R.id.ach1:
+                break;
+            case R.id.ach2:
+                break;
+            case R.id.ach3:
+                break;
+            case R.id.ach4:
+                break;
+            case R.id.ach5:
+                break;
+            case R.id.ach6:
+                break;
+            case R.id.ach7:
+                break;
+            case R.id.ach8:
+                break;
+            case R.id.ach9:
+                break;
+            default: break;
+        }
     }
 
 }
