@@ -35,5 +35,11 @@ public class AchievementsPresenter {
 
     public void achievementClicked(int index) {
 
+    private String parseString(String s) {
+        String noUnderScore = s.replaceAll("_", " ");
+        String lowerCase = noUnderScore.toLowerCase();
+        String capitalized = lowerCase.substring(0, 1).toUpperCase() + lowerCase.substring(1);
+        String finalString = capitalized + ".";
+        return finalString;
     }
 }
