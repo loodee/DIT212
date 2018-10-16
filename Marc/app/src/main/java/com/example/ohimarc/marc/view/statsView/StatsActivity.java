@@ -8,10 +8,12 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.StatsPresenter;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
-
+/**
+ * @author Gustav Albertsson
+ *
+ * Activity that displays the statistics for a player in a RecyclerView
+ * */
 public class StatsActivity extends ToolbarExtension {
-
-    private AdapterStatsRC adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,7 @@ public class StatsActivity extends ToolbarExtension {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(layoutManager);
 
-        adapter = new AdapterStatsRC(statsPresenter);
+        AdapterStatsRC adapter = new AdapterStatsRC(statsPresenter);
 
         rv.setAdapter(adapter);
 

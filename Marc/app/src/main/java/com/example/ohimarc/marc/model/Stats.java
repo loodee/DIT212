@@ -1,14 +1,19 @@
 package com.example.ohimarc.marc.model;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @author Gustav Albertsson
+ * @author Victor Johansson
+ *
+ * Class responsible for holding general statistics for a user and statistics for the users different decks.
+ * */
 public class Stats {
     private int totalTimesPlayed;
-    private Achievements userAchievements = new Achievements();
+    private final Achievements userAchievements = new Achievements();
     private final List<HashMap<String, Stat>> stats = new ArrayList<>();
 
     /**
@@ -41,16 +46,29 @@ public class Stats {
         checkIfAchiIsCompleted(gameMode);
     }
 
+    /**
+     * Removes the statistics for the given deck
+     * @param index the index of the statistics that should be removed
+     * */
     public void removeDeck(int index) {
         if (0 <= index && index < stats.size()) {
             stats.remove(index);
         }
     }
 
+    /**
+     * Returns general statistics about the user
+     * @return an array of general statistics, the first index is the total times the user has played
+     * */
     public int[] getUserStats() {
         return new int[]{totalTimesPlayed};
     }
 
+    /**
+     * Method that returns all the stats for a specific deck
+     * @return An array of Stat objects that hold the information for each game mode played on that deck.
+     * If no games have been played on the deck/the deck index is invalid an empty array will be returned.
+     * */
     public Stat[] getStatsForDeck(int index) {
 
         //Is the index valid
@@ -88,6 +106,9 @@ public class Stats {
         return new Stat[]{};
     }
 
+    /**
+     * Adds the holder for the statistics for a deck
+     * */
     public void addNewDeck() {
         if(stats.isEmpty()) {
             userAchievements.updateAchievements(Achievements.achievements.CREATE_YOUR_FIRST_DECK);

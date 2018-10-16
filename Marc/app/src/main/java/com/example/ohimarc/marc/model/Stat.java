@@ -1,13 +1,22 @@
 package com.example.ohimarc.marc.model;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * Class for holding the statistics for a single deck/game mode combintaion
+ */
 public class Stat {
     private int highScore;
     private int timesPlayed;
-    private boolean allCorrect;
+    private final boolean allCorrect;
     private double averageScore;
     private final String gameMode;
 
-    Stat(String gameMode,boolean allCorrect){
+
+    /**
+     * TODO: should allCorrect be here, should it not be in updateStats?, Now we can not change it once it is created
+     * */
+    Stat(String gameMode, boolean allCorrect) {
         this.gameMode = gameMode;
         highScore = 0;
         timesPlayed = 0;
@@ -16,9 +25,10 @@ public class Stat {
     }
 
     /**
-     * Deep copy
-     * */
-    Stat(Stat s){
+     * Creates a Stat object that is an deep copy of the given stat object
+     * @param s The Stat object to make a deep copy of
+     */
+    Stat(Stat s) {
         gameMode = s.gameMode;
         highScore = s.highScore;
         averageScore = s.averageScore;
@@ -26,9 +36,13 @@ public class Stat {
         allCorrect = s.allCorrect;
     }
 
-    public void updateStat(int score){
+    /**
+     * Updates the statistics that that is saved based on the given score
+     * @param score The score that the user got
+     * */
+    public void updateStat(int score) {
         highScore = Math.max(highScore, score);
-        averageScore = ((averageScore*timesPlayed)+score)/(timesPlayed+1);
+        averageScore = ((averageScore * timesPlayed) + score) / (timesPlayed + 1);
         timesPlayed++;
     }
 
@@ -48,5 +62,7 @@ public class Stat {
         return timesPlayed;
     }
 
-    public boolean getAllCorrect(){return allCorrect;}
+    public boolean getAllCorrect() {
+        return allCorrect;
+    }
 }

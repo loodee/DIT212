@@ -5,6 +5,11 @@ import com.example.ohimarc.marc.model.Stat;
 import com.example.ohimarc.marc.view.statsView.IStatsPresenter;
 import com.example.ohimarc.marc.view.statsView.StatsViewHolder;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * This class is responsible for the handling communication between StatsActivity and the model
+ * */
 public class StatsPresenter implements IStatsPresenter {
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
