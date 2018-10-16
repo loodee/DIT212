@@ -13,5 +13,7 @@ public interface EditNoteView {
 
     void setValues(String front, String back);
 
+    void setValues(String text);
+
     void selfDestruct();
 }

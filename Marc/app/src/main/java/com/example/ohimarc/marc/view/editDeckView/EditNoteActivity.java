@@ -24,7 +24,7 @@ import com.example.ohimarc.marc.presenter.EditNotePresenter;
 public class EditNoteActivity extends AppCompatActivity implements EditNoteView {
     private EditNotePresenter presenter;
     private TextInputLayout frontLayout, backLayout;
-    private EditText frontEditText, backEditText;
+    private EditText frontEditText, backEditText, clozeEditText;
     private Toast toast;
     private boolean isEditing;
     private Spinner dropdown;
@@ -34,6 +34,7 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         backLayout = findViewById(R.id.textInputBack);
         frontEditText = findViewById(R.id.input_front);
         backEditText = findViewById(R.id.input_back);
+        clozeEditText = findViewById(R.id.input_cloze);
         dropdown = findViewById(R.id.s_spinner);
 
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
@@ -56,7 +57,7 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
 
         int noteIndex = getIntent().getExtras().getInt("noteIndex");
         int deckIndex = getIntent().getExtras().getInt("deckIndex");
-        String[] items = new String[]{"Cloze note", "Basic note"};
+        String[] items = new String[]{"Basic note", "Cloze note"};
 
         setupVars(noteIndex, deckIndex);
         setupListeners();
@@ -69,9 +70,13 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         finishAfterTransition();
     }
 
-    public void setValues(String front, String back) {
+    public void setValues(String front, String back) { // for basic notes
         frontEditText.setText(front);
         backEditText.setText(back);
+    }
+
+    public void setValues(String text) { // for cloze notes
+        clozeEditText.setText(text);
     }
 
     public void confirmAdd(View v) {

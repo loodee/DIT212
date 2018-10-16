@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.BasicNote;
+import com.example.ohimarc.marc.model.ClozeNote;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.service.LocalUserStorage;
@@ -26,6 +27,9 @@ public class EditNotePresenter {
             if (deck.getNote(noteIndex) instanceof BasicNote) {
                 BasicNote note = ((BasicNote) deck.getNote(noteIndex));
                 view.setValues(note.getFront(), note.getBack());
+            } else if (deck.getNote(noteIndex) instanceof ClozeNote) {
+                ClozeNote note = ((ClozeNote) deck.getNote(noteIndex));
+                view.setValues(note.getText());
             }
         }
     }

@@ -19,4 +19,5 @@
     <string name="stats_gameMode_text">Game:</string>
     <string name="stats_highScore_text">High Score:</string>
     <string name="deck_title">deck_title</string>
+    <string name="cloze_text_hint">Text</string>
 </resources>
