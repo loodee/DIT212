@@ -23,8 +23,8 @@ public class EditNotePresenter {
     /**
      * Creates an EditNotePresenter which handles interaction from the user in the corresponding activity.
      *
-     * @param view      Lists the methods that may be called from the presenter in the
-     *                  corresponding activity. The activity should implement this activity.
+     * @param view      Lists the methods in the corresponding activity that may be called from the
+     *                  presenter. The activity should implement this interface.
      * @param noteIndex Specifies the index of the currently handled Note in the Deck. If the user
      *                  is adding a new Note rather than editing an existing one, this value will be < 0.
      * @param deckIndex Specifies the index of the currently handled Deck in the active User's collection.
