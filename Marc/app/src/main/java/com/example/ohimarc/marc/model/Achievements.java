@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Achievements {
 
-    enum achievements {
+    public enum achievements {
         GET_ALL_ANSWERS_CORRECT_IN_A_DECK,
         REVIEWED_10_TIMES_IN_TOTAL,
         REVIEWED_20_TIMES_IN_TOTAL,
@@ -14,8 +14,7 @@ public class Achievements {
         REVIEWED_100_TIMES_IN_TOTAL,
         CREATED_YOUR_FIRST_DECK,
         PLAYED_YOUR_FIRST_DECK,
-        ONEHUNDRED_PERCENT_AVERAGE_SCORE_FLASHCARD,
-        ONEHUNDRED_PERCENT_AVERAGE_SCORE_QUIZ
+        UNLOCKED_ALL_ACHIEVEMENTS
     }
 
     private List<achievements> completedAchievements = new ArrayList<>();
@@ -36,4 +35,21 @@ public class Achievements {
         uncompletedAchievements.remove(achi);
         completedAchievements.add(achi);
     }
+
+    public List<achievements> getCompletedAchievements(){
+        return completedAchievements;
+    }
+
+    public List<achievements> getUncompletedAchievements(){
+        return uncompletedAchievements;
+    }
+
+    public List<achievements> getEnumsAsList(){
+        List<achievements> list = new ArrayList<>();
+        for (achievements a : EnumSet.allOf(achievements.class)){
+            list.add(a);
+        }
+        return list;
+    }
+
 }

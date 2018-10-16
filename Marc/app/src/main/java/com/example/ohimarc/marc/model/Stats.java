@@ -1,6 +1,7 @@
 package com.example.ohimarc.marc.model;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -95,7 +96,7 @@ public class Stats {
     }
 
     public void checkIfAchiIsCompleted(String gamemode){
-        int totAvgScore = 0;
+        boolean allachis = false;
         for(int i = 0;i<stats.size();i++) {
             if(stats.get(i).get(gamemode).getAllCorrect()) {
                 userAchievements.updateAchievements(Achievements.achievements.GET_ALL_ANSWERS_CORRECT_IN_A_DECK);
@@ -116,17 +117,21 @@ public class Stats {
         if(stats.get(0).get(gamemode).getTimesPlayed() <= 1){
             userAchievements.updateAchievements(Achievements.achievements.PLAYED_YOUR_FIRST_DECK);
         }
-        for(int i = 0;i<stats.size();i++){
-            totAvgScore += stats.get(i).get(gamemode).getAverageScore();
+        for(int i = 0; i<userAchievements.getEnumsAsList().size()-1; i++){
+            allachis = search(userAchievements.getEnumsAsList().get(i));
         }
-        totAvgScore = totAvgScore / totalTimesPlayed;
-        if(totAvgScore == 1){
-            if(gamemode.equals("Flashcard Game")){
-                userAchievements.updateAchievements(Achievements.achievements.ONEHUNDRED_PERCENT_AVERAGE_SCORE_FLASHCARD);
-            }
-            else {
-                userAchievements.updateAchievements(Achievements.achievements.ONEHUNDRED_PERCENT_AVERAGE_SCORE_QUIZ);
+        if(allachis){
+            userAchievements.updateAchievements(Achievements.achievements.UNLOCKED_ALL_ACHIEVEMENTS);
+        }
+
+    }
+
+    private boolean search(Achievements.achievements a){
+        for(Achievements.achievements achi : userAchievements.getCompletedAchievements()){
+            if(a.equals(achi)){
+                return true;
             }
         }
+        return false;
     }
 }
