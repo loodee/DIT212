@@ -26,15 +26,19 @@ import java.util.Objects;
 
 public class EditNoteActivity extends AppCompatActivity implements EditNoteView {
     private EditNotePresenter presenter;
-    private TextInputLayout frontLayout, backLayout;
+    private TextInputLayout frontLayout, backLayout, clozeLayout;
     private EditText frontEditText, backEditText, clozeEditText;
     private Toast toast;
     private boolean isEditing;
     private Spinner dropdown;
+    private NoteType type;
+
+    private enum NoteType {BASIC, CLOZE}
 
     private void setupVars(int noteIndex, int deckIndex) {
         frontLayout = findViewById(R.id.textInputFront);
         backLayout = findViewById(R.id.textInputBack);
+        clozeLayout = findViewById(R.id.textInputCloze);
         frontEditText = findViewById(R.id.input_front);
         backEditText = findViewById(R.id.input_back);
         clozeEditText = findViewById(R.id.input_cloze);
@@ -46,10 +50,11 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         if (noteIndex == -1) {      // if adding a new Note
             isEditing = false;
             if (bar != null) bar.setTitle("Add Note");
-        } else {                // if editing an existing Note
+        } else {                    // if editing an existing Note
             isEditing = true;
             if (bar != null) bar.setTitle("Edit Note");
         }
+
         presenter = new EditNotePresenter(this, noteIndex, deckIndex, getFilesDir().getAbsolutePath());
     }
 
@@ -72,30 +77,64 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         finishAfterTransition();
     }
 
-    public void setValues(String front, String back) { // for basic notes
+    public void setupBasic(String front, String back) {
         frontEditText.setText(front);
         backEditText.setText(back);
+
+        type = NoteType.BASIC;
     }
 
-    public void setValues(String text) { // for cloze notes
+    public void setupCloze(String text) {
         clozeEditText.setText(text);
+
+        type = NoteType.CLOZE;
+    }
+
+    public void setupNew() {
+        type = NoteType.BASIC;
     }
 
     public void confirmAdd(View v) {
         confirmAdd();
     }
 
-    public void confirmAdd() {
+    private void confirmAdd() {
+        switch (type) {
+            case BASIC:
+                confirmAddBasic();
+                break;
+            case CLOZE:
+                confirmAddCloze();
+                break;
+        }
+    }
+
+    private void confirmAddBasic() {
         String frontText = frontEditText.getText().toString();
         String backText = backEditText.getText().toString();
 
-        presenter.confirmAddClicked(frontText, backText, isEditing);
+        presenter.confirmAddBasicClicked(frontText, backText, isEditing);
+    }
+
+    private void confirmAddCloze() {
+        String clozeText = clozeEditText.getText().toString();
+
+        presenter.confirmAddClozeClicked(clozeText, isEditing);
     }
 
     public void resetInputs() {
         frontEditText.setText("");
         backEditText.setText("");
-        frontEditText.requestFocus();
+        clozeEditText.setText("");
+
+        switch (type) {
+            case BASIC:
+                frontEditText.requestFocus();
+                break;
+            case CLOZE:
+                clozeEditText.requestFocus();
+                break;
+        }
     }
 
     public void showToast() {
@@ -103,17 +142,27 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
     }
 
     public void showErrors() {
-        String errorMsg = "Field cannot be blank.";
-        String frontText = frontEditText.getText().toString();
-        String backText = backEditText.getText().toString();
+        if (type == NoteType.BASIC) {
+            String errorMsg = "Field cannot be blank.";
+            String frontText = frontEditText.getText().toString();
+            String backText = backEditText.getText().toString();
 
-        if (presenter.invalidInput(frontText)) frontLayout.setError(errorMsg);
-        if (presenter.invalidInput(backText)) backLayout.setError(errorMsg);
+            if (presenter.invalidInput(frontText)) frontLayout.setError(errorMsg);
+            if (presenter.invalidInput(backText)) backLayout.setError(errorMsg);
+        } else if (type == NoteType.CLOZE) {
+            String errorMsg = "Cloze notes must use at least one cloze deletion.";
+            String clozeText = clozeEditText.getText().toString();
+
+            if (presenter.invalidInputCloze(clozeText)) clozeLayout.setError(errorMsg);
+        }
     }
 
     private void hideErrors() {
         frontLayout.setError(null);
         backLayout.setError(null);
+        clozeLayout.setError(null);
+    }
+
     private void setupDropdown() {
         String[] items = new String[]{"Basic note", "Cloze note"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -183,7 +232,6 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         frontEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -193,13 +241,11 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
         backEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
