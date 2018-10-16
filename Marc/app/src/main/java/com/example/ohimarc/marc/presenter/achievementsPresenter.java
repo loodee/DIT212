@@ -43,8 +43,8 @@ public class AchievementsPresenter {
      */
 
     private void setAchievementsTrophy() {
-        for(int i = 0; i < achievementList.size() ; i++) {
-            if(achievements.getCompletedAchievements().contains(achievementList.get(i))) {
+        for (int i = 0; i < achievementList.size(); i++) {
+            if (achievements.getCompletedAchievements().contains(achievementList.get(i))) {
                 view.unlockAchievement(i);
             }
         }
@@ -55,7 +55,7 @@ public class AchievementsPresenter {
      */
 
     private void setAchievementsInvisible() {
-        for(int i = achievementList.size(); i < achievementElements ; i++) {
+        for (int i = achievementList.size(); i < achievementElements; i++) {
             view.hideAchievement(i);
         }
     }
@@ -65,10 +65,11 @@ public class AchievementsPresenter {
      * AchievementsActivity, which needs an informative text for the specific achievement. Thereby,
      * this method checks if the achievement is active, creates a string out of the achievement enum,
      * calls for a parsing of this string and sending it to the view.
+     *
      * @param index
      */
     public void achievementClicked(int index) {
-        if(index < achievementList.size()) {
+        if (index < achievementList.size()) {
             String s = achievementList.get(index).toString();
             view.showAchievementPopup(parseString(s));
         }
@@ -79,6 +80,7 @@ public class AchievementsPresenter {
      * made out of all uppercase letters while containing underscores instead of spaces.
      * Thereby, the parser removes all underscores with spaces, makes the whole text into lowercase,
      * making the first letter of the string into uppercase and adds a dot in the end.
+     *
      * @param s is the String to be parsed.
      * @return a parsed version of the parameter s.
      */
