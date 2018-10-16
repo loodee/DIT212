@@ -5,7 +5,7 @@
     android:id="@+id/quiz_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.quizMode.QuizActivity">
+    tools:context=".view.quizView.QuizActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorBackGround"
-            tools:context=".view.quizMode.QuizActivity">
+            tools:context=".view.quizView.QuizActivity">
 
             <TextView
                 android:id="@+id/card"
@@ -62,7 +62,7 @@
                     android:background="@android:color/white"
                     android:elevation="10dp"
                     android:onClick="proceedClicked"
-                    android:text="Proceed"
+                    android:text="@string/proceed_string"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintLeft_toLeftOf="parent"

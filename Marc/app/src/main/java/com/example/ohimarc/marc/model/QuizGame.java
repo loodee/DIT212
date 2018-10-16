@@ -3,39 +3,66 @@ package com.example.ohimarc.marc.model;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Author Victor Johansson (Vroxie on github)
+ */
 public class QuizGame extends Game {
+
     private Random rand = new Random();
     private int rigthAnswerIndex;
 
-    public QuizGame(Deck deck){
-        super(deck,"Quiz Game");
+    public QuizGame(Deck deck) {
+        super(deck, "Quiz Game");
     }
 
-    private int getRandomIndex(){
+    /**
+     * This is to generate a random a index for a correct answer
+     * In a array which will contain question + 4 answers
+     *
+     * @return a random integer between 1-4
+     */
+    private int getRandomIndex() {
         return rand.nextInt(4) + 1;
     }
 
+    /**
+     * Get a random answer from a the reamining answers that has not been used yet
+     *
+     * @param list a list of the reamaining answers
+     * @return a random index of a answer that should be used
+     */
     private int getRandomFromList(ArrayList<String> list) {
         int random = rand.nextInt(list.size());
         return random;
     }
 
-    public boolean isCorrect(int index){
-        return index == rigthAnswerIndex ? true : false;
+    /**
+     * Decides if a answer is correct or not
+     *
+     * @param index which answer that were given,(the index of the answer array)
+     * @return true if index is the index where the correct answer is lying, false otherwise
+     */
+    public boolean isCorrect(int index) {
+        return index == rigthAnswerIndex;
     }
 
-    public void sendAnswer(int index){
-        boolean correct = rigthAnswerIndex == index;
-        questionAnswer(getNextCard(),correct);
+    /**
+     * Stores the answer to a particular question to know how many correct answers you got and also
+     * which questions you did answer correct or incorrect
+     *
+     * @param index which answer that were given,(the index of the answer array)
+     */
+    public void sendAnswer(int index) {
+        boolean correct = isCorrect(index);
+        questionAnswer(getNextCard(), correct);
     }
-
 
 
     /**
      * front will always be the first element of the array
      * the rest is answeralternatives.
      * The correct answers index is being randomized every time you want a new card
-         */
+     */
     @Override
     public String[] peekNextCard() {
         if (getNextCard() < cardCopies.length) {
@@ -58,8 +85,7 @@ public class QuizGame extends Game {
                 }
             }
             return cardWithAnswer;
-        }
-        else{
+        } else {
             return null;
         }
     }

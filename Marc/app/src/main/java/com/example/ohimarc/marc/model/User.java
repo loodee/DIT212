@@ -3,9 +3,15 @@ package com.example.ohimarc.marc.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * This Class is responsible for holding the information about a user, sush as the users Decks, The users statistics and their name
+ * */
 public class User {
     private final String name;
-    private List<Deck> decks = new ArrayList<>();
+    private final List<Deck> decks = new ArrayList<>();
+    private final Stats stats = new Stats();
 
     /**
      * @param name The name of the user, if null the name will be set to an empty string ("")
@@ -39,6 +45,7 @@ public class User {
     public void createNewDeck(String title){
         String localTitle = title != null ? title : "";
         decks.add(new Deck(localTitle));
+        stats.addNewDeck();
     }
 
     /**
@@ -60,7 +67,25 @@ public class User {
     public void deleteDeck(int i){
         if(0 <= i && i < decks.size()){
             decks.remove(i);
+            stats.removeDeck(i);
         }
+    }
 
+    /**
+     * Returns a list of Stat objects which contains the statistics for the deck
+     * @param index The index of the deck
+     * */
+    public Stat[] getStatsForDeck(int index){
+        return stats.getStatsForDeck(index);
+    }
+
+    /**
+     * Adds/updates the statistics for a deck/game mode combination
+     * @param index The index of the deck that the statistics is for
+     * @param gameMode The game mode that the statistics is for
+     * @param score The score that the user scored
+     * */
+    public void addNewStatistics(int index, String gameMode, int score) {
+        stats.addStatistics(index ,gameMode, score);
     }
 }

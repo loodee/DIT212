@@ -4,58 +4,45 @@ import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.FlashCardGame;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Pair;
-import com.example.ohimarc.marc.view.FlashcardView;
+import com.example.ohimarc.marc.view.flashcardView.FlashcardView;
 
 import java.util.ArrayList;
 
-public class FlashcardPresenter implements Presenter {
+/**
+ * Author Victor Johansson (Vroxie on github)
+ */
+public class FlashcardPresenter {
 
+    /**
+     * This class is the presenter for playing a flashcardgame, tells
+     *  The view what to do when buttons are clicked etc.
+     */
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
     private FlashCardGame game;
-    private FlashcardView view;
-    private Deck deck;
-    private int index;
+    private final FlashcardView view;
+    private final int index;
 
 
     public FlashcardPresenter(FlashcardView view, int index) {
         this.view = view;
         this.index = index;
+        onCreate();
     }
 
-    @Override
-    public void onCreate() {
-        deck = mtt.getActiveUser().getDeck(index);
+
+    private void onCreate() {
+        Deck deck = mtt.getActiveUser().getDeck(index);
         game = new FlashCardGame(deck);
         if (game.getDecksize() > 0) {
             view.initTexts(game.getDeckTitle(), game.peekNextCard()[0]);
         }
     }
 
-    @Override
-    public void onPause() {
-
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
-    }
-
-    /*
-    public ArrayList<Pair> getAnsList() {
-        return game.getQuestionAns();
-    }*/
-
     /**
      * Computes how many correct Answers I got from playing the deck
      *
-     * @return a arraylist where index 0 is the amount of correct answers
+     * @return an arrayList where index 0 is the amount of correct answers
      * and index 1 is the deckSize
      */
     public ArrayList<Integer> getAmountCorrectAnswers() {
@@ -81,6 +68,12 @@ public class FlashcardPresenter implements Presenter {
     }
 
 
+    /**
+     * Handles when the card is clicked
+     * Changes the card depending on what side that were active
+     *
+     * @param frontActive a boolean that says if the front is active or not
+     */
     public void flashCardClicked(boolean frontActive) {
         if (game.getDecksize() > 0) {
             if (frontActive) {
@@ -91,6 +84,14 @@ public class FlashcardPresenter implements Presenter {
         }
     }
 
+    /**
+     * Handles when one of the result buttons is clicked
+     * Puts the question and the result the array that holds it
+     * Also go to next card if it is not the last card, then it
+     * Tells the view to change view
+     *
+     * @param isCorrect the result of the question
+     */
     public void resultButtonsClicked(boolean isCorrect) {
         if (game.getDecksize() > 0) {
             if (game.getNextCard() < game.getDecksize() - 1) {

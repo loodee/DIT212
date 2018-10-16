@@ -2,21 +2,25 @@ package com.example.ohimarc.marc.presenter;
 
 
 
-import com.example.ohimarc.marc.view.mainMenu.StartMenuView;
+import com.example.ohimarc.marc.view.startMenuView.StartMenuView;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
-import com.example.ohimarc.marc.view.mainMenu.StartMenuContract;
-import com.example.ohimarc.marc.view.mainMenu.UserViewHolder;
+import com.example.ohimarc.marc.view.startMenuView.StartMenuContract;
+import com.example.ohimarc.marc.view.startMenuView.UserViewHolder;
 
 import java.util.List;
 
-
+/**
+ * @author Gustav Albertsson
+ *
+ * This class is repsonsible for handling communication between the StartMenu and the model
+ * */
 public class StartMenuPresenter implements StartMenuContract.Presenter{
 
     private List<String> users;
-    private UserStorage store;
-    private StartMenuView view;
+    private final UserStorage store;
+    private final StartMenuView view;
 
     /**
      * Creates a StartMenuPresenter which retrieve its persistent state from the given path
@@ -33,11 +37,6 @@ public class StartMenuPresenter implements StartMenuContract.Presenter{
         global.setUsers(mtt.getUsers());
 
         users = global.getUserNames();
-    }
-
-    @Override
-    public void start() {
-
     }
 
     @Override

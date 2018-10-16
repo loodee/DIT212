@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackGround"
-    tools:context=".view.ResultsActivity">
+    tools:context=".view.resultsView.ResultsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                 android:background="@android:color/white"
                 android:elevation="10dp"
                 android:onClick="retryButton"
-                android:text="Retry"
+                android:text="@string/retry_string"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <Button
@@ -71,7 +71,7 @@
                 android:layout_marginBottom="50dp"
                 android:background="@android:color/white"
                 android:elevation="10dp"
-                android:text="Return to decks"
+                android:text="@string/return_to_deck_string"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:onClick="returnClicked"/>
         </RelativeLayout>

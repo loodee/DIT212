@@ -12,13 +12,14 @@
     app:itemIconTint="@color/colorPrimary"
     app:itemTextColor="@android:color/black"
     app:menu="@menu/navigation_items"
-    tools:context=".view.ToolbarExtension">
+    tools:context=".view.toolbarExtensionView.ToolbarExtension">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:clickable="true"
+        android:focusable="true"
         android:orientation="vertical">
 
         <ImageView
@@ -26,9 +27,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="20dp"
-            android:paddingLeft="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:tint="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_baseline_person_24px" />
+            app:srcCompat="@drawable/ic_baseline_person_24px"
+            android:contentDescription="@string/logout" />
 
         <Button
             android:id="@+id/logout_button"
@@ -39,8 +42,9 @@
             android:background="@android:color/transparent"
             android:onClick="logoutClicked"
             android:paddingBottom="25dp"
-            android:paddingLeft="64dp"
-            android:text="Logout"
+            android:paddingStart="64dp"
+            android:paddingEnd="0dp"
+            android:text="@string/logout"
             android:textAlignment="viewStart"
             android:textAllCaps="false"
             android:textColor="@android:color/black" />

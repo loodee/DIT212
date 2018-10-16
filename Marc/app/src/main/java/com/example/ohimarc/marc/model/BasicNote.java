@@ -8,8 +8,9 @@ public class BasicNote extends Note {
 
     /**
      * Creates a BasicNote with `front` and `back` string values for generating cards.
+     *
      * @param front The text that will appear on the front of generated Cards.
-     * @param back The text that will appear on the back of generated Cards.
+     * @param back  The text that will appear on the back of generated Cards.
      */
     public BasicNote(String front, String back) {
         this.front = front != null ? front : "";
@@ -19,15 +20,14 @@ public class BasicNote extends Note {
 
     @Override
     public void generateCards() {
-        Card[] newCards = {new Card(front, back)};
-        cards = newCards;
+        cards = new Card[]{new Card(front, back)};
     }
 
     @Override
     public String[][] getCardInfo() {
         String[][] cardInfos = new String[cards.length][];
         for (int i = 0; i < cardInfos.length; i++) {
-            cardInfos[i] = new String[] {cards[i].getFront(), cards[i].getBack()};
+            cardInfos[i] = new String[]{cards[i].getFront(), cards[i].getBack()};
         }
         return cardInfos;
     }
@@ -35,12 +35,15 @@ public class BasicNote extends Note {
     public String getFront() {
         return front;
     }
+
     public void setFront(String front) {
         this.front = front;
     }
+
     public String getBack() {
         return back;
     }
+
     public void setBack(String back) {
         this.back = back;
     }

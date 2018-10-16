@@ -11,10 +11,11 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class MemorizationTrainingToolUnitTest {
 
-    MemorizationTrainingTool mtt;
+    private MemorizationTrainingTool mtt;
 
     @Before
     public void setUp(){
@@ -121,5 +122,12 @@ public class MemorizationTrainingToolUnitTest {
         assertEquals(2, mtt.getUserNames().size());
         assertEquals("Bob", mtt.getUserNames().get(0));
         assertEquals("Ed", mtt.getUserNames().get(1));
+    }
+
+    @Test
+    public void getInstance() {
+        MemorizationTrainingTool mtt1 = MemorizationTrainingTool.getInstance();
+        MemorizationTrainingTool mtt2 = MemorizationTrainingTool.getInstance();
+        assertTrue(mtt1 == mtt2 && mtt1 != null);
     }
 }
