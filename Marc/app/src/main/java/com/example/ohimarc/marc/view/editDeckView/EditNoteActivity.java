@@ -60,10 +60,10 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
 
         int noteIndex = Objects.requireNonNull(getIntent().getExtras()).getInt("noteIndex");
         int deckIndex = getIntent().getExtras().getInt("deckIndex");
-        String[] items = new String[]{"Basic note", "Cloze note"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+
         setupVars(noteIndex, deckIndex);
-        dropdown.setAdapter(adapter);
+
+        setupDropdown();
         setupListeners();
         setupToast();
     }
@@ -114,6 +114,22 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
     private void hideErrors() {
         frontLayout.setError(null);
         backLayout.setError(null);
+    private void setupDropdown() {
+        String[] items = new String[]{"Basic note", "Cloze note"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
+        int selection;
+        switch (type) {
+            case BASIC:
+                selection = 0;
+                break;
+            case CLOZE:
+                selection = 1;
+                break;
+            default:
+                selection = 0;
+        }
+        dropdown.setSelection(selection);
     }
 
     private void setupToast() {
@@ -125,7 +141,34 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         toast.setGravity(Gravity.TOP, 0, 16);
     }
 
+    private void basicSelected() {
+        frontLayout.setVisibility(View.VISIBLE);
+        backLayout.setVisibility(View.VISIBLE);
+        clozeLayout.setVisibility(View.GONE);
+
+        type = NoteType.BASIC;
+    }
+
+    private void clozeSelected() {
+        frontLayout.setVisibility(View.GONE);
+        backLayout.setVisibility(View.GONE);
+        clozeLayout.setVisibility(View.VISIBLE);
+
+        type = NoteType.CLOZE;
+    }
+
     private void setupListeners() {
+        clozeEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    confirmAdd();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
         backEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -169,24 +212,30 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
 
             }
         });
+        clozeEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hideErrors();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
         dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if (position == 0) { //får fixas så att den inte by default är på 0
-                    frontLayout.setVisibility(View.INVISIBLE);
-                    frontEditText.setHint("");
-                } else {
-                    frontLayout.setVisibility(View.VISIBLE);
-
-
-                }
+                if (id == 0) basicSelected();
+                else if (id == 1) clozeSelected();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                frontLayout.setVisibility(View.VISIBLE);
             }
-
         });
     }
 }
