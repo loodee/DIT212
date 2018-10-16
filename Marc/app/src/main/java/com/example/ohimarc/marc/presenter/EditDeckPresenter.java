@@ -13,6 +13,7 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     private Deck deck;
     private EditDeckActivity editDeckActivity;
 
+
     public EditDeckPresenter(EditDeckActivity a, int deckIndex) {
         this.editDeckActivity = a;
         this.deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
@@ -34,11 +35,19 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
         return deck.getDeckSize();
     }
 
+    /**
+     *
+     * @param adapterPosition is the index in the recyclerView that the user clicked at
+     */
     @Override
     public void onUserClickedAtPosition(int adapterPosition) {
         editDeckActivity.editCardInDeck(deck.getNoteIndexFromCardIndex(adapterPosition));
     }
 
+    /**
+     *
+     * @param adapterPosition is the index in the recyclerView that the user long clicked at
+     */
     @Override
     public void onUserLongClickedAtPosition(int adapterPosition) {
         editDeckActivity.promptForDeletion(deck.getNoteIndexFromCardIndex(adapterPosition), deck);
