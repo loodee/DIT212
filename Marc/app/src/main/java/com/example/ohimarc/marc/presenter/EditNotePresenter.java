@@ -26,10 +26,10 @@ public class EditNotePresenter {
         if (noteIndex != -1) {
             if (deck.getNote(noteIndex) instanceof BasicNote) {
                 BasicNote note = ((BasicNote) deck.getNote(noteIndex));
-                view.setValues(note.getFront(), note.getBack());
+                view.setupBasic(note.getFront(), note.getBack());
             } else if (deck.getNote(noteIndex) instanceof ClozeNote) {
                 ClozeNote note = ((ClozeNote) deck.getNote(noteIndex));
-                view.setValues(note.getText());
+                view.setupCloze(note.getText());
             }
         }
     }
@@ -42,6 +42,16 @@ public class EditNotePresenter {
      */
     public boolean invalidInput(String input) {
         return input.replaceAll("\\s", "").isEmpty();
+    }
+
+    /**
+     * Checks if the input string is an invalid cloze text (contains no cloze deletions).
+     *
+     * @param input String value to be validated
+     * @return true if the string contains no cloze deletions false otherwise
+     */
+    public boolean invalidInputCloze(String input) {
+        return input.matches("(.*)\\Q[[\\E(.*)\\Q::\\E(.*)\\Q]]\\E(.*)");
     }
 
     /**
@@ -66,6 +76,21 @@ public class EditNotePresenter {
             view.showToast();
         } else {
             view.showErrors();
+        }
+    }
+
+    public void confirmAddClicked(String text, boolean isEditing) {
+        boolean valid = true;
+        if (invalidInput(text)) valid = false;
+
+        if (valid) {
+            if (isEditing) {
+                deck.addClozeNote(text, noteIndex);
+                view.selfDestruct();
+            } else {
+                deck.addClozeNote(text);
+                view.resetInputs();
+            }
         }
     }
 }

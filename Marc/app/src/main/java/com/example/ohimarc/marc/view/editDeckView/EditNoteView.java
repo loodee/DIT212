@@ -11,9 +11,9 @@ public interface EditNoteView {
 
     void showErrors();
 
-    void setValues(String front, String back);
+    void setupBasic(String front, String back);
 
-    void setValues(String text);
+    void setupCloze(String text);
 
     void selfDestruct();
 }
