@@ -53,14 +53,7 @@ public class EditNotePresenter {
      * @return true if the string contains no cloze deletions false otherwise
      */
     public boolean invalidInputCloze(String input) {
-        if (input.replaceAll("\\s", "").isEmpty()) return true;
-
-        boolean invalid = true;
-        String[] words = input.split(" ");
-        for (String word : words) {
-            if (word.matches("(.*)\\Q[[\\E(.*)\\Q::\\E(.*)\\Q]]\\E(.*)")) invalid = false;
-        }
-        return invalid;
+        return !input.matches("(.*)\\Q[[\\E(.*)\\Q::\\E(.*)\\Q]]\\E(.*)");
     }
 
     /**
