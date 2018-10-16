@@ -49,4 +49,69 @@ public class ClozeNoteUnitTest {
     public void testGetText() {
         assertEquals(c.getText(), text1);
     }
+
+    @Test
+    public void add() {;
+        ClozeNote cn = new ClozeNote("[[a::Ed]] Hello [[b::Bob]]");
+
+        Card[] cards = cn.getCards();
+
+        cn.generateCards();
+
+        assertEquals(2, cards.length);
+        assertEquals("Ed Hello [..]", cards[1].getFront());
+        assertEquals("[..] Hello Bob", cards[0].getFront());
+        assertEquals("Ed Hello Bob", cards[0].getBack());
+        assertEquals("Ed Hello Bob", cards[1].getBack());
+    }
+
+
+    @Test
+    public void addMultiple() {
+        ClozeNote cn = new ClozeNote("[[a::Ed]] Hello [[a::Bob]]");
+
+        cn.generateCards();
+
+        Card[] cards = cn.getCards();
+        assertEquals(1, cards.length);
+
+        assertEquals("[..] Hello [..]", cards[0].getFront());
+    }
+
+    @Test
+    public void addInvalidSyntax() {
+        ClozeNote cn = new ClozeNote("Hello [[a::Bob]");
+
+        cn.generateCards();
+        Card[] cards = cn.getCards();
+
+
+        assertEquals(0, cards.length);
+    }
+
+    @Test
+    public void addWithSpecialCharacter() {
+        ClozeNote cn = new ClozeNote("Hello [[a::Bo]b]]");
+
+        cn.generateCards();
+
+        Card[] cards = cn.getCards();
+        assertEquals(1, cards.length);
+
+        assertEquals("Hello [..]", cards[0].getFront());
+        assertEquals("Hello Bo]b", cards[0].getBack());
+    }
+
+    @Test
+    public void addWithDoubleClosing() {
+        ClozeNote cn = new ClozeNote("Hello [[a::Bo]] b]]");
+
+        cn.generateCards();
+
+
+        Card[] cards = cn.getCards();
+        assertEquals(1, cards.length);
+        assertEquals("Hello [..] b]]", cards[0].getFront());
+        assertEquals("Hello Bo b]]", cards[0].getBack());
+    }
 }
