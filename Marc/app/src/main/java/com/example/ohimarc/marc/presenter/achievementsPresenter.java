@@ -6,13 +6,17 @@ import com.example.ohimarc.marc.view.achievementsView.AchievementsView;
 
 import java.util.List;
 
+/**
+ * @author Alexander Sandberg (alexandersand on github)
+ */
+
 public class AchievementsPresenter {
 
     private Achievements achievements;
-    private AchievementsView view;
+    private final AchievementsView view;
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
-    private List<Achievements.achievements> achiList;
-    private int achievementElements;
+    private List<Achievements.achievements> achievementList;
+    private final int achievementElements;
 
 
     public AchievementsPresenter(AchievementsView view, int achievementElements) {
@@ -21,39 +25,67 @@ public class AchievementsPresenter {
         onCreate();
     }
 
+    /**
+     * This method initializes a few variables. It also initializes the view to display the
+     * achievements correctly.
+     */
+
     private void onCreate() {
         achievements = mtt.getActiveUser().getAchievements();
-        achiList = achievements.getEnumsAsList();
-        setAchievements();
-        hideInactiveAchievements();
+        achievementList = achievements.getEnumsAsList();
+        setAchievementsTrophy();
+        setAchievementsInvisible();
     }
 
-    private void setAchievements() {
-        for(int i = 0; i < achiList.size() ; i++) {
-            if(achievements.getCompletedAchievements().contains(achiList.get(i))) {
+    /**
+     * This method makes all unlocked achievements display a trophy, instead of a lock, marking the
+     * achievements that have been achieved.
+     */
+
+    private void setAchievementsTrophy() {
+        for(int i = 0; i < achievementList.size() ; i++) {
+            if(achievements.getCompletedAchievements().contains(achievementList.get(i))) {
                 view.unlockAchievement(i);
             }
         }
     }
 
-    private void hideInactiveAchievements() {
-        for(int i = achiList.size() ; i < achievementElements ; i++) {
+    /**
+     * This method sets all unused achievements to be hidden from the user.
+     */
+
+    private void setAchievementsInvisible() {
+        for(int i = achievementList.size(); i < achievementElements ; i++) {
             view.hideAchievement(i);
         }
     }
 
+    /**
+     * This method handles the click of an achievement. A popup will be displayed by
+     * AchievementsActivity, which needs an informative text for the specific achievement. Thereby,
+     * this method checks if the achievement is active, creates a string out of the achievement enum,
+     * calls for a parsing of this string and sending it to the view.
+     * @param index
+     */
     public void achievementClicked(int index) {
-        if(index < achiList.size()) {
-            String s = achiList.get(index).toString();
+        if(index < achievementList.size()) {
+            String s = achievementList.get(index).toString();
             view.showAchievementPopup(parseString(s));
         }
     }
 
+    /**
+     * This method parses a given String. Here, a enum is expected of a certain form, i.e a text
+     * made out of all uppercase letters while containing underscores instead of spaces.
+     * Thereby, the parser removes all underscores with spaces, makes the whole text into lowercase,
+     * making the first letter of the string into uppercase and adds a dot in the end.
+     * @param s is the String to be parsed.
+     * @return a parsed version of the parameter s.
+     */
     private String parseString(String s) {
         String noUnderScore = s.replaceAll("_", " ");
         String lowerCase = noUnderScore.toLowerCase();
         String capitalized = lowerCase.substring(0, 1).toUpperCase() + lowerCase.substring(1);
-        String finalString = capitalized + ".";
-        return finalString;
+        return capitalized + ".";
     }
 }
