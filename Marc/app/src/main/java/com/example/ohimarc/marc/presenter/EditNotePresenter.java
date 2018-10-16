@@ -31,6 +31,8 @@ public class EditNotePresenter {
                 ClozeNote note = ((ClozeNote) deck.getNote(noteIndex));
                 view.setupCloze(note.getText());
             }
+        } else {
+            view.setupNew();
         }
     }
 

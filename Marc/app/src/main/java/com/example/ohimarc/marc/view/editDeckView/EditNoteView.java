@@ -15,5 +15,7 @@ public interface EditNoteView {
 
     void setupCloze(String text);
 
+    void setupNew();
+
     void selfDestruct();
 }
