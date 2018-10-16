@@ -11,6 +11,7 @@ public class AchievementsPresenter {
     private Achievements achievements;
     private AchievementsView view;
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
+    private List<Achievements.achievements> achiList;
 
 
     public AchievementsPresenter(AchievementsView view) {
@@ -20,14 +21,14 @@ public class AchievementsPresenter {
 
     private void onCreate() {
         achievements = mtt.getActiveUser().getAchievements();
+        achiList = achievements.getEnumsAsList();
         setAchievements();
     }
 
     private void setAchievements() {
-        List<Achievements.achievements> achis = achievements.getEnumsAsList();
-        for(int i = 0; i < achis.size() ; i++) {
-            if(achievements.getCompletedAchievements().contains(achis.get(i))) {
-                System.out.println(achis.get(i));
+        for(int i = 0; i < achiList.size() ; i++) {
+            if(achievements.getCompletedAchievements().contains(achiList.get(i))) {
+                System.out.println(achiList.get(i));
                 view.unlockAchievement(i);
             }
         }
