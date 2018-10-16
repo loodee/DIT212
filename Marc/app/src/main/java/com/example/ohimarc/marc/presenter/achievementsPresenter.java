@@ -12,10 +12,12 @@ public class AchievementsPresenter {
     private AchievementsView view;
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
     private List<Achievements.achievements> achiList;
+    private int achievementElements;
 
 
-    public AchievementsPresenter(AchievementsView view) {
+    public AchievementsPresenter(AchievementsView view, int achievementElements) {
         this.view = view;
+        this.achievementElements = achievementElements;
         onCreate();
     }
 
@@ -23,6 +25,7 @@ public class AchievementsPresenter {
         achievements = mtt.getActiveUser().getAchievements();
         achiList = achievements.getEnumsAsList();
         setAchievements();
+        hideInactiveAchievements();
     }
 
     private void setAchievements() {
@@ -31,6 +34,12 @@ public class AchievementsPresenter {
                 System.out.println(achiList.get(i));
                 view.unlockAchievement(i);
             }
+        }
+    }
+
+    private void hideInactiveAchievements() {
+        for(int i = achiList.size() ; i < achievementElements ; i++) {
+            view.hideAchievement(i);
         }
     }
 

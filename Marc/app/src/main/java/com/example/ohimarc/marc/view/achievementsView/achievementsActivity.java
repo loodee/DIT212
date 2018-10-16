@@ -39,7 +39,7 @@ public class AchievementsActivity extends AppCompatActivity implements Achieveme
 
 
         initItems();
-        presenter = new AchievementsPresenter(this);
+        presenter = new AchievementsPresenter(this, buttons.length);
     }
 
     private void initItems() {
@@ -58,6 +58,10 @@ public class AchievementsActivity extends AppCompatActivity implements Achieveme
 
     public void unlockAchievement(int index) {
         buttons[index].setBackground(trophy);
+    }
+
+    public void hideAchievement(int index) {
+        buttons[index].setVisibility(View.INVISIBLE);
     }
 
     public void buttonPress(View view) {
