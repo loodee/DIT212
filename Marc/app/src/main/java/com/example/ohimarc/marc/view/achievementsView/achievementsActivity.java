@@ -66,20 +66,28 @@ public class AchievementsActivity extends AppCompatActivity implements Achieveme
                 presenter.achievementClicked(0);
                 break;
             case R.id.ach2:
+                presenter.achievementClicked(1);
                 break;
             case R.id.ach3:
+                presenter.achievementClicked(2);
                 break;
             case R.id.ach4:
+                presenter.achievementClicked(3);
                 break;
             case R.id.ach5:
+                presenter.achievementClicked(4);
                 break;
             case R.id.ach6:
+                presenter.achievementClicked(5);
                 break;
             case R.id.ach7:
+                presenter.achievementClicked(6);
                 break;
             case R.id.ach8:
+                presenter.achievementClicked(7);
                 break;
             case R.id.ach9:
+                presenter.achievementClicked(8);
                 break;
             default: break;
         }
