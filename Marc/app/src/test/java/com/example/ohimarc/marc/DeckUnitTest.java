@@ -44,10 +44,14 @@ public class DeckUnitTest {
 
     @Test
     public void deleteNotes() {
-        String front1 = "front1"; String back1 = "back1";
-        String front2 = "front2"; String back2 = "back2";
-        String front3 = "front3"; String back3 = "back3";
-        String front4 = "front4"; String back4 = "back4";
+        String front1 = "front1";
+        String back1 = "back1";
+        String front2 = "front2";
+        String back2 = "back2";
+        String front3 = "front3";
+        String back3 = "back3";
+        String front4 = "front4";
+        String back4 = "back4";
 
         d.addBasicNote(front1, back1);
         d.addBasicNote(front2, back2);
@@ -79,15 +83,41 @@ public class DeckUnitTest {
     public void addBasicNote() {
         d.addBasicNote("front1", "back1");
         boolean b1 = d.getNote(0).getCards()[0].getFront().equals("front1");
-        d.addBasicNote("frontNew", "backNew",0);
+        d.addBasicNote("frontNew", "backNew", 0);
         boolean b2 = d.getNote(0).getCards()[0].getFront().equals("frontNew");
         assertTrue(b1 && b2);
     }
 
     @Test
-    public void inValidIndex(){
-        d.addBasicNote("front1","back1");
+    public void addClozeNote() {
+        String cloze1 = "[[c1::cloze1]] cloze1vis";
+        d.addClozeNote(cloze1);
+        d.addClozeNote("cloze2");
+        boolean correctSize = d.getDeckSize() == 1;
+        boolean correctCardFront = d.getNote(0).getCards()[0].getFront().equals("[..] cloze1vis");
+        boolean correctCardBack = d.getNote(0).getCards()[0].getBack().equals("cloze1 cloze1vis");
+        assertTrue(correctSize);
+        assertTrue(correctCardFront);
+        assertTrue(correctCardBack);
+    }
+
+    @Test
+    public void replaceClozeNote() {
+        String cloze1 = "[[c1::cloze1]] cloze1vis";
+        String cloze2 = "back [[c1::pack]]";
+        String cloze3 = "[[c1::try this]]";
+        String cloze4 = "replacement [[c1::clozer]]";
+        d.addClozeNote(cloze1);
+        d.addClozeNote(cloze2);
+        d.addClozeNote(cloze3);
+        d.addClozeNote(cloze4, 1);
+        assertEquals(d.getNote(1).getCards()[0].getBack(), "replacement clozer");
+    }
+
+    @Test
+    public void inValidIndex() {
+        d.addBasicNote("front1", "back1");
         int index = d.getNoteIndexFromCardIndex(-1);
-        assertEquals(-1,index);
+        assertEquals(-1, index);
     }
 }
