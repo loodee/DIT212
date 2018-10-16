@@ -32,4 +32,8 @@ public class AchievementsPresenter {
             }
         }
     }
+
+    public void achievementClicked(int index) {
+
+    }
 }

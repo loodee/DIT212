@@ -63,6 +63,7 @@ public class AchievementsActivity extends AppCompatActivity implements Achieveme
     public void buttonPress(View view) {
         switch (view.getId()) {
             case R.id.ach1:
+                presenter.achievementClicked(0);
                 break;
             case R.id.ach2:
                 break;
