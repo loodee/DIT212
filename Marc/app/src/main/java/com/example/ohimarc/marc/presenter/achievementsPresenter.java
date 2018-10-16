@@ -31,7 +31,6 @@ public class AchievementsPresenter {
     private void setAchievements() {
         for(int i = 0; i < achiList.size() ; i++) {
             if(achievements.getCompletedAchievements().contains(achiList.get(i))) {
-                System.out.println(achiList.get(i));
                 view.unlockAchievement(i);
             }
         }
