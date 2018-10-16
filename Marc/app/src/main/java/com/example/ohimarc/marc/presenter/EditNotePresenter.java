@@ -73,7 +73,7 @@ public class EditNotePresenter {
      * @return true if the string contains no cloze deletions false otherwise
      */
     public boolean invalidInputCloze(String input) {
-        return !input.matches("(.*)\\Q[[\\E(.*)\\Q::\\E(.*)\\Q]]\\E(.*)");
+        return !input.matches("(.*) \\Q[[\\E[^ ]*\\Q::\\E[^ ]*\\Q]]\\E (.*)");
     }
 
     /**

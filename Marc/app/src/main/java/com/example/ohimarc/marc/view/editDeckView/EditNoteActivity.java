@@ -1,5 +1,6 @@
 package com.example.ohimarc.marc.view.editDeckView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -150,7 +151,8 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
             if (presenter.invalidInput(frontText)) frontLayout.setError(errorMsg);
             if (presenter.invalidInput(backText)) backLayout.setError(errorMsg);
         } else if (type == NoteType.CLOZE) {
-            String errorMsg = "Cloze notes must use at least one cloze deletion.";
+            // TODO: Implement more specific error messages
+            String errorMsg = "Invalid cloze note syntax.";
             String clozeText = clozeEditText.getText().toString();
 
             if (presenter.invalidInputCloze(clozeText)) clozeLayout.setError(errorMsg);
@@ -181,6 +183,7 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         dropdown.setSelection(selection);
     }
 
+    @SuppressLint("ShowToast")
     private void setupToast() {
         Context context = getApplicationContext();
         CharSequence text = "Note saved.";
