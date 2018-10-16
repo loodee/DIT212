@@ -53,15 +53,24 @@ public class EditNotePresenter {
      * @return true if the string contains no cloze deletions false otherwise
      */
     public boolean invalidInputCloze(String input) {
-        return input.matches("(.*)\\Q[[\\E(.*)\\Q::\\E(.*)\\Q]]\\E(.*)");
+        if (input.replaceAll("\\s", "").isEmpty()) return true;
+
+        boolean invalid = true;
+        String[] words = input.split(" ");
+        for (String word : words) {
+            if (word.matches("(.*)\\Q[[\\E(.*)\\Q::\\E(.*)\\Q]]\\E(.*)")) invalid = false;
+        }
+        return invalid;
     }
 
     /**
+     * Validates the input and saves the cloze note to the deck, or triggers an error if the input is invalid
+     *
      * @param front     String value to go on the front of the card.
      * @param back      String value to go on the back of the card.
      * @param isEditing true if editing an existing Note, false if creating a new Note,
      */
-    public void confirmAddClicked(String front, String back, boolean isEditing) {
+    public void confirmAddBasicClicked(String front, String back, boolean isEditing) {
         boolean valid = true;
         if (invalidInput(front)) valid = false;
         else if (invalidInput(back)) valid = false;
@@ -76,14 +85,17 @@ public class EditNotePresenter {
             }
             store.storeState(MemorizationTrainingTool.getInstance());
             view.showToast();
-        } else {
-            view.showErrors();
-        }
+        } else view.showErrors();
     }
 
-    public void confirmAddClicked(String text, boolean isEditing) {
-        boolean valid = true;
-        if (invalidInput(text)) valid = false;
+    /**
+     * Validates the input and saves the cloze note to the deck, or triggers an error if the input is invalid
+     *
+     * @param text      String value to be parsed into cloze cards
+     * @param isEditing true if editing an existing Note, false if creating a new Note
+     */
+    public void confirmAddClozeClicked(String text, boolean isEditing) {
+        boolean valid = !invalidInputCloze(text);
 
         if (valid) {
             if (isEditing) {
@@ -93,6 +105,8 @@ public class EditNotePresenter {
                 deck.addClozeNote(text);
                 view.resetInputs();
             }
-        }
+            store.storeState(MemorizationTrainingTool.getInstance());
+            view.showToast();
+        } else view.showErrors();
     }
 }
