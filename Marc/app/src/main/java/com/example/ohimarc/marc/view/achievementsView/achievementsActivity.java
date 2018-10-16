@@ -13,8 +13,9 @@ import android.widget.Button;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.AchievementsPresenter;
+import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
-public class AchievementsActivity extends AppCompatActivity implements AchievementsView {
+public class AchievementsActivity extends ToolbarExtension implements AchievementsView {
 
 
     private Button[] buttons = new Button[16];
@@ -26,10 +27,9 @@ public class AchievementsActivity extends AppCompatActivity implements Achieveme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievements);
-
-
         initItems();
         presenter = new AchievementsPresenter(this, buttons.length);
+        initExtension(this, R.id.activity_achievements, "Achievements");
     }
 
     private void initItems() {
