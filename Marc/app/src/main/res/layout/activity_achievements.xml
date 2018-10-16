@@ -105,4 +105,82 @@
         android:onClick="buttonPress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ach5" />
+
+    <Button
+        android:id="@+id/ach10"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_lock_24px"
+        android:onClick="buttonPress"
+        app:layout_constraintStart_toEndOf="@+id/ach9"
+        app:layout_constraintTop_toBottomOf="@+id/ach6" />
+
+    <Button
+        android:id="@+id/ach11"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_lock_24px"
+        android:onClick="buttonPress"
+        app:layout_constraintStart_toEndOf="@+id/ach10"
+        app:layout_constraintTop_toBottomOf="@+id/ach7" />
+
+    <Button
+        android:id="@+id/ach12"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_lock_24px"
+        android:onClick="buttonPress"
+        app:layout_constraintStart_toEndOf="@+id/ach11"
+        app:layout_constraintTop_toBottomOf="@+id/ach8" />
+
+    <Button
+        android:id="@+id/ach13"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_lock_24px"
+        android:onClick="buttonPress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ach9" />
+
+    <Button
+        android:id="@+id/ach14"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_lock_24px"
+        android:onClick="buttonPress"
+        app:layout_constraintStart_toEndOf="@+id/ach13"
+        app:layout_constraintTop_toBottomOf="@+id/ach10" />
+
+    <Button
+        android:id="@+id/ach15"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_lock_24px"
+        android:onClick="buttonPress"
+        app:layout_constraintStart_toEndOf="@+id/ach14"
+        app:layout_constraintTop_toBottomOf="@+id/ach11" />
+
+    <Button
+        android:id="@+id/ach16"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_lock_24px"
+        android:onClick="buttonPress"
+        app:layout_constraintStart_toEndOf="@+id/ach15"
+        app:layout_constraintTop_toBottomOf="@+id/ach12" />
+
 </android.support.constraint.ConstraintLayout>
