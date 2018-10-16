@@ -18,7 +18,13 @@ public abstract class Note {
      * @return Array of tuples of strings, where index 0 contains the info on the front,
      * and index 1 contains the information on the back
      */
-    abstract String[][] getCardInfo();
+    public String[][] getCardInfo() {
+        String[][] cardInfos = new String[cards.length][];
+        for (int i = 0; i < cardInfos.length; i++) {
+            cardInfos[i] = new String[]{cards[i].getFront(), cards[i].getBack()};
+        }
+        return cardInfos;
+    }
 
     public Card[] getCards() {
         return cards;
