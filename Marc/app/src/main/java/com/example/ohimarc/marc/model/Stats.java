@@ -98,7 +98,7 @@ public class Stats {
     private void checkIfAchiIsCompleted(String gamemode){
         boolean allachis = true;
         for(int i = 0;i<stats.size();i++) {
-            if(stats.get(i).get(gamemode).getAllCorrect()) {
+            if(stats.get(i).get(gamemode) != null && stats.get(i).get(gamemode).getAllCorrect()) {
                 userAchievements.updateAchievements(Achievements.achievements.GET_ALL_ANSWERS_CORRECT_IN_A_DECK);
             }
         }
@@ -114,7 +114,7 @@ public class Stats {
         if(totalTimesPlayed >= 100){
             userAchievements.updateAchievements(Achievements.achievements.REVIEWED_100_TIMES_IN_TOTAL);
         }
-        if(stats.get(0).get(gamemode).getTimesPlayed() <= 1){
+        if(stats.get(0).get(gamemode) != null && stats.get(0).get(gamemode).getTimesPlayed() <= 1){
             userAchievements.updateAchievements(Achievements.achievements.PLAYED_YOUR_FIRST_DECK);
         }
         for(int i = 0; i<userAchievements.getEnumsAsList().size()-1; i++){

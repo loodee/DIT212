@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
+/**
+ * @author Victor Johansson (Vroxie on github)
+ */
 public class Achievements {
 
     public enum achievements {

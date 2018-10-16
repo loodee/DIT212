@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertTrue;
 
 public class StatsUnitTest {
 
@@ -151,6 +152,15 @@ public class StatsUnitTest {
 
         assertNotNull(stat);
         assertEquals(0, stat.length);
+    }
+
+    @Test
+    public void getAllCorrectTest(){
+        stats.addStatistics(0,"A",10,true);
+
+        Stat[] stat = stats.getStatsForDeck(0);
+
+        assertTrue(stat[0].getAllCorrect());
     }
 
 }
