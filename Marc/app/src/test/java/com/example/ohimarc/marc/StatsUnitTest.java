@@ -21,7 +21,7 @@ public class StatsUnitTest {
 
     @Test
     public void addNewStat(){
-        stats.addStatistics(0,"A",10,true);
+        stats.addStatistics(0,"A",10,10);
 
         Stat[] stat = stats.getStatsForDeck(0);
 
@@ -34,8 +34,8 @@ public class StatsUnitTest {
 
     @Test
     public void updateStats(){
-        stats.addStatistics(0,"A",10,true);
-        stats.addStatistics(0,"A", 5,false);
+        stats.addStatistics(0,"A",10,10);
+        stats.addStatistics(0,"A", 5,10);
 
         Stat[] stat = stats.getStatsForDeck(0);
 
@@ -48,8 +48,8 @@ public class StatsUnitTest {
 
     @Test
     public void addMultipleStats(){
-        stats.addStatistics(0,"A",10,true);
-        stats.addStatistics(0,"B", 5,false);
+        stats.addStatistics(0,"A",10,10);
+        stats.addStatistics(0,"B", 5,8);
 
         Stat[] stat = stats.getStatsForDeck(0);
 
@@ -69,9 +69,9 @@ public class StatsUnitTest {
 
     @Test
     public void addMultipleUpdate(){
-        stats.addStatistics(0,"A",10,true);
-        stats.addStatistics(0,"B", 5,false);
-        stats.addStatistics(0, "A", 8,false);
+        stats.addStatistics(0,"A",10,10);
+        stats.addStatistics(0,"B", 5,7);
+        stats.addStatistics(0, "A", 8,10);
 
         Stat[] stat = stats.getStatsForDeck(0);
 
@@ -91,9 +91,9 @@ public class StatsUnitTest {
 
     @Test
     public void multipleDecks(){
-        stats.addStatistics(0,"A",10,true);
-        stats.addStatistics(1,"B", 5,false);
-        stats.addStatistics(0, "A", 8,false);
+        stats.addStatistics(0,"A",10,10);
+        stats.addStatistics(1,"B", 5,8);
+        stats.addStatistics(0, "A", 8,10);
 
         Stat[] stat = stats.getStatsForDeck(0);
         Stat[] stat2 = stats.getStatsForDeck(1);
@@ -115,9 +115,9 @@ public class StatsUnitTest {
 
     @Test
     public void removeDeck(){
-        stats.addStatistics(0,"A",10,true);
-        stats.addStatistics(1,"B", 5,false);
-        stats.addStatistics(0, "A", 8,false);
+        stats.addStatistics(0,"A",10,10);
+        stats.addStatistics(1,"B", 5,7);
+        stats.addStatistics(0, "A", 8,10);
 
         stats.removeDeck(0);
 
@@ -134,11 +134,11 @@ public class StatsUnitTest {
 
     @Test
     public void getUserStat(){
-        stats.addStatistics(0,"A",10,true);
+        stats.addStatistics(0,"A",10,10);
 
         assertEquals(1, stats.getUserStats()[0]);
 
-        stats.addStatistics(0,"A",2,false);
+        stats.addStatistics(0,"A",2,10);
 
         assertEquals(2, stats.getUserStats()[0]);
     }
@@ -156,7 +156,17 @@ public class StatsUnitTest {
 
     @Test
     public void getAllCorrectTest(){
-        stats.addStatistics(0,"A",10,true);
+        stats.addStatistics(0,"A",10,10);
+
+        Stat[] stat = stats.getStatsForDeck(0);
+
+        assertTrue(stat[0].getAllCorrect());
+    }
+
+    @Test
+    public void getAllCorrectSecondTime(){
+        stats.addStatistics(0,"A",9,10);
+        stats.addStatistics(0,"A",10,10);
 
         Stat[] stat = stats.getStatsForDeck(0);
 

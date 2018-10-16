@@ -23,7 +23,7 @@ public class Stats {
      * @param gameMode The game mode
      * @param score    the score that the user got when playing the deck
      */
-    public void addStatistics(int index, String gameMode, int score, boolean allCorrect) {
+    public void addStatistics(int index, String gameMode, int score, int deckSize) {
         //New deck
         if (index >= stats.size()) {
             stats.add(new HashMap<String, Stat>());
@@ -34,12 +34,12 @@ public class Stats {
 
         Stat gameStats = deckStats.get(gameMode);
         if (gameStats == null) { //Dealing with new game mode
-            Stat stat = new Stat(gameMode,allCorrect);
-            stat.updateStat(score);
+            Stat stat = new Stat(gameMode);
+            stat.updateStat(score, deckSize);
 
             deckStats.put(gameMode, stat);
         } else { //Known deck and known game mode
-            gameStats.updateStat(score);
+            gameStats.updateStat(score, deckSize);
         }
 
         totalTimesPlayed++;

@@ -8,7 +8,7 @@ package com.example.ohimarc.marc.model;
 public class Stat {
     private int highScore;
     private int timesPlayed;
-    private final boolean allCorrect;
+    private boolean allCorrect;
     private double averageScore;
     private final String gameMode;
 
@@ -16,12 +16,12 @@ public class Stat {
     /**
      * TODO: should allCorrect be here, should it not be in updateStats?, Now we can not change it once it is created
      * */
-    Stat(String gameMode, boolean allCorrect) {
+    Stat(String gameMode) {
         this.gameMode = gameMode;
         highScore = 0;
         timesPlayed = 0;
         averageScore = 0;
-        this.allCorrect = allCorrect;
+        this.allCorrect = false;
     }
 
     /**
@@ -40,10 +40,11 @@ public class Stat {
      * Updates the statistics that that is saved based on the given score
      * @param score The score that the user got
      * */
-    public void updateStat(int score) {
+    public void updateStat(int score, int deckSize) {
         highScore = Math.max(highScore, score);
         averageScore = ((averageScore * timesPlayed) + score) / (timesPlayed + 1);
         timesPlayed++;
+        allCorrect = allCorrect || deckSize==score;
     }
 
     public double getAverageScore() {
