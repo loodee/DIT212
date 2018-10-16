@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.presenter.AchievementsPresenter;
 
 public class AchievementsActivity extends AppCompatActivity implements AchievementsView {
 
@@ -23,13 +24,17 @@ public class AchievementsActivity extends AppCompatActivity implements Achieveme
     private Button[] buttons = new Button[9];
     private Drawable trophy;
 
+    private AchievementsPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievements);
 
+
         initItems();
         assignButtons();
+        presenter = new AchievementsPresenter(this);
     }
 
     private void initItems() {
@@ -56,10 +61,9 @@ public class AchievementsActivity extends AppCompatActivity implements Achieveme
         buttons[7] = ach7;
         buttons[8] = ach8;
     }
-    private void unlockAchievements() {
-        for(Button b : buttons) {
-            b.setBackground(trophy);
-        }
+
+    public void unlockAchievement(int index) {
+        buttons[index].setBackground(trophy);
     }
 
 }
