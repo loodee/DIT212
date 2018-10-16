@@ -12,6 +12,7 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.EditNotePresenter;
+
+import java.util.Objects;
 
 public class EditNoteActivity extends AppCompatActivity implements EditNoteView {
     private EditNotePresenter presenter;
@@ -55,15 +58,14 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
 
-        int noteIndex = getIntent().getExtras().getInt("noteIndex");
+        int noteIndex = Objects.requireNonNull(getIntent().getExtras()).getInt("noteIndex");
         int deckIndex = getIntent().getExtras().getInt("deckIndex");
         String[] items = new String[]{"Basic note", "Cloze note"};
-
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         setupVars(noteIndex, deckIndex);
+        dropdown.setAdapter(adapter);
         setupListeners();
         setupToast();
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(adapter);
     }
 
     public void selfDestruct() {
@@ -166,6 +168,25 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
             public void afterTextChanged(Editable s) {
 
             }
+        });
+        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                if (position == 0) { //får fixas så att den inte by default är på 0
+                    frontLayout.setVisibility(View.INVISIBLE);
+                    frontEditText.setHint("");
+                } else {
+                    frontLayout.setVisibility(View.VISIBLE);
+
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                frontLayout.setVisibility(View.VISIBLE);
+            }
+
         });
     }
 }
