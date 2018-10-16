@@ -12,10 +12,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class LocalUserStorageUnitTests {
@@ -29,7 +26,7 @@ public class LocalUserStorageUnitTests {
     public TemporaryFolder folder = new TemporaryFolder();
 
     @Before
-    public void setup(){
+    public void setup() {
         mtt = new MemorizationTrainingTool();
         try {
             storage = new LocalUserStorage(folder.newFolder("test").getAbsolutePath());
@@ -95,7 +92,7 @@ public class LocalUserStorageUnitTests {
         storage.storeState(mtt);
         stored = storage.getStoredState();
 
-        assertEquals(1,stored.getActiveUser().getDeckTitles().size());
+        assertEquals(1, stored.getActiveUser().getDeckTitles().size());
         assertEquals(mtt.getActiveUser().getDeckTitles().get(0), stored.getActiveUser().getDeckTitles().get(0));
     }
 
@@ -112,7 +109,7 @@ public class LocalUserStorageUnitTests {
         storage.storeState(mtt);
         stored = storage.getStoredState();
 
-        assertEquals(3,stored.getActiveUser().getDeckTitles().size());
+        assertEquals(3, stored.getActiveUser().getDeckTitles().size());
         assertEquals(mtt.getActiveUser().getDeckTitles().get(0), stored.getActiveUser().getDeckTitles().get(0));
         assertEquals(mtt.getActiveUser().getDeckTitles().get(1), stored.getActiveUser().getDeckTitles().get(1));
         assertEquals(mtt.getActiveUser().getDeckTitles().get(2), stored.getActiveUser().getDeckTitles().get(2));
@@ -173,7 +170,7 @@ public class LocalUserStorageUnitTests {
         d.addBasicNote("Some front2", "Some back2");
 
         d = u.getDeck(1);
-        d.addBasicNote("Front","Back");
+        d.addBasicNote("Front", "Back");
 
         storage.storeState(mtt);
         stored = storage.getStoredState();

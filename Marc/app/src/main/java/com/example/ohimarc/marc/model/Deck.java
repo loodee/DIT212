@@ -1,13 +1,18 @@
 package com.example.ohimarc.marc.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * Class containing groups of Card objects and functions for retrieving information from the cards.
+ * The Deck class is responsible for managing its Notes, as well as retrieving information about
+ * the cards contained within its Notes.
+ *
+ * @author Thomas Li
+ * @author Gustav Albertsson
  */
 public class Deck {
-    private List<Note> notes;
+    private final List<Note> notes;
     private String title;
 
     /**
@@ -76,9 +81,7 @@ public class Deck {
     public String[][] getCardCopies() {
         ArrayList<String[]> copies = new ArrayList<>();
         for (Note n : notes) {
-            for (String[] cardInfo : n.getCardInfo()) {
-                copies.add(cardInfo);
-            }
+            Collections.addAll(copies, n.getCardInfo());
         }
         return copies.toArray(new String[0][]);
     }
@@ -97,9 +100,7 @@ public class Deck {
 
     public int getDeckSize() {
         int size = 0;
-        for (Note n : notes) {
-            size += n.getSize();
-        }
+        for (Note n : notes) size += n.getSize();
         return size;
     }
 }

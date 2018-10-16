@@ -6,19 +6,18 @@ import android.view.View;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.HomePresenter;
-import com.example.ohimarc.marc.StaticTestDeck;
-import com.example.ohimarc.marc.view.editdeck.EditDeckActivity;
+import com.example.ohimarc.marc.view.choosingDeck.ChoosingDeckActivity;
 
-public class Home extends ToolbarExtension {
+public class HomeActivity extends ToolbarExtension {
 
-    HomePresenter presenter = new HomePresenter();
+    private final HomePresenter presenter = new HomePresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home);
-        initExtension(this, R.id.homeactivity,"Home");
+        initExtension(this, R.id.homeactivity,"HomeActivity");
     }
 
     @Override
@@ -33,14 +32,14 @@ public class Home extends ToolbarExtension {
         finish();
     }
 
-    public void exercise_button(View view) {
-        Intent intent = new Intent(Home.this, FlashcardActivity.class);
+    public void exerciseButton(View view) {
+        Intent intent = new Intent(HomeActivity.this, ChoosingDeckActivity.class);
         startActivity(intent);
         //finish();
     }
 
-    public void deck_button(View view){
-        Intent intent = new Intent(Home.this,AddRemoveDeckActivity.class);
+    public void deckButton(View view){
+        Intent intent = new Intent(HomeActivity.this,AddRemoveDeckActivity.class);
         startActivity(intent);
     }
 

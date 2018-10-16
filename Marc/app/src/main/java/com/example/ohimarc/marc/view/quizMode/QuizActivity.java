@@ -21,9 +21,10 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     private Button answerButton2;
     private Button answerButton3;
     private Button answerButton4;
-    Button[] buttons = new Button[4];
+    private final Button[] buttons = new Button[4];
 
     private boolean hasAnswered = false;
+    private int deckIndex;
 
     private TextView questionText;
 
@@ -31,11 +32,14 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
         questionText = findViewById(R.id.card);
 
         assignButtons();
         putButtonsInButtons();
-        presenter = new QuizPresenter(this);
+        unpackBundle();
+
+        presenter = new QuizPresenter(this, deckIndex);
         presenter.onCreate();
         initExtension(this, R.id.quiz_activity, presenter.getDeckTitle());
     }
@@ -104,19 +108,10 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
                 b.setBackgroundColor(Color.WHITE);
             }
             hasAnswered = false;
-        }
-        else {
+        } else {
             Toast toast = Toast.makeText(this, "Please select an answer.", Toast.LENGTH_LONG);
             toast.show();
         }
-    }
-
-    private void packBundle(Intent intent) {
-        Bundle b = new Bundle();
-        b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
-        b.putString("deckTitle", presenter.getDeckTitle());
-        b.putString("mode", presenter.getGameName());
-        intent.putExtras(b);
     }
 
     public void changeView() {
@@ -124,6 +119,21 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
         packBundle(intent);
         startActivity(intent);
         finish();
+    }
+
+    private void unpackBundle() {
+        Bundle b = getIntent().getExtras();
+        if (b != null) {
+            deckIndex = b.getInt("deckIndex");
+        }
+    }
+
+    private void packBundle(Intent intent) {
+        Bundle b = new Bundle();
+        b.putIntegerArrayList("results", presenter.getAmountCorrectAnswers());
+        b.putInt("deckIndex", deckIndex);
+        b.putString("mode", presenter.getGameName());
+        intent.putExtras(b);
     }
 
     @Override

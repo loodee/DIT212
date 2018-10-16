@@ -17,14 +17,14 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
-import com.example.ohimarc.marc.presenter.MainMenuPresenter;
-import com.example.ohimarc.marc.view.Home;
+import com.example.ohimarc.marc.presenter.StartMenuPresenter;
+import com.example.ohimarc.marc.view.HomeActivity;
 
 
 
 public class StartMenuActivity extends AppCompatActivity implements StartMenuView {
 
-    private MainMenuPresenter mainPresenter;
+    private StartMenuPresenter mainPresenter;
     private AdapterUserRC adapter;
     
     @Override
@@ -34,10 +34,10 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
 
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.activity_toolbar));
 
-        mainPresenter = new MainMenuPresenter(this,getFilesDir().getAbsolutePath());
+        mainPresenter = new StartMenuPresenter(this,getFilesDir().getAbsolutePath());
         mainPresenter.start();
 
-        if(mainPresenter.logedin()){
+        if(mainPresenter.loggedIn()){
             login();
         }
 
@@ -53,7 +53,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         addCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showAddUserPopup(v);
+                showAddUserPopup();
             }
         });
 
@@ -66,12 +66,12 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
         return true;
     }
 
-    public void showAddUserPopup(View view) {
+    private void showAddUserPopup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Create User");
 
         View viewInflated = LayoutInflater.from(this).inflate(R.layout.add_user_popup, (ViewGroup) findViewById(R.id.baseLayout), false);
-        final EditText input = (EditText) viewInflated.findViewById(R.id.input);
+        final EditText input = viewInflated.findViewById(R.id.input);
         builder.setView(viewInflated);
 
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -93,7 +93,7 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
     }
 
     public void login() {
-        Intent intent = new Intent(StartMenuActivity.this, Home.class);
+        Intent intent = new Intent(StartMenuActivity.this, HomeActivity.class);
 
         startActivity(intent);
         finish();

@@ -1,5 +1,9 @@
 package com.example.ohimarc.marc.model;
 
+/**
+ * The Note class holds a list of cards, and information for how to generate them.
+ * @author Thomas Li
+ */
 public abstract class Note {
     Card[] cards;
 

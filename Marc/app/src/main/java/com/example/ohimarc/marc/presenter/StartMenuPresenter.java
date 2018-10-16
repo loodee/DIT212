@@ -12,17 +12,17 @@ import com.example.ohimarc.marc.view.mainMenu.UserViewHolder;
 import java.util.List;
 
 
-public class MainMenuPresenter implements StartMenuContract.Presenter{
+public class StartMenuPresenter implements StartMenuContract.Presenter{
 
     private List<String> users;
     private UserStorage store;
     private StartMenuView view;
 
     /**
-     * Creates a MainMenuPresenter which retrieve its persistent state from the given path
+     * Creates a StartMenuPresenter which retrieve its persistent state from the given path
      * @param filePath The absolute filepath where the persistent state file is saved
      * */
-    public MainMenuPresenter(StartMenuView view, String filePath) {
+    public StartMenuPresenter(StartMenuView view, String filePath) {
         store = new LocalUserStorage(filePath);
         this.view = view;
 
@@ -65,7 +65,7 @@ public class MainMenuPresenter implements StartMenuContract.Presenter{
     /**
      * @return Returns true if a user is currently logged in, otherwise returns false
      * */
-    public boolean logedin() {
+    public boolean loggedIn() {
         return MemorizationTrainingTool.getInstance().getActiveUser() != null;
     }
 

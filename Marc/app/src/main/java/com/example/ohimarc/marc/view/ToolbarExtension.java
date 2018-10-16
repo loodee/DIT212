@@ -17,23 +17,25 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ToolbarExtensionPresenter;
+import com.example.ohimarc.marc.view.choosingDeck.ChoosingDeckActivity;
 import com.example.ohimarc.marc.view.mainMenu.StartMenuActivity;
-import com.example.ohimarc.marc.view.quizMode.QuizActivity;
+
+import java.util.Objects;
 
 abstract public class ToolbarExtension extends AppCompatActivity implements ToolbarExtensionView {
 
-    ToolbarExtensionPresenter tep;
+    private ToolbarExtensionPresenter presenter;
 
     protected TextView titleText;
-    protected Toolbar tb;
-    protected DrawerLayout navView;
-    protected ActionBarDrawerToggle navToggle;
-    protected NavigationView navigation;
+    private Toolbar tb;
+    private DrawerLayout navView;
+    private ActionBarDrawerToggle navToggle;
+    private NavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tep = new ToolbarExtensionPresenter(this, getFilesDir().getAbsolutePath());
+        presenter = new ToolbarExtensionPresenter(this, getFilesDir().getAbsolutePath());
     }
 
     private void initViews(int viewID) {
@@ -45,7 +47,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
 
     private void setUpToolbar() {
         setSupportActionBar(tb);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
     }
 
@@ -53,7 +55,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
         navToggle = new ActionBarDrawerToggle(act, navView, R.string.open, R.string.close);
         navView.addDrawerListener(navToggle);
         navToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
     protected void initExtension(Activity activity, int viewID, String title) {
@@ -62,13 +64,6 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
         initNavToggle(activity);
         initNavigationListeners();
         titleText.setText(title);
-    }
-
-    protected void initExtension(Activity activity, int viewID) {
-        initViews(viewID);
-        setUpToolbar();
-        initNavToggle(activity);
-        initNavigationListeners();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -85,7 +80,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     }
 
     private boolean inHome() {
-        if (this.getClass().getSimpleName().equals(Home.class.getSimpleName())) {
+        if (this.getClass().getSimpleName().equals(HomeActivity.class.getSimpleName())) {
             return true;
         }
         return false;
@@ -105,20 +100,20 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         }
                         return true;
                     case (R.id.exercises_button):
-                        intent = new Intent(getApplicationContext(), FlashcardActivity.class);
-                        nextActivity = FlashcardActivity.class;
+                        intent = new Intent(getApplicationContext(), ChoosingDeckActivity.class);
+                        nextActivity = ChoosingDeckActivity.class;
                         break;
                     case (R.id.achievements_button):
                         intent = null;
                         nextActivity = null;
                         break;
                     case (R.id.decks_button):
-                        intent = new Intent(getApplicationContext(),AddRemoveDeckActivity.class);
+                        intent = new Intent(getApplicationContext(), AddRemoveDeckActivity.class);
                         nextActivity = AddRemoveDeckActivity.class;
                         break;
                     case (R.id.settings_button):
-                        intent = new Intent(getApplicationContext(), QuizActivity.class);
-                        nextActivity = QuizActivity.class;
+                        intent = null;
+                        nextActivity = null;
                         break;
                     default:
                         intent = null;
@@ -142,7 +137,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     }
 
     public void logoutClicked(View v) {
-        tep.logoutButton();
+        presenter.logoutButton();
     }
 
     public void navigateLogout() {

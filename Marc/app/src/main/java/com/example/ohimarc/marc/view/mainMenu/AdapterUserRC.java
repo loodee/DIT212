@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.example.ohimarc.marc.R;
 
-public class AdapterUserRC extends RecyclerView.Adapter<UserViewHolder> {
+class AdapterUserRC extends RecyclerView.Adapter<UserViewHolder> {
 
     private final StartMenuContract.Presenter presenter;
 
