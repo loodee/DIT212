@@ -89,4 +89,8 @@ public class User {
         boolean allCorrect = getDeck(index).getDeckSize() == score;
         stats.addStatistics(index ,gameMode, score,allCorrect);
     }
+
+    public Achievements getAchievements() {
+        return stats.getAchievements();
+    }
 }
