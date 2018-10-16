@@ -72,6 +72,31 @@ public class DeckUnitTest {
     }
 
     @Test
+    public void getNoteIndexFromCardIndex() {
+        String front1 = "front1";
+        String back1 = "back1";
+        String cloze1 = "[[1::rocksteady]] the [[2::rhino]] man";
+        String front2 = "front2";
+        String back2 = "back2";
+        String cloze2 = "programming in [[1::java]]";
+        String front3 = "the best programming language";
+        String back3 = "curry";
+        String cloze3 = "[[1::triple]] cloze [[1::goodness]] for [[2::greater]] [[3::good]]";
+
+        d.addBasicNote(front1, back1);
+        d.addClozeNote(cloze1);
+        d.addBasicNote(front2, back2);
+        d.addClozeNote(cloze2);
+        d.addBasicNote(front3, back3);
+        d.addClozeNote(cloze3);
+
+        assertEquals(1, d.getNoteIndexFromCardIndex(1));
+        assertEquals(1, d.getNoteIndexFromCardIndex(2));
+        assertEquals(2, d.getNoteIndexFromCardIndex(3));
+        assertEquals(5, d.getNoteIndexFromCardIndex(d.getDeckSize() - 1));
+    }
+
+    @Test
     public void testGets() {
         d.addBasicNote("front 1", "front2");
         boolean b1 = d.getNote(0).getCards()[0].getFront().equals("front 1");

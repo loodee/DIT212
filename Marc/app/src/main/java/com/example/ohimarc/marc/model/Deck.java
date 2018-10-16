@@ -83,9 +83,9 @@ public class Deck {
      */
     public int getNoteIndexFromCardIndex(int index) {
         int counter = -1;
-        if (index >= 0 && index < notes.size()) {
+        if (index >= 0 && index < getDeckSize()) {
             for (int i = 0; i < notes.size(); i++) {
-                counter += notes.get(index).getSize();
+                counter += notes.get(i).getSize();
                 if (counter >= index) return i;
             }
         }
