@@ -15,10 +15,10 @@ import com.example.ohimarc.marc.view.editDeckView.EditNoteView;
  * @author Thomas Li
  */
 public class EditNotePresenter {
-    private EditNoteView view;
-    private Deck deck;
-    private int noteIndex;
-    private UserStorage store;
+    private final EditNoteView view;
+    private final Deck deck;
+    private final int noteIndex;
+    private final UserStorage store;
 
     /**
      * Creates an EditNotePresenter which handles interaction from the user in the corresponding activity.
@@ -42,7 +42,7 @@ public class EditNotePresenter {
      * Sets the corresponding activity up with the correct environment, determining if editing an
      * existing Note or not, as well as the type of Note (Basic, Cloze).
      */
-    public void onCreate() {
+    private void onCreate() {
         if (noteIndex != -1) {
             if (deck.getNote(noteIndex) instanceof BasicNote) {
                 BasicNote note = ((BasicNote) deck.getNote(noteIndex));
