@@ -34,10 +34,11 @@ public class BasicNoteViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    /** Sets strings that will show on the front and back of the card
+    /**
+     * Sets strings that will show on the front and back of the card
      *
      * @param frontText is the string that will be set on the front of the card
-     * @param backText is the string that will be set on the back of the card
+     * @param backText  is the string that will be set on the back of the card
      */
     public void setBasicNoteText(String frontText, String backText) {
         basicNoteTextFront.setText(frontText);

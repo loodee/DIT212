@@ -20,6 +20,11 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
     private EditDeckPresenter editDeckPresenter;
     private AdapterEditDeckRC adapter;
 
+    /**
+     * Creates the activity where everything related to editing inside of a deck is shown
+     *
+     * @param savedInstanceState saves everything that was running before pausing/closing this activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final int deckIndex = Objects.requireNonNull(getIntent().getExtras()).getInt("deckIndex");
@@ -68,7 +73,7 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
 
 
     /**
-     * this creates a popup when called upon
+     * this creates a popup when called upon that is being used for deleting cards
      *
      * @param index is the cards index in the list which is being selected for deletion
      */
@@ -97,7 +102,6 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
     }
 
     /**
-     *
      * @param noteIndex is the card in the list that is clicked on
      */
     @Override
