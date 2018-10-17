@@ -37,7 +37,7 @@ public class ClozeNoteUnitTest {
         bepa.setText("new text");
         assertEquals(bepa.getText(), newText);
     }
-    
+
     @Test
     public void add() {
         ClozeNote cn = new ClozeNote("[[a::Ed]] Hello [[b::Bob]]");
