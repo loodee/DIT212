@@ -3,38 +3,31 @@ package com.example.ohimarc.marc;
 import com.example.ohimarc.marc.model.ClozeNote;
 import com.example.ohimarc.marc.model.Card;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class ClozeNoteUnitTest {
-    private String text1 = "Cloze S.R. Cool";
-    private ClozeNote c = new ClozeNote(text1);
-
-    // TODO: Add Card-related tests once card generation in ClozeNotes is implemented.
+    private ClozeNote c;
+    private String text1 = "cloze notes [[1::aren't]] cool";
+    private String text2 = "[[1::basicnotes]] are old, [[2::clozes]] is the new [[1::orange]]";
 
     @Test
     public void createClozeNote() {
+        c = new ClozeNote(text1);
         assertEquals(c.getText(), text1);
-        // assertEquals(c.getSize(), 1);
+        assertEquals(c.getSize(), 1);
+
+        c = new ClozeNote(text2);
+        assertEquals(c.getSize(), 2);
     }
 
     @Test
     public void emptyText() {
         ClozeNote apa = new ClozeNote(null);
         assertEquals(apa.getText(), "");
-    }
-
-    @Test
-    public void checkCardsFront() {
-    }
-
-    @Test
-    public void checkCardsBack() {
-    }
-
-    @Test
-    public void checkCardInfo() {
+        assertEquals(apa.getSize(), 0);
     }
 
     @Test
@@ -44,14 +37,9 @@ public class ClozeNoteUnitTest {
         bepa.setText("new text");
         assertEquals(bepa.getText(), newText);
     }
-
+    
     @Test
-    public void testGetText() {
-        assertEquals(c.getText(), text1);
-    }
-
-    @Test
-    public void add() {;
+    public void add() {
         ClozeNote cn = new ClozeNote("[[a::Ed]] Hello [[b::Bob]]");
 
         Card[] cards = cn.getCards();
