@@ -23,15 +23,6 @@ public class BasicNote extends Note {
         cards = new Card[]{new Card(front, back)};
     }
 
-    @Override
-    public String[][] getCardInfo() {
-        String[][] cardInfos = new String[cards.length][];
-        for (int i = 0; i < cardInfos.length; i++) {
-            cardInfos[i] = new String[]{cards[i].getFront(), cards[i].getBack()};
-        }
-        return cardInfos;
-    }
-
     public String getFront() {
         return front;
     }

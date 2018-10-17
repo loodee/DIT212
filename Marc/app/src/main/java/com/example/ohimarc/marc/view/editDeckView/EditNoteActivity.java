@@ -1,5 +1,6 @@
 package com.example.ohimarc.marc.view.editDeckView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -12,25 +13,43 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.EditNotePresenter;
 
+import java.util.Objects;
+
+/**
+ * Activity presenting the graphical interface for modifying Notes, both creating new Notes and
+ * editing existing ones, as well as different types of Notes.
+ *
+ * @author Thomas Li (loodee)
+ */
 public class EditNoteActivity extends AppCompatActivity implements EditNoteView {
     private EditNotePresenter presenter;
-    private TextInputLayout frontLayout, backLayout;
-    private EditText frontEditText, backEditText;
+    private TextInputLayout frontLayout, backLayout, clozeLayout;
+    private EditText frontEditText, backEditText, clozeEditText;
     private Toast toast;
     private boolean isEditing;
+    private Spinner dropdown;
+    private NoteType type;
+
+    private enum NoteType {BASIC, CLOZE}
 
     private void setupVars(int noteIndex, int deckIndex) {
         frontLayout = findViewById(R.id.textInputFront);
         backLayout = findViewById(R.id.textInputBack);
+        clozeLayout = findViewById(R.id.textInputCloze);
         frontEditText = findViewById(R.id.input_front);
         backEditText = findViewById(R.id.input_back);
+        clozeEditText = findViewById(R.id.input_cloze);
+        dropdown = findViewById(R.id.s_spinner);
 
         setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
         ActionBar bar = getSupportActionBar();
@@ -38,10 +57,11 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         if (noteIndex == -1) {      // if adding a new Note
             isEditing = false;
             if (bar != null) bar.setTitle("Add Note");
-        } else {                // if editing an existing Note
+        } else {                    // if editing an existing Note
             isEditing = true;
             if (bar != null) bar.setTitle("Edit Note");
         }
+
         presenter = new EditNotePresenter(this, noteIndex, deckIndex, getFilesDir().getAbsolutePath());
     }
 
@@ -50,10 +70,12 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
 
-        int noteIndex = getIntent().getExtras().getInt("noteIndex");
+        int noteIndex = Objects.requireNonNull(getIntent().getExtras()).getInt("noteIndex");
         int deckIndex = getIntent().getExtras().getInt("deckIndex");
 
         setupVars(noteIndex, deckIndex);
+
+        setupDropdown();
         setupListeners();
         setupToast();
     }
@@ -62,26 +84,64 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         finishAfterTransition();
     }
 
-    public void setValues(String front, String back) {
+    public void setupBasic(String front, String back) {
         frontEditText.setText(front);
         backEditText.setText(back);
+
+        type = NoteType.BASIC;
+    }
+
+    public void setupCloze(String text) {
+        clozeEditText.setText(text);
+
+        type = NoteType.CLOZE;
+    }
+
+    public void setupNew() {
+        type = NoteType.BASIC;
     }
 
     public void confirmAdd(View v) {
         confirmAdd();
     }
 
-    public void confirmAdd() {
+    private void confirmAdd() {
+        switch (type) {
+            case BASIC:
+                confirmAddBasic();
+                break;
+            case CLOZE:
+                confirmAddCloze();
+                break;
+        }
+    }
+
+    private void confirmAddBasic() {
         String frontText = frontEditText.getText().toString();
         String backText = backEditText.getText().toString();
 
-        presenter.confirmAddClicked(frontText, backText, isEditing);
+        presenter.confirmAddBasicClicked(frontText, backText, isEditing);
+    }
+
+    private void confirmAddCloze() {
+        String clozeText = clozeEditText.getText().toString();
+
+        presenter.confirmAddClozeClicked(clozeText, isEditing);
     }
 
     public void resetInputs() {
         frontEditText.setText("");
         backEditText.setText("");
-        frontEditText.requestFocus();
+        clozeEditText.setText("");
+
+        switch (type) {
+            case BASIC:
+                frontEditText.requestFocus();
+                break;
+            case CLOZE:
+                clozeEditText.requestFocus();
+                break;
+        }
     }
 
     public void showToast() {
@@ -89,19 +149,47 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
     }
 
     public void showErrors() {
-        String errorMsg = "Field cannot be blank.";
-        String frontText = frontEditText.getText().toString();
-        String backText = backEditText.getText().toString();
+        if (type == NoteType.BASIC) {
+            String errorMsg = "Field cannot be blank.";
+            String frontText = frontEditText.getText().toString();
+            String backText = backEditText.getText().toString();
 
-        if (presenter.invalidInput(frontText)) frontLayout.setError(errorMsg);
-        if (presenter.invalidInput(backText)) backLayout.setError(errorMsg);
+            if (presenter.invalidInput(frontText)) frontLayout.setError(errorMsg);
+            if (presenter.invalidInput(backText)) backLayout.setError(errorMsg);
+        } else if (type == NoteType.CLOZE) {
+            // TODO: Implement more specific error messages
+            String errorMsg = "Invalid cloze note syntax.";
+            String clozeText = clozeEditText.getText().toString();
+
+            if (presenter.invalidInputCloze(clozeText)) clozeLayout.setError(errorMsg);
+        }
     }
 
     private void hideErrors() {
         frontLayout.setError(null);
         backLayout.setError(null);
+        clozeLayout.setError(null);
     }
 
+    private void setupDropdown() {
+        String[] items = new String[]{"Basic note", "Cloze note"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
+        int selection;
+        switch (type) {
+            case BASIC:
+                selection = 0;
+                break;
+            case CLOZE:
+                selection = 1;
+                break;
+            default:
+                selection = 0;
+        }
+        dropdown.setSelection(selection);
+    }
+
+    @SuppressLint("ShowToast")
     private void setupToast() {
         Context context = getApplicationContext();
         CharSequence text = "Note saved.";
@@ -111,7 +199,34 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         toast.setGravity(Gravity.TOP, 0, 16);
     }
 
+    private void basicSelected() {
+        frontLayout.setVisibility(View.VISIBLE);
+        backLayout.setVisibility(View.VISIBLE);
+        clozeLayout.setVisibility(View.GONE);
+
+        type = NoteType.BASIC;
+    }
+
+    private void clozeSelected() {
+        frontLayout.setVisibility(View.GONE);
+        backLayout.setVisibility(View.GONE);
+        clozeLayout.setVisibility(View.VISIBLE);
+
+        type = NoteType.CLOZE;
+    }
+
     private void setupListeners() {
+        clozeEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    confirmAdd();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
         backEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -126,7 +241,20 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
         frontEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                hideErrors();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+        backEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
@@ -139,10 +267,9 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
 
             }
         });
-        backEditText.addTextChangedListener(new TextWatcher() {
+        clozeEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -152,7 +279,17 @@ public class EditNoteActivity extends AppCompatActivity implements EditNoteView 
 
             @Override
             public void afterTextChanged(Editable s) {
+            }
+        });
+        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                if (id == 0) basicSelected();
+                else if (id == 1) clozeSelected();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
             }
         });
     }

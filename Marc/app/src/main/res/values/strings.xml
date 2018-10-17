@@ -32,4 +32,5 @@
     <string name="toolbar_string">Toolbar</string>
     <string name="add_user_popup_username">Username</string>
     <string name="stats_timesPlayed_text">Times Played:</string>
+    <string name="cloze_text_hint">Text</string>
 </resources>

@@ -18,7 +18,7 @@ import com.example.ohimarc.marc.R;
         /** Creates the viewholder for every single item inside the recyclerview
          *
          * @param viewGroup is the viewholder in the recyclerview
-         * @param i
+         * @param i is not used but is required due to the interface that is being used for the method
          * @return
          */
     @NonNull
