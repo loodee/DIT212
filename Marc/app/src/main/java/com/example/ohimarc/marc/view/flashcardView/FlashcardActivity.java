@@ -22,7 +22,6 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
 
     private Button cardButton;
     private TextView cardTitle;
-    private TextView textOnButton;
     private int deckIndex;
 
     @Override
@@ -32,7 +31,6 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
 
         cardTitle = findViewById(R.id.cardTitle);
         cardButton = findViewById(R.id.cardButton);
-        textOnButton = findViewById(R.id.text_on_button);
 
         unpackBundle();
 
@@ -55,7 +53,7 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
      */
 
     public void initTexts(String deckTitleText, String cardText) {
-        textOnButton.setText(cardText);
+        cardButton.setText(cardText);
         cardTitle.setText("Q:");
     }
 
@@ -68,9 +66,16 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
      */
 
     public void flipCardButton(String qOrA, String text) {
+        cardButton.setText(text);
+        cardButton.setScaleX(-1);
+        cardButton.setScaleY(1);
+        cardButton.setTranslationX(1);
         cardTitle.setText(qOrA);
-        textOnButton.setText(text);
+        cardTitle.setScaleX(-1);
+        cardTitle.setScaleY(1);
+        cardTitle.setTranslationX(1);
     }
+
 
 
     /**
@@ -159,7 +164,7 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         final float centerY = cardButton.getHeight() / 2.0f;
 
         rotation rotation = new rotation(start, end, centerX, centerY, 0f, false);
-        rotation.setDuration(1000);
+        rotation.setDuration(800);
         rotation.setFillAfter(true);
         rotation.setInterpolator(new LinearInterpolator());
 
