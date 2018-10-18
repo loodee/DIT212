@@ -22,22 +22,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/cardButton"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="180dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="100dp"
-                android:background="@android:color/white"
-                android:onClick="flipCardButtonClicked"
-                android:textAllCaps="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.3" />
+                android:layout_height="match_parent">
+
+
+                <Button
+                    android:id="@+id/cardButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="180dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="100dp"
+                    android:background="@android:color/white"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:id="@+id/text_on_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="10dp" />
+
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/cardTitle"
@@ -46,13 +54,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="100dp"
                 android:elevation="100dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.955"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.176" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <Button
                 android:id="@+id/correct"
@@ -62,13 +64,7 @@
                 android:layout_alignTop="@+id/incorrect"
                 android:layout_marginStart="80dp"
                 android:background="@drawable/ic_check_black_24dp"
-                android:onClick="correctButtonClicked"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.969" />
+                android:onClick="correctButtonClicked" />
 
             <Button
                 android:id="@+id/incorrect"
@@ -79,13 +75,7 @@
                 android:layout_marginBottom="50dp"
                 android:layout_marginEnd="80dp"
                 android:background="@drawable/ic_close_black_24dp"
-                android:onClick="incorrectButtonClicked"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.7"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.969" />
+                android:onClick="incorrectButtonClicked" />
 
         </RelativeLayout>
 
