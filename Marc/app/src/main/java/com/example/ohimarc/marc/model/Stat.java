@@ -14,7 +14,7 @@ public class Stat {
 
 
     /**
-     * TODO: should allCorrect be here, should it not be in updateStats?, Now we can not change it once it is created
+     *
      * */
     Stat(String gameMode) {
         this.gameMode = gameMode;

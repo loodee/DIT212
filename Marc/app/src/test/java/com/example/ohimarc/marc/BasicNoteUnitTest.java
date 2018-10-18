@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BasicNoteUnitTest {
-    private BasicNote b = new BasicNote("Front", "Back");
+    private final BasicNote b = new BasicNote("Front", "Back");
 
     @Test
     public void createBasicNote() {

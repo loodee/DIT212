@@ -8,7 +8,7 @@ import java.util.Random;
  */
 public class QuizGame extends Game {
 
-    private Random rand = new Random();
+    private final Random rand = new Random();
     private int rigthAnswerIndex;
 
     public QuizGame(Deck deck) {
@@ -32,8 +32,7 @@ public class QuizGame extends Game {
      * @return a random index of a answer that should be used
      */
     private int getRandomFromList(ArrayList<String> list) {
-        int random = rand.nextInt(list.size());
-        return random;
+        return rand.nextInt(list.size());
     }
 
     /**
@@ -73,8 +72,8 @@ public class QuizGame extends Game {
             String rightAnswer = cardCopies[getNextCard()][1];
             cardWithAnswer[0] = front;
             cardWithAnswer[rigthAnswerIndex] = rightAnswer;
-            for (int i = 0; i < cardCopies.length; i++) {
-                answers.add(cardCopies[i][1]);
+            for (String[] cardCopy : cardCopies) {
+                answers.add(cardCopy[1]);
             }
             answers.remove(getNextCard());
             for (int i = 0; i < cardWithAnswer.length; i++) {

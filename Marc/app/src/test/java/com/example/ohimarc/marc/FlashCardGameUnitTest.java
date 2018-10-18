@@ -2,9 +2,12 @@ package com.example.ohimarc.marc;
 
 import com.example.ohimarc.marc.model.*;
 
+import junit.framework.TestCase;
+
+import org.junit.Assert;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
 
 public class FlashCardGameUnitTest {
@@ -15,7 +18,7 @@ public class FlashCardGameUnitTest {
 
         String[] s = g.peekNextCard();
 
-        assertTrue(s == null);
+        assertNull(s);
     }
 
     @Test
@@ -29,7 +32,7 @@ public class FlashCardGameUnitTest {
 
         assertEquals(s[0], "Front");
         assertEquals(s[1], "Back");
-        assertTrue(d.getDeckSize() == 1);
+        TestCase.assertEquals(1, d.getDeckSize());
     }
 
     @Test
@@ -95,7 +98,7 @@ public class FlashCardGameUnitTest {
 
         assertEquals(g.getQuestionAns()[0].getElement1(), true);
         assertEquals(g.getQuestionAns()[1].getElement1(), false);
-        assertEquals(g.getQuestionAns()[2], null);
+        Assert.assertNull(g.getQuestionAns()[2]);
     }
 
 }
