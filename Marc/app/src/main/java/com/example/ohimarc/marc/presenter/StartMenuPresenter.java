@@ -38,7 +38,7 @@ public class StartMenuPresenter {
         users = global.getUserNames();
     }
 
-    public void onBindBasicNoteRowViewAtPosition(UserViewHolder rowView, int index) {
+    public void onBindUserRowViewAtPosition(UserViewHolder rowView, int index) {
         rowView.setUsername(users.get(index));
     }
 

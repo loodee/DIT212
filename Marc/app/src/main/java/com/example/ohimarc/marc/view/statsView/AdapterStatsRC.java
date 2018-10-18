@@ -10,7 +10,7 @@ import com.example.ohimarc.marc.presenter.StatsPresenter;
 
 class AdapterStatsRC extends RecyclerView.Adapter<StatsViewHolder> {
 
-    private final IStatsPresenter presenter;
+    private final StatsPresenter presenter;
 
     public AdapterStatsRC(StatsPresenter presenter) {
         this.presenter = presenter;
@@ -24,7 +24,7 @@ class AdapterStatsRC extends RecyclerView.Adapter<StatsViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull StatsViewHolder statsViewHolder, int i) {
-        presenter.onBindBasicNoteRowViewAtPosition(statsViewHolder, i);
+        presenter.onBindStatsRowViewAtPosition(statsViewHolder, i);
     }
 
     @Override

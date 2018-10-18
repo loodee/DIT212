@@ -24,7 +24,7 @@ class AdapterUserRC extends RecyclerView.Adapter<UserViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder userViewHolder, int i) {
-        presenter.onBindBasicNoteRowViewAtPosition(userViewHolder, i);
+        presenter.onBindUserRowViewAtPosition(userViewHolder, i);
     }
 
 
