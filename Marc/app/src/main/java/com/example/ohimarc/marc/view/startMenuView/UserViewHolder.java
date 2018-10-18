@@ -6,12 +6,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.presenter.StartMenuPresenter;
 
 public class UserViewHolder extends RecyclerView.ViewHolder{
 
     private final TextView username;
 
-    public UserViewHolder(@NonNull View itemView, final StartMenuContract.Presenter presenter) {
+    public UserViewHolder(@NonNull View itemView, final StartMenuPresenter presenter) {
         super(itemView);
         username = itemView.findViewById(R.id.username);
 

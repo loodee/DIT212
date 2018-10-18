@@ -6,12 +6,13 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.presenter.StartMenuPresenter;
 
 class AdapterUserRC extends RecyclerView.Adapter<UserViewHolder> {
 
-    private final StartMenuContract.Presenter presenter;
+    private final StartMenuPresenter presenter;
 
-    public AdapterUserRC(StartMenuContract.Presenter presenter) {
+    public AdapterUserRC(StartMenuPresenter presenter) {
         this.presenter = presenter;
     }
     
