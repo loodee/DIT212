@@ -9,6 +9,8 @@ public interface StartMenuView {
 
     /**
      * Tells the view to prompt the user for deletion
+     * @param index the index of the user which we want the prompt for
+     * @param name the name of the user which we want the prompt for
      * */
     void promptForDeletion(int index, String name);
 }

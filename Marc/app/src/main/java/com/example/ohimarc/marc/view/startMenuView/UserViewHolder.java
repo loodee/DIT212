@@ -8,10 +8,20 @@ import android.widget.TextView;
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.StartMenuPresenter;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * Class responsbile for holding the information for one user in one row in the recyclerView
+ * */
 public class UserViewHolder extends RecyclerView.ViewHolder{
 
     private final TextView username;
 
+    /**
+     * Sets up a new UserViewHolder for a given View
+     * @param itemView The view for which the instance is responsible for
+     * @param presenter The presenter to which the UserViewHolder should communicate with
+     * */
     public UserViewHolder(@NonNull View itemView, final StartMenuPresenter presenter) {
         super(itemView);
         username = itemView.findViewById(R.id.username);
@@ -32,6 +42,11 @@ public class UserViewHolder extends RecyclerView.ViewHolder{
         });
     }
 
+
+    /**
+     * Method for setting the text of the username
+     * @param name The username that should be displayed
+     * */
     public void setUsername(String name){
         username.setText(name);
     }

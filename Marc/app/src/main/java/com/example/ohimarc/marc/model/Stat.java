@@ -14,7 +14,8 @@ public class Stat {
 
 
     /**
-     *
+     * Creates a Stat object with default values,
+     * @param gameMode The game mode for which the Stat object is for
      * */
     Stat(String gameMode) {
         this.gameMode = gameMode;

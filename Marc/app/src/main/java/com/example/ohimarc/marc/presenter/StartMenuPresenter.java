@@ -38,20 +38,39 @@ public class StartMenuPresenter {
         users = global.getUserNames();
     }
 
+    /**
+     * Method for setting up one row of the recyclerView
+     * @param index The position of the row in the recyclerView
+     * @param rowView The UserViewHolder object which holds the information for that row
+     * */
     public void onBindUserRowViewAtPosition(UserViewHolder rowView, int index) {
         rowView.setUsername(users.get(index));
     }
 
+    /**
+     * Method for getting how many rows there should be in the start menu view
+     * @return The number of rows there should be in the start menu view
+     * */
     public int getUserRowsCount() {
         return users != null ? users.size() : 0;
     }
 
+    /**
+     * Method for handling clicking on an row in the recycler view, This method will login the user
+     * at the given position
+     * @param adapterPosition The index of the row that was clicked
+     * */
     public void onUserClickedAtPosition(int adapterPosition) {
         MemorizationTrainingTool.getInstance().setActiveUser(adapterPosition);
         store.storeState(MemorizationTrainingTool.getInstance());
         view.login();
     }
 
+    /**
+     * Method for handling long clicking on an row in the recycler view, This method will ask the user
+     * if they want to delete the user
+     * @param adapterPosition The index of the row that was clicked
+     * */
     public void onUserLongClickedAtPosition(int adapterPosition) {
         view.promptForDeletion(adapterPosition, users.get(adapterPosition));
     }
