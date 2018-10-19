@@ -6,11 +6,9 @@ import java.util.List;
 
 /**
  * @author Victor Johansson (Vroxie on github)
- */
-
-/**
+ *
  * This class is responsible for the Achievements in the app,
- * I.e says which achievements that exists, holding whcich achievements that are
+ * I.e says which achievements that exists, holding which achievements that are
  * completed/uncompleted etc.
  */
 public class Achievements {
@@ -42,7 +40,7 @@ public class Achievements {
 
     /**
      * Moving a achievement from uncompleted to completed list if it is not in there already
-     * Given a completed achievement that stats says have checked and syas it is done
+     * Given a completed achievement that stats says have checked and says it is done
      * @param achi the completed achievement
      */
     public void updateAchievements(achievements achi) {
