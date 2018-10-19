@@ -24,6 +24,9 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
         this.deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
     }
 
+    /**
+     * calls updateDeckList in the view when called upon
+     */
     @Override
     public void start() {
         editDeckActivity.updateDeckList();
