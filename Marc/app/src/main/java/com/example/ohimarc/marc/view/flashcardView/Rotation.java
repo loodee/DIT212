@@ -9,7 +9,7 @@ import android.view.animation.Transformation;
 /**
  * @author Mathias Forsman (Sorchar on github)
  * <p>
- * rotates something, in our case a button around the Y axis
+ * rotates something, in this case a button around the Y axis
  */
 class Rotation extends Animation {
     private final float startAngle;

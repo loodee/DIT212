@@ -156,10 +156,10 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
     }
 
     /**
-     * Rotates an object from specified value to specified value, in our case we will have hardcoded from 0 to 180 degrees
-     *
      * @param start starts the rotate from this value
      * @param end   ends the rotate at this value
+     * @Author Mathias Forsman (Sorchar on github)
+     * Rotates an object from specified value to specified value, in our case we will have hardcoded from 0 to 180 degrees
      */
     private void startRotation(float start, float end) {
         final float centerX = cardButton.getWidth() / 2.0f;
