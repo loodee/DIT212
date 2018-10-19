@@ -78,7 +78,6 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
     }
 
 
-
     /**
      * This function is called in the XML-file activity_flashcard when the flashcard is clicked.
      * The function tells the presenter that it has been clicked, while also telling the presenter
@@ -86,7 +85,6 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
      *
      * @param v is a View which in this case is the XML-file activity_flashcard.
      */
-    // en listener nu istället och inte xml som kallar på metoden
     public void flipCardButtonClicked(View v) {
         boolean bool = false;
         if (cardTitle.getText().equals("Q:")) {
@@ -160,6 +158,12 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         intent.putExtras(b);
     }
 
+    /**
+     * Rotates an object from specified value to specified value, in our case we will have hardcoded from 0 to 180 degrees
+     *
+     * @param start starts the rotate from this value
+     * @param end   ends the rotate at this value
+     */
     private void startRotation(float start, float end) {
         final float centerX = cardButton.getWidth() / 2.0f;
         final float centerY = cardButton.getHeight() / 2.0f;
