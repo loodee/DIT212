@@ -1,8 +1,8 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
+import com.example.ohimarc.marc.service.UserStorageFactory;
 import com.example.ohimarc.marc.view.addRemoveDeckView.AddDeckView;
 import com.example.ohimarc.marc.view.addRemoveDeckView.AddRemoveDeckView;
 
@@ -23,7 +23,7 @@ public class AddRemoveDeckPresenter {
 
     public AddRemoveDeckPresenter(AddDeckView view, String filePath) {
         this.view = view;
-        userStorage = new LocalUserStorage(filePath);
+        userStorage = UserStorageFactory.createLocalUserStorage(filePath);
     }
 
     /**

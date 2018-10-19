@@ -1,9 +1,9 @@
 package com.example.ohimarc.marc.presenter;
 
 
+import com.example.ohimarc.marc.service.UserStorageFactory;
 import com.example.ohimarc.marc.view.startMenuView.StartMenuView;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
 import com.example.ohimarc.marc.view.startMenuView.UserViewHolder;
 
@@ -26,7 +26,7 @@ public class StartMenuPresenter {
      * @param filePath The absolute filepath where the persistent state file is saved
      */
     public StartMenuPresenter(StartMenuView view, String filePath) {
-        store = new LocalUserStorage(filePath);
+        store = UserStorageFactory.createLocalUserStorage(filePath);
         this.view = view;
 
         //Set up the MemorizationTrainingTool with stored values

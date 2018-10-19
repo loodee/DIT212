@@ -17,7 +17,7 @@ import java.io.IOException;
  *
  * This class is responsible for storing and reading a MemorizationTrainingTool from local JSON storage
  * */
-public class LocalUserStorage implements UserStorage {
+class LocalUserStorage implements UserStorage {
 
 
     private final String filePath;

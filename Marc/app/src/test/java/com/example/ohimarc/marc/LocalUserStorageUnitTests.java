@@ -3,7 +3,8 @@ package com.example.ohimarc.marc;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.User;
-import com.example.ohimarc.marc.service.LocalUserStorage;
+import com.example.ohimarc.marc.service.UserStorage;
+import com.example.ohimarc.marc.service.UserStorageFactory;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,7 +19,7 @@ import java.io.IOException;
 public class LocalUserStorageUnitTests {
 
 
-    private LocalUserStorage storage;
+    private UserStorage storage;
     private MemorizationTrainingTool mtt;
     private MemorizationTrainingTool stored;
 
@@ -29,7 +30,7 @@ public class LocalUserStorageUnitTests {
     public void setup() {
         mtt = new MemorizationTrainingTool();
         try {
-            storage = new LocalUserStorage(folder.newFolder("test").getAbsolutePath());
+            storage = UserStorageFactory.createLocalUserStorage(folder.newFolder("test").getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
         }

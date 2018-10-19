@@ -1,7 +1,7 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.service.LocalUserStorage;
+import com.example.ohimarc.marc.service.UserStorageFactory;
 import com.example.ohimarc.marc.view.resultsView.ResultsView;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class ResultPresenter {
         MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
         deckTitle = mtt.getActiveUser().getDeck(deckIndex).getTitle();
         mtt.getActiveUser().addNewStatistics(deckIndex, mode, amountCorrect.get(0));
-        new LocalUserStorage(filePath).storeState(mtt);
+        UserStorageFactory.createLocalUserStorage(filePath).storeState(mtt);
     }
 
     /**
