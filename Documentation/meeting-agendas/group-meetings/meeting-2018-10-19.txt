@@ -1,0 +1,67 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-10-19
+Chair: Victor Johansson
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Mathias Forsman, Victor Johansson
+
+## Objectives (5 min)
+* What questions do we have for Ayberk?
+* What lies ahead?
+* Placement of cardTitle in flashcardgame with animation
+* Presentation
+
+
+## Reports (15 min) 
+* Kept writing on SDD (everyone)
+* Finishing UML-diagram for our packages (Gustav and Thomas)
+* Nearly completed animation for cards in flashcardgame user story #2 (Mathias)
+* Finished user story #12, (Gustav, Mathias, Thomas)
+* Finished user story #15, (Victor, Alexander)
+* Documented code(Everyone)
+
+
+## Discussion items (35 min)
+1. What do we want to ask Ayberk on the meeting today at 16:15?
+2. What is not done? The things should be sent at Sunday to Ayberk and Alex
+   1. RAD
+   2. SDD
+   3. UML diagrams
+   4. Sequence diagrams
+1. Animation is almost done! The thing is cardTitle gets pretty weird, should we move it?
+2. We need to start working on a presentation, what should we include? Should it be on english? What will be shown in the demo?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+1. Questions for Ayberk:
+   1. Can we use a link to an image in the SDD or do they have to be embedded into the document.
+   2. What does “flow” actually mean? Ayberk asked Alex last TA meeting, response?
+   3. What will be the time ratio, between demo versus slides?
+1. What is yet to be finished, what needs to be done before Sunday?
+   1. RAD needs updated user stories.
+   2. SDD: 
+      1. Presenter package need to be written about
+      2. UML sequence diagram needs to be done and written about
+      3. Dependencies needs to be looked at
+      4. View package (see below)
+      5. Re-generate Stan stuff
+      6. “high-level overall flow of use stories” needs to be done
+   1.       1. Preliminary decision: for the UML-diagram for the view package, provide a link to the full-size image instead of the embedded image, to improve visibility. Ask Ayberk about this decision.
+      2. Add the animation class into our UML-diagrams.
+   1. Finish sequence diagrams for the “application flow”. Pick relevant user stories? How many? Ask Ayberk.
+1. Animation needs to be faster. The questions and answers icons (“Q:” and “A:”) look OK.
+2. Should be in english, and the demo should show all the user stories that we have implemented. Due to lack of time we postpone the details until the next meeting, after the deadline for the RAD, SDD, etc.
+
+
+Assignments: 
+* Increase speed of card flipping animation (Mathias)
+* Finish the SDD (Everyone)
+   * Re-generate Stan-stuff (Victor)
+   * Look through the UML-diagrams (Everyone)
+   * Update user stories in the RAD (Everyone)
+   * Work on the sequence diagram(s) (Everyone)
+   * Anything else that needs doing (Everyone)
+
+
+## Wrap up
+Next meeting will be on Monday 22 October 2018-10-22, 13:15
