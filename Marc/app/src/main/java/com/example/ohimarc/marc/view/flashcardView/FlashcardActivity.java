@@ -169,7 +169,7 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         final float centerY = cardButton.getHeight() / 2.0f;
 
         rotation rotation = new rotation(start, end, centerX, centerY, 0f, false);
-        rotation.setDuration(800);
+        rotation.setDuration(300);
         rotation.setFillAfter(true);
         rotation.setInterpolator(new LinearInterpolator());
 

@@ -44,7 +44,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="65dp"
-                android:elevation="100dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <Button
