@@ -4,7 +4,13 @@ package com.example.ohimarc.marc.view.editDeckView;
  * @author Mathias Forsman (Sorchar on github)
  */
 
+/**
+ * Methods that will be in View/Presenter
+ */
 public interface EditDeckContract {
+    /**
+     * These are the methods that View has to implement
+     */
     interface View {
         /**
          * notifies the list that changes have been made and updates the recyclerView
@@ -26,6 +32,9 @@ public interface EditDeckContract {
         void editCardInDeck(int index);
     }
 
+    /**
+     * These are the methods that the presenter has to implement
+     */
     interface Presenter {
         /**
          * calls methods in the view when called upon
