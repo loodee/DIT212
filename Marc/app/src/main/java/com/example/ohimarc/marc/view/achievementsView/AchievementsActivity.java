@@ -16,8 +16,9 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
 /**
  * @author Alexander Sandberg (alexandersand on github)
+ * The purpose of this Activity is to set up the achievements view, and handle any user interaction
+ * with the UI.
  */
-
 public class AchievementsActivity extends ToolbarExtension implements AchievementsView {
 
 
