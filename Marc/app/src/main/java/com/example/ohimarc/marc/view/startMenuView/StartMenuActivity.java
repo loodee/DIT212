@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.StartMenuPresenter;
@@ -89,10 +88,6 @@ public class StartMenuActivity extends AppCompatActivity implements StartMenuVie
 
         startActivity(intent);
         finish();
-    }
-
-    public void failedUserCreation(){
-        Toast.makeText(this, "Failed to create user! Make sure the app has permission to read/write" ,Toast.LENGTH_LONG).show();
     }
 
     @Override

@@ -8,12 +8,9 @@ public interface StartMenuView {
     void login();
 
     /**
-     * Tells the view that the creation of a user failed
-     * */
-    void failedUserCreation();
-
-    /**
      * Tells the view to prompt the user for deletion
+     * @param index the index of the user which we want the prompt for
+     * @param name the name of the user which we want the prompt for
      * */
     void promptForDeletion(int index, String name);
 }

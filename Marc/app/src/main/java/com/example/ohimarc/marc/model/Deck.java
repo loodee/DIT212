@@ -47,6 +47,25 @@ public class Deck {
     }
 
     /**
+     * Creates a Cloze note and generates its Card(s), then adds the Note to the deck.
+     *
+     * @param text String value to be parsed by the Note to generate Cards.
+     */
+    public void addClozeNote(String text) {
+        notes.add(new ClozeNote(text));
+    }
+
+    /**
+     * Creates a Cloze note, generates its Card(s), and inserts it into the deck at index, replacing the existing Note.
+     *
+     * @param text  String value to be parsed by the Note to generate Cards.
+     * @param index The index at which to replace the Note
+     */
+    public void addClozeNote(String text, int index) {
+        notes.set(index, new ClozeNote(text));
+    }
+
+    /**
      * Deletes the Note at index
      *
      * @param index The index at which to delete the Note.
@@ -64,9 +83,11 @@ public class Deck {
      */
     public int getNoteIndexFromCardIndex(int index) {
         int counter = -1;
-        for (int i = 0; i < notes.size(); i++) {
-            counter += notes.get(index).getSize();
-            if (counter >= index) return i;
+        if (index >= 0 && index < getDeckSize()) {
+            for (int i = 0; i < notes.size(); i++) {
+                counter += notes.get(i).getSize();
+                if (counter >= index) return i;
+            }
         }
         return -1; // should not happen
     }
@@ -86,18 +107,33 @@ public class Deck {
         return copies.toArray(new String[0][]);
     }
 
+    /**
+     * Given an index, returns the Note contained at that index.
+     *
+     * @param index The index at which to retrieve the Note from the Deck at.
+     * @return The note at the given index.
+     */
     public Note getNote(int index) {
         return notes.size() > index ? notes.get(index) : null;
     }
 
+    /**
+     * @return The notes contained by the Deck.
+     */
     public List<Note> getNotes() {
         return notes;
     }
 
+    /**
+     * @return The title of the deck.
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * @return The total number of Cards contained by all the Notes in the Deck.
+     */
     public int getDeckSize() {
         int size = 0;
         for (Note n : notes) size += n.getSize();

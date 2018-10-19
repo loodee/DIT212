@@ -1,13 +1,25 @@
 package com.example.ohimarc.marc.model;
 
+/**
+ * @author Gustav Albertsson
+ * @author Thomas Lee
+ * @author Victor Johansson
+ * @author Alexander Sandberg
+ *
+ * Abstract class that contains general things about how a game mode should work and what is should contain
+ * */
 public abstract class Game {
-    Deck deck;
-    String[][] cardCopies;
-    private Pair[] pairs;
-    private String name;
+    private final Deck deck;
+    final String[][] cardCopies;
+    private final Pair[] pairs;
+    private final String name;
     private int nextCard = 0;
 
-    public Game(Deck deck, String name) {
+    /**
+     * @param name The name of the game
+     * @param deck The deck which the game is being played on
+     * */
+    Game(Deck deck, String name) {
         this.deck = deck;
         this.name = name;
         this.cardCopies = deck.getCardCopies();
@@ -47,18 +59,30 @@ public abstract class Game {
         pairs[index] = ans;
     }
 
+    /**
+     * @return An array of pairs, the first element in the pair is the question that was answered, the second element in the pair is if the answer was correct or not
+     * */
     public Pair[] getQuestionAns() {
         return pairs;
     }
 
+    /**
+     * @return Returns the name of the game
+     * */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return Returns the index of the next card
+     * */
     public int getNextCard(){
         return nextCard;
     }
 
+    /**
+     * @return Returns the size of the deck that the game is being played on
+     * */
     public int getDecksize(){
         return deck.getDeckSize();
     }

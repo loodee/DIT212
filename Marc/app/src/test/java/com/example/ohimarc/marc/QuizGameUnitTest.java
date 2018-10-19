@@ -4,10 +4,8 @@ import com.example.ohimarc.marc.model.*;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-
+import static junit.framework.TestCase.assertNotSame;
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
 
 
 public class QuizGameUnitTest {
@@ -20,12 +18,10 @@ public class QuizGameUnitTest {
         d.addBasicNote("Front2","Back2");
         d.addBasicNote("Front3","Back3");
         QuizGame game = new QuizGame(d);
-        //System.out.println(d.getCardCopies()[0][0]);
         String [] testArr = game.peekNextCard();
         for(int i = 0;i<testArr.length-1;i++){
-            assertTrue(testArr[i] != testArr[i+1]);
+            assertNotSame(testArr[i], testArr[i + 1]);
         }
-        System.out.println(Arrays.toString(game.peekNextCard()));
     }
 
     @Test
@@ -36,7 +32,6 @@ public class QuizGameUnitTest {
         d.addBasicNote("Front2","Back2");
         d.addBasicNote("Front3","Back3");
         QuizGame game = new QuizGame(d);
-        //System.out.println(d.getCardCopies()[0][0]);
         String [] testArr = game.peekNextCard();
         int index = 0;
         for(int i = 0;i<testArr.length;i++){

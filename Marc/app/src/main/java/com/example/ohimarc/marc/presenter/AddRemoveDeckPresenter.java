@@ -1,8 +1,8 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
+import com.example.ohimarc.marc.service.UserStorageFactory;
 import com.example.ohimarc.marc.view.addRemoveDeckView.AddDeckView;
 import com.example.ohimarc.marc.view.addRemoveDeckView.AddRemoveDeckView;
 
@@ -11,25 +11,26 @@ import java.util.List;
 /**
  * @author  Victor Johansson (Vroxie on github)
  */
+
+/**
+ * This class is the presenter for the screen where you can view decks you have
+ * But also add/delete decks
+ */
 public class AddRemoveDeckPresenter {
 
-    /**
-     * This class is the presenter for the screen where you can view decks you have
-     * But also add/delete decks
-     */
     private List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
-    private AddDeckView view;
-    private UserStorage userStorage;
+    private final AddDeckView view;
+    private final UserStorage userStorage;
 
     public AddRemoveDeckPresenter(AddDeckView view, String filePath) {
         this.view = view;
-        userStorage = new LocalUserStorage(filePath);
+        userStorage = UserStorageFactory.createLocalUserStorage(filePath);
     }
 
     /**
      * Binds a viewholder to a item in the recyclerview
      *
-     * @param rowView  the viewholderfor the item
+     * @param rowView  the viewholder for the item
      * @param position the item
      */
     public void onBindDeckListRowViewAtPosition(int position, AddRemoveDeckView rowView) {
@@ -69,7 +70,7 @@ public class AddRemoveDeckPresenter {
 
     /**
      * Handles a click on the deck
-     * Tells the view to run deckClicked(int adapterPostion)
+     * Tells the view to run deckClicked(int adapterPosition)
      * Which is implemented in the viw that basically navigates the user to a new screen
      * Where the user can see the decks' cards/notes
      *

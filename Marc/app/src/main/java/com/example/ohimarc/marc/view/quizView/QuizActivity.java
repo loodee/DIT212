@@ -95,7 +95,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     }
 
     /**
-     * This function initializes the texts in the view. It assigns the question text to a Textview,
+     * This function initializes the texts in the view. It assigns the question text to a TextView,
      * while also assigning the question alternatives to each Button in the list buttons.
      * @param list is a list of Strings which is given by QuizPresenter, where all the needed
      *             Strings are stored.

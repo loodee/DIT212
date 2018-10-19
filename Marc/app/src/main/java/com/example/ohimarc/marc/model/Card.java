@@ -2,6 +2,7 @@ package com.example.ohimarc.marc.model;
 
 /**
  * The Card class holds two fields of information, representing the front and the back of the card
+ *
  * @author Thomas Li
  * @author Gustav Albertsson
  * @author Alexander Sandberg
