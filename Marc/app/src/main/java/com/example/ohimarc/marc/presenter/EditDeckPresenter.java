@@ -6,13 +6,12 @@ import com.example.ohimarc.marc.view.editDeckView.BasicNoteViewHolder;
 import com.example.ohimarc.marc.view.editDeckView.EditDeckActivity;
 import com.example.ohimarc.marc.view.editDeckView.EditDeckContract;
 
-/**
- * @author Mathias Forsman (Sorchar on github)
- */
 
 /**
+ * @author Mathias Forsman (Sorchar on github)
+ * <p>
  * This is the presenter that is the middleman between the model and the view.
- * Handles most of the communication between editDeckView(the folder) and the models(EditNoteAcivity has its own presenter).
+ * Handles most of the communication between editDeckView(the folder) and the models(EditNoteActivity has its own presenter).
  */
 
 public class EditDeckPresenter implements EditDeckContract.Presenter {
@@ -57,7 +56,7 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     /**
      * calls editCardInDeck with the index of the card that has been clicked
      *
-     * @param adapterPosition is the index in the recyclerview that the user clicked at
+     * @param adapterPosition is the index in the recyclerView that the user clicked at
      */
     @Override
     public void onUserClickedAtPosition(int adapterPosition) {
@@ -79,7 +78,6 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
      *
      * @return the title of the deck that is currently in "editing mode"
      */
-    @Override
     public String getDeckTitle() {
         return deck.getTitle();
     }
@@ -92,4 +90,6 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     public void confirmDeletion(int index) {
         deck.deleteNote(index);
     }
+
+
 }

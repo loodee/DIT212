@@ -1,10 +1,9 @@
 package com.example.ohimarc.marc.view.editDeckView;
 
-/**
- * @author Mathias Forsman (Sorchar on github)
- */
 
 /**
+ * @author Mathias Forsman (Sorchar on github)
+ * <p>
  * Methods that will be in View/Presenter
  */
 public interface EditDeckContract {
@@ -12,6 +11,7 @@ public interface EditDeckContract {
      * These are the methods that View has to implement
      */
     interface View {
+
         /**
          * notifies the list that changes have been made and updates the recyclerView
          */
@@ -37,7 +37,7 @@ public interface EditDeckContract {
      */
     interface Presenter {
         /**
-         * calls methods in the view when called upon
+         * Method in presenter that will be called from the view
          */
         void start();
 
@@ -71,12 +71,12 @@ public interface EditDeckContract {
          */
         void onUserLongClickedAtPosition(int adapterPosition);
 
-
         /**
          * gets the deckTitle from deck and returns it, responsible for communicating with the model regarding the deckTitle
          *
          * @return the title of the deck that is currently in "editing mode"
          */
         String getDeckTitle();
+
     }
 }

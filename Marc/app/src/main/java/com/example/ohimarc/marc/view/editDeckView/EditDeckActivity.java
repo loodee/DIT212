@@ -16,11 +16,10 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
 import java.util.Objects;
 
-/**
- * @author Mathias Forsman (Sorchar on github)
- */
 
 /**
+ * @author Mathias Forsman (Sorchar on github)
+ * <p>
  * Displays everything inside of a deck
  */
 public class EditDeckActivity extends ToolbarExtension implements EditDeckContract.View {

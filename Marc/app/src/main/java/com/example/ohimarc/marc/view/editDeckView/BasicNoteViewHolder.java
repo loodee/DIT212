@@ -7,11 +7,10 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 
-/**
- * @author Mathias Forsman (Sorchar on github)
- */
 
 /**
+ * @author Mathias Forsman (Sorchar on github)
+ * <p>
  * This is the class that represents the viewHolder for viewing/editing/deleting cards inside of a deck
  * This sets up the view for every note inside of the recyclerView.
  */

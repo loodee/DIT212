@@ -7,11 +7,10 @@ import android.view.ViewGroup;
 
 import com.example.ohimarc.marc.R;
 
-/**
- * @author Mathias Forsman (Sorchar on github)
- */
 
 /**
+ * @author Mathias Forsman (Sorchar on github)
+ * <p>
  * Sets up every row in the recyclerView with given objects
  */
 

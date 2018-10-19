@@ -39,7 +39,7 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         cardButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startRotation(0, 180);
-                flipCardButtonClicked(v);
+                flipCardButtonClicked();
             }
         });
     }
@@ -71,21 +71,15 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         cardButton.setScaleY(1);
         cardButton.setTranslationX(1);
         cardTitle.setText(qOrA);
-        //cardTitle.setScaleX(-1);
-        //cardTitle.setScaleY(1);
-        //cardTitle.setTranslationX(1);
-        //set above to translate but in that case we need to fix rotation on the title aswell
     }
 
 
     /**
-     * This function is called in the XML-file activity_flashcard when the flashcard is clicked.
+     * This function is called in the listener that is in onCreate in this activity when the flashcard is clicked.
      * The function tells the presenter that it has been clicked, while also telling the presenter
      * if either "Q:" or "A:" is displayed on the card.
-     *
-     * @param v is a View which in this case is the XML-file activity_flashcard.
      */
-    public void flipCardButtonClicked(View v) {
+    public void flipCardButtonClicked() {
         boolean bool = false;
         if (cardTitle.getText().equals("Q:")) {
             bool = true;
@@ -168,7 +162,7 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         final float centerX = cardButton.getWidth() / 2.0f;
         final float centerY = cardButton.getHeight() / 2.0f;
 
-        rotation rotation = new rotation(start, end, centerX, centerY, 0f, false);
+        Rotation rotation = new Rotation(start, end, centerX, centerY, 0f, false);
         rotation.setDuration(300);
         rotation.setFillAfter(true);
         rotation.setInterpolator(new LinearInterpolator());
