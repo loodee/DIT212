@@ -13,6 +13,9 @@ import com.example.ohimarc.marc.view.quizView.QuizActivity;
 
 /**
  * @author Alexander Sandberg (alexandersand on github)
+ * The purpose of this Activity is to set up the Exercise view, and handle any user interaction
+ * with the UI. It contains two separate methods for specific button clicks, and methods for
+ * navigating to different screens.
  */
 
 public class ExerciseActivity extends ToolbarExtension {
@@ -35,6 +38,7 @@ public class ExerciseActivity extends ToolbarExtension {
     /**
      * This function is called when the "Flashcard Game" button is clicked in the view.
      * It sets the int modeIndex to 0, which is used in the function navigate later on.
+     *
      * @param v is a View which in this case is the XML-file activity_exercise.
      */
 
@@ -46,6 +50,7 @@ public class ExerciseActivity extends ToolbarExtension {
     /**
      * This function is called when the "Quiz Game" button is clicked in the view.
      * It sets the int modeIndex to 0, which is used in the function navigate later on.
+     *
      * @param v is a View which in this case is the XML-file activity_exercise.
      */
 
@@ -107,6 +112,7 @@ public class ExerciseActivity extends ToolbarExtension {
     /**
      * This function handles the forwarding of the int deckIndex. It is packed into a bundle
      * with the key "deckIndex", which is then put into an Intent.
+     *
      * @param intent is an Intent, given by the function navigate(), above.
      */
 

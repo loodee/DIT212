@@ -8,6 +8,9 @@ import java.util.List;
 
 /**
  * @author Alexander Sandberg (alexandersand on github)
+ * The purpose of this Presenter is to handle any interaction with the model, for the Activity.
+ * Whenever data needs to be extracted or edited in the model by AchievementsActivity, it is
+ * supposed to be handled by this Presenter.
  */
 
 public class AchievementsPresenter {

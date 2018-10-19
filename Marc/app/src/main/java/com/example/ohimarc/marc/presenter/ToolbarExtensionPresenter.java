@@ -8,6 +8,8 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtensionView;
 /**
  * @author Alexander Sandberg (alexandersand on github)
  * @author Gustav Albertsson (galbertsson on github)
+ * The purpose of this Presenter is to update the model, prior to logging a user out through
+ * the Activity ToolbarExtension.
  */
 
 public class ToolbarExtensionPresenter {

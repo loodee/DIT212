@@ -15,6 +15,8 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
 /**
  * @author Alexander Sandberg (alexandersand on github)
+ * The purpose of this Activity is to set up the Quiz view, and handle any user interaction with
+ * the UI. It contains multiple methods for button clicks and a navigation method.
  */
 
 public class QuizActivity extends ToolbarExtension implements QuizView {
@@ -75,6 +77,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     /**
      * This function sets a green color to a Button object in the list buttons. It is supposed to
      * mark the correct answer to the question with this green color.
+     *
      * @param i is an int which is the index of the Button object in buttons which is to be marked
      *          as the correct answer.
      */
@@ -86,6 +89,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     /**
      * This function sets a red color to a Button object in the list buttons. It is supposed to
      * mark the incorrect answer to the question with this red color.
+     *
      * @param i is an int which is the index of the Button object in buttons which is to be marked
      *          as the incorrect answer.
      */
@@ -97,6 +101,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     /**
      * This function initializes the texts in the view. It assigns the question text to a TextView,
      * while also assigning the question alternatives to each Button in the list buttons.
+     *
      * @param list is a list of Strings which is given by QuizPresenter, where all the needed
      *             Strings are stored.
      */
@@ -113,6 +118,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
      * It sets calls the function questionAnswered in QuizPresenter with an index, 1, which is used
      * in the presenter. It also sets a boolean, hasAnswered to true, in order not to allow any more
      * answers to the given question.
+     *
      * @param v is a View which in this case is the XML-file activity_quiz.
      */
 
@@ -128,6 +134,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
      * It sets calls the function questionAnswered in QuizPresenter with an index, 2, which is used
      * in the presenter. It also sets a boolean, hasAnswered to true, in order not to allow any more
      * answers to the given question.
+     *
      * @param v is a View which in this case is the XML-file activity_quiz.
      */
 
@@ -143,6 +150,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
      * It sets calls the function questionAnswered in QuizPresenter with an index, 3, which is used
      * in the presenter. It also sets a boolean, hasAnswered to true, in order not to allow any more
      * answers to the given question.
+     *
      * @param v is a View which in this case is the XML-file activity_quiz.
      */
 
@@ -158,6 +166,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
      * It sets calls the function questionAnswered in QuizPresenter with an index, 4, which is used
      * in the presenter. It also sets a boolean, hasAnswered to true, in order not to allow any more
      * answers to the given question.
+     *
      * @param v is a View which in this case is the XML-file activity_quiz.
      */
 
@@ -175,6 +184,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
      * also resetting the color of the Button objects in the list buttons.
      * If a answer has not answered the question, a notification is sent to the user in form of
      * a Toast, telling them that they need to answer the question before pressing "Proceed".
+     *
      * @param v is a View, which in this case is the XML-file activity_quiz.
      */
 
@@ -221,6 +231,7 @@ public class QuizActivity extends ToolbarExtension implements QuizView {
     /**
      * This function packs a bundle for ResultsActivity. It puts the results into the bundle,
      * the current game selected, i.e "Quiz Game", while also forwarding the deckIndex.
+     *
      * @param intent is an Intent, given by the function changeView().
      */
 
