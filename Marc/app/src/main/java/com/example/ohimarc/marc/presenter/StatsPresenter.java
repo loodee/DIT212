@@ -2,7 +2,6 @@ package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 import com.example.ohimarc.marc.model.Stat;
-import com.example.ohimarc.marc.view.statsView.IStatsPresenter;
 import com.example.ohimarc.marc.view.statsView.StatsViewHolder;
 
 /**
@@ -10,12 +9,16 @@ import com.example.ohimarc.marc.view.statsView.StatsViewHolder;
  *
  * This class is responsible for the handling communication between StatsActivity and the model
  * */
-public class StatsPresenter implements IStatsPresenter {
+public class StatsPresenter {
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
 
-    @Override
-    public void onBindBasicNoteRowViewAtPosition(StatsViewHolder rowView, int position) {
+    /**
+     * Method for setting up one row of the recyclerView
+     * @param position The position of the row in the recyclerView
+     * @param rowView The StatsViewHolder object which holds the information for that row
+     * */
+    public void onBindStatsRowViewAtPosition(StatsViewHolder rowView, int position) {
         rowView.setDeckTitle(mtt.getActiveUser().getDeck(position).getTitle());
 
         //For every stat
@@ -24,7 +27,10 @@ public class StatsPresenter implements IStatsPresenter {
         }
     }
 
-    @Override
+    /**
+     * Method for getting how many rows there should be in the statistics view
+     * @return The number of rows there should be in the statistics view
+     * */
     public int getStatRowsCount() {
         return mtt.getActiveUser().getDeckTitles().size();
     }

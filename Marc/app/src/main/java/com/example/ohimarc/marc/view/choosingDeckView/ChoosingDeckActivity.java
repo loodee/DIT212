@@ -12,13 +12,11 @@ import com.example.ohimarc.marc.view.exerciseView.ExerciseActivity;
 
 /**
  * @author  Victor Johansson (Vroxie on github)
+ *
+ *
+ *  This class is the activity for Choosing a deck you want to play
  */
 public class ChoosingDeckActivity extends ToolbarExtension implements ChoosingDeckView {
-
-
-    /**
-     * This class is the activity for Choosing a deck you want to play
-     */
 
     /**
      * Sets up the screen when this activity is started

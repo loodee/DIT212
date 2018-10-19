@@ -1,8 +1,8 @@
 package com.example.ohimarc.marc.presenter;
 
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
+import com.example.ohimarc.marc.service.UserStorageFactory;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtensionView;
 
 /**
@@ -17,7 +17,7 @@ public class ToolbarExtensionPresenter {
 
     public ToolbarExtensionPresenter(ToolbarExtensionView view, String filePath) {
         this.view = view;
-        this.store = new LocalUserStorage(filePath);
+        this.store = UserStorageFactory.createLocalUserStorage(filePath);
     }
 
     public void logoutButton() {

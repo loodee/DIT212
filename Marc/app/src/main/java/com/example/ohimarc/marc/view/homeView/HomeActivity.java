@@ -12,6 +12,11 @@ import com.example.ohimarc.marc.view.choosingDeckView.ChoosingDeckActivity;
 import com.example.ohimarc.marc.view.statsView.StatsActivity;
 import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * This class is responsible for displaying the home menu
+ * */
 public class HomeActivity extends ToolbarExtension {
 
     private final HomePresenter presenter = new HomePresenter();

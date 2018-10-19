@@ -4,14 +4,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class responsible for holding information for generating Cloze-type cards, as well as the rules
+ * for how to parse the text and generate the proper cloze deletions from them.
+ *
+ * @author Gustav Albertsson
+ * @author Thomas Li
+ */
 public class ClozeNote extends Note {
     private String text;
 
+    /**
+     * Creates a ClozeNote with a `text` value for generating Cloze cards with proper syntax.
+     *
+     * @param text The text that will be parsed and used to generate cards.
+     */
     public ClozeNote(String text) {
         this.text = text != null ? text : "";
         generateCards();
     }
 
+    /**
+     * Generates cloze-type cards from the `text` value of the note, using regex.
+     * If the text value used contains no valid cloze deletion syntax, no cards are generated.
+     */
     @Override
     public void generateCards() {
         String[] words = text.split(" ");
@@ -86,10 +102,16 @@ public class ClozeNote extends Note {
         return builder.toString();
     }
 
+    /**
+     * @return The text value of the Note.
+     */
     public String getText() {
         return text;
     }
 
+    /**
+     * @param text Text to set the text value of the Note to.
+     */
     public void setText(String text) {
         this.text = text;
     }

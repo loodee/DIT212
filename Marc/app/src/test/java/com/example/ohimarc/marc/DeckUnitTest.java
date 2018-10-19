@@ -9,7 +9,6 @@ import static org.junit.Assert.*;
 
 public class DeckUnitTest {
     private Deck d;
-    private final String title = "testing title";
 
     @Before
     public void createEmptyDeck() {
@@ -19,6 +18,7 @@ public class DeckUnitTest {
 
     @Test
     public void checkNewDeckIsEmpty() {
+        String title = "testing title";
         assertEquals(title, d.getTitle());
         assertEquals(0, d.getDeckSize());
     }

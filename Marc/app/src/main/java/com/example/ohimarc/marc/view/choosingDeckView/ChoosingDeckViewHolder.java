@@ -10,12 +10,13 @@ import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
 /**
  * @author  Victor Johansson (Vroxie on github)
  */
+
+/**
+ * This class is the viewholder for choosing a deck you want to play
+ * Sets up view for each item in recycler view such as title etc.
+ */
 public class ChoosingDeckViewHolder extends RecyclerView.ViewHolder implements ChoosingDeckViewH {
 
-    /**
-     * This class is the viewholder for choosing a deck you want to play
-     * Sets up view for each item in recycler view such as title etc.
-     */
     private final TextView titleTextView;
 
     public ChoosingDeckViewHolder(View itemView, final ChoosingDeckPresenter presenter) {

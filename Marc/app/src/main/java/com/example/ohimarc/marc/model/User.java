@@ -5,9 +5,9 @@ import java.util.List;
 
 /**
  * @author Gustav Albertsson
- *
+ * <p>
  * This Class is responsible for holding the information about a user, sush as the users Decks, The users statistics and their name
- * */
+ */
 public class User {
     private final String name;
     private final List<Deck> decks = new ArrayList<>();
@@ -15,20 +15,24 @@ public class User {
 
     /**
      * @param name The name of the user, if null the name will be set to an empty string ("")
-     * */
-    public User(String name){
+     */
+    public User(String name) {
         this.name = name != null ? name : "";
     }
 
+    /**
+     * @return The name of the User.
+     */
     public String getName() {
         return name;
     }
 
     /**
      * Returns a list of all the titles of the users decks
+     *
      * @return A list containing the titles of the users decks
-     * */
-    public List<String> getDeckTitles(){
+     */
+    public List<String> getDeckTitles() {
         ArrayList<String> names = new ArrayList<>();
 
         for (Deck deck : decks) {
@@ -40,9 +44,10 @@ public class User {
 
     /**
      * Adds a new empty deck to the User
+     *
      * @param title The title of the deck
-     * */
-    public void createNewDeck(String title){
+     */
+    public void createNewDeck(String title) {
         String localTitle = title != null ? title : "";
         decks.add(new Deck(localTitle));
         stats.addNewDeck();
@@ -50,11 +55,12 @@ public class User {
 
     /**
      * Given an index of a deck returns that deck
+     *
      * @param i The index in the list of deck that the deck has
      * @return A deck matching the index give, if the index is invalid null will be returned
-     * */
+     */
     public Deck getDeck(int i) {
-        if(0 <= i && i < decks.size()){
+        if (0 <= i && i < decks.size()) {
             return decks.get(i);
         }
         return null;
@@ -62,10 +68,11 @@ public class User {
 
     /**
      * Given an index of a deck deletes a deck.
+     *
      * @param i The index of the deck you wish to delete
      */
-    public void deleteDeck(int i){
-        if(0 <= i && i < decks.size()){
+    public void deleteDeck(int i) {
+        if (0 <= i && i < decks.size()) {
             decks.remove(i);
             stats.removeDeck(i);
         }
@@ -73,22 +80,27 @@ public class User {
 
     /**
      * Returns a list of Stat objects which contains the statistics for the deck
+     *
      * @param index The index of the deck
-     * */
-    public Stat[] getStatsForDeck(int index){
+     */
+    public Stat[] getStatsForDeck(int index) {
         return stats.getStatsForDeck(index);
     }
 
     /**
      * Adds/updates the statistics for a deck/game mode combination
-     * @param index The index of the deck that the statistics is for
+     *
+     * @param index    The index of the deck that the statistics is for
      * @param gameMode The game mode that the statistics is for
-     * @param score The score that the user scored
-     * */
+     * @param score    The score that the user scored
+     */
     public void addNewStatistics(int index, String gameMode, int score) {
-        stats.addStatistics(index ,gameMode, score, decks.get(index).getDeckSize());
+        stats.addStatistics(index, gameMode, score, decks.get(index).getDeckSize());
     }
 
+    /**
+     * @return The achievements that the User has unlocked.
+     */
     public Achievements getAchievements() {
         return stats.getAchievements();
     }

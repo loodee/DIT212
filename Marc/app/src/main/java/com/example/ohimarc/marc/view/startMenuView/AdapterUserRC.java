@@ -6,15 +6,27 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.ohimarc.marc.R;
+import com.example.ohimarc.marc.presenter.StartMenuPresenter;
 
+
+/**
+ * @author Gustav Albertsson
+ *
+ * Class responsible for setting up the UserViewHolders for the recycler view
+ */
 class AdapterUserRC extends RecyclerView.Adapter<UserViewHolder> {
 
-    private final StartMenuContract.Presenter presenter;
+    private final StartMenuPresenter presenter;
 
-    public AdapterUserRC(StartMenuContract.Presenter presenter) {
+    /**
+     * Sets up a AdapterUserRC with the given presenter to communicate with
+     *
+     * @param presenter The presenter in which the instance can communicate with
+     */
+    public AdapterUserRC(StartMenuPresenter presenter) {
         this.presenter = presenter;
     }
-    
+
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -23,7 +35,7 @@ class AdapterUserRC extends RecyclerView.Adapter<UserViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder userViewHolder, int i) {
-        presenter.onBindBasicNoteRowViewAtPosition(userViewHolder, i);
+        presenter.onBindUserRowViewAtPosition(userViewHolder, i);
     }
 
 

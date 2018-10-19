@@ -7,6 +7,12 @@ import java.util.List;
 /**
  * @author Victor Johansson (Vroxie on github)
  */
+
+/**
+ * This class is responsible for the Achievements in the app,
+ * I.e says which achievements that exists, holding whcich achievements that are
+ * completed/uncompleted etc.
+ */
 public class Achievements {
 
     /**
@@ -23,17 +29,15 @@ public class Achievements {
         UNLOCK_ALL_ACHIEVEMENTS
     }
 
-    private List<achievements> completedAchievements = new ArrayList<>();
-    private List<achievements> uncompletedAchievements = new ArrayList<>();
+    private final List<achievements> completedAchievements = new ArrayList<>();
+    private final List<achievements> uncompletedAchievements = new ArrayList<>();
 
     /**
      * Every time this object is created i.e every time a new user gets created
      * It automatically inserts every achievement to the list of uncompleted achievements
      */
     public Achievements() {
-        for (achievements a : EnumSet.allOf(achievements.class)) {
-            uncompletedAchievements.add(a);
-        }
+        uncompletedAchievements.addAll(EnumSet.allOf(achievements.class));
     }
 
     /**
@@ -71,11 +75,7 @@ public class Achievements {
      * @return the list of all achievements
      */
     public List<achievements> getEnumsAsList() {
-        List<achievements> list = new ArrayList<>();
-        for (achievements a : EnumSet.allOf(achievements.class)) {
-            list.add(a);
-        }
-        return list;
+        return new ArrayList<>(EnumSet.allOf(achievements.class));
     }
 
 }

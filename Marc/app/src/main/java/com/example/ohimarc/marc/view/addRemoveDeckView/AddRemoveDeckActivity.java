@@ -21,6 +21,11 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 /**
  * @author Victor Johansson, (Vroxie on github)
  */
+
+/**
+ * This class is the activity for viewing the users decks
+ * The user can scroll through his/her decks and also add or remove decks
+ */
 public class AddRemoveDeckActivity extends ToolbarExtension implements AddDeckView {
 
     private RecyclerView.Adapter mAdapter;

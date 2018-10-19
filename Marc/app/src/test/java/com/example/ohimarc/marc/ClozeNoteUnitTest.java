@@ -3,22 +3,20 @@ package com.example.ohimarc.marc;
 import com.example.ohimarc.marc.model.ClozeNote;
 import com.example.ohimarc.marc.model.Card;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class ClozeNoteUnitTest {
-    private ClozeNote c;
-    private String text1 = "cloze notes [[1::aren't]] cool";
-    private String text2 = "[[1::basicnotes]] are old, [[2::clozes]] is the new [[1::orange]]";
 
     @Test
     public void createClozeNote() {
-        c = new ClozeNote(text1);
+        String text1 = "cloze notes [[1::aren't]] cool";
+        ClozeNote c = new ClozeNote(text1);
         assertEquals(c.getText(), text1);
         assertEquals(c.getSize(), 1);
 
+        String text2 = "[[1::basicnotes]] are old, [[2::clozes]] is the new [[1::orange]]";
         c = new ClozeNote(text2);
         assertEquals(c.getSize(), 2);
     }

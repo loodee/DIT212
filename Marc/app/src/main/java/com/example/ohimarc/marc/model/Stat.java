@@ -2,7 +2,7 @@ package com.example.ohimarc.marc.model;
 
 /**
  * @author Gustav Albertsson
- *
+ * <p>
  * Class for holding the statistics for a single deck/game mode combintaion
  */
 public class Stat {
@@ -12,10 +12,11 @@ public class Stat {
     private double averageScore;
     private final String gameMode;
 
-
     /**
-     * TODO: should allCorrect be here, should it not be in updateStats?, Now we can not change it once it is created
-     * */
+     * Creates a Stat object with default values,
+     *
+     * @param gameMode The game mode for which the Stat object is for
+     */
     Stat(String gameMode) {
         this.gameMode = gameMode;
         highScore = 0;
@@ -25,8 +26,9 @@ public class Stat {
     }
 
     /**
-     * Creates a Stat object that is an deep copy of the given stat object
-     * @param s The Stat object to make a deep copy of
+     * Creates a Stat object that is an deep copy of the given stat object.
+     *
+     * @param s The Stat object to make a deep copy of.
      */
     Stat(Stat s) {
         gameMode = s.gameMode;
@@ -37,32 +39,48 @@ public class Stat {
     }
 
     /**
-     * Updates the statistics that that is saved based on the given score
-     * @param score The score that the user got
-     * */
+     * Updates the statistics that that is saved based on the given score.
+     *
+     * @param score The score that the user got.
+     */
     public void updateStat(int score, int deckSize) {
         highScore = Math.max(highScore, score);
         averageScore = ((averageScore * timesPlayed) + score) / (timesPlayed + 1);
         timesPlayed++;
-        allCorrect = allCorrect || deckSize==score;
+        allCorrect = allCorrect || deckSize == score;
     }
 
+    /**
+     * @return The average score of the Stat.
+     */
     public double getAverageScore() {
         return averageScore;
     }
 
+    /**
+     * @return The high score of the Stat.
+     */
     public int getHighScore() {
         return highScore;
     }
 
+    /**
+     * @return The game mode of the Stat.
+     */
     public String getGameMode() {
         return gameMode;
     }
 
+    /**
+     * @return The number of times played of the Stat.
+     */
     public int getTimesPlayed() {
         return timesPlayed;
     }
 
+    /**
+     * @return True if all answers were correct, false otherwise.
+     */
     public boolean getAllCorrect() {
         return allCorrect;
     }

@@ -1,7 +1,9 @@
 package com.example.ohimarc.marc.model;
 
 /**
- * Class containing information for
+ * Class containing information for storing and generating cards of the "Basic" type.
+ *
+ * @author Thomas Li
  */
 public class BasicNote extends Note {
     private String front, back;
@@ -18,23 +20,38 @@ public class BasicNote extends Note {
         generateCards();
     }
 
+    /**
+     * Generates the cards according to the Note type (no special rules for BasicNotes)
+     */
     @Override
     public void generateCards() {
         cards = new Card[]{new Card(front, back)};
     }
 
+    /**
+     * @return The text representing the "front" of the Note.
+     */
     public String getFront() {
         return front;
     }
 
+    /**
+     * @param front The text to set the "front" value to.
+     */
     public void setFront(String front) {
         this.front = front;
     }
 
+    /**
+     * @return The text representing the "back" of the Note.
+     */
     public String getBack() {
         return back;
     }
 
+    /**
+     * @param back The text to set the "back" value to.
+     */
     public void setBack(String back) {
         this.back = back;
     }

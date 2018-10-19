@@ -4,8 +4,8 @@ import com.example.ohimarc.marc.model.BasicNote;
 import com.example.ohimarc.marc.model.ClozeNote;
 import com.example.ohimarc.marc.model.Deck;
 import com.example.ohimarc.marc.model.MemorizationTrainingTool;
-import com.example.ohimarc.marc.service.LocalUserStorage;
 import com.example.ohimarc.marc.service.UserStorage;
+import com.example.ohimarc.marc.service.UserStorageFactory;
 import com.example.ohimarc.marc.view.editDeckView.EditNoteView;
 
 /**
@@ -34,7 +34,7 @@ public class EditNotePresenter {
         this.view = view;
         this.deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
         this.noteIndex = noteIndex;
-        this.store = new LocalUserStorage(filepath);
+        this.store = UserStorageFactory.createLocalUserStorage(filepath);
         onCreate();
     }
 

@@ -49,8 +49,8 @@
 
             <Button
                 android:id="@+id/correct"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignTop="@+id/incorrect"
                 android:layout_marginStart="80dp"
@@ -59,8 +59,8 @@
 
             <Button
                 android:id="@+id/incorrect"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="50dp"
