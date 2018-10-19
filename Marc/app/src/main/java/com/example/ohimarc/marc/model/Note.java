@@ -2,6 +2,7 @@ package com.example.ohimarc.marc.model;
 
 /**
  * The Note class holds a list of cards, and information for how to generate them.
+ *
  * @author Thomas Li
  */
 public abstract class Note {
@@ -15,6 +16,7 @@ public abstract class Note {
 
     /**
      * Returns an array of tuples containing the information displayed on the card
+     *
      * @return Array of tuples of strings, where index 0 contains the info on the front,
      * and index 1 contains the information on the back
      */
@@ -26,9 +28,16 @@ public abstract class Note {
         return cardInfos;
     }
 
+    /**
+     * @return The cards contained in the Note.
+     */
     public Card[] getCards() {
         return cards;
     }
+
+    /**
+     * @return The number of cards contained in the Note.
+     */
     public int getSize() {
         return cards != null ? cards.length : 0;
     }
