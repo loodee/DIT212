@@ -16,7 +16,7 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 /**
  * @author Alexander Sandberg (alexandersand on github)
  * The purpose of this Activity is to set up the Quiz view, and handle any user interaction with
- * the UI. It contains multiple methods for button clicks and a couple of navigation methods.
+ * the UI. It contains multiple methods for button clicks and a navigation method.
  */
 
 public class QuizActivity extends ToolbarExtension implements QuizView {
