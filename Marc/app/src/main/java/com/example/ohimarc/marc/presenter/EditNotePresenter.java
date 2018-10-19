@@ -38,7 +38,7 @@ public class EditNotePresenter {
         onCreate();
     }
 
-    /*
+    /**
      * Sets the corresponding activity up with the correct environment, determining if editing an
      * existing Note or not, as well as the type of Note (Basic, Cloze).
      */

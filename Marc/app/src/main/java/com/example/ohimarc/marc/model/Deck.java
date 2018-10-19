@@ -107,18 +107,33 @@ public class Deck {
         return copies.toArray(new String[0][]);
     }
 
+    /**
+     * Given an index, returns the Note contained at that index.
+     *
+     * @param index The index at which to retrieve the Note from the Deck at.
+     * @return The note at the given index.
+     */
     public Note getNote(int index) {
         return notes.size() > index ? notes.get(index) : null;
     }
 
+    /**
+     * @return The notes contained by the Deck.
+     */
     public List<Note> getNotes() {
         return notes;
     }
 
+    /**
+     * @return The title of the deck.
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * @return The total number of Cards contained by all the Notes in the Deck.
+     */
     public int getDeckSize() {
         int size = 0;
         for (Note n : notes) size += n.getSize();
