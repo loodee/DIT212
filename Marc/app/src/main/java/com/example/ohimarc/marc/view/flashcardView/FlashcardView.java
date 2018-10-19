@@ -25,7 +25,8 @@ public interface FlashcardView {
      * is to initialize the texts of the card. This method is called by FlashcardPresenter as
      * only the Presenter knows what texts are contained in a specific Card object.
      *
-     * @param cardText
+     * @param deckTitleText is a String which is the deckTitle of a selected deck.
+     * @param cardText      is a String which is the front text of the first card in the deck.
      */
     void initTexts(String deckTitleText, String cardText);
 

@@ -58,6 +58,9 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
         initExtension(this, R.id.activity_edit_deck, "Edit Deck");
     }
 
+    /**
+     * What happens when the activity no longer paused and resumes
+     */
     @Override
     protected void onResume() {
         editDeckPresenter.start();
