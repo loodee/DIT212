@@ -71,9 +71,10 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
         cardButton.setScaleY(1);
         cardButton.setTranslationX(1);
         cardTitle.setText(qOrA);
-        cardTitle.setScaleX(-1);
-        cardTitle.setScaleY(1);
-        cardTitle.setTranslationX(1);
+        //cardTitle.setScaleX(-1);
+        //cardTitle.setScaleY(1);
+        //cardTitle.setTranslationX(1);
+        //set above to translate but in that case we need to fix rotation on the title aswell
     }
 
 

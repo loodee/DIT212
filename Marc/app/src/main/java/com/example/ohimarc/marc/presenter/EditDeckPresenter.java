@@ -6,6 +6,15 @@ import com.example.ohimarc.marc.view.editDeckView.BasicNoteViewHolder;
 import com.example.ohimarc.marc.view.editDeckView.EditDeckActivity;
 import com.example.ohimarc.marc.view.editDeckView.EditDeckContract;
 
+/**
+ * @author Mathias Forsman (Sorchar on github)
+ */
+
+/**
+ * This is the presenter that is the middleman between the model and the view.
+ * Handles most of the communication between editDeckView(the folder) and the models(EditNoteAcivity has its own presenter).
+ */
+
 public class EditDeckPresenter implements EditDeckContract.Presenter {
     private final Deck deck;
     private final EditDeckActivity editDeckActivity;
@@ -20,6 +29,12 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
         editDeckActivity.updateDeckList();
     }
 
+    /**
+     * handles setting up rows in the recyclerView
+     *
+     * @param rowView  holds everything regarding the object in a row
+     * @param position is the index/position of a row in the recyclerView
+     */
     @Override
     public void onBindBasicNoteRowViewAtPosition(BasicNoteViewHolder rowView, int position) {
         String[][] cardsCopies = deck.getCardCopies();
@@ -37,6 +52,8 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     }
 
     /**
+     * calls editCardInDeck with the index of the card that has been clicked
+     *
      * @param adapterPosition is the index in the recyclerview that the user clicked at
      */
     @Override
@@ -45,7 +62,9 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     }
 
     /**
-     * @param adapterPosition is the index in the recyclerview that the user long clicked at
+     * calls promptForDeletion with the index of the card that has been longClicked
+     *
+     * @param adapterPosition is the index in the recyclerView that the user long clicked at
      */
     @Override
     public void onUserLongClickedAtPosition(int adapterPosition) {
@@ -63,6 +82,8 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     }
 
     /**
+     * Deletes a specific note when given an index
+     *
      * @param index is the card in the list that will get deleted
      */
     public void confirmDeletion(int index) {

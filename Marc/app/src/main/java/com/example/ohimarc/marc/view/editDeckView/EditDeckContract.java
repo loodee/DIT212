@@ -1,5 +1,8 @@
 package com.example.ohimarc.marc.view.editDeckView;
 
+/**
+ * @author Mathias Forsman (Sorchar on github)
+ */
 
 public interface EditDeckContract {
     interface View {

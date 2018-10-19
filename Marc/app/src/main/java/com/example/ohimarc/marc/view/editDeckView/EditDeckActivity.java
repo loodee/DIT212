@@ -16,6 +16,13 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
 import java.util.Objects;
 
+/**
+ * @author Mathias Forsman (Sorchar on github)
+ */
+
+/**
+ * Displays everything inside of a deck
+ */
 public class EditDeckActivity extends ToolbarExtension implements EditDeckContract.View {
     private EditDeckPresenter editDeckPresenter;
     private AdapterEditDeckRC adapter;
@@ -97,6 +104,7 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
     }
 
     /**
+     * Creates editNoteActivity view and starts it
      *
      * @param noteIndex is the card in the list that is clicked on
      */
