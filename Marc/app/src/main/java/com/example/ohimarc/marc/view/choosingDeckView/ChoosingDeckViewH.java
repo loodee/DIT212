@@ -9,5 +9,9 @@ package com.example.ohimarc.marc.view.choosingDeckView;
  * The only class who implements this i AddRemoveDeckViewHolder
  */
 public interface ChoosingDeckViewH {
+    /**
+     * Sets the title of a item in recyclerview, in this case the deckTitle
+     * @param title the title that will be set, (the deckTitle)
+     */
     void setTitle(String title);
 }

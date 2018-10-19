@@ -11,12 +11,12 @@ import java.util.ArrayList;
 /**
  * Author Victor Johansson (Vroxie on github)
  */
-public class FlashcardPresenter {
 
-    /**
-     * This class is the presenter for playing a flashcardgame, tells
-     *  The view what to do when buttons are clicked etc.
-     */
+/**
+ * This class is the presenter for playing a flashcardgame, tells
+ *  The view what to do when buttons are clicked etc.
+ */
+public class FlashcardPresenter {
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
     private FlashCardGame game;
@@ -31,6 +31,10 @@ public class FlashcardPresenter {
     }
 
 
+    /**
+     * Initializes variables that the presenter needs when it gets created
+     * Such as a game with a deck and the deck that shall be played
+     */
     private void onCreate() {
         Deck deck = mtt.getActiveUser().getDeck(index);
         game = new FlashCardGame(deck);
@@ -59,10 +63,16 @@ public class FlashcardPresenter {
         return ansAmount;
     }
 
+    /**
+     * @return the title of deck that is being played
+     */
     public String getDeckTitle() {
         return game.getDeckTitle();
     }
 
+    /**
+     * @return the name of the gamemode that is playing, in this case it Flashcard Game
+     */
     public String getGameName() {
         return game.getName();
     }

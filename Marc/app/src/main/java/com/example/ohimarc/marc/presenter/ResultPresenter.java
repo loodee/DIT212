@@ -9,6 +9,10 @@ import java.util.ArrayList;
 /**
  * @author Victor Johansson (Vroxie on github)
  */
+
+/**
+ * This class is the presenter for the resultscreen, i.e when a game is finished a result is being presented
+ */
 public class ResultPresenter {
     private final ArrayList<Integer> amountCorrect;
     private final ResultsView view;

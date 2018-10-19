@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Author Victor Johansson (Vroxie on github)
+ * @author Victor Johansson (Vroxie on github)
+ */
+
+/**
+ * This class sets up the rules for a Quiz gamemode i.e generate answeralternatives
+ * Checks is an answers is correct and saves it etc.
  */
 public class QuizGame extends Game {
 

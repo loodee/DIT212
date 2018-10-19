@@ -11,12 +11,13 @@ import java.util.List;
 /**
  * @author  Victor Johansson (Vroxie on github)
  */
+
+/**
+ * This class is the presenter for the screen where you can view decks you have
+ * But also add/delete decks
+ */
 public class AddRemoveDeckPresenter {
 
-    /**
-     * This class is the presenter for the screen where you can view decks you have
-     * But also add/delete decks
-     */
     private List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     private final AddDeckView view;
     private final UserStorage userStorage;

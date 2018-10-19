@@ -10,12 +10,13 @@ import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 /**
  * @author  Victor Johansson (Vroxie on github)
  */
+
+/**
+ * This class is the viewholder for the screen where you view your decks
+ * Sets up view for each item in recycler view such as title etc.
+ */
 public class AddRemoveDeckViewHolder extends RecyclerView.ViewHolder implements AddRemoveDeckView {
 
-    /**
-     * This class is the viewholder for the screen where you view your decks
-     * Sets up view for each item in recycler view such as title etc.
-     */
     private final TextView titleTextView;
 
     public AddRemoveDeckViewHolder(View itemView, final AddRemoveDeckPresenter presenter) {

@@ -7,6 +7,12 @@ import java.util.List;
 /**
  * @author Victor Johansson (Vroxie on github)
  */
+
+/**
+ * This class is responsible for the Achievements in the app,
+ * I.e says which achievements that exists, holding whcich achievements that are
+ * completed/uncompleted etc.
+ */
 public class Achievements {
 
     /**

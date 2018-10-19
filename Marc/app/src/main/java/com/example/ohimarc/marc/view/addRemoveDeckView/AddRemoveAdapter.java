@@ -11,14 +11,15 @@ import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 /**
  * @author Victor Johansson (Vroxie on github)
  */
+
+/**
+ * This class is the adapter for the recyclerview in the screen where you view
+ *  your decks.
+ *  It chooses what should contain in the recyclerview
+ */
 class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHolder>
 {
 
-    /**
-     * This class is the adapter for the recyclerview in the screen where you view
-     *  your decks.
-     *  It chooses what should contain in the recyclerview
-     */
     private final AddRemoveDeckPresenter presenter;
 
     public AddRemoveAdapter(AddRemoveDeckPresenter presenter){

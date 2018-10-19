@@ -9,11 +9,12 @@ import java.util.List;
 /**
  * @author  Victor Johansson (Vroxie on github)
  */
+
+/**
+ * This class is the Presenter for the screen when choosing a deck you want to play
+ */
 public class ChoosingDeckPresenter {
 
-    /**
-     * This class is the Presenter for the screen when choosing a deck you want to play
-     */
     private final List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     private final ChoosingDeckView view;
 
