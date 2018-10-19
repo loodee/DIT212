@@ -39,7 +39,7 @@ public class FlashcardPresenter {
         Deck deck = mtt.getActiveUser().getDeck(index);
         game = new FlashCardGame(deck);
         if (game.getDecksize() > 0) {
-            view.initTexts(game.peekNextCard()[0]);
+            view.initTexts(getDeckTitle(), game.peekNextCard()[0]);
         }
     }
 
