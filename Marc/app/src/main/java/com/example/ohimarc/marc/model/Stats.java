@@ -8,9 +8,9 @@ import java.util.Set;
 /**
  * @author Gustav Albertsson
  * @author Victor Johansson
- *
+ * <p>
  * Class responsible for holding general statistics for a user and statistics for the users different decks.
- * */
+ */
 public class Stats {
     private int totalTimesPlayed;
     private final Achievements userAchievements = new Achievements();
@@ -48,8 +48,9 @@ public class Stats {
 
     /**
      * Removes the statistics for the given deck
+     *
      * @param index the index of the statistics that should be removed
-     * */
+     */
     public void removeDeck(int index) {
         if (0 <= index && index < stats.size()) {
             stats.remove(index);
@@ -58,21 +59,23 @@ public class Stats {
 
     /**
      * Returns general statistics about the user
+     *
      * @return an array of general statistics, the first index is the total times the user has played
-     * */
+     */
     public int[] getUserStats() {
         return new int[]{totalTimesPlayed};
     }
 
     /**
      * Method that returns all the stats for a specific deck
+     *
      * @return An array of Stat objects that hold the information for each game mode played on that deck.
      * If no games have been played on the deck/the deck index is invalid an empty array will be returned.
-     * */
+     */
     public Stat[] getStatsForDeck(int index) {
 
         //Is the index valid
-        if(0 > index || index >= stats.size()){
+        if (0 > index || index >= stats.size()) {
             return new Stat[]{};
         }
 
@@ -108,9 +111,9 @@ public class Stats {
 
     /**
      * Adds the holder for the statistics for a deck
-     * */
+     */
     public void addNewDeck() {
-        if(stats.isEmpty()) {
+        if (stats.isEmpty()) {
             userAchievements.updateAchievements(Achievements.achievements.CREATE_YOUR_FIRST_DECK);
         }
         stats.add(new HashMap<String, Stat>());
@@ -118,36 +121,37 @@ public class Stats {
 
     /**
      * A checker for all achievements that a user can get for the moment
+     *
      * @param gamemode the gamemode that that particular stat object holds,
      *                 this is since there could be different achievements
      *                 for different gamemodes
      */
-    private void checkIfAchiIsCompleted(String gamemode){
+    private void checkIfAchiIsCompleted(String gamemode) {
         boolean allachis = true;
-        for(int i = 0;i<stats.size();i++) {
-            if(stats.get(i).get(gamemode) != null && stats.get(i).get(gamemode).getAllCorrect()) {
+        for (int i = 0; i < stats.size(); i++) {
+            if (stats.get(i).get(gamemode) != null && stats.get(i).get(gamemode).getAllCorrect()) {
                 userAchievements.updateAchievements(Achievements.achievements.GET_ALL_ANSWERS_CORRECT_IN_A_DECK);
             }
         }
-        if(totalTimesPlayed >= 10){
+        if (totalTimesPlayed >= 10) {
             userAchievements.updateAchievements(Achievements.achievements.PLAY_10_GAMES);
         }
-        if(totalTimesPlayed >= 20){
+        if (totalTimesPlayed >= 20) {
             userAchievements.updateAchievements(Achievements.achievements.PLAY_20_GAMES);
         }
-        if(totalTimesPlayed >= 50){
+        if (totalTimesPlayed >= 50) {
             userAchievements.updateAchievements(Achievements.achievements.PLAY_50_GAMES);
         }
-        if(totalTimesPlayed >= 100){
+        if (totalTimesPlayed >= 100) {
             userAchievements.updateAchievements(Achievements.achievements.PLAY_100_GAMES);
         }
-        if(stats.get(0).get(gamemode) != null && stats.get(0).get(gamemode).getTimesPlayed() <= 1){
+        if (stats.get(0).get(gamemode) != null && stats.get(0).get(gamemode).getTimesPlayed() <= 1) {
             userAchievements.updateAchievements(Achievements.achievements.PLAY_YOUR_FIRST_DECK);
         }
-        for(int i = 0; i<userAchievements.getEnumsAsList().size()-1; i++){
+        for (int i = 0; i < userAchievements.getEnumsAsList().size() - 1; i++) {
             allachis = allachis && search(userAchievements.getEnumsAsList().get(i));
         }
-        if(allachis){
+        if (allachis) {
             userAchievements.updateAchievements(Achievements.achievements.UNLOCK_ALL_ACHIEVEMENTS);
         }
 
@@ -155,12 +159,13 @@ public class Stats {
 
     /**
      * Just a linear search for a achievement to see if a achievement is completed
+     *
      * @param a the given achievement that should be searched after
      * @return a boolean that says if the achievement is completed or not
      */
-    private boolean search(Achievements.achievements a){
-        for(Achievements.achievements achi : userAchievements.getCompletedAchievements()){
-            if(a.equals(achi)){
+    private boolean search(Achievements.achievements a) {
+        for (Achievements.achievements achi : userAchievements.getCompletedAchievements()) {
+            if (a.equals(achi)) {
                 return true;
             }
         }
