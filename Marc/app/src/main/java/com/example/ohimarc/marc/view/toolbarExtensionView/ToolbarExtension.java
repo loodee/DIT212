@@ -26,6 +26,10 @@ import java.util.Objects;
 
 /**
  * @author Alexander Sandberg (alexandersand on github)
+ * The purpose of this abstract Activity is to simplify the usage of our applications toolbar and
+ * quick menu in any Activity that needs a toolbar and quick menu. It contains multiple helper
+ * methods, where it sets up the toolbar and side menu. It also contains methods for navigation
+ * for the quick menu.
  */
 
 abstract public class ToolbarExtension extends AppCompatActivity implements ToolbarExtensionView {
@@ -47,6 +51,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     /**
      * This function is a helper function to initExtension. This function initializes some local
      * objects.
+     *
      * @param viewID is the ID of the view that the ToolbarExtension is currently active for.
      */
 
@@ -70,6 +75,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     /**
      * This function initializes the navigation button in the toolbar. It is designed to be a
      * helper function for initExtension.
+     *
      * @param act is the Activity in which this navigation buttons is currently active for.
      */
 
@@ -85,9 +91,10 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
      * decides to extend this class. It utilizes the helper functions above, to make it easy
      * for an activity to set everything up, reducing the copy and paste of code throughout
      * the program.
+     *
      * @param activity is the Activity in which the ToolbarExtension is currently active for.
-     * @param viewID is the ID of the view in which the ToolbarExtension is currently active for.
-     * @param title is a String that is desired to be the title of the current Activity.
+     * @param viewID   is the ID of the view in which the ToolbarExtension is currently active for.
+     * @param title    is a String that is desired to be the title of the current Activity.
      */
 
     protected void initExtension(Activity activity, int viewID, String title) {
@@ -176,6 +183,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
     /**
      * This is a function called from the XML-file activity_navigation. It calls the function
      * logoutButton in ToolbarExtensionPresenter.
+     *
      * @param v is a View which in this case is the XML-file activity_navigation.
      */
     public void logoutClicked(View v) {
@@ -194,6 +202,7 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
 
     /**
      * This function handles the click action of the navigation item in the toolbar.
+     *
      * @param item is a required MenuItem when Overriding this function.
      * @return true if navToggle was selected. Pass the call to the super class otherwise.
      */
