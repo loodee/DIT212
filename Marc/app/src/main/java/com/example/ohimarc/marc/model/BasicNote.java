@@ -29,36 +29,28 @@ public class BasicNote extends Note {
     }
 
     /**
-     * Returns the "front" value of the Note.
-     *
-     * @return String value containing the text representing the "front" of the Note.
+     * @return The text representing the "front" of the Note.
      */
     public String getFront() {
         return front;
     }
 
     /**
-     * Sets the "front" value of the Note.
-     *
-     * @param front String value to set the "front" value to.
+     * @param front The text to set the "front" value to.
      */
     public void setFront(String front) {
         this.front = front;
     }
 
     /**
-     * Returns the "back" value of the Note.
-     *
-     * @return String value containing the text representing the "back" of the Note.
+     * @return The text representing the "back" of the Note.
      */
     public String getBack() {
         return back;
     }
 
     /**
-     * Sets the "back" value of the Note.
-     *
-     * @param back String value to set the "back" value to.
+     * @param back The text to set the "back" value to.
      */
     public void setBack(String back) {
         this.back = back;
