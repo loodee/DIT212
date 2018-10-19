@@ -107,7 +107,7 @@ public class FlashcardPresenter {
             if (game.getNextCard() < game.getDecksize() - 1) {
                 game.questionAnswer(game.getNextCard(), isCorrect);
                 game.goToNextCard();
-                view.flipCardButton("Q:", game.peekNextCard()[0]);
+                view.initTexts("Q:", game.peekNextCard()[0]);
             } else {
                 game.questionAnswer(game.getNextCard(), isCorrect);
                 view.changeView();

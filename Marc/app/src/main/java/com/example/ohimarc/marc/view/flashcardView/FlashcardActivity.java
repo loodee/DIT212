@@ -69,12 +69,13 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
      */
 
     public void flipCardButton(String qOrA, String text) {
-        cardButton.setText(text);
         cardButton.setScaleX(-1);
         cardButton.setScaleY(1);
         cardButton.setTranslationX(1);
+        cardButton.setText(text);
         cardTitle.setText(qOrA);
     }
+
 
 
     /**
