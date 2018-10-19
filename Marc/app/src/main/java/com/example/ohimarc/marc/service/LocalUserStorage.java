@@ -28,7 +28,7 @@ class LocalUserStorage implements UserStorage {
      * Creates an LocalUserStorage object which can store and retrieve Users from .json files
      * @param filePath The path which the .json file is going to be located in
      */
-    public LocalUserStorage(String filePath) {
+    LocalUserStorage(String filePath) {
         this.filePath = filePath;
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Note.class, new NoteClassAdapter());
