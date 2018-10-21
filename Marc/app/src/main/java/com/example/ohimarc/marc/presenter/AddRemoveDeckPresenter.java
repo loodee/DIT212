@@ -9,7 +9,7 @@ import com.example.ohimarc.marc.view.addRemoveDeckView.AddRemoveDeckView;
 import java.util.List;
 
 /**
- * @author  Victor Johansson (Vroxie on github)
+ * @author Victor Johansson (Vroxie on github)
  */
 
 /**

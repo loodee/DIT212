@@ -14,9 +14,9 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
 /**
  * @author Gustav Albertsson
- *
+ * <p>
  * This class is responsible for displaying the home menu
- * */
+ */
 public class HomeActivity extends ToolbarExtension {
 
     private final HomePresenter presenter = new HomePresenter();
@@ -26,13 +26,13 @@ public class HomeActivity extends ToolbarExtension {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home);
-        initExtension(this, R.id.homeActivity,"Home");
+        initExtension(this, R.id.homeActivity, "Home");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(presenter.isLoggedOut()){
+        if (presenter.isLoggedOut()) {
             logout();
         }
     }
@@ -46,15 +46,15 @@ public class HomeActivity extends ToolbarExtension {
         startActivity(intent);
     }
 
-    public void deckButton(View view){
-        Intent intent = new Intent(HomeActivity.this,AddRemoveDeckActivity.class);
+    public void deckButton(View view) {
+        Intent intent = new Intent(HomeActivity.this, AddRemoveDeckActivity.class);
         startActivity(intent);
     }
 
-    public void statsButton(View view){
+    public void statsButton(View view) {
         Log.d("test", "Pressed stats button");
 
-        Intent intent = new Intent(HomeActivity.this,StatsActivity.class);
+        Intent intent = new Intent(HomeActivity.this, StatsActivity.class);
         startActivity(intent);
     }
 

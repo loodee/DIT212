@@ -11,7 +11,7 @@ import com.example.ohimarc.marc.presenter.StartMenuPresenter;
 
 /**
  * @author Gustav Albertsson
- *
+ * <p>
  * Class responsible for setting up the UserViewHolders for the recycler view
  */
 class AdapterUserRC extends RecyclerView.Adapter<UserViewHolder> {

@@ -8,7 +8,7 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
 
 /**
- * @author  Victor Johansson (Vroxie on github)
+ * @author Victor Johansson (Vroxie on github)
  */
 
 /**

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  * This class is the presenter for playing a flashcardgame, tells
- *  The view what to do when buttons are clicked etc.
+ * The view what to do when buttons are clicked etc.
  */
 public class FlashcardPresenter {
 
@@ -26,7 +26,8 @@ public class FlashcardPresenter {
 
     /**
      * The constructor for the presenter
-     * @param view the view that is creating this presenter
+     *
+     * @param view  the view that is creating this presenter
      * @param index a index in list of decks, telling what deck that shall be played
      */
     public FlashcardPresenter(FlashcardView view, int index) {

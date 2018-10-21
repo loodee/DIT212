@@ -10,9 +10,9 @@ import com.example.ohimarc.marc.presenter.StatsPresenter;
 
 /**
  * @author Gustav Albertson
- *
+ * <p>
  * Class responsible for setting up the StatsViewHolders for the recycler view
- * */
+ */
 class AdapterStatsRC extends RecyclerView.Adapter<StatsViewHolder> {
 
     private final StatsPresenter presenter;

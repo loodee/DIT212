@@ -10,9 +10,9 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
 /**
  * @author Gustav Albertsson
- *
+ * <p>
  * Activity that displays the statistics for a player in a RecyclerView
- * */
+ */
 public class StatsActivity extends ToolbarExtension {
 
     @Override
@@ -30,6 +30,6 @@ public class StatsActivity extends ToolbarExtension {
 
         rv.setAdapter(adapter);
 
-        initExtension(this, R.id.statsActivity,"Statistics");
+        initExtension(this, R.id.statsActivity, "Statistics");
     }
 }

@@ -11,6 +11,7 @@ package com.example.ohimarc.marc.view.choosingDeckView;
 public interface ChoosingDeckViewH {
     /**
      * Sets the title of a item in recyclerview, in this case the deckTitle
+     *
      * @param title the title that will be set, (the deckTitle)
      */
     void setTitle(String title);

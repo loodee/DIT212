@@ -8,7 +8,7 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 
 /**
- * @author  Victor Johansson (Vroxie on github)
+ * @author Victor Johansson (Vroxie on github)
  */
 
 /**

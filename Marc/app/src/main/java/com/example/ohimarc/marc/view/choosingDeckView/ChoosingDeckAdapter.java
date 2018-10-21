@@ -8,7 +8,7 @@ import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.ChoosingDeckPresenter;
 
 /**
- * @author  Victor Johansson (Vroxie on github)
+ * @author Victor Johansson (Vroxie on github)
  */
 
 /**
@@ -25,7 +25,9 @@ class ChoosingDeckAdapter extends RecyclerView.Adapter<ChoosingDeckViewHolder> {
      * @param presenter a presenter that the view is creating which also creates this adapter
      *                  This is so presenter can know what to tell the view to print out
      */
-    public ChoosingDeckAdapter(ChoosingDeckPresenter presenter) {this.presenter = presenter;}
+    public ChoosingDeckAdapter(ChoosingDeckPresenter presenter) {
+        this.presenter = presenter;
+    }
 
     /**
      * Creates a viewholder for each item in the recyclerview
@@ -34,9 +36,9 @@ class ChoosingDeckAdapter extends RecyclerView.Adapter<ChoosingDeckViewHolder> {
      * @return the new viewholder for a item in the recyclerview
      */
     @Override
-    public ChoosingDeckViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ChoosingDeckViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ChoosingDeckViewHolder(LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.content_add_remove_deck, parent, false),presenter);
+                inflate(R.layout.content_add_remove_deck, parent, false), presenter);
     }
 
 

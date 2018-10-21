@@ -20,22 +20,22 @@ import com.example.ohimarc.marc.view.homeView.HomeActivity;
 
 /**
  * @author Gustav Albertsson
- *
+ * <p>
  * Activity for showing the startMenu, this activity is responsible for choosing a user.
- * */
+ */
 public class StartMenuActivity extends AppCompatActivity implements StartMenuView {
 
     private StartMenuPresenter mainPresenter;
     private AdapterUserRC adapter;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_menu);
 
-        mainPresenter = new StartMenuPresenter(this,getFilesDir().getAbsolutePath());
+        mainPresenter = new StartMenuPresenter(this, getFilesDir().getAbsolutePath());
 
-        if(mainPresenter.loggedIn()){
+        if (mainPresenter.loggedIn()) {
             login();
         }
 

@@ -14,9 +14,9 @@ import java.io.IOException;
 
 /**
  * @author Gustav Albertsson
- *
+ * <p>
  * This class is responsible for storing and reading a MemorizationTrainingTool from local JSON storage
- * */
+ */
 class LocalUserStorage implements UserStorage {
 
 
@@ -26,6 +26,7 @@ class LocalUserStorage implements UserStorage {
 
     /**
      * Creates an LocalUserStorage object which can store and retrieve Users from .json files
+     *
      * @param filePath The path which the .json file is going to be located in
      */
     LocalUserStorage(String filePath) {
@@ -37,8 +38,9 @@ class LocalUserStorage implements UserStorage {
 
     /**
      * Stores the given MemorizationTrainingTool to a local JSON file
+     *
      * @param mtt The MemorizationTrainingTool instance which should be saved
-     * */
+     */
     @Override
     public void storeState(MemorizationTrainingTool mtt) {
         try {
@@ -52,8 +54,9 @@ class LocalUserStorage implements UserStorage {
 
     /**
      * Retrieves the stored MemorizationTrainingTool instance from the local JSON file
+     *
      * @return the stored MemorizationTrainingTool instance or a new instance if none are saved
-     * */
+     */
     @Override
     public MemorizationTrainingTool getStoredState() {
         try {

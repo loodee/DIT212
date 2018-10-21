@@ -5,7 +5,7 @@ import java.util.Random;
 
 /**
  * @author Victor Johansson (Vroxie on github)
- *
+ * <p>
  * This class sets up the rules for a Quiz gamemode i.e generate answeralternatives
  * Checks is an answers is correct and saves it etc.
  */
@@ -16,6 +16,7 @@ public class QuizGame extends Game {
 
     /**
      * Constructor for creating a QuizGame
+     *
      * @param deck a Deck that shall be played with this QuizGAme instance
      */
     public QuizGame(Deck deck) {

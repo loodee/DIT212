@@ -14,38 +14,40 @@ import com.example.ohimarc.marc.presenter.AddRemoveDeckPresenter;
 
 /**
  * This class is the adapter for the recyclerview in the screen where you view
- *  your decks.
- *  It chooses what should contain in the recyclerview
+ * your decks.
+ * It chooses what should contain in the recyclerview
  */
-class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHolder>
-{
+class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHolder> {
 
     private final AddRemoveDeckPresenter presenter;
 
     /**
      * The constructor for the adapter for recyclerview
+     *
      * @param presenter a presenter that the view is creating which also creates this adapter
      *                  This is so presenter can know what to tell the view to print out
      */
-    public AddRemoveAdapter(AddRemoveDeckPresenter presenter){
+    public AddRemoveAdapter(AddRemoveDeckPresenter presenter) {
         this.presenter = presenter;
     }
 
     /**
      * Creates a viewholder for each item in the recyclerview
-     * @param parent the Viewholder for the recyclerview
+     *
+     * @param parent   the Viewholder for the recyclerview
      * @param viewType the the current index the viewholder is "holding" right now
      * @return the new viewholder for a item in the recyclerview
      */
     @Override
-    public AddRemoveDeckViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
+    public AddRemoveDeckViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new AddRemoveDeckViewHolder(LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.content_choosing_deck, parent, false),presenter);
+                inflate(R.layout.content_choosing_deck, parent, false), presenter);
     }
 
     /**
      * Binds a viewholder to a item in the recyclerview
-     * @param holder the viewholder for the item
+     *
+     * @param holder   the viewholder for the item
      * @param position the item
      */
     @Override
@@ -56,6 +58,7 @@ class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHolder>
 
     /**
      * Counts how many rows/items the recyclerview will contain
+     *
      * @return the amount of rows that the recycler will contain
      */
     @Override

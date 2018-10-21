@@ -4,9 +4,9 @@ import com.example.ohimarc.marc.model.MemorizationTrainingTool;
 
 /**
  * @author Gustav Albertsson
- *
+ * <p>
  * This class is responsible for the handling communication between HomeActivity and the model
- * */
+ */
 public class HomePresenter {
 
     /**

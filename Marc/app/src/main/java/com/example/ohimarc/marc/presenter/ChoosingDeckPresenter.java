@@ -7,7 +7,7 @@ import com.example.ohimarc.marc.view.choosingDeckView.ChoosingDeckViewHolder;
 import java.util.List;
 
 /**
- * @author  Victor Johansson (Vroxie on github)
+ * @author Victor Johansson (Vroxie on github)
  */
 
 /**
