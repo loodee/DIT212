@@ -18,6 +18,13 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     private final Deck deck;
     private final EditDeckActivity editDeckActivity;
 
+    /**
+     * Constructs a EditDeckPresenter
+     *
+     * @param a         purpose of this parameter is to give access to the methods in specified activity
+     *                  to this presenter
+     * @param deckIndex the index of a specific deck from the active user
+     */
     public EditDeckPresenter(EditDeckActivity a, int deckIndex) {
         this.editDeckActivity = a;
         this.deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
