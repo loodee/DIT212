@@ -1,5 +1,11 @@
 package com.example.ohimarc.marc.view.startMenuView;
 
+/**
+ * @author Gustav Albertsson
+ *
+ * This class is responsible for forcing the activity to have certain methods, so that the presenter
+ * does not have to be dependent on an implementation.
+ * */
 public interface StartMenuView {
 
     /**
