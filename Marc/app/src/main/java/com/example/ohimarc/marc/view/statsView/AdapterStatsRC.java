@@ -8,10 +8,20 @@ import android.view.ViewGroup;
 import com.example.ohimarc.marc.R;
 import com.example.ohimarc.marc.presenter.StatsPresenter;
 
+/**
+ * @author Gustav Albertson
+ *
+ * Class responsible for setting up the StatsViewHolders for the recycler view
+ * */
 class AdapterStatsRC extends RecyclerView.Adapter<StatsViewHolder> {
 
     private final StatsPresenter presenter;
 
+    /**
+     * Sets up a AdapterStatsRC with the given presenter to communicate with
+     *
+     * @param presenter The presenter in which the instance can communicate with
+     */
     public AdapterStatsRC(StatsPresenter presenter) {
         this.presenter = presenter;
     }
