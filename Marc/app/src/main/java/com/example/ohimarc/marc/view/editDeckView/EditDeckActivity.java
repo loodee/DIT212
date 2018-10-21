@@ -16,6 +16,12 @@ import com.example.ohimarc.marc.view.toolbarExtensionView.ToolbarExtension;
 
 import java.util.Objects;
 
+
+/**
+ * @author Mathias Forsman (Sorchar on github)
+ * <p>
+ * Displays everything inside of a deck
+ */
 public class EditDeckActivity extends ToolbarExtension implements EditDeckContract.View {
     private EditDeckPresenter editDeckPresenter;
     private AdapterEditDeckRC adapter;
@@ -51,6 +57,9 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
         initExtension(this, R.id.activity_edit_deck, "Edit Deck");
     }
 
+    /**
+     * What happens when the activity no longer paused and resumes
+     */
     @Override
     protected void onResume() {
         editDeckPresenter.start();
@@ -97,6 +106,7 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
     }
 
     /**
+     * Creates editNoteActivity view and starts it
      *
      * @param noteIndex is the card in the list that is clicked on
      */

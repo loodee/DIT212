@@ -1,0 +1,27 @@
+The syntax for cloze notes are:
+A cloze deletion is marked by [[a::word]] where "a" is the cloze identifier and "word" is the word that is going to be replaced.
+
+For example:
+"Hello [[a::world]]"
+
+Generates a card where the front is "Hello [..]" and the back is "Hello world".
+
+It also supports multiple deletions such as:
+"Hello [[a::Alice]], where is [[a::Bob]]"
+
+will generate a card where the front is "Hello [..], where is [..]" and the back is "Hello Alice, where is Bob".
+
+
+It also supports multiple clozes in the same note:
+"Hello [[a::Alice]], where is [[b::Bob]]"
+
+will generate 2 cards:
+the first card front is "Hello [..], where is Bob"
+the first card back is "Hello Alice, where is Bob"
+
+the second card front is "Hello Alice, where is [..]"
+the second card back is "Hello Alice, where is Bob"
+
+
+
+
