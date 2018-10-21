@@ -14,6 +14,11 @@ public class ExercisePresenter {
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
     private final int index;
 
+    /**
+     * This is the constructor of ExercisePresenter.
+     * @param index is the index of the Deck that has been selected in the previous view.
+     *              It is needed to get data from the model, while provided by ExerciseActivity.
+     */
     public ExercisePresenter(int index) {
         this.index = index;
     }
