@@ -165,11 +165,12 @@ abstract public class ToolbarExtension extends AppCompatActivity implements Tool
                         break;
                 }
                 if (intent != null) {
+                    navView.closeDrawers();                                     //Close the quick menu
                     if (inHome()) {                                             //If you're in HomeActivity:
-                        navView.closeDrawers();                                 //Close the quick menu -
                         startActivity(intent);                                  //Start the next Activity.
+                        return true;                                            //Break the method, as you are finished.
                     } else if (thisActivityIsNextActivity(nextActivity)) {      //if current Activity is the next Activity:
-                        navView.closeDrawers();                                 //Close the quick menu.
+                        return true;                                            //Break the method, as you're finished.
                     } else {                                                    //If none of the above:
                         startActivity(intent);                                  //Start the next Activity -
                         finish();                                               //Finish the current Activity.
