@@ -10,8 +10,8 @@ import com.example.ohimarc.marc.view.editDeckView.EditDeckContract;
 /**
  * @author Mathias Forsman (Sorchar on github)
  * <p>
- * This is the presenter that is the middleman between the model and the view.
- * Handles most of the communication between editDeckView(the folder) and the models(EditNoteActivity has its own presenter).
+ * This is the presenter that is the middleman that handles
+ * communication between the model and editDeckActivity.
  */
 
 public class EditDeckPresenter implements EditDeckContract.Presenter {
@@ -21,8 +21,7 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
     /**
      * Constructs a EditDeckPresenter
      *
-     * @param a         purpose of this parameter is to give access to the methods in specified activity
-     *                  to this presenter
+     * @param a         the view that is constructing this presenter
      * @param deckIndex the index of a specific deck from the active user
      */
     public EditDeckPresenter(EditDeckActivity a, int deckIndex) {
