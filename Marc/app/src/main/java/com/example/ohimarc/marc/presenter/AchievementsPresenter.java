@@ -23,8 +23,9 @@ public class AchievementsPresenter {
 
     /**
      * This is the constructor of AchievementsPresenter.
-     * @param view is the interface AchievementsView, which is implemented by AchievementsActivity.
-     *             This instance is used to call methods in AchievementsActivity.
+     *
+     * @param view                is the interface AchievementsView, which is implemented by AchievementsActivity.
+     *                            This instance is used to call methods in AchievementsActivity.
      * @param achievementElements is the number of achievements Buttons in AchievementsActivity,
      *                            given by AchievementsActivity.
      */

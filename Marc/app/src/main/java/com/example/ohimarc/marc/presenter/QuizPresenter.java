@@ -25,6 +25,14 @@ public class QuizPresenter {
 
     private final MemorizationTrainingTool mtt = MemorizationTrainingTool.getInstance();
 
+    /**
+     * This is the constructor of QuizPresenter.
+     *
+     * @param view      is is the interface QuizView, which is implemented by QuizActivity.
+     *                  This instance is used to call methods in QuizActivity.
+     * @param deckIndex is the index of which deck that has been selected in the previous view,
+     *                  provided by QuizActivity.
+     */
     public QuizPresenter(QuizView view, int deckIndex) {
         this.view = view;
         this.deckIndex = deckIndex;
@@ -49,6 +57,7 @@ public class QuizPresenter {
      * answer to the question. If it was, it tells the view to mark the answer as correct. If the
      * given answer index is NOT the same as this index, it will tell the view to mark the given
      * answer as incorrect.
+     *
      * @param answer is an int, which is the index of the given answer.
      */
 
@@ -77,6 +86,7 @@ public class QuizPresenter {
     /**
      * This function gets the title of a specific deck in the model through the class
      * MemorizationTrainingTool.
+     *
      * @return a String, which is the title of a specific deck.
      */
 
@@ -86,6 +96,7 @@ public class QuizPresenter {
 
     /**
      * This function gets the name of the QuizGame through the class MemorizationTrainingTool.
+     *
      * @return a String, which is the name of the game.
      */
 
@@ -114,6 +125,7 @@ public class QuizPresenter {
      * Pair's. If the current Pair is marked as correct, by the Boolean true, amountCorrect
      * is incremented. This will give us the total amount of correct answers in this game.
      * It then proceeds to get the specific deck's size. These values are put in ansAmount.
+     *
      * @return an Integer ArrayList, which holds the amount of correct answers in index 0, and
      * the total amount of questions in index 1.
      */

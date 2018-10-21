@@ -16,6 +16,7 @@ public class ExercisePresenter {
 
     /**
      * This is the constructor of ExercisePresenter.
+     *
      * @param index is the index of the Deck that has been selected in the previous view.
      *              It is needed to get data from the model, while provided by ExerciseActivity.
      */
@@ -26,6 +27,7 @@ public class ExercisePresenter {
     /**
      * This function talks with the model through MemorisationTrainingTool, and gets the title
      * of a specific deck.
+     *
      * @return the title of the selected deck, which is used in ExerciseActivity.
      */
 
@@ -36,6 +38,7 @@ public class ExercisePresenter {
     /**
      * This function talks with the model through MemorisationTrainingTool, and gets the size
      * of a specific deck.
+     *
      * @return the size of the selected deck, which is used in ExerciseActivity.
      */
 
