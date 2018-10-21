@@ -27,9 +27,9 @@ public interface EditDeckContract {
         /**
          * With given index will start the editNote view
          *
-         * @param index the card position in the recyclerView that has been clicked
+         * @param noteIndex the card position in the recyclerView that has been clicked
          */
-        void editCardInDeck(int index);
+        void editCardInDeck(int noteIndex, int deckIndex);
     }
 
     /**

@@ -108,11 +108,13 @@ public class EditDeckActivity extends ToolbarExtension implements EditDeckContra
     /**
      * Creates editNoteActivity view and starts it
      *
-     * @param noteIndex is the card in the list that is clicked on
+     * @param noteIndex The index of the note to be edited.
+     * @param deckIndex The index of the deck of the note to be edited.
      */
     @Override
-    public void editCardInDeck(int noteIndex) {
+    public void editCardInDeck(int noteIndex, int deckIndex) {
         Intent intent = new Intent(EditDeckActivity.this, EditNoteActivity.class);
+        intent.putExtra("deckIndex", deckIndex);
         intent.putExtra("noteIndex", noteIndex);
         startActivity(intent);
     }

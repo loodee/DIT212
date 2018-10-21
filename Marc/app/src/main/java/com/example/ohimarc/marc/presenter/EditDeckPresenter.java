@@ -17,6 +17,7 @@ import com.example.ohimarc.marc.view.editDeckView.EditDeckContract;
 public class EditDeckPresenter implements EditDeckContract.Presenter {
     private final Deck deck;
     private final EditDeckActivity editDeckActivity;
+    private final int deckIndex;
 
     /**
      * Constructs a EditDeckPresenter
@@ -26,6 +27,7 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
      */
     public EditDeckPresenter(EditDeckActivity a, int deckIndex) {
         this.editDeckActivity = a;
+        this.deckIndex = deckIndex;
         this.deck = MemorizationTrainingTool.getInstance().getActiveUser().getDeck(deckIndex);
     }
 
@@ -66,7 +68,7 @@ public class EditDeckPresenter implements EditDeckContract.Presenter {
      */
     @Override
     public void onUserClickedAtPosition(int adapterPosition) {
-        editDeckActivity.editCardInDeck(deck.getNoteIndexFromCardIndex(adapterPosition));
+        editDeckActivity.editCardInDeck(deck.getNoteIndexFromCardIndex(adapterPosition), deckIndex);
     }
 
     /**
