@@ -16,9 +16,9 @@
     <string name="edit_note_hint_back">Card back</string>
     <string name="edit_note_save">Save</string>
     <string name="stats">Statistics</string>
-    <string name="stats_gameMode_text">Game:</string>
-    <string name="stats_highScore_text">High Score:</string>
-    <string name="stats_averageScore_text">Average Score:</string>
+    <string name="stats_gameMode_text">Game:\u0020</string>
+    <string name="stats_highScore_text">High Score:\u0020</string>
+    <string name="stats_averageScore_text">Average Score:\u0020</string>
     <string name="deck_title">deck_title</string>
     <string name="logout">Logout</string>
     <string name="retry_string">Retry</string>
@@ -31,6 +31,6 @@
     <string name="quiz_mode_string">Quiz Mode</string>
     <string name="toolbar_string">Toolbar</string>
     <string name="add_user_popup_username">Username</string>
-    <string name="stats_timesPlayed_text">Times Played:</string>
+    <string name="stats_timesPlayed_text">Times Played:\u0020</string>
     <string name="cloze_text_hint">Text</string>
 </resources>

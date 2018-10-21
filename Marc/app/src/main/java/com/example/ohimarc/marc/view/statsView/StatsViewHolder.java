@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.example.ohimarc.marc.R;
 
+import java.text.DecimalFormat;
+
 /**
  * @author Gustav Albertsson
  * <p>
@@ -60,7 +62,7 @@ public class StatsViewHolder extends RecyclerView.ViewHolder {
         rowLayout.addView(tv);
 
         tv = new TextView(rowLayout.getContext());
-        tv.setText("Average Score: " + averageScore);
+        tv.setText(rowLayout.getContext().getString(R.string.stats_averageScore_text) + new DecimalFormat("#.##").format(averageScore));
         tv.setPadding(20, 0, 0, 20);
 
         rowLayout.addView(tv);
