@@ -22,6 +22,8 @@ the first card back is "Hello Alice, where is Bob"
 the second card front is "Hello Alice, where is [..]"
 the second card back is "Hello Alice, where is Bob"
 
-
-
+Restrictions on cloze notes:
+* Cloze notes must contain at least one cloze deletion.
+* Cloze deletions must not contain spaces.
+* Cloze deletions following or preceding other text must have a space separating them.
 
