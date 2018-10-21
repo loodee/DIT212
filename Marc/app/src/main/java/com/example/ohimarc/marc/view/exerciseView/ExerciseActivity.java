@@ -73,8 +73,15 @@ public class ExerciseActivity extends ToolbarExtension {
         Intent intent;
         switch (modeIndex) {
             case (0):
-                intent = new Intent(getApplicationContext(), FlashcardActivity.class);
-                break;
+                if(presenter.getDeckSize() > 0) {
+                    intent = new Intent(getApplicationContext(), FlashcardActivity.class);
+                    break;
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "The deck needs to contain at least" +
+                            " 1 card to play the flashcard mode.", Toast.LENGTH_LONG).show();
+                    return;
+                }
             case (1):
                 if (presenter.getDeckSize() > 3) {
                     intent = new Intent(getApplicationContext(), QuizActivity.class);
