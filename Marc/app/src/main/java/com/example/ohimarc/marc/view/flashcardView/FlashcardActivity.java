@@ -77,7 +77,6 @@ public class FlashcardActivity extends ToolbarExtension implements FlashcardView
     }
 
 
-
     /**
      * This function is called in the listener that is in onCreate in this activity when the flashcard is clicked.
      * The function tells the presenter that it has been clicked, while also telling the presenter
