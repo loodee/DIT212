@@ -22,6 +22,11 @@ class AddRemoveAdapter extends RecyclerView.Adapter<AddRemoveDeckViewHolder>
 
     private final AddRemoveDeckPresenter presenter;
 
+    /**
+     * The constructor for the adapter for recyclerview
+     * @param presenter a presenter that the view is creating which also creates this adapter
+     *                  This is so presenter can know what to tell the view to print out
+     */
     public AddRemoveAdapter(AddRemoveDeckPresenter presenter){
         this.presenter = presenter;
     }

@@ -22,6 +22,11 @@ public class AddRemoveDeckPresenter {
     private final AddDeckView view;
     private final UserStorage userStorage;
 
+    /**
+     * Constructor for the presenter
+     * @param view The view that is creating this presenter
+     * @param filePath a filepath where data can be stored in the device that is running the app
+     */
     public AddRemoveDeckPresenter(AddDeckView view, String filePath) {
         this.view = view;
         userStorage = UserStorageFactory.createLocalUserStorage(filePath);

@@ -20,6 +20,11 @@ class ChoosingDeckAdapter extends RecyclerView.Adapter<ChoosingDeckViewHolder> {
 
     private final ChoosingDeckPresenter presenter;
 
+    /**
+     * The constructor for the adapter for recyclerview
+     * @param presenter a presenter that the view is creating which also creates this adapter
+     *                  This is so presenter can know what to tell the view to print out
+     */
     public ChoosingDeckAdapter(ChoosingDeckPresenter presenter) {this.presenter = presenter;}
 
     /**

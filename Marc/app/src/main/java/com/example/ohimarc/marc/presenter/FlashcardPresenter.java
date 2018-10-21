@@ -9,7 +9,7 @@ import com.example.ohimarc.marc.view.flashcardView.FlashcardView;
 import java.util.ArrayList;
 
 /**
- * Author Victor Johansson (Vroxie on github)
+ * @author Victor Johansson (Vroxie on github)
  */
 
 /**
@@ -24,6 +24,11 @@ public class FlashcardPresenter {
     private final int index;
 
 
+    /**
+     * The constructor for the presenter
+     * @param view the view that is creating this presenter
+     * @param index a index in list of decks, telling what deck that shall be played
+     */
     public FlashcardPresenter(FlashcardView view, int index) {
         this.view = view;
         this.index = index;

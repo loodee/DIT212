@@ -19,6 +19,11 @@ public class AddRemoveDeckViewHolder extends RecyclerView.ViewHolder implements 
 
     private final TextView titleTextView;
 
+    /**
+     * The constructor for the Viewholder for the recyclerview
+     * @param itemView what view that needs a viewholder
+     * @param presenter the presenter that a view creates, in order to know what to print out on screen
+     */
     public AddRemoveDeckViewHolder(View itemView, final AddRemoveDeckPresenter presenter) {
         super(itemView);
         titleTextView = itemView.findViewById(R.id.deck_Title);

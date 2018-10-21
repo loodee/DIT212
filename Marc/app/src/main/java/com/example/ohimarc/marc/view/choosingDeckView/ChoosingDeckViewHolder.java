@@ -19,6 +19,11 @@ public class ChoosingDeckViewHolder extends RecyclerView.ViewHolder implements C
 
     private final TextView titleTextView;
 
+    /**
+     * The constructor for the Viewholder for the recyclerview
+     * @param itemView what view that needs a viewholder
+     * @param presenter the presenter that a view creates, in order to know what to print out on screen
+     */
     public ChoosingDeckViewHolder(View itemView, final ChoosingDeckPresenter presenter) {
         super(itemView);
         titleTextView = itemView.findViewById(R.id.deck_Title);

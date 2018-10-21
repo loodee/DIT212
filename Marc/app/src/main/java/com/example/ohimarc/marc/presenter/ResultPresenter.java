@@ -18,6 +18,14 @@ public class ResultPresenter {
     private final ResultsView view;
     private final String deckTitle;
 
+    /**
+     * The constructor for the presenter
+     * @param view what view that has created this presenter
+     * @param amountCorrect A list with only two elements, the first the amount of correct answers, the second the total amount of questions
+     * @param deckIndex a index which tells what deck in list of decks that has been played
+     * @param mode A name so presenter can know what game mode that just have been played
+     * @param filePath a filepath which tells where data should be stored on the device that is running the app
+     */
     public ResultPresenter(ResultsView view, ArrayList<Integer> amountCorrect, int deckIndex, String mode, String filePath) {
         this.view = view;
         this.amountCorrect = amountCorrect;

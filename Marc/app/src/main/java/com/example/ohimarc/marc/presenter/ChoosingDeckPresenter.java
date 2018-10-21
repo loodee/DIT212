@@ -18,7 +18,10 @@ public class ChoosingDeckPresenter {
     private final List<String> deckList = MemorizationTrainingTool.getInstance().getActiveUser().getDeckTitles();
     private final ChoosingDeckView view;
 
-
+    /**
+     * Constructor for the presenter
+     * @param view The view that is creating this presenter
+     */
     public ChoosingDeckPresenter(ChoosingDeckView view) {
         this.view = view;
     }

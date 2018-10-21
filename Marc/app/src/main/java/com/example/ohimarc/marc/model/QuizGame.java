@@ -14,6 +14,10 @@ public class QuizGame extends Game {
     private final Random rand = new Random();
     private int rigthAnswerIndex;
 
+    /**
+     * Constructor for creating a QuizGame
+     * @param deck a Deck that shall be played with this QuizGAme instance
+     */
     public QuizGame(Deck deck) {
         super(deck, "Quiz Game");
     }
