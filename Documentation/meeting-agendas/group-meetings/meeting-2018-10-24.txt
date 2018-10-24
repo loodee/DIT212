@@ -1,0 +1,44 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-10-24
+Chair: Mathias Forsman
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Mathias Forsman, Victor Johansson
+
+## Objectives (5 min)
+* The objective of this meeting is to discuss the peer review.
+* Discuss how the work on the presentation is going
+
+
+## Reports (15 min) 
+* We have tested the equipment for Thomas laptop (it worked).
+* Created a powerpoint for Gustav and Victor’s presentation (Gustav, Victor)
+* Created the list of user stories that will be presented(Mathias, Alexander)
+
+
+## Discussion items (35 min)
+* Discuss how to go about the peer review:
+   * What needs to be done?
+   * Who will do what?
+* Is anything unclear about the presentation?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+* Regarding the peer review:
+   * We need to create a document for the peer review.
+   * We will in this document answer the suggested questions (from the course page).
+   * We will work together on all of these questions.
+* We looked at Gustavs part of the presentation, this part should talk about the different classes of the model and talk about why it's design in this way.
+
+
+Assignments: 
+* Test the equipment for the presentation, i.e projectors and computers. (Gustav)
+* Make an initial presentation for the given parts that you are responsible for (Everyone)
+* Create a powerpoint presentation (Thomas)
+* Test the presentation this friday, 2018-10-26 (Everyone)
+* Create a deck for the presentation to show quiz (Mathias)
+* Hold meeting to do the peer review immediately after this meeting (Everyone)
+
+
+## Wrap up
+No more meetings will be held.
