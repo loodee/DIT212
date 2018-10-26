@@ -1,0 +1,76 @@
+﻿# Meeting Agenda
+Group: OhiMarc
+Date: 2018-10-22
+Chair: Alexander Sandberg
+Participants: Thomas Li, Gustav Albertsson, Alexander Sandberg, Mathias Forsman, Victor Johansson
+
+## Objectives (5 min)
+* Discuss the presentation
+   * What will be presented?
+   * Who will present what?
+   * What will be presented during the demo?
+   * Schedule?
+   * Whose computer will be used?
+
+
+## Reports (15 min) 
+* The speed of the card flipping animation has been increased (Mathias)
+* The SDD and RAD has been finished (Everyone)
+   * Re-generated stan diagrams. (Victor)
+   * Double checked the UML diagrams (Everyone)
+   * Created sequence diagrams (Gustav, Thomas, Victor)
+   * Filled in the missing parts of the SDD/RAD. (Everyone)
+* Cleaned code (Everyone)
+   * Fixed unexpected bugs (Everyone)
+   * Commented the last code (Everyone)
+   * Formatted the whole project’s code (Gustav)
+
+
+## Discussion items (35 min)
+1. What will be presented?
+   1. Demo
+   2. Present component diagram
+   3. MVP
+   4. Present Design model
+   5. UML sequence
+   6. Answer questions.
+1. Who will present what?
+2. What will be presented during the demo?
+3. Schedule, time spent on each part?
+4. Whose computer will be used?
+
+
+## Outcomes and assignments (5 min)
+Outcomes:
+1. What will be presented?
+   1. On the demo we will present the user stories that we have completed, to make this easier we will have a already set up user with a deck to make the demo smoother, we will however create a new user during the demo to show features such as creating cards and decks.
+   2. The high level diagram of the different packages will be showed and we will briefly talk about the different packages.
+   3. We will talk about MVP during and after the presentation of the high level diagram.
+   4. We will present the design model and talk briefly about it
+   5. We will display one of the UML sequence diagrams and talk about how it communicates to the different parts of the code.
+   6. The questions will be answered together
+1. The different parts will be presented as follows:
+   1. Demo (Alexander, Mathias)
+   2. Present component diagram (Victor)
+   3. MVP (Victor)
+   4. Present Design model (Gustav)
+   5. UML sequence (Thomas)
+   6. Answer question (Everyone)
+1. Every user story, mentioned shortly, followed by a walk through in the application.
+2. Demo should take about 10 minutes, Technical presentation should take about 5 minutes. Questions will be answered during the remaining time.
+3. We will user Gustavs computer since the emulator works smoothly, we will have 2 backups, Thomas’ and Mathias’ computers.
+
+
+
+
+Assignments: 
+* Test the equipment for presentation, i.e projectors and computers. (Everyone)
+* Make an initial presentation for the given parts that you are responsible for (Everyone)
+* Create a powerpoint presentation (Thomas, Gustav, Victor)
+* Test the presentation on the same day as our meeting.
+
+
+
+
+## Wrap up
+Next meeting will be held as soon as possible, once we’ve gotten our peer reviews.
