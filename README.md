@@ -33,6 +33,17 @@ Group members:
 ## Application
 The source code for the application can be found in the `Marc` directory.
 
+### Compiling and running the application
+To get this application setup using Android Studio one need to
+<ol>
+  <li>Click "Open an existing Android Studio Project" or press "File>Open"</li>
+  <li>Navigate to the git directory, Select the `Marc` directory and press "OK"</li>
+  <li>Install any additional version of SDK that Android Studio asks about</li>
+</ol>
+
+### Running the unit tests
+The unit tests can be run using the command `./gradlew test --console rich`
+
 ## Documentation
 Meeting agendas and reports can be found in the `Documentation` directory.
 
